@@ -9,6 +9,8 @@ readme = "README.md"
 python = "^3.11"
 pandas = "^2.2.2"
 jupyter = "^1.0.0"
+jupytext = "^1.16.4"
+sympy = "^1.13.2"
 
 
 [build-system]

@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Tworzenie katalogów na notatniki
+mkdir -p Mathematics_Notebooks
+
+# Tworzenie angielskich notatników
+cd Mathematics_Notebooks
+touch 01_Matrices_And_Determinants.py
+touch 02_Linear_Equations_Solvers.py
+touch 03_Vector_Algebra_Basics.py
+touch 04_Scalar_Vector_Cross_Product.py
+touch 05_Analytical_Geometry_Lines.py
+touch 06_Conic_Sections.py
+touch 07_Planes_In_Space.py
+touch 08_Second_Order_Surfaces.py
+touch 09_Tensor_Calculus_Basics.py
+touch 10_Limits_Sequences_And_Functions.py
+touch 11_Continuity_Of_Functions.py
+touch 12_Differentiation_Basics.py
+touch 13_Differentials_And_Their_Applications.py
+touch 14_Applications_Of_Differentiation.py
+touch 15_Indefinite_Integrals_Basics.py
+touch 16_Partial_Fractions_Integration.py
+touch 17_Trigonometric_And_Irrational_Integrals.py
+touch 18_Definite_Integrals_Basics.py
+touch 19_Improper_Integrals.py
+touch 20_Applications_Of_Defined_Integrals.py
+touch 21_Numerical_Series.py
+touch 22_Convergence_Criteria.py
+touch 23_Functional_Series.py
+touch 24_Taylor_Maclaurin_Series.py
+touch 25_Fourier_Series.py
+
+touch 01_Macierze_I_Wyznaczniki.py
+touch 02_Uklady_Rownan_Liniowych.py
+touch 03_Podstawy_Algebry_Wektorow.py
+touch 04_Iloczyn_Skalarny_Wezlyowy.py
+touch 05_Geometria_Analityczna_Proste.py
+touch 06_Krzywe_Stozkowe.py
+touch 07_Plaszczyzny_W_Przestrzeni.py
+touch 08_Powierzchnie_Drugiego_Rzedu.py
+touch 09_Podstawy_Rachunku_Tensorowego.py
+touch 10_Granice_Ciagow_I_Funkcji.py
+touch 11_Ciaglosc_Funkcji.py
+touch 12_Pochodne_Funkcji.py
+touch 13_Rozniczki_I_Zastosowania.py
+touch 14_Zastosowania_Rachunku_Rozniczkowego.py
+touch 15_Calka_Nieoznaczona.py
+touch 16_Calkowanie_Frakcji_Zwyklych.py
+touch 17_Calkowanie_Funkcji_Trygonometrycznych_I_Irracjonalnych.py
+touch 18_Calka_Oznaczona.py
+touch 19_Calki_Niewlasciwe.py
+touch 20_Zastosowania_Calek_Oznaczonych.py
+touch 21_Szeregi_Liczbowe.py
+touch 22_Kryteria_Zbieznosci.py
+touch 23_Szeregi_Funkcyjne.py
+touch 24_Szeregi_Taylora_I_Maclaurina.py
+touch 25_Szeregi_Fouriera.py
