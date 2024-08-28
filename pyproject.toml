@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "math-2024-25-winter"
+version = "0.1.0"
+description = "Math project"
+authors = ["Math"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pandas = "^2.2.2"
+jupyter = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
