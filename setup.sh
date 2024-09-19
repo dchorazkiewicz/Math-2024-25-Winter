@@ -56,3 +56,5 @@ touch 22_Kryteria_Zbieznosci.py
 touch 23_Szeregi_Funkcyjne.py
 touch 24_Szeregi_Taylora_I_Maclaurina.py
 touch 25_Szeregi_Fouriera.py
+
+ls -la
