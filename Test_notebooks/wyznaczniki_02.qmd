@@ -1,0 +1,205 @@
+---
+title: Wyznaczniki macierzy metodą Laplace'a
+jupyter: python3
+---
+
+## Wyznacznik macierzy 3x3 metodą Laplace'a
+
+Ogólny wzór dla wyznacznika macierzy 3x3 wygląda następująco:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+$$
+
+Wyznacznik macierzy 3x3 obliczamy, rozwijając po pierwszym wierszu. Stosujemy rozwinięcie Laplace’a, które polega na wybraniu elementów pierwszego wiersza oraz obliczeniu wyznaczników macierzy 2x2, które powstają po usunięciu odpowiednich wierszy i kolumn.
+
+Rozwinięcie po pierwszym wierszu macierzy 3x3:
+
+$$
+\text{det}(A) = a_{11} \cdot \text{det}
+\begin{pmatrix}
+a_{22} & a_{23} \\
+a_{32} & a_{33}
+\end{pmatrix}
+- a_{12} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{23} \\
+a_{31} & a_{33}
+\end{pmatrix}
++ a_{13} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} \\
+a_{31} & a_{32}
+\end{pmatrix}
+$$
+
+### Przykład macierzy 3x3
+
+Dla macierzy:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+2 & 3 & 1 \\
+1 & 4 & 5 \\
+3 & 2 & 1
+\end{pmatrix}
+$$
+
+Rozwinięcie Laplace'a:
+
+$$
+\text{det}(A) = 2 \cdot 
+\begin{vmatrix}
+4 & 5 \\
+2 & 1
+\end{vmatrix}
+- 3 \cdot
+\begin{vmatrix}
+1 & 5 \\
+3 & 1
+\end{vmatrix}
++ 1 \cdot
+\begin{vmatrix}
+1 & 4 \\
+3 & 2
+\end{vmatrix}
+$$
+
+## Wyznacznik macierzy 4x4 metodą Laplace'a
+
+Ogólny wzór dla wyznacznika macierzy 4x4, gdzie macierz wygląda następująco:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{pmatrix}
+$$
+
+Wyznacznik macierzy 4x4 obliczamy, rozwijając po pierwszym wierszu. Podobnie jak w przypadku macierzy 3x3, elementy pierwszego wiersza są mnożone przez wyznaczniki macierzy 3x3, które powstają po usunięciu odpowiednich wierszy i kolumn.
+
+Rozwinięcie po pierwszym wierszu macierzy 4x4:
+
+$$
+\text{det}(B) = a_{11} \cdot \text{det}
+\begin{pmatrix}
+a_{22} & a_{23} & a_{24} \\
+a_{32} & a_{33} & a_{34} \\
+a_{42} & a_{43} & a_{44}
+\end{pmatrix}
+- a_{12} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{23} & a_{24} \\
+a_{31} & a_{33} & a_{34} \\
+a_{41} & a_{43} & a_{44}
+\end{pmatrix}
++ a_{13} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} & a_{24} \\
+a_{31} & a_{32} & a_{34} \\
+a_{41} & a_{42} & a_{44}
+\end{pmatrix}
+- a_{14} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+a_{41} & a_{42} & a_{43}
+\end{pmatrix}
+$$
+
+### Przykład macierzy 4x4
+
+Dla macierzy:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+2 & 3 & 1 & 4 \\
+1 & 4 & 5 & 6 \\
+3 & 2 & 1 & 5 \\
+2 & 1 & 4 & 3
+\end{pmatrix}
+$$
+
+Rozwinięcie Laplace'a:
+
+$$
+\text{det}(B) = 2 \cdot \text{det}
+\begin{pmatrix}
+4 & 5 & 6 \\
+2 & 1 & 5 \\
+1 & 4 & 3
+\end{pmatrix}
+- 3 \cdot \text{det}
+\begin{pmatrix}
+1 & 5 & 6 \\
+3 & 1 & 5 \\
+2 & 4 & 3
+\end{pmatrix}
++ 1 \cdot \text{det}
+\begin{pmatrix}
+1 & 4 & 6 \\
+3 & 2 & 5 \\
+2 & 1 & 3
+\end{pmatrix}
+- 4 \cdot \text{det}
+\begin{pmatrix}
+1 & 4 & 5 \\
+3 & 2 & 1 \\
+2 & 1 & 4
+\end{pmatrix}
+$$
+
+---
+
+### Obliczanie wyznaczników w Pythonie przy użyciu SymPy
+
+Poniżej obliczymy wyznaczniki macierzy 3x3 i 4x4, wykorzystując metodę Laplace'a w Pythonie, korzystając z biblioteki **SymPy**.
+
+```{python}
+import sympy as sp
+
+# Macierz 3x3
+A = sp.Matrix([[2, 3, 1], [1, 4, 5], [3, 2, 1]])
+A
+```
+```{python}
+# Sprawdzenie poprawności obliczeń
+M11 = sp.Matrix([[4, 5], [2, 1]])
+M12 = sp.Matrix([[1, 5], [3, 1]])
+M13 = sp.Matrix([[1, 4], [3, 2]])
+(2*M11.det()-3*M12.det()+1*M13.det())==A.det()
+
+d=2*M11.det()-3*M12.det()+1*M13.det()
+d==A.det()
+```
+
+```{python}
+# Macierz 4x4
+B = sp.Matrix([[2, 3, 1, 4], [1, 4, 5, 6], [3, 2, 1, 5], [2, 1, 4, 3]])
+B
+```
+
+```{python}
+# Sprawdzenie poprawności obliczeń
+# Sprawdzenie poprawności obliczeń
+M11 = sp.Matrix([[4, 5, 6], [2, 1, 5], [1, 4, 3]])
+M12 = sp.Matrix([[1, 5, 6], [3, 1, 5], [2, 4, 3]])
+M13 = sp.Matrix([[1, 4, 6], [3, 2, 5], [2, 1, 3]])
+M14 = sp.Matrix([[1, 4, 5], [3, 2, 1], [2, 1, 4]])
+
+(2*M11.det() - 3*M12.det() + 1*M13.det() - 4*M14.det()) == B.det()
+
+d = 2*M11.det() - 3*M12.det() + 1*M13.det() - 4*M14.det()
+d == B.det()
+
+```
