@@ -1,0 +1,95 @@
+---
+title: Wyznaczniki macierzy 2x2 i 3x3
+jupyter: python3
+---
+
+
+### Wyznacznik macierzy 2x2
+
+Ogólny wzór dla wyznacznika macierzy 2x2, gdzie macierz wygląda następująco:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+$$
+
+Wyznacznik macierzy 2x2 obliczamy za pomocą wzoru:
+
+$$
+\text{det}(A) = a_{11} \cdot a_{22} - a_{12} \cdot a_{21}
+$$
+
+### Wyznacznik macierzy 3x3
+
+Ogólny wzór dla wyznacznika macierzy 3x3, gdzie macierz wygląda następująco:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+$$
+
+Wyznacznik macierzy 3x3 obliczamy za pomocą metody Sarrusa lub rozwinięcia Laplace'a. Zastosujemy tutaj metodę Sarrusa:
+
+$$
+\text{det}(B) = a_{11} \cdot a_{22} \cdot a_{33} + a_{12} \cdot a_{23} \cdot a_{31} + a_{13} \cdot a_{21} \cdot a_{32} 
+- a_{13} \cdot a_{22} \cdot a_{31} - a_{12} \cdot a_{21} \cdot a_{33} - a_{11} \cdot a_{23} \cdot a_{32}
+$$
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Sarrus_rule1.svg" alt="Opis obrazka" width="300" align="center"/>
+
+---
+
+### Obliczanie wyznaczników w Pythonie przy użyciu SymPy
+
+Teraz, korzystając z biblioteki SymPy, obliczymy wyznaczniki na przykładzie macierzy 2x2 i 3x3.
+
+
+
+```{python}
+import sympy as sp
+
+# Macierz 2x2
+A = sp.Matrix([[2, 3], [1, 4]])
+A
+```
+
+```{python}
+#| notebookRunGroups: {groupValue: '2'}
+# Sprawdzenie poprawności obliczeń
+(2*4-3*1)==A.det()
+```
+
+```{python}
+# Macierz 3x3
+B = sp.Matrix([[2, 3, 1], [1, 4, 5], [3, 2, 1]])
+B
+```
+
+```{python}
+# Sprawdzenie poprawności obliczeń
+(2*4*1+3*5*3+1*1*2-1*4*3-5*2*2-3*1*1)==B.det()
+```
+
+# Zadania dla studentów
+
+Policz wyznaczniki dla macierzy 2x2 i 3x3, które podano poniżej.
+
+1. Macierz 2x2:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+2 & 3 \\
+1 & 4
+\end{pmatrix}
+$$
+
+
+
