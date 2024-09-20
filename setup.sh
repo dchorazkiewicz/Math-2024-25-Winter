@@ -8,8 +8,8 @@ create_dir_with_readme() {
 }
 
 # Tworzenie katalogów na notatniki
-create_dir_with_readme -p Notebooks_PL
-create_dir_with_readme -p Notebooks_EN
+create_dir_with_readme Notebooks_PL
+create_dir_with_readme Notebooks_EN
 
 # Przejście do katalogu Notebooks_PL
 cd Notebooks_PL
