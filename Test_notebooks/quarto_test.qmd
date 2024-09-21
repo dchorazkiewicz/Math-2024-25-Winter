@@ -1,0 +1,54 @@
+---
+title: "Quarto Basics"
+author: "Damian Chorążewicz"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-location: left
+    theme: pulse
+    fontsize: 1.1em
+    linestretch: 1.7
+    light: flatly
+    dark: darkly
+    number-sections: true
+    wide: true
+jupyter: python3
+---
+
+# To jest przykladowy plik
+
+## Równania Maxwell'a
+
+### Równania różniczkowe
+
+#### To level 4
+
+$$
+\begin{aligned}
+\nabla \cdot \mathbf{E} &= \frac{\rho}{\varepsilon_0} \\
+\nabla \cdot \mathbf{B} &= 0 \\
+\nabla \times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \\
+\nabla \times \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}
+\end{aligned}
+$$
+
+
+## Funkcja kwadratowa
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+    return x**2 + 2*x + 1
+# plot
+
+fig = plt.figure()
+ax = fig.add_subplot(111)
+x = np.linspace(-10, 10, 100)
+y = f(x)
+ax.plot(x, y)
+ax.set_xlabel('x')
+ax.set_ylabel('f(x)')
+plt.show()
+```
