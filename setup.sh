@@ -15,6 +15,7 @@ create_dir_with_readme Notebooks_EN
 cd Notebooks_PL
 
 # Tworzenie podkatalogów dla wersji polskiej
+create_dir_with_readme 00_Wstep
 create_dir_with_readme 01_Algebra_Liniowa
 create_dir_with_readme 02_Geometria_Analityczna
 create_dir_with_readme 03_Analiza_Matematyczna
@@ -49,7 +50,7 @@ cd 03_Analiza_Matematyczna
 create_dir_with_readme 10_Ciagi
 create_dir_with_readme 11_Funkcje
 create_dir_with_readme 12_Pochodna_Funkcji
-create_dir_with_readme 13_Rozniczka_i_Zastosowania
+create_dir_with_readme 13_Rozniczka
 create_dir_with_readme 14_Zastosowania_Rachunku_Rozniczkowego
 create_dir_with_readme 15_Calka_Nieoznaczona
 create_dir_with_readme 16_Metody_calkowania_I
@@ -70,8 +71,9 @@ cd ../..
 cd Notebooks_EN
 
 # Tworzenie podkatalogów dla wersji angielskiej
+create_dir_with_readme 00_Introduction
 create_dir_with_readme 01_Linear_Algebra
-create_dir_with_readme 02_Analytical_Geometry
+create_dir_with_readme 02_Analytic_Geometry
 create_dir_with_readme 03_Mathematical_Analysis
 
 ############################################
@@ -81,13 +83,13 @@ cd 01_Linear_Algebra
 create_dir_with_readme 01_Matrices
 create_dir_with_readme 02_Systems_of_Linear_Equations
 create_dir_with_readme 03_Vectors_definitions
-create_dir_with_readme 04_Vectors_operations
+create_dir_with_readme 04_Vector_operations
 
 cd ..
 
 ############################################
 # Analytical Geometry
-cd 02_Analytical_Geometry
+cd 02_Analytic_Geometry
 
 create_dir_with_readme 05_Lines
 create_dir_with_readme 06_Conic_Curves
@@ -103,16 +105,16 @@ cd 03_Mathematical_Analysis
 
 create_dir_with_readme 10_Sequences
 create_dir_with_readme 11_Functions
-create_dir_with_readme 12_Function_Derivative
-create_dir_with_readme 13_Differential_and_Applications
+create_dir_with_readme 12_Derivatives
+create_dir_with_readme 13_Differential
 create_dir_with_readme 14_Applications_of_Differential_Calculus
 create_dir_with_readme 15_Indefinite_Integral
 create_dir_with_readme 16_Integration_Methods_I
 create_dir_with_readme 17_Integration_Methods_II
 create_dir_with_readme 18_Definite_Integral
 create_dir_with_readme 19_Improper_Integrals
-create_dir_with_readme 20_Applications_of_Definite_Integrals
-create_dir_with_readme 21_Number_Series
+create_dir_with_readme 20_Applications_of_Integral_Calculus
+create_dir_with_readme 21_Numerical_Series
 create_dir_with_readme 22_Series_Convergence
 create_dir_with_readme 23_Functional_Series
 create_dir_with_readme 24_Taylor_and_Maclaurin_Series
