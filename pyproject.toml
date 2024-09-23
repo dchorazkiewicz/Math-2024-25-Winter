@@ -11,6 +11,9 @@ pandas = "^2.2.2"
 jupyter = "^1.0.0"
 jupytext = "^1.16.4"
 sympy = "^1.13.2"
+matplotlib = "^3.9.2"
+seaborn = "^0.13.2"
+plotly = "^5.24.1"
 
 
 [build-system]
