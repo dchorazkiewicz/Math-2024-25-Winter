@@ -1,0 +1,19 @@
+---
+title: "Quarto Basics"
+author: "Damian Chorążewicz"
+format:
+  html:
+    code-fold: true
+    toc: true
+    toc-location: left
+    theme: pulse
+    fontsize: 1.1em
+    linestretch: 1.7
+    light: flatly
+    dark: darkly
+    number-sections: true
+    wide: true
+jupyter: python3
+---
+
+# # Zadania z okręgów
