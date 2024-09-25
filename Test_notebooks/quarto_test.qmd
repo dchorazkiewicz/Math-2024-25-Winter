@@ -20,6 +20,7 @@ format:
       gutter-width: 1.5rem
 reference-location: margin
 citation-location: margin
+self-contained: true
 css: styles.css
 jupyter: python3
 ---
