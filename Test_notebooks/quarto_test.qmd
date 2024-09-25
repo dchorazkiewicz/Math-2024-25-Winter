@@ -66,7 +66,8 @@ To jest zawartość drugiej kolumny. Układ dwóch kolumn jest bardzo przydatny 
 
 
 ::: {.custom-box}
-To jest niestandardowa ramka z Twoim własnym stylem.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ac libero ultrices tincidunt. Nullam nec purus ac libero ultrices tincidunt.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus ac libero ultrices tincidunt. Nullam nec purus ac libero ultrices tincidunt.
 :::
 
 
