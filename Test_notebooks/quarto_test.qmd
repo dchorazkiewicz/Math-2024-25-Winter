@@ -2,17 +2,25 @@
 title: "Quarto Basics"
 author: "Damian Chorążewicz"
 format:
-  html:
-    code-fold: true
+  html: 
     toc: true
-    toc-location: left
-    theme: pulse
-    fontsize: 1.1em
-    linestretch: 1.7
-    light: flatly
-    dark: darkly
-    number-sections: true
-    wide: true
+    toc-title: Contents
+    toc-location: right
+    # code-copy: true
+    code-fold: true
+    theme: 
+      light: flatly
+      dark: darkly
+      # - solar
+      # - custom.scss
+    grid:
+      sidebar-width: 300px
+      body-width: 800px
+      margin-width: 300px
+      gutter-width: 1.5rem
+reference-location: margin
+citation-location: margin
+css: styles.css
 jupyter: python3
 ---
 
@@ -20,10 +28,51 @@ jupyter: python3
 
 ## Równania Maxwell'a
 
-### Równania różniczkowe
+Równania Maxwella w postaci różniczkowej reprezentują podstawowe prawa elektromagnetyzmu. Są to cztery równania różniczkowe cząstkowe, które opisują zależności między polem elektrycznym $\mathbf{E}$, polem magnetycznym $\mathbf{B}$, ładunkami elektrycznymi $\rho$ oraz prądami elektrycznymi $\mathbf{J}$.
 
-#### To level 4
+::: {.column-margin}
+We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:
 
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
+
+
+::: {.callout-note}
+### Notatka
+To jest ramka informacyjna dla ważnych notatek lub dodatkowych informacji.
+:::
+
+::: {.callout-warning}
+### Ostrzeżenie
+To jest ostrzeżenie. Użyj go, aby zwrócić uwagę na ważne kwestie.
+:::
+
+::: {.callout-danger}
+### Błąd
+To jest krytyczna informacja, np. błąd, którego należy unikać.
+:::
+
+
+::: {.columns}
+:::: {.column width="50%"}
+### Kolumna 1
+To jest zawartość pierwszej kolumny. Możesz tutaj dodać dowolną treść, obrazy lub formuły.
+::::
+:::: {.column width="50%"}
+### Kolumna 2
+To jest zawartość drugiej kolumny. Układ dwóch kolumn jest bardzo przydatny do porównań.
+::::
+:::
+
+
+::: {.custom-box}
+To jest niestandardowa ramka z Twoim własnym stylem.
+:::
+
+
+
+
+<!-- p -->
 $$
 \begin{aligned}
 \nabla \cdot \mathbf{E} &= \frac{\rho}{\varepsilon_0} \\
@@ -32,7 +81,21 @@ $$
 \nabla \times \mathbf{B} &= \mu_0 \mathbf{J} + \mu_0 \varepsilon_0 \frac{\partial \mathbf{E}}{\partial t}
 \end{aligned}
 $$
+ 
 
+::: {.column-margin}
+We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
+
+```{mermaid}
+flowchart LR
+  A[Hard edge] --> B(Round edge)
+  B --> C{Decision}
+  C --> D[Result one]
+  C --> E[Result two]
+```
 
 ## Funkcja kwadratowa
 
