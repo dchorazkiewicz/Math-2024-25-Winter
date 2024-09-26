@@ -8,17 +8,21 @@
 * __Obliczanie wyznaczników trzeciego rzędu metodami trójkątów i rozkładu na elementy kolumnowe (wierszowe).__
 * __Znajdowanie odwrotności macierzy.__
 
+---
+
 **Równania liniowe**
 
 * __Układy równań liniowych i metody ich rozwiązywania.__
 * __Reguła Kramera.__ 
-* __Metoda macierzowa rozwiązywania układów równań liniowych. __ [R:???]
+* __Metoda macierzowa rozwiązywania układów równań liniowych. __ [R:??? ja zakładam, że po odwrócenie macierzy :) czyli zrobione!]
 * __Metoda Gaussa.__
+
+---
 
 **Algebra wektorowów**
 
 * Układy współrzędnych na płaszczyźnie i w przestrzeni.
-* Wektory. 
+* Wektory.
 * Operacje liniowe na wektorach. 
 * Baza. 
 * Znajdowanie współrzędnych wektora w nowej bazie. 
@@ -28,14 +32,25 @@
 * __Iloczyn wektorowy wektorów, jego własności i zastosowania.__ 
 * __Iloczyn mieszany wektorów, jego własności i zastosowania.__  [R: jutro zrobię]
 
+---
 **Geometria analityczna**
 
-Rodzaje równań prostych na płaszczyźnie. Równanie ogólne prostej. Równanie kanoniczne prostej. Równanie prostej w odcinkach na osiach układu współrzędnych. Równanie prostej ze współczynnikiem kątowym. Równanie prostej przechodzącej przez dany punkt w danym kierunku. Równanie prostej przechodzącej przez dwa dane punkty. Względne położenie prostych na płaszczyźnie. Przecięcie dwóch prostych. Kąt między dwiema prostymi. Warunki równoległości i prostopadłości dwóch prostych.
+**Proste** GA_Line.ipynb
 
-Krzywe drugiego rzędu. Równania kanoniczne okręgu, elipsy, hiperboli i paraboli. Równania krzywych drugiego rzędu z przesuniętym środkiem. Redukcja ogólnego równania prostej drugiego rzędu do postaci kanonicznej.
+Rodzaje równań prostych na płaszczyźnie. Równanie ogólne prostej. Równanie kanoniczne prostej. Równanie prostej w odcinkach na osiach układu współrzędnych. Równanie prostej ze współczynnikiem kątowym. Równanie prostej przechodzącej przez dany punkt w danym kierunku. Równanie prostej przechodzącej przez dwa dane punkty. Względne położenie prostych na płaszczyźnie. Przecięcie dwóch prostych. Kąt między dwiema prostymi. Warunki równoległości i prostopadłości dwóch prostych.
+GA_Proste.ipynb
+
+**Płaszczyzny** GA_Plane.ipynb
 
 Płaszczyzny w przestrzeni. Równanie wektorowe, równanie ogólne płaszczyzny, równanie płaszczyzny przechodzącej przez trzy punkty, równanie płaszczyzny w odcinkach, które odcina na osiach współrzędnych. Szczególne przypadki położenia płaszczyzn. Kąt między dwiema płaszczyznami. Warunki równoległości i prostopadłości dwóch płaszczyzn. Prosta w przestrzeni. Rodzaje równań prostej w przestrzeni. Względne położenie prostej i płaszczyzny, dwóch prostych. Kąt między prostą a płaszczyzną.
 
-Powierzchnie drugiego rzędu. Równania ogólne elipsoidy, kuli, hiperboloidy. Powierzchnie obrotowe.
+**Krzywe drugiego rzędu** GA_Curves.ipynb
 
-Podstawy i zastosowania rachunku tensorowego. Tensory drugiego rzędu.
+Równania kanoniczne okręgu, elipsy, hiperboli i paraboli. Równania krzywych drugiego rzędu z przesuniętym środkiem. Redukcja ogólnego równania prostej drugiego rzędu do postaci kanonicznej.
+
+**Powierzchnie drugiego rzędu** GA_Surfaces.ipynb
+
+Równania ogólne elipsoidy, kuli, hiperboloidy. 
+Powierzchnie obrotowe.
+
+**Podstawy i zastosowania rachunku tensorowego. Tensory drugiego rzędu.** GA_Tensors.ipynb
