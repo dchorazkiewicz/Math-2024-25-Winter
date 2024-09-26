@@ -2,11 +2,6 @@
 h2 {
     color: brown;
 }
-
-h3 {
-    color: tomato;
-}
-
 </style>
 
 # Granice ciągów liczbowych i funkcji

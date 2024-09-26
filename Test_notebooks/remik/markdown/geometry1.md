@@ -2,11 +2,6 @@
 h2 {
     color: brown;
 }
-
-h3 {
-    color: tomato;
-}
-
 </style>
 
 # Równania prostych na płaszczyźnie
@@ -151,48 +146,3 @@ $$
 2. **Prostopadłość**: Proste są prostopadłe, gdy iloczyn ich współczynników kierunkowych wynosi $-1$: $m_1 \cdot m_2 = -1$.
 
    **Przykład**: Proste $y = 2x + 1$ i $y = -\frac{1}{2}x + 4$ są prostopadłe.
-
-## Zadania
-
-**Zadanie 1:** Znajdź równanie prostej przechodzącej przez punkt $(3, 4)$, która jest równoległa do prostej $2x - y + 5 = 0$.
-
-**Rozwiązanie:**
-
-Równanie prostej ma formę $2x - y + c = 0$. Podstawiając punkt $(3, 4)$:
-
-$$
-2 \times 3 - 4 + c = 0 \implies c = -2
-$$
-
-Równanie prostej: $2x - y - 2 = 0$.
-
-**Zadanie 2:** Wyznacz kąt między prostymi $y = 3x + 2$ i $y = -\frac{1}{3}x + 1$.
-
-**Rozwiązanie:**
-
-$$
-\tan \theta = \left|\frac{3 - (-\frac{1}{3})}{1 + 3 \cdot (-\frac{1}{3})}\right| = \left|\frac{3 + \frac{1}{3}}{0}\right| = \infty
-$$
-
-**Zadanie 3:** Znajdź punkt przecięcia prostych $x + 2y = 5$ i $2x - y = 4$.
-
-**Rozwiązanie:**
-
-Rozwiązujemy układ równań:
-
-$$
-x + 2y = 5 \quad (1)
-$$
-
-$$
-2x - y = 4 \quad (2)
-$$
-
-Z (1): $x = 5 - 2y$. Podstawiamy do (2):
-
-$$
-2(5 - 2y) - y = 4 \implies 10 - 4y - y = 4 \implies 5y = 6 \implies y = \frac{6}{5}, x = 5 - 2 \times \frac{6}{5} = \frac{7}{5}
-$$
-
-Punkt przecięcia to $(\frac{7}{5}, \frac{6}{5})$.
-
