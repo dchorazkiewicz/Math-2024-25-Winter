@@ -1,21 +1,20 @@
 **Macierze**
 
-* __Macierze, operacje arytmetyczne na macierzach.__
-* __Rodzaje macierzy. Wyznaczniki i ich własności.__
-* __Wyznaczniki drugiego i trzeciego rzędu.__ 
-* __Dopłenienie algebraiczne i minory.__
-* __Obliczanie wyznaczników drugiego rzędu.__ 
-* __Obliczanie wyznaczników trzeciego rzędu metodami trójkątów i rozkładu na elementy kolumnowe (wierszowe).__
-* __Znajdowanie odwrotności macierzy.__
+* Macierze, operacje arytmetyczne na macierzach.
+* Rodzaje macierzy. Wyznaczniki i ich własności.
+* Wyznaczniki drugiego i trzeciego rzędu.
+* Dopłenienie algebraiczne i minory.
+* Obliczanie wyznaczników trzeciego rzędu metodami trójkątów i rozkładu na elementy kolumnowe (wierszowe).
+* Znajdowanie odwrotności macierzy.
 
 ---
 
 **Równania liniowe**
 
-* __Układy równań liniowych i metody ich rozwiązywania.__
-* __Reguła Kramera.__ 
-* __Metoda macierzowa rozwiązywania układów równań liniowych.__
-* __Metoda Gaussa.__
+* Układy równań liniowych i metody ich rozwiązywania.
+* Reguła Kramera.
+* Metoda macierzowa rozwiązywania układów równań liniowych.
+* Metoda Gaussa.
 
 ---
 
@@ -33,6 +32,7 @@
 * Iloczyn mieszany wektorów, jego własności i zastosowania.
 
 ---
+
 **Geometria analityczna**
 
 **Proste** GA_Line.ipynb/GA_Proste.ipynb
