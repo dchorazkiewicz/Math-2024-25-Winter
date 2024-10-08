@@ -52,4 +52,8 @@ $$
 
 4. **Ruch obrotowy**: Tensor momentu bezwładności opisuje rozkład masy ciała względem osi obrotu, co ma kluczowe znaczenie w analizie dynamiki.
 
-### Zadania
+## Zadania
+
+1. **Tensor naprężeń**: Dla tensora naprężeń $\sigma = \begin{bmatrix} 10 & 5 & 0 \\ 5 & 8 & 0 \\ 0 & 0 & 3 \end{bmatrix}$:
+   - Sprawdź, czy tensor jest symetryczny.
+   - Oblicz ślad tensora $\sigma$.
