@@ -1,0 +1,208 @@
+---
+title: Function Definition
+jupyter: python3
+---
+
+**Set-theoretic definition of a function** states that a function $f$ is a special case of a relation. A relation is simply any set of ordered pairs. A function, on the other hand, is a relation $f \subseteq X \times Y$ that satisfies an additional condition: for each element $x \in X$, there is **exactly one** element $y \in Y$ assigned to it.
+
+Formally, a function $f$ is a relation that satisfies the following condition:
+
+$$
+\forall x_1, x_2 \in X, \, \forall y_1, y_2 \in Y \, \left( (x_1, y_1) \in f \land (x_2, y_2) \in f : (x_1 = x_2) \Rightarrow (y_1 = y_2) \right)
+$$
+
+This means that if for the same $x_1$ we have two pairs $(x_1, y_1)$ and $(x_1, y_2)$, then $y_1$ must be equal to $y_2$. In other words, no element from $X$ can be associated with more than one element from $Y$.
+
+### Important Points:
+1. **Relation** in set theory is simply a set of ordered pairs $(x, y)$, where $x$ comes from set $X$ and $y$ comes from set $Y$.
+2. **Function** is a relation that additionally satisfies the condition that for every $x$ there is exactly one pair $(x, y)$ in this relation.
+
+Thus, a function $f \subseteq X \times Y$ is a relation that satisfies the additional condition that for each $x \in X$ there is exactly one $y \in Y$ such that $(x, y) \in f$.
+
+### Examples
+
+**Example 1**
+
+$$
+f=\{(\text{dog}, \text{dog}), (\text{cat}, \text{cat}), (\text{horse}, \text{horse})\}
+$$
+
+**Example 2**
+
+$$
+f=\{(1,2), (2,3), (3,4)\}
+$$
+
+This means that $f(1)=2$, $f(2)=3$, and $f(3)=4$.
+
+**Example 3**
+
+$$
+f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
+$$
+
+where $\mathbb{N}$ denotes the set of natural numbers. This function assigns each $n$ the value $1/n$.
+
+We often abbreviate sequences like this to $f(n)=1/n$.
+
+**Example 4**
+
+The quadratic function often written as $f(x)=x^2$ is a function that assigns each $x$ the value $x^2$. In our notation, we write this as
+
+$$
+f=\{(x,x^2): x \in \mathbb{R}\}
+$$
+
+**Example 5**
+
+The determinant of a matrix is a function that assigns each matrix a number. In our notation, we write this as
+
+$$
+f=\{(M,\text{det}(M)): M \text{ is a square matrix}\}
+$$
+
+**Example 6**
+
+A matrix itself is also a function that assigns each pair of indices $(i,j)$ where $i,j \in \{1,2,...,n\}$ the element of the matrix at position $(i,j)$. In our notation, we write this as
+
+$$
+M=\{((i,j),M_{ij}): i,j \in \{1,2,...,n\}\}
+$$
+
+for convenience, we write this as a two-dimensional array:
+
+$$
+M=\begin{bmatrix}
+M_{11} & M_{12} & \cdots & M_{1n} \\
+M_{21} & M_{22} & \cdots & M_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+M_{n1} & M_{n2} & \cdots & M_{nn}
+\end{bmatrix}
+$$
+
+**Example 7**
+
+Matrix addition is a function that assigns each pair of matrices their sum. In our notation, we write this as
+
+$$
+f=\{((A,B),A+B): A,B \text{ are matrices of the same dimensions}\}
+$$
+
+where $A+B$ is the matrix whose elements are the sums of the elements of matrices $A$ and $B$, that is, for each $i,j$ we have 
+$$
+(A+B)_{ij}=A_{ij}+B_{ij}
+$$
+
+**Example 8**
+
+A dictionary in Python is also a function that assigns each key a value. In our notation, we write this as:
+
+```{python}
+f={1:1,2:4,3:9,4:16,5:25}
+f
+```
+
+```{python}
+# Querying the dictionary for values for keys 1, 2, 3 similarly to how we write it in mathematics!!!
+print(f"Value for key 1: f[1] = {f[1]}")
+print(f"Value for key 2: f[2] = {f[2]}")
+print(f"Value for key 3: f[3] = {f[3]}")
+```
+
+```{python}
+# Example of encoding colors as a dictionary
+color_codes = {"red": "#FF0000", "green": "#00FF00", "blue": "#0000FF"}
+print(f"Red color code: {color_codes['red']}")
+print(f"Green color code: {color_codes['green']}")
+print(f"Blue color code: {color_codes['blue']}")
+```
+
+**Example 9**
+
+The way to write a function in Python is very natural.
+We need:
+
+* to give it a name
+* define the arguments
+* specify the operations to perform
+* return the result
+
+```python
+def function_name(arguments):
+    "do something with arguments"
+    return result
+```
+
+```{python}
+# Quadratic function
+def f(x):
+    return x**2
+
+# equivalently as a lambda
+f = lambda x: x**2
+
+# Querying the function for values for arguments 1, 2, 3 similarly to how we write it in mathematics!!!
+print(f"Value for argument 1: f(1) = {f(1)}")
+print(f"Value for argument 2: f(2) = {f(2)}")
+print(f"Value for argument 3: f(3) = {f(3)}")
+```
+
+```{python}
+# Derivative - more on this in upcoming lessons
+import sympy as sp  # we need the sympy library
+from IPython.display import display, Math  # to display results as LaTeX
+
+x = sp.symbols('x')  # define variable x
+
+def calculate_derivative(f):
+    return sp.diff(f, x)
+
+# define a few functions to calculate the derivative
+functions_list = [x**2, sp.sin(x**3), sp.exp(sp.sin(x)), sp.log(x**2 + 1)]
+
+# calculate derivatives for each function in the list
+for f in functions_list:
+    # Display the result as LaTeX
+    display(Math(r'Derivative\ of\ the\ function\ {}\ is\ {}'.format(sp.latex(f), sp.latex(calculate_derivative(f)))))
+```
+
+```{python}
+# Other examples of defining functions in sympy
+f=(x+1)**2
+g=sp.sin(x)
+```
+
+```{python}
+# We can display the functions
+f
+```
+
+```{python}
+# We can add functions
+f+g
+```
+
+```{python}
+# We can differentiate functions
+f.diff(x)
+```
+
+```{python}
+# We can integrate functions
+f.integrate(x)
+```
+
+```{python}
+# We can plot functions
+sp.plot(g, (x, -5, 5))
+```
+
+```{python}
+# We can also define general functions
+f, g = sp.symbols('f g', cls=sp.Function)
+f(x)+g(x)
+```
+
+```{python}
+# We can see one of the integration rules
+sp.expand(sp.integrate(f(x)+g(x), x))

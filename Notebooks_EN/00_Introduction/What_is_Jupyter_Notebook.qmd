@@ -1,0 +1,199 @@
+---
+title: Introduction to Jupyter Notebook
+jupyter: python3
+---
+
+**Jupyter Notebook** is an interactive programming environment that allows you to create and share documents containing code, equations, visualizations, and text. It is a tool for creating reports, presentations, as well as learning programming.
+
+Larger portions of text in Jupyter Notebook are written in **Markdown**, which allows for formatting. Below, we'll see some examples of text formatting in [Markdown](https://www.markdownguide.org/cheat-sheet/) (more examples: [here](https://quarto.org/docs/authoring/markdown-basics.html) and [here](https://markdown-it.github.io/)). Mathematical formulas can be introduced using [LaTeX](https://tilburgsciencehub.com/topics/research-skills/templates-dynamic-content/templates/amsmath-latex-cheatsheet/).
+Remember, you can always ask AI for Markdown or LaTeX syntax!
+
+Mathematical calculations can be performed using **Python**. Python's syntax is clear and intuitive, allowing for quick script and program creation. In **Jupyter Notebook** (.ipynb), you can run Python code in code cells.
+
+**Colab** is a Google-hosted Jupyter Notebook service that requires no setup and provides free access to computing resources, including GPUs. Colab is particularly well-suited for machine learning, data science, and education.
+
+Using AI tools such as [ChatGPT](https://openai.com/chatgpt), [Gemini](https://www.google.com/search?q=gemini+AI), [Claude](https://www.anthropic.com/claude), can greatly facilitate learning math in academic courses. These language models offer quick answers, explanations of difficult concepts, and help with solving problems, enabling interactive learning at any time.
+
+## Introduction to Markdown
+
+* "# First Level Heading"
+* "## Second Level Heading"
+* "### Third Level Heading"
+
+This is **bold** text, and this is *italic*. You can also combine both styles like **_bold italic_**.
+
+You can insert lists:
+- Item 1
+- Item 2
+  - Sub-item 1
+  - Sub-item 2
+
+Or numbered lists:
+1. First step
+2. Second step
+3. Third step
+
+Insert a link: [Visit Google](https://www.google.com)
+
+Insert an image:  
+![Example Image](https://www.mediawiki.org/static/images/icons/mediawikiwiki.svg)
+
+Insert an inline code snippet: `print("Hello World!")`
+
+Insert a code block:
+
+```python
+def function():
+    print("This is a block of Python code.")
+```
+
+Mathematical equations in LaTeX:
+
+Inline equation: $e^{i\pi} + 1 = 0$
+
+Displayed equation:
+
+$$e^{i\pi} + 1 = 0$$
+
+## Introduction to Mathematics in Jupyter Notebooks
+
+### Numerical Mathematical Calculations
+
+#### Python Standard Math Library
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+# Python as a calculator
+2**10, 2**100
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+# To calculate more complex expressions, you need additional modules (math, numpy, sympy)
+
+import math # math module
+
+# Return sine
+print(math.sin(math.pi))
+print(math.sin(math.pi/2))
+print(math.sqrt(2))
+```
+
+```{python}
+#| colab: {base_uri: 'https://localhost:8080/'}
+# Presenting results
+import math # math module
+print(f"Square root of 2 is {math.sqrt(2)}")
+print(f"Sine of 30 degrees is {math.sin(math.radians(30))}")
+```
+
+#### Numerical Python (NumPy)
+
+For more demanding, efficient, and accurate calculations, we use the NumPy library
+
+```{python}
+import numpy as np # Numerical Python module
+print(f"Sine of 30 degrees is {np.sin(np.radians(30))}")
+print(f"Log base 10 of 2 is {np.log10(2)}")
+print(f"Norm of vector [1,1,1,1,1] is {np.linalg.norm([1, 1, 1, 1, 1])}")
+```
+
+```{python}
+# Determinant of a matrix
+A = np.array([[1, 2], [3, 4]])
+print(f"Determinant of matrix A is {np.linalg.det(A)}")
+```
+
+```{python}
+# Solving systems of equations
+b = np.array([5, 7])
+x = np.linalg.solve(A, b)
+print(f"Solution to system Ax=b is x={x}")
+```
+
+```{python}
+# Unfortunately, numerical solutions are always approximations, not exact solutions.
+print(f"{1/3:.30f}")
+```
+
+#### Symbolic Mathematical Calculations
+
+SymPy is a Python library for symbolic calculations, allowing for manipulation of mathematical symbols such as variables, equations, functions, derivatives, integrals, limits, and matrices.
+
+```{python}
+# Python allows symbolic calculations
+import sympy as sp
+x, y, z = sp.symbols('x y z') # declare variables
+f, g = sp.symbols('f g', cls=sp.Function) # declare functions
+```
+
+```{python}
+# Sine of 30 degrees
+sp.sin(sp.rad(30)) # exact result 1/2
+```
+
+```{python}
+# Natural logarithm of e
+sp.log(sp.E)
+```
+
+```{python}
+# Norm of vector [1,1,1,1,1]
+v = sp.Matrix([1, 1, 1, 1, 1])
+v.norm()
+```
+
+```{python}
+f = f(x)
+```
+
+```{python}
+x + y # operations on variables
+```
+
+```{python}
+eq1 = ((x - y)**2).expand() # expand expression
+eq1
+```
+
+```{python}
+eq2 = eq1.subs(x, 1) # substitute value
+eq2
+```
+
+```{python}
+# solution of eq2
+sol = sp.solveset(eq2, y)
+sol
+```
+
+```{python}
+# differentiation
+f = sp.sin(x)
+sp.diff(f, x)
+```
+
+```{python}
+# more complex expressions
+f = sp.sin(x**sp.cos(x))
+f
+```
+
+```{python}
+f.diff(x)
+```
+
+```{python}
+# integration
+f = sp.sin(x) * sp.cos(x) * x
+f.integrate(x)
+```
+
+```{python}
+# plot of a parabola
+f = x**2
+sp.plot(f);
+```
+
+```{python}
+sp.integrate(x**2, x)
