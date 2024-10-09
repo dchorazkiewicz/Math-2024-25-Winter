@@ -1,0 +1,133 @@
+---
+title: Podstawowe operacje na macierzach
+jupyter: python3
+---
+
+
+### Dodawanie macierzy
+
+Niech $A=[a_{ij}]$ i $B=[b_{ij}]$ będą dwiema macierzami o wymiarach $m \times n$. Wówczas suma macierzy $A$ i $B$ jest macierzą $C=[c_{ij}]$ o wymiarach $m \times n$, gdzie $c_{ij}=a_{ij}+b_{ij}$.
+
+### Mnożenie macierzy przez skalar
+
+Niech $A=[a_{ij}]$ będzie macierzą o wymiarach $m \times n$, a $k$ będzie skalar. Wówczas iloczyn macierzy $A$ i skalaru $k$ jest macierzą $B=[b_{ij}]$ o wymiarach $m \times n$, gdzie $b_{ij}=k \cdot a_{ij}$.
+
+### Mnożenie macierzy
+
+Niech $A=[a_{ij}]$ będzie macierzą o wymiarach $m \times n$, a $B=[b_{ij}]$ będzie macierzą o wymiarach $n \times p$. Wówczas iloczyn macierzy $A$ i $B$ jest macierzą $C=[c_{ij}]$ o wymiarach $m \times p$, gdzie $c_{ij}=\sum_{k=1}^{n} a_{ik} \cdot b_{kj}$.
+
+
+### Przykład 1
+
+Niech $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ i $B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$. 
+Wówczas suma macierzy $A$ i $B$ wynosi 
+
+$$
+C=
+A+B=\begin{bmatrix} 1+5 & 2+6 \\ 3+7 & 4+8 \end{bmatrix}=\begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix}.
+$$
+
+### Przykład 2
+
+Niech $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ i $k=2$.
+
+Wówczas iloczyn macierzy $A$ i skalaru $k$ wynosi
+
+$$
+B=
+k \cdot A=2 \cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}=\begin{bmatrix} 2*1 & 2*2 \\ 2*3 & 2*4 \end{bmatrix}=\begin{bmatrix} 2 & 4 \\ 6 & 8 \end{bmatrix}.
+$$
+
+### Przykład 3
+
+Niech 
+$A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ 
+i 
+$B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$.
+
+Wówczas iloczyn macierzy $A$ i $B$ wynosi
+
+$$
+C=
+A \cdot B=\begin{bmatrix} 1*5+2*7 & 1*6+2*8 \\ 3*5+4*7 & 3*6+4*8 \end{bmatrix}=\begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}.
+$$
+
+```{python}
+# Przykład 1: dodawania macierzy w sympy
+import sympy as sp
+
+A=sp.Matrix([[1,2],[3,4]])
+B=sp.Matrix([[5,6],[7,8]])
+A # wyswietla macierz A
+```
+
+```{python}
+B # wyswietla macierz B
+```
+
+```{python}
+sp.Matrix([[6,8],[10,12]])==A+B # sprawdzamy poprawnosc dodawania
+```
+
+```{python}
+# Przykład 2: mnożenia macierzy przez skalar
+A=sp.Matrix([[1,2],[3,4]]) # definicja macierzy A
+
+sp.Matrix([[2,4],[6,8]])==2*A # sprawdzamy poprawnosc mnozenia przez skalar
+```
+
+```{python}
+# Przykład 3: mnożenia dwóch macierzy
+
+A=sp.Matrix([[1,2],[3,4]]) # definicja macierzy A
+B=sp.Matrix([[5,6],[7,8]]) # definicja macierzy B
+
+sp.Matrix([[19,22],[43,50]])==A*B # sprawdzamy poprawnosc mnozenia macierzy
+```
+
+### Warunek konieczny do mnożenia macierzy
+
+Pamiętaj, że macierze mogą zawierać różną liczbę wierszy i kolumn.
+
+Aby móc pomnożyć dwie macierze $A_{m \times n}$ i $B_{n \times k}$, gdzie $A$ ma wymiary $m \times n$ i $B$ ma wymiary $n \times k$, liczba kolumn macierzy $A$ musi być równa liczbie wierszy macierzy $B$. W przeciwnym przypadku mnożenie macierzy nie jest możliwe. 
+
+$$
+A_{m \times n} \cdot B_{n \times k} = C_{m \times k}
+$$
+
+Przykładowo, jeśli $A_{3 \times 3}$ i $B_{3 \times 3}$, to wynikowa macierz $C_{3 \times 3}$.
+
+<img src="https://www.mscroggs.co.uk/img/full/multiply_matrices.gif" alt="Matrix Multiplication GIF" width="400">
+
+### Mnożenie macierzy nie jest przemienne
+
+Mnożenie macierzy nie jest przemienne, tzn. w ogólności $A \cdot B \neq B \cdot A$.
+
+```{python}
+# Przykład mnożenia macierzy prostokątnych
+import sympy as sp
+A=sp.Matrix([[1,2],[3,4],[5,6]]) # definicja macierzy A_{3 x 2}
+B=sp.Matrix([[1,2,3],[4,5,6]]) # definicja macierzy B_{2 x 3}
+C=sp.Matrix([[9,12,15],[19,26,33],[29,40,51]]) # definicja macierzy C_{3 x 3}
+
+A*B # mnożymy macierze A i B otrzymując macierz 3x3
+```
+
+```{python}
+B*A # mnożymy macierze B i A otrzymując macierz 2x2
+```
+
+```{python}
+B*C # mnożymy macierze B i C otrzymując macierz 2x3
+```
+
+---
+## Zadania dla studentów
+
+1. Oblicz sumę macierzy $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ i $B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$.
+
+2. Oblicz iloczyn macierzy $A=\begin{bmatrix} 4 & 2 \\ 12 & 4 \end{bmatrix}$ i skalaru $k=\frac{1}{4}$.
+
+3. Oblicz iloczyn $A\cdot B$ oraz $B \cdot A$ dla macierzy $A=\begin{bmatrix} 3 & 2 \\ 2 & 4 \end{bmatrix}$ i $B=\begin{bmatrix} 4 & 1 \\ 6 & 4 \end{bmatrix}$.
+
+

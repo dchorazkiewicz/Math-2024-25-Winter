@@ -1,0 +1,130 @@
+---
+title: Basic Matrix Operations
+jupyter: python3
+---
+
+
+### Matrix Addition
+
+Let $A=[a_{ij}]$ and $B=[b_{ij}]$ be two matrices of dimensions $m \times n$. Then the sum of the matrices $A$ and $B$ is a matrix $C=[c_{ij}]$ of dimensions $m \times n$, where $c_{ij}=a_{ij}+b_{ij}$.
+
+### Scalar Multiplication of a Matrix
+
+Let $A=[a_{ij}]$ be a matrix of dimensions $m \times n$, and let $k$ be a scalar. Then the product of the matrix $A$ and the scalar $k$ is a matrix $B=[b_{ij}]$ of dimensions $m \times n$, where $b_{ij}=k \cdot a_{ij}$.
+
+### Matrix Multiplication
+
+Let $A=[a_{ij}]$ be a matrix of dimensions $m \times n$, and $B=[b_{ij}]$ be a matrix of dimensions $n \times p$. Then the product of matrices $A$ and $B$ is a matrix $C=[c_{ij}]$ of dimensions $m \times p$, where $c_{ij}=\sum_{k=1}^{n} a_{ik} \cdot b_{kj}$.
+
+### Example 1
+
+Let $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ and $B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$.
+Then the sum of the matrices $A$ and $B$ is
+
+$$
+C=
+A+B=\begin{bmatrix} 1+5 & 2+6 \\ 3+7 & 4+8 \end{bmatrix}=\begin{bmatrix} 6 & 8 \\ 10 & 12 \end{bmatrix}.
+$$
+
+### Example 2
+
+Let $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ and $k=2$.
+
+Then the product of the matrix $A$ and the scalar $k$ is
+
+$$
+B=
+k \cdot A=2 \cdot \begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}=\begin{bmatrix} 2*1 & 2*2 \\ 2*3 & 2*4 \end{bmatrix}=\begin{bmatrix} 2 & 4 \\ 6 & 8 \end{bmatrix}.
+$$
+
+### Example 3
+
+Let
+$A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$
+and
+$B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$.
+
+Then the product of matrices $A$ and $B$ is
+
+$$
+C=
+A \cdot B=\begin{bmatrix} 1*5+2*7 & 1*6+2*8 \\ 3*5+4*7 & 3*6+4*8 \end{bmatrix}=\begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}.
+$$
+
+```python
+# Example 1: matrix addition using sympy
+import sympy as sp
+
+A=sp.Matrix([[1,2],[3,4]])
+B=sp.Matrix([[5,6],[7,8]])
+A # display matrix A
+```
+
+```python
+B # display matrix B
+```
+
+```python
+sp.Matrix([[6,8],[10,12]])==A+B # check correctness of matrix addition
+```
+
+```python
+# Example 2: scalar multiplication of a matrix
+A=sp.Matrix([[1,2],[3,4]]) # define matrix A
+
+sp.Matrix([[2,4],[6,8]])==2*A # check correctness of scalar multiplication
+```
+
+```python
+# Example 3: multiplication of two matrices
+
+A=sp.Matrix([[1,2],[3,4]]) # define matrix A
+B=sp.Matrix([[5,6],[7,8]]) # define matrix B
+
+sp.Matrix([[19,22],[43,50]])==A*B # check correctness of matrix multiplication
+```
+
+### Condition for Matrix Multiplication
+
+Remember, matrices can have different numbers of rows and columns.
+
+To multiply two matrices $A_{m \times n}$ and $B_{n \times k}$, where $A$ has dimensions $m \times n$ and $B$ has dimensions $n \times k$, the number of columns in matrix $A$ must equal the number of rows in matrix $B$. Otherwise, matrix multiplication is not possible.
+
+$$
+A_{m \times n} \cdot B_{n \times k} = C_{m \times k}
+$$
+
+For example, if $A_{3 \times 3}$ and $B_{3 \times 3}$, the resulting matrix will be $C_{3 \times 3}$.
+
+<img src="https://www.mscroggs.co.uk/img/full/multiply_matrices.gif" alt="Matrix Multiplication GIF" width="400">
+
+### Matrix Multiplication is Not Commutative
+
+Matrix multiplication is not commutative, i.e., in general, $A \cdot B \neq B \cdot A$.
+
+```python
+# Example of multiplying rectangular matrices
+import sympy as sp
+A=sp.Matrix([[1,2],[3,4],[5,6]]) # define matrix A_{3 x 2}
+B=sp.Matrix([[1,2,3],[4,5,6]]) # define matrix B_{2 x 3}
+C=sp.Matrix([[9,12,15],[19,26,33],[29,40,51]]) # define matrix C_{3 x 3}
+
+A*B # multiply matrices A and B to obtain a 3x3 matrix
+```
+
+```python
+B*A # multiply matrices B and A to obtain a 2x2 matrix
+```
+
+```python
+B*C # multiply matrices B and C to obtain a 2x3 matrix
+```
+
+---
+## Student Exercises
+
+1. Compute the sum of the matrices $A=\begin{bmatrix} 1 & 2 \\ 3 & 4 \end{bmatrix}$ and $B=\begin{bmatrix} 5 & 6 \\ 7 & 8 \end{bmatrix}$.
+
+2. Compute the product of the matrix $A=\begin{bmatrix} 4 & 2 \\ 12 & 4 \end{bmatrix}$ and the scalar $k=\frac{1}{4}$.
+
+3. Compute the product $A\cdot B$ and $B \cdot A$ for the matrices $A=\begin{bmatrix} 3 & 2 \\ 2 & 4 \end{bmatrix}$ and $B=\begin{bmatrix} 4 & 1 \\ 6 & 4 \end{bmatrix}$.
