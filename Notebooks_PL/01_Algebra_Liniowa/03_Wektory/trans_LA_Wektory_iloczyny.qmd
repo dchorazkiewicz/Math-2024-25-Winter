@@ -1,49 +1,49 @@
 ---
-title: 'Wektory - Iloczyn skalarny, wektorowy, mieszany'
-jupyter: python3
+title: "Vector Operations in R³"
+format: 
+  html:
+    code-fold: true
+    html-math-method: katex
 ---
 
+## Dot Product
 
+The dot product (also known as the inner product) of two vectors is an operation that returns a scalar value. It is defined as the sum of the products of corresponding coordinates of two vectors.
 
-
-## Iloczyn skalarny
-
-Iloczyn skalarny (zwany również iloczynem wewnętrznym) dwóch wektorów to operacja, która zwraca skalarną wartość. Jest definiowany jako suma iloczynów odpowiadających sobie współrzędnych dwóch wektorów.
-
-Dla dwóch wektorów $\mathbf{a}$ i $\mathbf{b}$ w przestrzeni $\mathbb{R}^n$, gdzie:
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in space $\mathbb{R}^n$, where:
 
 $$
 \mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
 $$
 
-Iloczyn skalarny definiuje się następująco:
+The dot product is defined as:
 
 $$
 \mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + \dots + a_nb_n = \sum_{i=1}^{n} a_i b_i
 $$
 
-Przykład dla przestrzeni trójwymiarowej ($ \mathbb{R}^3 $):
+Example for three-dimensional space ($ \mathbb{R}^3 $):
 
-Dla wektorów $\mathbf{a} = [a_1, a_2, a_3]$ oraz $\mathbf{b} = [b_1, b_2, b_3]$, iloczyn skalarny to:
+For vectors $\mathbf{a} = [a_1, a_2, a_3]$ and $\mathbf{b} = [b_1, b_2, b_3]$, the dot product is:
 
 $$ 
 \mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3
 $$
 
-Iloczyn skalarny zwraca liczbę, która jest miarą "podobieństwa kierunku" dwóch wektorów. Jeśli $\mathbf{a} \cdot \mathbf{b} = 0$, to wektory są prostopadłe.
+The dot product returns a number that measures the "directional similarity" of two vectors. If $\mathbf{a} \cdot \mathbf{b} = 0$, the vectors are perpendicular.
 
-Alternatywnie, iloczyn skalarny można zapisać jako:
+Alternatively, the dot product can be written as:
 
 $$
 \mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos(\theta),
 $$
-czyli iloczyn długości wektorów $\mathbf{a}$ i $\mathbf{b}$ pomnożony przez cosinus kąta między nimi.
+which is the product of the lengths of vectors $\mathbf{a}$ and $\mathbf{b}$ multiplied by the cosine of the angle between them.
 
-## Iloczyn wektorowy
+## Cross Product
 
-Iloczyn wektorowy (zwany również iloczynem zewnętrznym) to operacja, która zwraca nowy wektor prostopadły do dwóch wektorów wyjściowych. Jest zdefiniowany tylko w przestrzeni trójwymiarowej $ \mathbb{R}^3 $.
+The cross product (also known as the vector product) is an operation that returns a new vector perpendicular to the two input vectors. It is only defined in three-dimensional space $ \mathbb{R}^3 $.
 
-Dla dwóch wektorów $ \mathbf{a} = [a_1, a_2, a_3] $ oraz $ \mathbf{b} = [b_1, b_2, b_3] $, iloczyn wektorowy $ \mathbf{a} \times \mathbf{b} $ definiuje się jako:
+For two vectors $ \mathbf{a} = [a_1, a_2, a_3] $ and $ \mathbf{b} = [b_1, b_2, b_3] $, the cross product $ \mathbf{a} \times \mathbf{b} $ is defined as:
 
 $$ \mathbf{a} \times \mathbf{b} =
 \begin{vmatrix}
@@ -53,178 +53,176 @@ b_1 & b_2 & b_3
 \end{vmatrix}
 $$
 
-Gdzie $ \mathbf{i}, \mathbf{j}, \mathbf{k} $ to wektory jednostkowe wzdłuż osi $ x, y, z $. Dość zabawnie, aby policzyć iloczyny wektorowy i otrzymać finalny wektor używamy wyznacznika (skalara) z macierzy (tensor drugiego rzędu), wierszami której są wektory bazowe (wektory) i składowe wektorów (skalary).
+Where $ \mathbf{i}, \mathbf{j}, \mathbf{k} $ are unit vectors along the $ x, y, z $ axes. Interestingly, to calculate the cross product and obtain the final vector, we use a determinant (scalar) of a matrix (second-order tensor), whose rows are base vectors (vectors) and vector components (scalars).
 
-Iloczyn wektorowy można zapisać w postaci rozwiniętej:
+The cross product can be written in expanded form:
 
 $$ \mathbf{a} \times \mathbf{b} = \left( a_2b_3 - a_3b_2 \right)\mathbf{i} - \left( a_1b_3 - a_3b_1 \right)\mathbf{j} + \left( a_1b_2 - a_2b_1 \right)\mathbf{k} $$
 
-Wynikiem iloczynu wektorowego jest nowy wektor:
+The result of the cross product is a new vector:
 
 $$ \mathbf{c} = \mathbf{a} \times \mathbf{b} = [a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1] $$
 
-Iloczyn wektorowy zwraca wektor $\mathbf{c}$ prostopadły do płaszczyzny wyznaczonej przez $ \mathbf{a} $ i $ \mathbf{b} $, a jego długość jest równa powierzchni równoległoboku, którego boki są wyznaczone przez wektory $ \mathbf{a} $ i $ \mathbf{b} $
+The cross product returns a vector $\mathbf{c}$ perpendicular to the plane defined by $ \mathbf{a} $ and $ \mathbf{b} $, and its magnitude equals the area of the parallelogram defined by vectors $ \mathbf{a} $ and $ \mathbf{b} $:
 $$
 |\mathbf{c}| = |\mathbf{a}| |\mathbf{b}| \sin \theta
 $$
 
-gdzie $\theta$ jest kątem między wektorami. Kierunek wektora $\vec{c}$ określa reguła prawej dłoni.
+where $\theta$ is the angle between the vectors. The direction of vector $\vec{c}$ is determined by the right-hand rule.
 
-## Iloczyn mieszany
+## Scalar Triple Product
 
-Iloczyn mieszany trzech wektorów $\mathbf{a}, \mathbf{b}, \mathbf{c}$ jest definiowany jako:
+The scalar triple product of three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is defined as:
 
 $$
 \mathbf{a} \cdot \left( \mathbf{b} \times \mathbf{c} \right)
 $$
 
-Jest to równoważne iloczynowi skalarnemu $\mathbf{a} \times \left( \mathbf{b} \times \mathbf{c} \right)$.
+This is equivalent to the dot product of $\mathbf{a}$ with the cross product of $\mathbf{b}$ and $\mathbf{c}$.
 
-Iloczyn mieszany jest równy zero, jeśli wektory $\mathbf{a}, \mathbf{b}, \mathbf{c}$ są współliniowe lub równoległe.
+The scalar triple product equals zero if vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ are colinear or parallel.
 
-Objętość równoległościanu wyznaczonego przez trzy wektory $\mathbf{a}, \mathbf{b}, \mathbf{c}$ jest równa wartości bezwzględnej iloczynu mieszanej tych wektorów.
+The volume of a parallelepiped defined by three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ equals the absolute value of their scalar triple product.
 
-## Implementacja
+## Implementation
 
 ```{python}
 import sympy as sp 
-# Definicje wektorów
+# Vector definitions
 a = sp.Matrix([1, 2, 3])
 b = sp.Matrix([4, 5, 6])
-c= sp.Matrix([7, 0, 9])
-d= sp.Matrix([0, 2, 0])
+c = sp.Matrix([7, 0, 9])
+d = sp.Matrix([0, 2, 0])
 ```
 
 ```{python}
-# wyświetlenie wektora c
+# display vector c
 c
 ```
 
 ```{python}
-# dodawanie wektorów a i b
+# adding vectors a and b
 a+b
 ```
 
 ```{python}
-# iloczyn skalarny a i b
+# dot product of a and b
 (1*4+2*5+3*6)==a.dot(b)
 ```
 
 ```{python}
-#iloczyn wektorowy a i c
+# cross product of a and c
 # a = [1, 2, 3]
-# c= [7, 0, 9]
+# c = [7, 0, 9]
 
-# Pomocniczo zapiszmy wektory jako macierze 3x3
+# Helper: write vectors as 3x3 matrices
 # i, j, k
 # 1, 2, 3
 # 7, 0, 9
 
-# Teraz
+# Now
 comp1 = (2*9-3*0)
 comp2 = -(1*9-3*7)
 comp3 = (1*0-2*7)
 
-# Wynik
+# Result
 sp.Matrix([comp1, comp2, comp3])==a.cross(c)
 ```
 
 ```{python}
-# Prostopadłość wektorów
-# c= [7, 0, 9]
-# d= [0, 2, 0]
+# Perpendicularity of vectors
+# c = [7, 0, 9]
+# d = [0, 2, 0]
 
-# Jeśli iloczyn skalarny wektorów jest równy 0, to znaczy, że są one prostopadłe
-iloczyn_skalarny = 7*0+0*2+9*0
-iloczyn_skalarny==0
+# If the dot product of vectors equals 0, they are perpendicular
+dot_product = 7*0+0*2+9*0
+dot_product==0
 ```
 
-## Zastosowania
+## Applications
 
-### Obliczanie kąta między wektorami
+### Calculating the Angle Between Vectors
 
 $$
 \cos \theta = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|}
 $$
 
-### Sprawdzanie prostopadłości wektorów
+### Checking Vector Perpendicularity
 
-Wektory $\mathbf{a}$ i $\mathbf{b}$ są prostopadłe, jeśli ich iloczyn skalarny wynosi zero:
+Vectors $\mathbf{a}$ and $\mathbf{b}$ are perpendicular if their dot product is zero:
 $$
 \mathbf{a} \cdot \mathbf{b} = 0 
 \quad \Leftrightarrow \quad
  \mathbf{a} \perp \mathbf{b}
 $$
 
-### Znajdowanie rzutów wektorów na inne wektory
+### Finding Vector Projections
 
 $$
-\text{Rzut} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}
+\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}
 $$
 
-### Obliczanie pracy wykonanej przez siłę w fizyce
+### Calculating Work Done by a Force in Physics
 
-Dla siły $\mathbf{F} = (F_x, F_y, F_z)$ działającej wzdłuż przemieszczenia $\mathbf{d} = (d_x, d_y, d_z)$, praca obliczana jest zgodnie ze wzorem:
+For a force $\mathbf{F} = (F_x, F_y, F_z)$ acting along displacement $\mathbf{d} = (d_x, d_y, d_z)$, work is calculated as:
 
 $$
 W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| |\mathbf{d}| \cos \theta = F_x d_x + F_y d_y + F_z d_z
 $$
 
-### Moment siły
+### Torque
 
-W fizyce: moment siły (moment obrotowy) to iloczyn wektorowy wektora siły i ramienia:
+In physics: torque is the cross product of the position vector and force vector:
 
 $$
 \mathbf{M} = \mathbf{r} \times \mathbf{F}
 $$
 
-### Obliczanie pola równoległoboku
+### Calculating Parallelogram Area
 
-Pole równoległoboku rozpiętego na dwóch wektorach:
+The area of a parallelogram spanned by two vectors:
 
 $$
-\text{Area}_{r} = \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta
+\text{Area}_{p} = \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta
 $$
 
-### Obliczanie pola trójkąta
+### Calculating Triangle Area
 
-Pole trójkąta rozpiętego na dwóch wektorach $\mathbf{a}$ i $\mathbf{b}$:
+The area of a triangle spanned by two vectors $\mathbf{a}$ and $\mathbf{b}$:
 
 $$
 \text{Area}_{t} = \frac{1}{2} |\mathbf{a} \times \mathbf{b}|
 $$
 
-### Obliczanie objętości równoległościanów i czworościanów
+### Calculating Volumes of Parallelepipeds and Tetrahedra
 
-Iloczyn mieszany wektorów jest używany do obliczania objętości równoległościanów i czworościanów. Dla trzech wektorów **$\mathbf{a}$**, **$\mathbf{b}$** i **$\mathbf{c}$**, objętość równoległościanu jest dana wzorem:
+The scalar triple product is used to calculate volumes of parallelepipeds and tetrahedra. For three vectors **$\mathbf{a}$**, **$\mathbf{b}$**, and **$\mathbf{c}$**, the volume of a parallelepiped is given by:
 
 $$
 V = |\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})|
 $$
-(Uwaga: **| |** oznacza tutaj wartość bezwzględną, a nie długość!)
+(Note: **| |** here denotes absolute value, not magnitude!)
 
-### Sprawdzanie współpłaszczyznowości trzech wektorów
+### Checking if Three Vectors are Coplanar
 
-Jeśli iloczyn mieszany trzech wektorów jest równy zeru, oznacza to, że wektory są współpłaszczyznowe. W przeciwnym razie, tworzą one czworościan.
+If the scalar triple product of three vectors equals zero, it means the vectors are coplanar. Otherwise, they form a tetrahedron.
 
 ---
 
-## Zadania dla studentów
+## Student Exercises
 
-A. Zrealizuj dodawanie wektora $[2, 1]$ do wektora $[-1, 1]$. Zaznacz oba wektory oraz ich sumę na wykresie.
+A. Add vector $[2, 1]$ to vector $[-1, 1]$. Plot both vectors and their sum on a graph.
 
-B. Policz pole trójkąta rozpiętego na wektorach $[2, 1]$ i $[-1, 1]$.
+B. Calculate the area of the triangle spanned by vectors $[2, 1]$ and $[-1, 1]$.
 
-C. Policz objętość równoległościanu rozpiętego na wektorach $[2, 1]$, $[-1, 1]$ i $[1, 2]$.
+C. Calculate the volume of the parallelepiped spanned by vectors $[2, 1]$, $[-1, 1]$, and $[1, 2]$.
 
-D. Sprawdź, czy wektory $[2, 1]$ i $[-1, 1]$ są prostopadłe.
+D. Check if vectors $[2, 1]$ and $[-1, 1]$ are perpendicular.
 
-E. Policz kąt w stopniach między wektorami $[4,2,1]$ a $[1,3,2]$.
+E. Calculate the angle in degrees between vectors $[4,2,1]$ and $[1,3,2]$.
 
-F. Dla wektorów trójwymiarowych: $\mathbf{a}=[a_x, a_y, a_z]$, $\mathbf{b}=[b_x, b_y, b_z]$, $\mathbf{c}=[c_x, c_y, c_z]$, udowodnij, że spełniona jest tożsamość: 
+F. For three-dimensional vectors: $\mathbf{a}=[a_x, a_y, a_z]$, $\mathbf{b}=[b_x, b_y, b_z]$, $\mathbf{c}=[c_x, c_y, c_z]$, prove the identity: 
 
 $$
 \mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}.
 $$
-
-
