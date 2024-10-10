@@ -1,0 +1,92 @@
+---
+title: Metoda szkolna rozwiązania układu równań liniowych
+jupyter: python3
+---
+
+
+
+```{python}
+import sympy as sp
+from sympy import symbols, Eq, expand, solve
+
+class EnhancedEq(Eq):
+    def __add__(self, other):
+        return EnhancedEq(self.lhs + other.lhs, self.rhs + other.rhs)
+
+    def __sub__(self, other):
+        return EnhancedEq(self.lhs - other.lhs, self.rhs - other.rhs)
+
+    def __mul__(self, scalar):
+        return EnhancedEq(scalar * self.lhs, scalar * self.rhs)
+
+    def __rmul__(self, scalar):
+        return self.__mul__(scalar)
+
+    def simplify(self):
+        return EnhancedEq(expand(self.lhs), expand(self.rhs))
+
+    def substitute(self, *args, **kwargs):
+        return EnhancedEq(self.lhs.subs(*args, **kwargs), self.rhs.subs(*args, **kwargs))
+
+    def solve_for(self, symbol):
+        return solve(self, symbol)
+
+# Przykład użycia:
+x, y = symbols('x y')
+
+# Definicja równań
+eq1 = EnhancedEq(2*x + y, 5)
+eq2 = EnhancedEq(x - y, 1)
+```
+
+```{python}
+print("Piersze równanie:")
+eq1
+```
+
+```{python}
+print("Drugie równanie:")
+eq2
+```
+
+```{python}
+# Dodajemy do siebie równania
+eq3 = eq1 + eq2
+eq3
+```
+
+```{python}
+# Mamy równanie z jedną niewiadomą więc możemy je rozwiązać
+sol_x = eq3.solve_for(x)[0]
+sol_x
+```
+
+```{python}
+# Podstawiamy rozwiązanie do równania 2
+eq2=eq2.substitute(x,sol_x)
+eq2
+```
+
+```{python}
+# Dostajemy równanie z jedną niewiadomą więc możemy je rozwiązać
+eq2.solve_for(y)[0]
+```
+
+```{python}
+# czyli x=2, y=1
+# Sprawdzamy w sympy
+sp.solve([eq1,eq2])
+```
+
+---
+
+### Zadania dla studentów
+
+Analogicznie jak wyżej rozwiąż następujące układy równań:
+
+* $3x-2y=5, \quad 2x+3y=7$,
+* $2x-3y=10, \quad 4x+5y=20$,
+* $2x - y + z = 3, \quad x + 2y - z = 1, \quad 3x - y + 2z = 11$.
+* $2x-3y+4z+2t=2, \quad 3x+2y-5z+3t=3, \quad 4x-3y+2z-5t=4, \quad 5x+4y-3z+2t=5$.
+
+

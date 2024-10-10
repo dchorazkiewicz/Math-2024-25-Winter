@@ -53,6 +53,8 @@ Równania kanoniczne okręgu, elipsy, hiperboli i paraboli. Równania krzywych d
 Równania ogólne elipsoidy, kuli, hiperboloidy. 
 Powierzchnie obrotowe.
 
+---
+
 **Podstawy i zastosowania rachunku tensorowego. Tensory drugiego rzędu.** GA_Tensors.ipynb
 
 ---

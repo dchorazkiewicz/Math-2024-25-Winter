@@ -1,0 +1,293 @@
+---
+title: 'Wzory Cramera - Przykłady dla układów 2x2, 3x3 i 4x4'
+jupyter: python3
+---
+
+
+Wzory Cramera są używane tylko wtedy gdy liczba równań jest równa liczbie niewiadomych. Inaczej mówiąc, macierz współczynników musi być macierzą kwadratową. 
+
+**Wzory te są używane tylko wtedy**, gdy **wyznacznik** macierzy współczynników jest **różny od zera**. W przeciwnym razie układ równań jest sprzeczny lub nieoznaczony.
+
+## Układ równań 2x2
+
+Rozważmy układ dwóch równań z dwiema niewiadomymi:
+
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 = b_1 \\
+a_{21}x_1 + a_{22}x_2 = b_2
+\end{cases}
+$$
+
+Wzory Cramera dla niewiadomych $ x_1 $ i $ x_2 $ są następujące:
+
+$$
+x_1 = \frac{\det(A_1)}{\det(A)} \quad \text{oraz} \quad x_2 = \frac{\det(A_2)}{\det(A)}
+$$
+
+Gdzie:
+
+$$
+\det(A) = 
+\begin{vmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{vmatrix} 
+= a_{11}a_{22} - a_{12}a_{21}
+$$
+
+$$
+\det(A_1) = 
+\begin{vmatrix}
+b_1 & a_{12} \\
+b_2 & a_{22}
+\end{vmatrix} 
+= b_1a_{22} - a_{12}b_2
+$$
+
+$$
+\det(A_2) = 
+\begin{vmatrix}
+a_{11} & b_1 \\
+a_{21} & b_2
+\end{vmatrix} 
+= a_{11}b_2 - b_1a_{21}
+$$
+
+## Układ równań 3x3
+
+Rozważmy układ trzech równań z trzema niewiadomymi:
+
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1 \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 = b_2 \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3
+\end{cases}
+$$
+
+Wzory Cramera dla $ x_1 $, $ x_2 $ i $ x_3 $:
+
+$$
+x_1 = \frac{\det(A_1)}{\det(A)} \quad x_2 = \frac{\det(A_2)}{\det(A)} \quad x_3 = \frac{\det(A_3)}{\det(A)}
+$$
+
+Gdzie:
+
+$$
+\det(A) = 
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{vmatrix}
+$$
+
+$$
+\det(A_1) = 
+\begin{vmatrix}
+b_1 & a_{12} & a_{13} \\
+b_2 & a_{22} & a_{23} \\
+b_3 & a_{32} & a_{33}
+\end{vmatrix}
+$$
+
+$$
+\det(A_2) = 
+\begin{vmatrix}
+a_{11} & b_1 & a_{13} \\
+a_{21} & b_2 & a_{23} \\
+a_{31} & b_3 & a_{33}
+\end{vmatrix}
+$$
+
+$$
+\det(A_3) = 
+\begin{vmatrix}
+a_{11} & a_{12} & b_1 \\
+a_{21} & a_{22} & b_2 \\
+a_{31} & a_{32} & b_3
+\end{vmatrix}
+$$
+
+## Układ równań 4x4
+
+Rozważmy układ czterech równań z czterema niewiadomymi:
+
+$$
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 + a_{14}x_4 = b_1 \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 + a_{24}x_4 = b_2 \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 + a_{34}x_4 = b_3 \\
+a_{41}x_1 + a_{42}x_2 + a_{43}x_3 + a_{44}x_4 = b_4
+\end{cases}
+$$
+
+Wzory Cramera dla $ x_1 $, $ x_2 $, $ x_3 $ i $ x_4 $:
+
+$$
+x_1 = \frac{\det(A_1)}{\det(A)} \quad x_2 = \frac{\det(A_2)}{\det(A)} \quad x_3 = \frac{\det(A_3)}{\det(A)} \quad x_4 = \frac{\det(A_4)}{\det(A)}
+$$
+
+Gdzie:
+
+$$
+\det(A) = 
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{vmatrix}
+$$
+
+$$
+\det(A_1) = 
+\begin{vmatrix}
+b_1 & a_{12} & a_{13} & a_{14} \\
+b_2 & a_{22} & a_{23} & a_{24} \\
+b_3 & a_{32} & a_{33} & a_{34} \\
+b_4 & a_{42} & a_{43} & a_{44}
+\end{vmatrix}
+$$
+
+$$
+\det(A_2) = 
+\begin{vmatrix}
+a_{11} & b_1 & a_{13} & a_{14} \\
+a_{21} & b_2 & a_{23} & a_{24} \\
+a_{31} & b_3 & a_{33} & a_{34} \\
+a_{41} & b_4 & a_{43} & a_{44}
+\end{vmatrix}
+$$
+
+$$
+\det(A_3) = 
+\begin{vmatrix}
+a_{11} & a_{12} & b_1 & a_{14} \\
+a_{21} & a_{22} & b_2 & a_{24} \\
+a_{31} & a_{32} & b_3 & a_{34} \\
+a_{41} & a_{42} & b_4 & a_{44}
+\end{vmatrix}
+$$
+
+$$
+\det(A_4) = 
+\begin{vmatrix}
+a_{11} & a_{12} & a_{13} & b_1 \\
+a_{21} & a_{22} & a_{23} & b_2 \\
+a_{31} & a_{32} & a_{33} & b_3 \\
+a_{41} & a_{42} & a_{43} & b_4
+\end{vmatrix}
+$$
+
+
+## Przykład
+
+```{python}
+import sympy as sp
+
+# Definiowanie symboli
+x, y, z = sp.symbols('x y z')
+
+# Definicja układu równań
+eq1 = sp.Eq(2*x + 3*y + z, 1)
+eq2 = sp.Eq(3*x + 2*y + 2*z, 2) 
+eq3 = sp.Eq(x + y + z, 3)
+
+# Macierz odpowiedniego układu równań
+A = sp.Matrix([[2, 3, 1], [3, 2, 2], [1, 1, 1]])
+# wektor wyrazów wolnych
+b = sp.Matrix([1, 2, 3])
+```
+
+```{python}
+A
+```
+
+```{python}
+b
+```
+
+```{python}
+# Zdefiniujmy macierz A_1
+A_1 = A.copy() # Skopiuj macierz A
+A_1[:, 0] = b # Zamień pierwszą kolumnę macierzy A na wektor b
+A_1 # sprawdzamy czy zamiana się udała
+```
+
+```{python}
+
+det_A_1 = A_1.det() # Oblicz wyznacznik macierzy A_1
+sol_x = det_A_1 / A.det() # Oblicz x_1
+sol_x # obliczona wartość x_1
+```
+
+```{python}
+# analogicznie dla y
+A_2 = A.copy()
+A_2[:, 1] = b
+A_2 # sprawdzamy czy zamiana się udała
+```
+
+```{python}
+det_A_2 = A_2.det()
+sol_y = det_A_2 / A.det()
+sol_y
+```
+
+```{python}
+# ostatecznie dla z
+A_3 = A.copy()
+A_3[:, 2] = b
+det_A_3 = A_3.det()
+sol_z = det_A_3 / A.det()
+sol_z
+```
+
+```{python}
+# Rozwiązanie układu równań
+sp.solve((eq1, eq2, eq3), (x, y, z))
+```
+
+---
+
+## Zadania dla studentów
+
+1. Rozwiąż układ równań:
+   $$
+   \begin{cases}
+   2x_1 - 3x_2 = 7 \\
+   3x_1 + 5x_2 = 2
+   \end{cases}
+   $$
+
+2. Rozwiąż układ równań:
+   $$
+   \begin{cases}
+   2x + y - z = 1 \\
+   x - y + 2z = 4 \\
+   3x - 2z = -1
+   \end{cases}
+   $$
+
+3. Rozwiąż układ równań:
+   $$
+   \begin{cases}
+   x + y + z - t = 2 \\
+   x - z + 2t = 6 \\
+   2x - 3y + t = 4 \\
+   3x + y + 3z - 4t = -2
+   \end{cases}
+   $$
+
+4. Dlaczego nie można rozwiązać układ równań poniżej za pomocą wzorów Cramera?
+$$
+\begin{cases}
+x_1 + 2x_2 + 3x_3 = 3 \\
+4x_1 + 5x_2 + 6x_3 = 2 \\
+7x_1 + 8x_2 + 9x_3 = 1
+\end{cases}
+$$
+
+
