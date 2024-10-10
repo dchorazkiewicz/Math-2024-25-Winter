@@ -1,0 +1,177 @@
+---
+title: Rozwiązanie układów równań liniowych metodą macierzy odwrotnej
+jupyter: python3
+---
+
+
+Zamiana układu równań liniowych na postać macierzową pozwala na zastosowanie macierzy odwrotnej do znalezienia rozwiązania układu równań.
+
+Jak przykład rozważmy $A \cdot X = B$, gdzie macierz $A_{n \times n}$ jest kwadratowa i nieosobliwa zaś $X$ i $B$ są macierzami kolumnowymi
+
+$X=\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}, \qquad B=\begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$
+
+Rozwiązanie układu równań można znaleźć przez pomnożenie po lewej stronie macierzy $A^{-1}$ przez macierz $B$
+
+$(A^{-1} \cdot A) \cdot X = A^{-1} \cdot B$
+
+$1 \cdot X = A^{-1} \cdot B$
+
+$X = A^{-1} \cdot B$
+
+
+**Przykład**
+
+Rozważmy układ równań:
+
+$$
+\begin{cases}
+x + 2z = 3, \\
+2x + 3y + z = 0, \\
+x + 3z = 1.
+\end{cases}
+$$
+
+Najpierw zapisujemy układ równań w formie macierzowej:
+
+
+$$
+\begin{cases}
+1 \cdot x + 0 \cdot y + 2 \cdot z = 3, \\
+2 \cdot x + 3 \cdot y + 1 \cdot z = 0, \\
+1 \cdot x + 0 \cdot y + 3 \cdot z = 1.
+\end{cases}
+$$
+
+$$
+\begin{bmatrix}
+1 & 0 & 2 \\
+2 & 3 & 1 \\
+1 & 0 & 3
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+3 \\
+0 \\
+1
+\end{bmatrix}
+$$
+
+Rozwiązujemy układ równań poprzez pomnożenie macierzy odwrotnej (z dobrej strony!):
+
+$$
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & 0 & 2 \\
+2 & 3 & 1 \\
+1 & 0 & 3
+\end{bmatrix}^{-1}
+\begin{bmatrix}
+3 \\
+0 \\
+1
+\end{bmatrix}
+$$
+
+Obliczamy macierz odwrotną:
+
+$$
+\begin{bmatrix}
+1 & 0 & 2 \\
+2 & 3 & 1 \\
+1 & 0 & 3
+\end{bmatrix}^{-1}
+=
+\begin{bmatrix}
+ 4 &  0 & -2 \\
+-3 &  1 &  1 \\
+-1 &  0 &  1
+\end{bmatrix}
+$$
+
+Mnożymy macierze
+
+$$
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+ 4 &  0 & -2 \\
+-3 &  1 &  1 \\
+-1 &  0 &  1
+\end{bmatrix}
+\begin{bmatrix}
+3 \\
+0 \\
+1
+\end{bmatrix}
+=
+\begin{bmatrix}
+7 \\
+-4 \\
+-2
+\end{bmatrix}
+$$
+
+```{python}
+# ## Rozwiązanie układów równań liniowych metodą macierzy odwrotnej
+
+import sympy as sp
+
+# Macierz współczynników
+A = sp.Matrix([
+    [1, 0, 2],
+    [2, 3, 1],
+    [1, 0, 3]
+])
+
+# Wektor wyrazów wolnych
+B =  sp.Matrix([
+    [3],
+    [0],
+    [1]
+])
+# Macierz odwrotna
+A_inv = A.inv()
+
+# Rozwiązanie układu równań
+X = A_inv * B
+X
+```
+
+---
+## Zadanie dla studentów
+
+1. Rozwiąż układ równań liniowych metodą macierzy odwrotnej:
+
+$$
+\begin{cases}
+x + 2y + 3z = 5, \\
+2y + 3z = 4, \\
+3z = 3.
+\end{cases}
+$$
+
+2. Rozwiąż układ równań liniowych metodą macierzy odwrotnej:
+
+$$
+\begin{cases}
+x_1 + 2x_2 + 3x_3 = 41, \\
+4x_1 + 5x_2 + 6x_3 = 93, \\
+7x_1 + 8x_2 + 9x_3 = 145.
+\end{cases}
+$$
+
+
