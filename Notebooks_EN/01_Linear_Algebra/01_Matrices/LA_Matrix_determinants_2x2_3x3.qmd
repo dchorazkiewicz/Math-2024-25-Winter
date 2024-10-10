@@ -1,0 +1,130 @@
+---
+title: Determinants of 2x2 and 3x3 Matrices
+jupyter: python3
+---
+
+### Determinant of a 2x2 Matrix
+
+The general formula for the determinant of a 2x2 matrix, where the matrix looks as follows:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{pmatrix}
+$$
+
+The determinant of a 2x2 matrix is calculated using the formula:
+
+$$
+\text{det}(A) = a_{11} \cdot a_{22} - a_{12} \cdot a_{21}
+$$
+
+### Determinant of a 3x3 Matrix
+
+The general formula for the determinant of a 3x3 matrix, where the matrix looks as follows:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} \\
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33}
+\end{pmatrix}
+$$
+
+The determinant of a 3x3 matrix can be calculated using Sarrus' rule or Laplace expansion. Here, we will use Sarrus' rule:
+
+$$
+\text{det}(B) = a_{11} \cdot a_{22} \cdot a_{33} + a_{12} \cdot a_{23} \cdot a_{31} + a_{13} \cdot a_{21} \cdot a_{32} 
+- a_{13} \cdot a_{22} \cdot a_{31} - a_{12} \cdot a_{21} \cdot a_{33} - a_{11} \cdot a_{23} \cdot a_{32}
+$$
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Sarrus_rule1.svg" alt="Image description" width="300" align="center"/>
+
+Note: Sarrus' rule does not work for matrices larger than 3x3.
+
+---
+
+### Calculating Determinants in Python using SymPy
+
+Now, using the SymPy library, we will calculate the determinants for 2x2 and 3x3 matrices.
+
+```{python}
+import sympy as sp
+
+# Define the matrix
+A = sp.Matrix([[2, 3], [1, 4]])
+A # display the matrix
+```
+
+```{python}
+#| notebookRunGroups: {groupValue: '2'}
+# Verify the correctness of the calculations
+(2*4 - 3*1) == A.det()
+```
+
+```{python}
+# 3x3 Matrix
+B = sp.Matrix([[2, 3, 1], [1, 4, 5], [3, 2, 1]])
+B
+```
+
+```{python}
+# Verify the correctness of the calculations
+(2*4*1 + 3*5*3 + 1*1*2 - 1*4*3 - 5*2*2 - 3*1*1) == B.det()
+```
+
+---
+## Exercises for Students
+
+Calculate the determinants for the 2x2 and 3x3 matrices given below.
+
+1. 2x2 Matrices:
+
+$$
+\mathbf{A} =
+\begin{pmatrix}
+2 & 3 \\
+1 & 4
+\end{pmatrix}
+, \qquad
+\mathbf{B} =
+\begin{pmatrix}
+5 & 6 \\
+7 & 8
+\end{pmatrix}
+, \qquad
+\mathbf{C} =
+\begin{pmatrix}
+-1 & 2 \\
+3 & 0
+\end{pmatrix}
+$$
+
+2. 3x3 Matrices:
+ 
+
+$$
+\mathbf{D} =
+\begin{pmatrix}
+1 & 0 & 2 \\
+-1 & 3 & 1 \\
+2 & 4 & -2
+\end{pmatrix}
+, \qquad
+\mathbf{E} =
+\begin{pmatrix}
+3 & 1 & -1 \\
+0 & 2 & 4 \\
+5 & 3 & 2
+\end{pmatrix}
+, \qquad
+\mathbf{F} =
+\begin{pmatrix}
+2 & -3 & 1 \\
+1 & 4 & -2 \\
+1 & 5 & 3
+\end{pmatrix}
+$$
