@@ -1,13 +1,11 @@
 ---
-title: Metoda eliminacji Gaussa
+title: Gaussian Elimination Method
 jupyter: python3
 ---
 
+Solving a system of linear equations using the Gaussian elimination method involves transforming the coefficient matrix of the system into an upper triangular matrix, followed by solving the system using back substitution.
 
-Rozwiązanie układu równań liniowych metodą eliminacji Gaussa polega na przekształceniu macierzy współczynników układu równań na macierz trójkątną górną, a następnie na rozwiązaniu układu równań za pomocą metody podstawiania wstecz. 
-
-Jest to jedna z najbardziej podstawowych metod rozwiązywania układów równań liniowych, wychodząca poza sytuacje gdzie liczba niewiadomych jest różna od liczby równań.
-
+This is one of the most fundamental methods for solving systems of linear equations, especially in cases where the number of unknowns is different from the number of equations.
 
 ```{python}
 from sympy import Matrix, symbols, Eq, latex
@@ -22,24 +20,24 @@ class SymbolicMatrix:
         
         if column_labels:
             if len(column_labels) != self.matrix.cols:
-                raise ValueError("Liczba etykiet kolumn musi być równa liczbie kolumn w macierzy.")
+                raise ValueError("The number of column labels must match the number of columns in the matrix.")
             self.column_labels = column_labels
         else:
             self.column_labels = [f"x{i+1}" for i in range(self.matrix.cols)]
         
         if free_terms:
             if len(free_terms) != self.matrix.rows:
-                raise ValueError("Liczba wyrazów wolnych musi być równa liczbie wierszy w macierzy.")
+                raise ValueError("The number of free terms must match the number of rows in the matrix.")
             self.free_terms = free_terms
         else:
             self.free_terms = [0 for _ in range(self.matrix.rows)]
         
-        display(Markdown("**Początkowe równania:**"))
+        display(Markdown("**Initial Equations:**"))
         self.display_matrix()
 
     def set_display_mode(self, mode):
         if mode not in ["table", "equations"]:
-            raise ValueError("Tryb wyświetlania musi być 'table' lub 'equations'.")
+            raise ValueError("Display mode must be 'table' or 'equations'.")
         self.display_mode = mode
 
     def display_matrix(self):
@@ -50,7 +48,7 @@ class SymbolicMatrix:
 
     def _display_table(self):
         matrix_with_free_terms = self.matrix.row_join(Matrix(self.free_terms))
-        headers = self.column_labels + ["Wyraz wolny"]
+        headers = self.column_labels + ["Free Term"]
         display(Markdown(self._matrix_to_markdown(matrix_with_free_terms, headers)))
 
     def _matrix_to_markdown(self, matrix, headers):
@@ -69,7 +67,7 @@ class SymbolicMatrix:
                 coef = self.matrix[i, j]
                 var = symbols(self.column_labels[j])
                 
-                # Sprawdzamy, czy współczynnik jest dodatni, ujemny czy zero
+                # Check if the coefficient is positive, negative, or zero
                 if coef > 0:
                     if j == 0:
                         terms.append(f"{latex(coef)} {latex(var)}")
@@ -89,39 +87,39 @@ class SymbolicMatrix:
             equation = f"{lhs} = {rhs}"
             equations.append(equation)
         
-        display(Markdown("Układ równań:"))
-        display(Markdown(f"$$\\begin{{aligned}} {self._equations_to_latex(equations)} \\end{{aligned}}$$"))
+        display(Markdown("System of Equations:"))
+        display(Markdown(f"$$\begin{{aligned}} {self._equations_to_latex(equations)} \end{{aligned}}$$"))
     
     def _equations_to_latex(self, equations):
-        return " \\\\ ".join(equations)
+        return " \\ ".join(equations)
 
     def add_row(self, target_row, source_row, coefficient):
         target_idx = self._validate_row_number(target_row)
         source_idx = self._validate_row_number(source_row)
         
-        # Operacja na macierzy
+        # Operation on matrix
         self.matrix.row_op(target_idx, lambda v, j: v + coefficient * self.matrix[source_idx, j])
         
-        # Operacja na wyrazach wolnych
+        # Operation on free terms
         self.free_terms[target_idx] += coefficient * self.free_terms[source_idx]
         
         operation_str = f"w{target_row} = w{target_row} + {coefficient}*w{source_row}"
         self.operations.append(operation_str)
-        display(Markdown(f"**Operacja:** {operation_str}"))
+        display(Markdown(f"**Operation:** {operation_str}"))
         self.display_matrix()
 
     def multiply_row(self, row, coefficient):
         row_idx = self._validate_row_number(row)
         
-        # Operacja na macierzy
+        # Operation on matrix
         self.matrix.row_op(row_idx, lambda v, _: coefficient * v)
         
-        # Operacja na wyrazach wolnych
+        # Operation on free terms
         self.free_terms[row_idx] *= coefficient
         
         operation_str = f"w{row} = {coefficient}*w{row}"
         self.operations.append(operation_str)
-        display(Markdown(f"**Operacja:** {operation_str}"))
+        display(Markdown(f"**Operation:** {operation_str}"))
         self.display_matrix()
 
     def swap_rows(self, row1, row2):
@@ -131,9 +129,9 @@ class SymbolicMatrix:
         self.matrix.row_swap(row1_idx, row2_idx)
         self.free_terms[row1_idx], self.free_terms[row2_idx] = self.free_terms[row2_idx], self.free_terms[row1_idx]
         
-        operation_str = f"Zamiana w{row1} <-> w{row2}"
+        operation_str = f"Swap w{row1} <-> w{row2}"
         self.operations.append(operation_str)
-        display(Markdown(f"**Operacja:** {operation_str}"))
+        display(Markdown(f"**Operation:** {operation_str}"))
         self.display_matrix()
 
     def swap_columns(self, col1, col2):
@@ -143,32 +141,32 @@ class SymbolicMatrix:
         self.matrix.col_swap(col1_idx, col2_idx)
         self.column_labels[col1_idx], self.column_labels[col2_idx] = self.column_labels[col2_idx], self.column_labels[col1_idx]
         
-        operation_str = f"Zamiana kol{col1} <-> kol{col2}"
+        operation_str = f"Swap col{col1} <-> col{col2}"
         self.operations.append(operation_str)
-        display(Markdown(f"**Operacja:** {operation_str}"))
+        display(Markdown(f"**Operation:** {operation_str}"))
         self.display_matrix()
 
     def _validate_row_number(self, row):
         if not isinstance(row, int):
-            raise TypeError("Numer wiersza musi być liczbą całkowitą.")
+            raise TypeError("Row number must be an integer.")
         if row < 1 or row > self.matrix.rows:
-            raise IndexError(f"Numer wiersza musi być w zakresie od 1 do {self.matrix.rows}.")
+            raise IndexError(f"Row number must be between 1 and {self.matrix.rows}.")
         return row - 1
 
     def _validate_col_number(self, col):
         if not isinstance(col, int):
-            raise TypeError("Numer kolumny musi być liczbą całkowitą.")
+            raise TypeError("Column number must be an integer.")
         if col < 1 or col > self.matrix.cols:
-            raise IndexError(f"Numer kolumny musi być w zakresie od 1 do {self.matrix.cols}.")
+            raise IndexError(f"Column number must be between 1 and {self.matrix.cols}.")
         return col - 1
 
     def print_operations(self):
-        display(Markdown("**Wykonane operacje:**"))
+        display(Markdown("**Performed Operations:**"))
         for op in self.operations:
             print(op)
 
-# Przykład użycia:
-m = SymbolicMatrix([[1,2,3], [4,5,6], [7,8,12]], column_labels=["x1", "x2", "x3"], free_terms=[10, 11, 18], display_mode="equations")
+# Example usage:
+m = SymbolicMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 12]], column_labels=["x1", "x2", "x3"], free_terms=[10, 11, 18], display_mode="equations")
 ```
 
 ```{python}
@@ -184,12 +182,12 @@ m.add_row(3, 2, -2)
 ```
 
 ```{python}
-# mamy 3 równania, więc musimy zakończyć działanie
-# definicja symboli
+# We have 3 equations, so we end the operation
+# Define symbols
 x1, x2, x3 = symbols('x1 x2 x3')
-# Definicja równań
+# Define equations
 eq1 = Eq(x1 + 2*x2 + 3*x3, 10)
-eq2 = Eq(-3*x2-6*x3,-29)
+eq2 = Eq(-3*x2 - 6*x3, -29)
 eq3 = Eq(3*x3, 6)
 ```
 
@@ -199,29 +197,27 @@ sol_x3
 ```
 
 ```{python}
-# podstawiamy rozwiązanie x3 do równania 2
+# Substitute solution x3 into equation 2
 eq2 = eq2.subs(x3, sol_x3)
-# rozwiązujemy równanie 2
+# Solve equation 2
 sol_x2 = sp.solve(eq2, x2)[0]
 sol_x2
 ```
 
 ```{python}
-# podstawiamy rozwiązania x2 i x3 do równania 1
+# Substitute solutions x2 and x3 into equation 1
 eq1 = eq1.subs({x2: sol_x2, x3: sol_x3})
-# rozwiązujemy równanie 1
+# Solve equation 1
 sol_x1 = sp.solve(eq1, x1)[0]
 sol_x1
 ```
 
 ---
 
-## Zadania dla studentów
+## Exercises for Students
 
 $$
 \left\{\begin{array}{c}{x+2 y-2 z=4} \\ {2 x+y+z=0} \\ {3 x+2 y+z=1}\end{array}\right.\quad
 \left\{\begin{array}{c}{x+y+z-t=2} \\ {2 x+y+z=3} \\ {-x+z-t=0} \\ {3 x+2 y-z+2 t=-1}\end{array}\right.\quad
 \left\{\begin{array}{c}{x+y-z-t=0} \\ {2 x+3 y-2 z+t=4} \\ {3 x+5 z=0} \\ {-x+y-3 z+2 t=3}\end{array}\right.
 $$
-
-

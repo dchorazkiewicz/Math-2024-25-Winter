@@ -1,16 +1,15 @@
 ---
-title: 'Wzory Cramera - Przykłady dla układów 2x2, 3x3 i 4x4'
+title: Cramer's Rule - Examples for 2x2, 3x3, and 4x4 Systems
 jupyter: python3
 ---
 
+Cramer's rule is used only when the number of equations is equal to the number of unknowns. In other words, the coefficient matrix must be a square matrix.
 
-Wzory Cramera są używane tylko wtedy gdy liczba równań jest równa liczbie niewiadomych. Inaczej mówiąc, macierz współczynników musi być macierzą kwadratową. 
+**These formulas are used only** when the **determinant** of the coefficient matrix is **non-zero**. Otherwise, the system of equations is either inconsistent or indeterminate.
 
-**Wzory te są używane tylko wtedy**, gdy **wyznacznik** macierzy współczynników jest **różny od zera**. W przeciwnym razie układ równań jest sprzeczny lub nieoznaczony.
+## 2x2 System of Equations
 
-## Układ równań 2x2
-
-Rozważmy układ dwóch równań z dwiema niewiadomymi:
+Consider a system of two equations with two unknowns:
 
 $$
 \begin{cases}
@@ -19,13 +18,13 @@ a_{21}x_1 + a_{22}x_2 = b_2
 \end{cases}
 $$
 
-Wzory Cramera dla niewiadomych $ x_1 $ i $ x_2 $ są następujące:
+Cramer's rule for the unknowns $ x_1 $ and $ x_2 $ is as follows:
 
 $$
-x_1 = \frac{\det(A_1)}{\det(A)} \quad \text{oraz} \quad x_2 = \frac{\det(A_2)}{\det(A)}
+x_1 = \frac{\det(A_1)}{\det(A)} \quad \text{and} \quad x_2 = \frac{\det(A_2)}{\det(A)}
 $$
 
-Gdzie:
+Where:
 
 $$
 \det(A) = 
@@ -54,9 +53,9 @@ a_{21} & b_2
 = a_{11}b_2 - b_1a_{21}
 $$
 
-## Układ równań 3x3
+## 3x3 System of Equations
 
-Rozważmy układ trzech równań z trzema niewiadomymi:
+Consider a system of three equations with three unknowns:
 
 $$
 \begin{cases}
@@ -66,13 +65,13 @@ a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3
 \end{cases}
 $$
 
-Wzory Cramera dla $ x_1 $, $ x_2 $ i $ x_3 $:
+Cramer's rule for $ x_1 $, $ x_2 $, and $ x_3 $:
 
 $$
 x_1 = \frac{\det(A_1)}{\det(A)} \quad x_2 = \frac{\det(A_2)}{\det(A)} \quad x_3 = \frac{\det(A_3)}{\det(A)}
 $$
 
-Gdzie:
+Where:
 
 $$
 \det(A) = 
@@ -110,9 +109,9 @@ a_{31} & a_{32} & b_3
 \end{vmatrix}
 $$
 
-## Układ równań 4x4
+## 4x4 System of Equations
 
-Rozważmy układ czterech równań z czterema niewiadomymi:
+Consider a system of four equations with four unknowns:
 
 $$
 \begin{cases}
@@ -123,13 +122,13 @@ a_{41}x_1 + a_{42}x_2 + a_{43}x_3 + a_{44}x_4 = b_4
 \end{cases}
 $$
 
-Wzory Cramera dla $ x_1 $, $ x_2 $, $ x_3 $ i $ x_4 $:
+Cramer's rule for $ x_1 $, $ x_2 $, $ x_3 $, and $ x_4 $:
 
 $$
 x_1 = \frac{\det(A_1)}{\det(A)} \quad x_2 = \frac{\det(A_2)}{\det(A)} \quad x_3 = \frac{\det(A_3)}{\det(A)} \quad x_4 = \frac{\det(A_4)}{\det(A)}
 $$
 
-Gdzie:
+Where:
 
 $$
 \det(A) = 
@@ -181,23 +180,22 @@ a_{41} & a_{42} & a_{43} & b_4
 \end{vmatrix}
 $$
 
-
-## Przykład
+## Example
 
 ```{python}
 import sympy as sp
 
-# Definiowanie symboli
+# Define symbols
 x, y, z = sp.symbols('x y z')
 
-# Definicja układu równań
+# Define the system of equations
 eq1 = sp.Eq(2*x + 3*y + z, 1)
 eq2 = sp.Eq(3*x + 2*y + 2*z, 2) 
 eq3 = sp.Eq(x + y + z, 3)
 
-# Macierz odpowiedniego układu równań
+# Coefficient matrix of the system
 A = sp.Matrix([[2, 3, 1], [3, 2, 2], [1, 1, 1]])
-# wektor wyrazów wolnych
+# Free terms vector
 b = sp.Matrix([1, 2, 3])
 ```
 
@@ -210,24 +208,23 @@ b
 ```
 
 ```{python}
-# Zdefiniujmy macierz A_1
-A_1 = A.copy() # Skopiuj macierz A
-A_1[:, 0] = b # Zamień pierwszą kolumnę macierzy A na wektor b
-A_1 # sprawdzamy czy zamiana się udała
+# Define matrix A_1
+A_1 = A.copy() # Copy matrix A
+A_1[:, 0] = b # Replace the first column of A with vector b
+A_1 # Check if the replacement was successful
 ```
 
 ```{python}
-
-det_A_1 = A_1.det() # Oblicz wyznacznik macierzy A_1
-sol_x = det_A_1 / A.det() # Oblicz x_1
-sol_x # obliczona wartość x_1
+det_A_1 = A_1.det() # Calculate determinant of A_1
+sol_x = det_A_1 / A.det() # Calculate x_1
+sol_x # Calculated value of x_1
 ```
 
 ```{python}
-# analogicznie dla y
+# Similarly for y
 A_2 = A.copy()
 A_2[:, 1] = b
-A_2 # sprawdzamy czy zamiana się udała
+A_2 # Check if the replacement was successful
 ```
 
 ```{python}
@@ -237,7 +234,7 @@ sol_y
 ```
 
 ```{python}
-# ostatecznie dla z
+# Finally for z
 A_3 = A.copy()
 A_3[:, 2] = b
 det_A_3 = A_3.det()
@@ -246,15 +243,15 @@ sol_z
 ```
 
 ```{python}
-# Rozwiązanie układu równań
+# Solve the system of equations
 sp.solve((eq1, eq2, eq3), (x, y, z))
 ```
 
 ---
 
-## Zadania dla studentów
+## Exercises for Students
 
-1. Rozwiąż układ równań:
+1. Solve the system of equations:
    $$
    \begin{cases}
    2x_1 - 3x_2 = 7 \\
@@ -262,7 +259,7 @@ sp.solve((eq1, eq2, eq3), (x, y, z))
    \end{cases}
    $$
 
-2. Rozwiąż układ równań:
+2. Solve the system of equations:
    $$
    \begin{cases}
    2x + y - z = 1 \\
@@ -271,7 +268,7 @@ sp.solve((eq1, eq2, eq3), (x, y, z))
    \end{cases}
    $$
 
-3. Rozwiąż układ równań:
+3. Solve the system of equations:
    $$
    \begin{cases}
    x + y + z - t = 2 \\
@@ -281,7 +278,7 @@ sp.solve((eq1, eq2, eq3), (x, y, z))
    \end{cases}
    $$
 
-4. Dlaczego nie można rozwiązać układ równań poniżej za pomocą wzorów Cramera?
+4. Why can't the following system of equations be solved using Cramer's rule?
 $$
 \begin{cases}
 x_1 + 2x_2 + 3x_3 = 3 \\
@@ -289,5 +286,3 @@ x_1 + 2x_2 + 3x_3 = 3 \\
 7x_1 + 8x_2 + 9x_3 = 1
 \end{cases}
 $$
-
-
