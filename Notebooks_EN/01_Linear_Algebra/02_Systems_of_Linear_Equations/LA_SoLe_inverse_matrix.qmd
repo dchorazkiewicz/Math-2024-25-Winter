@@ -1,27 +1,27 @@
 ---
-title: Rozwiązanie układów równań liniowych metodą macierzy odwrotnej
+title: Solving Systems of Linear Equations Using the Inverse Matrix Method
 jupyter: python3
 ---
 
+Converting a system of linear equations to matrix form allows the use of the inverse matrix to find the solution.
 
-Zamiana układu równań liniowych na postać macierzową pozwala na zastosowanie macierzy odwrotnej do znalezienia rozwiązania układu równań.
+As an example, consider $A \cdot X = B$, where the matrix $A_{n \times n}$ is square and non-singular, and $X$ and $B$ are column matrices:
 
-Jak przykład rozważmy $A \cdot X = B$, gdzie macierz $A_{n \times n}$ jest kwadratowa i nieosobliwa zaś $X$ i $B$ są macierzami kolumnowymi
+$$
+X = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}, \qquad B = \begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}
+$$
 
-$X=\begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}, \qquad B=\begin{bmatrix} b_1 \\ b_2 \\ \vdots \\ b_n \end{bmatrix}$
+The solution of the system can be found by multiplying the inverse of $A$ by $B$ on the left side:
 
-Rozwiązanie układu równań można znaleźć przez pomnożenie po lewej stronie macierzy $A^{-1}$ przez macierz $B$
+$$(A^{-1} \cdot A) \cdot X = A^{-1} \cdot B$$
 
-$(A^{-1} \cdot A) \cdot X = A^{-1} \cdot B$
+$$1 \cdot X = A^{-1} \cdot B$$
 
-$1 \cdot X = A^{-1} \cdot B$
+$$X = A^{-1} \cdot B$$
 
-$X = A^{-1} \cdot B$
+**Example**
 
-
-**Przykład**
-
-Rozważmy układ równań:
+Consider the system of equations:
 
 $$
 \begin{cases}
@@ -31,8 +31,7 @@ x + 3z = 1.
 \end{cases}
 $$
 
-Najpierw zapisujemy układ równań w formie macierzowej:
-
+First, write the system of equations in matrix form:
 
 $$
 \begin{cases}
@@ -61,7 +60,7 @@ z
 \end{bmatrix}
 $$
 
-Rozwiązujemy układ równań poprzez pomnożenie macierzy odwrotnej (z dobrej strony!):
+Solve the system by multiplying by the inverse matrix (on the correct side!):
 
 $$
 \begin{bmatrix}
@@ -82,7 +81,7 @@ z
 \end{bmatrix}
 $$
 
-Obliczamy macierz odwrotną:
+Calculate the inverse matrix:
 
 $$
 \begin{bmatrix}
@@ -98,7 +97,7 @@ $$
 \end{bmatrix}
 $$
 
-Mnożymy macierze
+Multiply the matrices:
 
 $$
 \begin{bmatrix}
@@ -126,35 +125,35 @@ z
 $$
 
 ```{python}
-# ## Rozwiązanie układów równań liniowych metodą macierzy odwrotnej
+# ## Solving Systems of Linear Equations Using the Inverse Matrix Method
 
 import sympy as sp
 
-# Macierz współczynników
+# Coefficient matrix
 A = sp.Matrix([
     [1, 0, 2],
     [2, 3, 1],
     [1, 0, 3]
 ])
 
-# Wektor wyrazów wolnych
+# Constant terms vector
 B =  sp.Matrix([
     [3],
     [0],
     [1]
 ])
-# Macierz odwrotna
+# Inverse matrix
 A_inv = A.inv()
 
-# Rozwiązanie układu równań
+# Solution of the system of equations
 X = A_inv * B
 X
 ```
 
 ---
-## Zadanie dla studentów
+## Exercises for Students
 
-1. Rozwiąż układ równań liniowych metodą macierzy odwrotnej:
+1. Solve the system of linear equations using the inverse matrix method:
 
 $$
 \begin{cases}
@@ -164,7 +163,7 @@ x + 2y + 3z = 5, \\
 \end{cases}
 $$
 
-2. Rozwiąż układ równań liniowych metodą macierzy odwrotnej:
+2. Solve the system of linear equations using the inverse matrix method:
 
 $$
 \begin{cases}
@@ -173,5 +172,3 @@ x_1 + 2x_2 + 3x_3 = 41, \\
 7x_1 + 8x_2 + 9x_3 = 145.
 \end{cases}
 $$
-
-
