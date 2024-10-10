@@ -1,33 +1,14 @@
 ---
-title: Determinants of 2x2 and 3x3 Matrices
+title: Determinants of 3x3 and 4x4 Matrices using Laplace Expansion
 jupyter: python3
 ---
 
+## Determinant of a 3x3 Matrix using Laplace Expansion
 
-### Determinant of a 2x2 Matrix
-
-The general formula for the determinant of a 2x2 matrix, where the matrix looks as follows:
+The general formula for the determinant of a 3x3 matrix is as follows:
 
 $$
 \mathbf{A} =
-\begin{pmatrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22}
-\end{pmatrix}
-$$
-
-The determinant of a 2x2 matrix is calculated using the formula:
-
-$$
-\text{det}(A) = a_{11} \cdot a_{22} - a_{12} \cdot a_{21}
-$$
-
-### Determinant of a 3x3 Matrix
-
-The general formula for the determinant of a 3x3 matrix, where the matrix looks as follows:
-
-$$
-\mathbf{B} =
 \begin{pmatrix}
 a_{11} & a_{12} & a_{13} \\
 a_{21} & a_{22} & a_{23} \\
@@ -35,98 +16,240 @@ a_{31} & a_{32} & a_{33}
 \end{pmatrix}
 $$
 
-The determinant of a 3x3 matrix can be calculated using Sarrus' rule or Laplace expansion. Here, we will use Sarrus' rule:
+The determinant of a 3x3 matrix is calculated by expanding along the first row. We use Laplace expansion, which involves selecting elements of the first row and calculating the determinants of the 2x2 matrices that result from removing the appropriate rows and columns.
+
+Expanding along the first row of a 3x3 matrix:
 
 $$
-\text{det}(B) = a_{11} \cdot a_{22} \cdot a_{33} + a_{12} \cdot a_{23} \cdot a_{31} + a_{13} \cdot a_{21} \cdot a_{32} 
-- a_{13} \cdot a_{22} \cdot a_{31} - a_{12} \cdot a_{21} \cdot a_{33} - a_{11} \cdot a_{23} \cdot a_{32}
+\text{det}(A) = 
+(-1)^{1+1}a_{11} \cdot 
+\text{det}
+\begin{pmatrix}
+a_{22} & a_{23} \\
+a_{32} & a_{33}
+\end{pmatrix}
++(-1)^{1+2} a_{12} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{23} \\
+a_{31} & a_{33}
+\end{pmatrix}
++(-1)^{1+3}a_{13} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} \\
+a_{31} & a_{32}
+\end{pmatrix}
 $$
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Sarrus_rule1.svg" alt="Image description" width="300" align="center"/>
+### Example of a 3x3 Matrix
 
-Note: Sarrus' rule does not work for matrices larger than 3x3.
+For the matrix:
 
----
+$$
+\mathbf{A} =
+\begin{pmatrix}
+2 & 3 & 1 \\
+1 & 4 & 5 \\
+3 & 2 & 1
+\end{pmatrix}
+$$
+
+Laplace expansion:
+
+$$
+\text{det}(A) = 2 \cdot 
+\text{det}
+\begin{pmatrix}
+4 & 5 \\
+2 & 1
+\end{pmatrix}
+- 3 \cdot
+\text{det}
+\begin{pmatrix}
+1 & 5 \\
+3 & 1
+\end{pmatrix}
++ 1 \cdot
+\text{det}
+\begin{pmatrix}
+1 & 4 \\
+3 & 2
+\end{pmatrix}
+$$
+
+## Determinant of a 4x4 Matrix using Laplace Expansion
+
+The general formula for the determinant of a 4x4 matrix, where the matrix looks as follows:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{pmatrix}
+$$
+
+The determinant of a 4x4 matrix is calculated by expanding along the first row. Similar to the 3x3 case, elements of the first row are multiplied by the determinants of the 3x3 matrices that result from removing the appropriate rows and columns.
+
+Expanding along the first row of a 4x4 matrix:
+
+$$
+\text{det}(B) = 
+(-1)^{1+1} \cdot
+a_{11} \cdot \text{det}
+\begin{pmatrix}
+a_{22} & a_{23} & a_{24} \\
+a_{32} & a_{33} & a_{34} \\
+a_{42} & a_{43} & a_{44}
+\end{pmatrix}
++ (-1)^{1+2} \cdot
+a_{12} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{23} & a_{24} \\
+a_{31} & a_{33} & a_{34} \\
+a_{41} & a_{43} & a_{44}
+\end{pmatrix}
++ (-1)^{1+3} \cdot
+a_{13} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} & a_{24} \\
+a_{31} & a_{32} & a_{34} \\
+a_{41} & a_{42} & a_{44}
+\end{pmatrix}
++ (-1)^{1+4} \cdot
+a_{14} \cdot \text{det}
+\begin{pmatrix}
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+a_{41} & a_{42} & a_{43}
+\end{pmatrix}
+$$
+
+### Example of a 4x4 Matrix
+
+For the matrix:
+
+$$
+\mathbf{B} =
+\begin{pmatrix}
+2 & 3 & 1 & 4 \\
+1 & 4 & 5 & 6 \\
+3 & 2 & 1 & 5 \\
+2 & 1 & 4 & 3
+\end{pmatrix}
+$$
+
+Laplace expansion:
+
+$$
+\text{det}(B) = 2 \cdot \text{det}
+\begin{pmatrix}
+4 & 5 & 6 \\
+2 & 1 & 5 \\
+1 & 4 & 3
+\end{pmatrix}
+- 3 \cdot \text{det}
+\begin{pmatrix}
+1 & 5 & 6 \\
+3 & 1 & 5 \\
+2 & 4 & 3
+\end{pmatrix}
++ 1 \cdot \text{det}
+\begin{pmatrix}
+1 & 4 & 6 \\
+3 & 2 & 5 \\
+2 & 1 & 3
+\end{pmatrix}
+- 4 \cdot \text{det}
+\begin{pmatrix}
+1 & 4 & 5 \\
+3 & 2 & 1 \\
+2 & 1 & 4
+\end{pmatrix}
+$$
 
 ### Calculating Determinants in Python using SymPy
 
-Now, using the SymPy library, we will calculate the determinants for 2x2 and 3x3 matrices.
-
+Below we will calculate the determinants of 3x3 and 4x4 matrices using Laplace expansion in Python, using the **SymPy** library.
 
 ```{python}
 import sympy as sp
 
-# Define the matrix
-A = sp.Matrix([[2, 3], [1, 4]])
-A # display the matrix
-```
-
-```{python}
-#| notebookRunGroups: {groupValue: '2'}
-# Verify the correctness of the calculations
-(2*4-3*1) == A.det()
-```
-
-```{python}
 # 3x3 Matrix
-B = sp.Matrix([[2, 3, 1], [1, 4, 5], [3, 2, 1]])
+A = sp.Matrix([[2, 3, 1], [1, 4, 5], [3, 2, 1]])
+A
+```
+
+```{python}
+# Select the first row [2, 3, 1]
+# Define the appropriate minors
+M11 = sp.Matrix([[4, 5], [2, 1]])
+M12 = sp.Matrix([[1, 5], [3, 1]])
+M13 = sp.Matrix([[1, 4], [3, 2]])
+
+# Calculate the determinant
+d = 2*M11.det() - 3*M12.det() + 1*M13.det()
+
+d == A.det()
+```
+
+```{python}
+# 4x4 Matrix
+B = sp.Matrix([[2, 0, 1, 0], [1, 4, 5, 6], [3, 2, 1, 5], [2, 1, 4, 3]])
 B
 ```
 
 ```{python}
 # Verify the correctness of the calculations
-(2*4*1 + 3*5*3 + 1*1*2 - 1*4*3 - 5*2*2 - 3*1*1) == B.det()
+M11 = sp.Matrix([[4, 5, 6], [2, 1, 5], [1, 4, 3]])
+M12 = sp.Matrix([[1, 5, 6], [3, 1, 5], [2, 4, 3]])
+M13 = sp.Matrix([[1, 4, 6], [3, 2, 5], [2, 1, 3]])
+M14 = sp.Matrix([[1, 4, 5], [3, 2, 1], [2, 1, 4]])
+
+(2*M11.det() - 0*M12.det() + 1*M13.det() - 0*M14.det()) == B.det()
+
+d = 2*M11.det() - 0*M12.det() + 1*M13.det() - 0*M14.det()
+d == B.det()
 ```
 
+Note that only the first and third terms have non-zero coefficients, so it is not necessary to calculate the determinants of all minors!
+
 ---
+
 ## Exercises for Students
 
-Calculate the determinants for the 2x2 and 3x3 matrices given below.
-
-1. 2x2 Matrices:
+Calculate the determinants of the following matrices:
 
 $$
 \mathbf{A} =
 \begin{pmatrix}
-2 & 3 \\
-1 & 4
+2 & 3 & 1 \\
+1 & 4 & 0 \\
+3 & 2 & 1
 \end{pmatrix}
-, \qquad
+,\qquad
 \mathbf{B} =
 \begin{pmatrix}
-5 & 6 \\
-7 & 8
+2 & 3 & 1 \\
+1 & 4 & 0 \\
+3 & 2 & 0  \\
 \end{pmatrix}
-, \qquad
+,\qquad
 \mathbf{C} =
 \begin{pmatrix}
--1 & 2 \\
-3 & 0
+2 & 3 & 1 & 4 \\
+1 & 0 & 0 & 6 \\
+3 & 2 & 1 & 5 \\
+2 & 1 & 4 & 0
 \end{pmatrix}
-$$
-
-2. 3x3 Matrices:
- 
-
-$$
+,\qquad
 \mathbf{D} =
 \begin{pmatrix}
-1 & 0 & 2 \\
--1 & 3 & 1 \\
-2 & 4 & -2
-\end{pmatrix}
-, \qquad
-\mathbf{E} =
-\begin{pmatrix}
-3 & 1 & -1 \\
-0 & 2 & 4 \\
-5 & 3 & 2
-\end{pmatrix}
-, \qquad
-\mathbf{F} =
-\begin{pmatrix}
-2 & -3 & 1 \\
-1 & 4 & -2 \\
-1 & 5 & 3
+2 & 3 & 1 & 4 & 5 \\
+1 & 4 & 0 & 0 & 7 \\
+3 & 0 & 0 & 0 & 0 \\
+2 & 1 & 4 & 3 & 2 \\
+1 & 2 & 3 & 4 & 5
 \end{pmatrix}
 $$
