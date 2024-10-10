@@ -1,0 +1,194 @@
+---
+title: Wektory - Wprowadzenie
+jupyter: python3
+---
+
+
+**Wektory** są wielkościami, które posiadają zarówno wartość liczbową, jak i kierunek oraz zwrot w przestrzeni. 
+Są one używane do opisu różnych wielkości fizycznych, takich jak prędkość, siła, czy natężenie pola elektrycznego. 
+W przeciwieństwie do skalarów, które mają tylko wartość liczbową (np. masa, temperatura), wektory wymagają określenia kierunku.
+
+Wektor oznaczamy strzałką nad symbolem $\vec{a}$ lub pogrubioną czcionką $\mathbf{a}$.
+- Długość wektora można zapisać jako $|\vec{a}|$ lub $a$.
+- Wektor o długości 1 nazywa się wektorem jednostkowym (wersorem) i zapisuje się jako $\hat{\mathbf{a}}= \frac{\vec{a}}{|\vec{a}|}$.
+
+**Przykład:**
+
+Wektor $\mathbf{a}= [3, 4]$ ma długość $a = 5$ i odpowiadający wersor (jednostkowy wektor wzdłuż kierunku wektora $\mathbf{a}$) wyrażony jest przez $\hat{\mathbf{a}} = \left[\frac{3}{5}, \frac{4}{5}\right]$.
+
+
+```{python}
+import sympy as sp  # importuj moduł sympy
+
+# Dla wektora $\mathbf{a} = [a_x, a_y]$, długość jest podana wzorem: 
+# $$ |\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2} $$
+
+a_x, a_y = sp.symbols('a_x a_y')  # Krok 1: Zdefiniuj symboliczne zmienne a_x i a_y
+dlugosc_a = sp.sqrt(a_x**2 + a_y**2)  # Krok 2: Utwórz wzór na długość wektora a
+dlugosc_a  # Krok 3: Wyświetl wynik
+```
+
+```{python}
+# Przypisz wartości dla a_x i a_y
+a_x = 3  # składowa x wektora
+a_y = 4  # składowa y wektora
+
+dlugosc_a = sp.sqrt(a_x**2 + a_y**2)  # Oblicz długość wektora dla a_x = 3 i a_y = 4
+dlugosc_a.evalf()  # Oblicz numerycznie długość wektora (oczekiwany wynik: 5)
+```
+
+## Dodawanie wektorów
+
+Dodawanie wektorów polega na dodaniu współrzędnych wektorów o takiej samej długości.
+
+Dla dwóch wektorów $\mathbf{a}$ i $\mathbf{b}$ w przestrzeni $\mathbb{R}^n$, gdzie:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n] $$
+
+Dodawanie wektorów definiuje się następująco:
+
+$$
+\mathbf{a} + \mathbf{b} = [a_1 + b_1, a_2 + b_2, \dots, a_n + b_n]
+$$
+
+## Mnożenie wektora przez skalar
+
+Mnożenie wektora przez skalar polega na pomnożeniu każdej współrzędnej wektora przez tę samą liczbę.
+
+Dla wektora $\mathbf{a}$ i skalaru $k$:
+
+$$
+k \mathbf{a} = [k a_1, k a_2, \dots, k a_n]
+$$
+
+## Wektory na płaszczyźnie i w przestrzeni
+
+**Wektory w 2D:**
+
+Jeśli $\mathbf{a} = [a_x, a_y]$, to długość jest dana wzorem $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2}$
+
+**Wektory w 3D:**
+
+Jeśli $\mathbf{a} = [a_x, a_y, a_z]$, to długość wektora wynosi $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2 + a_z^2}$.
+
+## Wektor na wykresie
+
+```{python}
+import matplotlib.pyplot as plt # import modułu matplotlib.pyplot
+
+plt.figure() # utworzenie nowego rysunku
+plt.quiver(0, 0, 3, 4, angles='xy', scale_units='xy', scale=1, color='r') # szybki sposób na rysowanie wektora quiver(x_początek, y_początek, x_koniec, y_koniec)
+plt.xlim(0, 5) # ustawienie zakresu osi x
+plt.ylim(0, 5) # ustawienie zakresu osi y
+plt.grid(True) # włączenie siatki
+plt.gca().set_aspect('equal') # ustawienie takiej samej skali na osiach x i y
+plt.show()
+```
+
+## Przykład prostej implementacji wektorów w Pythonie
+
+Dane są wektory $\mathbf{a}=[1, 2]$ i $\mathbf{b}=[3, 4]$ i chcemy policzyć ich sumę $\mathbf{c}=\mathbf{a}+\mathbf{b}= [1+3, 2+4] = [4, 6]$
+
+```{python}
+import sympy as sp # importuj moduł sympy
+
+a=[1, 2] # wektor a
+b=[3, 4] # wektor b
+c = [a[0] + b[0], a[1] + b[1]] # suma wektorów a i b
+c # wyświetlenie wyniku
+```
+
+## Przykład lepszej implementacji wektorów w Pythonie
+
+Wektory zapisz jako macierze kolumnowe. Wtedy dodawanie wektorów jest takie samo jak dodawanie macierzy.
+
+```{python}
+import sympy as sp 
+
+# Definicje wektorów
+a = sp.Matrix([1, 2, 3])
+b = sp.Matrix([4, 5, 6])
+c= sp.Matrix([7, 0, 9])
+d= sp.Matrix([0, 2, 0])
+
+a+b+c-d # OPewna operacja dodawania i odejmowania wektorów
+```
+
+## Dodawanie wektorów na wykresie
+
+Przykład: $\mathbf{a}=[2,1]$ i $\mathbf{b}=[1,2]$ prowadzi do wektora $\mathbf{c}=\mathbf{a}+\mathbf{b}=[3,3]$.
+
+```{python}
+import matplotlib.pyplot as plt # import modułu matplotlib.pyplot #przykład dodawania wektorów w przestrzeni dwuwymiarowej
+
+plt.figure() # utworzenie nowego rysunku
+plt.quiver(0, 0, 2, 1, angles='xy', scale_units='xy', scale=1, color='r') # szybki sposób na rysowanie wektorów quiver(x_początek, y_początek, x_koniec, y_koniec)
+plt.quiver(0, 0, 1, 2, angles='xy', scale_units='xy', scale=1, color='b') # szybki sposób na rysowanie wektorów quiver(x_początek, y_początek, x_koniec, y_koniec)
+plt.quiver(0, 0, 3, 3, angles='xy', scale_units='xy', scale=1, color='g') # szybki sposób na rysowanie wektorów quiver(x_początek, y_początek, x_koniec, y_koniec)
+plt.xlim(-1, 4) # ustawienie zakresu osi x
+plt.ylim(-1, 4) # ustawienie zakresu osi y
+plt.grid(True) # włączenie siatki
+plt.gca().set_aspect('equal') # ustawienie takiej samej skali na osiach x i y
+plt.show()
+```
+
+## Układy współrzędnych na płaszczyźnie i w przestrzeni
+
+**Układ współrzędnych kartezjańskich** jest podstawowym układem współrzędnych, w którym punkty w przestrzeni są określane przez ich odległości od ustalonych osi: $x$, $y$ (dla 2D) i $z$ (dla 3D). 
+
+- W 2D, każdy punkt można zapisać jako $(x, y)$.
+- W 3D, punkty mają postać $(x, y, z)$.
+
+**Układ biegunowy** jest używany w 2D i definiuje punkt poprzez odległość od punktu początkowego (r) oraz kąt (θ) względem osi odniesienia.
+
+**Układ sferyczny** jest używany w 3D i definiuje punkt poprzez odległość od punktu początkowego (r), kąt azymutu (θ) i kąt elewacji (φ).
+
+Wektory można reprezentować za pomocą składowych w układzie kartezjańskim, gdzie każda składowa odpowiada odległości punktu od odpowiedniej osi współrzędnych.
+
+- Dla wektora w przestrzeni dwuwymiarowej: $\mathbf{a} = [a_x, a_y]= a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}$
+- Dla wektora w przestrzeni trójwymiarowej:$\mathbf{a} = [a_x, a_y, a_z] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}} + a_z\hat{\mathbf{k}}$
+
+## Baza
+
+**Baza** wektorów to zbiór wektorów, które rozpięcie tworzy przestrzeń wektorową. W przestrzeni kartezjańskiej standardową bazą są wektory $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$.
+
+Dla 2D:
+
+$$
+\hat{\mathbf{i}} = [1, 0], \quad \hat{\mathbf{j}} = [0, 1]
+$$
+
+Dla 3D:
+
+$$
+\hat{\mathbf{i}} = [1, 0, 0], \quad \hat{\mathbf{j}} = [0, 1, 0], \quad \hat{\mathbf{k}} = [0, 0, 1]
+$$
+
+Tak zdefiniowane wektory bazowe są jednostkowe i prostopadłe do siebie.
+
+### Znajdowanie współrzędnych wektora w nowej bazie
+
+Aby znaleźć współrzędne wektora $\mathbf{v}$ w nowej bazie $\{\mathbf{b_1}, \mathbf{b_2}, \mathbf{b_3}\}$, należy wyrazić $\mathbf{v}$ jako kombinację liniową wektorów bazy.
+
+$$
+\mathbf{v} = c_1 \mathbf{b_1} + c_2 \mathbf{b_2} + c_3 \mathbf{b_3}
+$$
+
+Współczynniki $c_1, c_2, c_3$ są współrzędnymi wektora $\mathbf{v}$ w nowej bazie.
+
+---
+
+## Zadania dla studentów
+
+A. Przez jaką liczbę należy pomnożyć wektor $\mathbf{a} = [3, 4]$, aby jego długość była równa 1?
+
+B. Policz długość wektora $\mathbf{b} = [1, 1]$ i znajdź wersor tego wektora. 
+
+C. Zaprezentuj wektor i wersor z poprzedniego zadania na wykresie.
+
+D. Policz długość wektora $\mathbf{c} = [1, 2, 3]$ i znajdź wersor tego wektora.
+
+E. Znajdź współrzędne kartezjańskiego wektora $\mathbf{v} = [2, 3, 4]$ w bazie $\{\mathbf{b_1} = [1, 0, 1], \mathbf{b_2} = [0, 1, 0], \mathbf{b_3} = [1, 0, -1]\}$.
+
+

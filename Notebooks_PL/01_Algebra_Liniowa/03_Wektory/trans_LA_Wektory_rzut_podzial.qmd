@@ -1,0 +1,113 @@
+---
+title: Wektory  - Rzuty i podziały
+jupyter: python3
+---
+
+
+
+## Rzutowanie wektora na wektor
+
+Rzutowanie wektora $\mathbf{a}$ na oś $\mathbf{b}$ polega na znalezieniu składowej wektora $\mathbf{a}$ wzdłuż kierunku $\mathbf{b}$. 
+
+Rzut $\mathbf{a}$ na $\mathbf{b}$:
+
+$$
+\text{Proj}_{\mathbf{b}} \mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|^2} \mathbf{b}
+$$
+
+
+## Rzutowanie wektora na osie
+
+Rzutowanie wektora $\mathbf{a}$ na oś polega na znalezieniu składowej wektora $\mathbf{a}$ wzdłuż osi.
+
+Rzut $\mathbf{a}$ na oś $OX$:
+
+$$
+\text{Proj}_{OX} \mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{i}}{|\mathbf{i}|^2} \mathbf{i} = \frac{\mathbf{a} \cdot \mathbf{i}}{1} \mathbf{i} = (\mathbf{a} \cdot \mathbf{i}) \mathbf{i}
+$$
+
+Rzut $\mathbf{a}$ na oś $OY$:
+
+$$
+\text{Proj}_{OY} \mathbf{a} = \frac{\mathbf{a} \cdot \mathbf{j}}{|\mathbf{j}|^2} \mathbf{j} = \frac{\mathbf{a} \cdot \mathbf{j}}{1} \mathbf{j} = (\mathbf{a} \cdot \mathbf{j}) \mathbf{j}
+$$
+
+Przypominamy, że $\mathbf{i} = (1, 0)$ i $\mathbf{j} = (0, 1)$ są wektorami jednostkowymi wzdłuż osi $OX$ i $OY$.
+
+
+## Dzielenie odcinka w określonym stosunku
+
+Odcinek jest zdefiniowany przez dwa punkty w przestrzeni. 
+
+Odcinki i wektory są ściśle powiązane, ponieważ odcinek łączący dwa punkty można traktować jako wektor skierowany od jednego punktu do drugiego.
+
+Jeśli punkt \( P \) dzieli odcinek łączący punkty $A(x_1, y_1)$ i $B(x_2, y_2)$ w stosunku $m:n$ to współrzędne punktu $P$ można znaleźć z wzoru:
+
+$$
+P = \left(\frac{n \times x_2 + m \times x_1}{m+n}, \frac{n \times y_2 + m \times y_1}{m+n}\right)
+$$
+
+**Przykład:**
+
+Dany jest odcinek łączący punkty $A(1, 2)$ i $B(3, 8)$. Znajdź punkt $P$, który dzieli odcinek w stosunku 2:3.
+
+Współrzędne punktu $P$:
+$$
+P = \left(\frac{2 \times 3 + 3 \times 1}{2+3}, \frac{2 \times 8 + 3 \times 2}{2+3}\right) = \left(\frac{9}{5}, \frac{22}{5}\right)
+$$
+
+```{python}
+import matplotlib.pyplot as plt
+import math
+
+# Współrzędne punktów A i B
+A = (1, 2)
+B = (3, 8)
+
+# Stosunek m:n
+m, n = 2, 3
+
+# Obliczenie współrzędnych punktu P, który dzieli odcinek w stosunku 2:3
+P_x = (n * A[0] + m * B[0]) / (m + n)
+P_y = (n * A[1] + m * B[1]) / (m + n)
+P = (P_x, P_y)
+
+# Rysowanie wykresu
+plt.figure(figsize=(6, 6))
+
+# Rysowanie odcinka AB
+plt.plot([A[0], B[0]], [A[1], B[1]], 'k--', label='Odcinek AB')
+
+# Zaznaczanie punktów A, B i P
+plt.scatter(*A, color='blue', label='A(1, 2)')
+plt.scatter(*B, color='red', label='B(3, 8)')
+plt.scatter(*P, color='green', label=f'P({P[0]:.2f}, {P[1]:.2f})')
+
+# Opisy punktów
+plt.text(A[0]-0.2, A[1], 'A(1, 2)', fontsize=12, color='blue')
+plt.text(B[0]+0.1, B[1], 'B(3, 8)', fontsize=12, color='red')
+plt.text(P[0]+0.1, P[1], f'P({P[0]:.2f}, {P[1]:.2f})', fontsize=12, color='green')
+
+# Dodanie siatki i etykiet osi
+plt.grid(True)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Dzielenie odcinka w stosunku 2:3')
+plt.legend()
+
+# Wyświetlenie wykresu
+plt.show()
+```
+
+---
+## Zadania dla studentów
+
+- Podziel odcinek łączący punkty $A(-1, 2)$ i $B(3, -2)$ w stosunku $1:3$. Zilustruj wynik na wykresie.
+
+- Wykonaj rzutowanie wektora $\mathbf{a} = (3, 4)$ na oś $OX$ i oś $OY$. Zilustruj wynik na wykresie.
+
+- Wykonaj rzutowanie wektora $\mathbf{a} = (2,3)$ na wektor $\mathbf{b} = (1, 1)$. Zilustruj wynik na wykresie.
+
+- Wykonaj rzutowanie wektora $\mathbf{b} = (1, 1)$ na wektor $\mathbf{a} = (2, 3)$. Z ilustruj wynik na wykresie.
+
+
