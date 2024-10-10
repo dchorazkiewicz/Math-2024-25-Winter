@@ -15,6 +15,7 @@
    * Google Colab [https://colab.research.google.com/](https://colab.research.google.com/)
    * GitHub: [http://github.com](http://github.com)
    * LaTeX: [https://www.latex-project.org/get/](https://www.latex-project.org/get/) oraz [link](https://tilburgsciencehub.com/topics/research-skills/templates-dynamic-content/templates/amsmath-latex-cheatsheet/)
+   * Geogebra [https://www.geogebra.org/](https://www.geogebra.org/)
 
 
 # Math-2024-25-Winter
@@ -34,8 +35,5 @@
    * Google Colab [https://colab.research.google.com/](https://colab.research.google.com/)
    * GitHub: [http://github.com](http://github.com)
    * LaTeX: [https://www.latex-project.org/get/](https://www.latex-project.org/get/) and [link](https://tilburgsciencehub.com/topics/research-skills/templates-dynamic-content/templates/amsmath-latex-cheatsheet/)
+   * Geogebra [https://www.geogebra.org/](https://www.geogebra.org/)
 
-
----
-
-Inne źródła (Other sources):
