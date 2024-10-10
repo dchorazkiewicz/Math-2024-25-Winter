@@ -1,0 +1,228 @@
+---
+title: "Vector Operations in R³"
+format: 
+  html:
+    code-fold: true
+    html-math-method: katex
+---
+
+## Dot Product
+
+The dot product (also known as the inner product) of two vectors is an operation that returns a scalar value. It is defined as the sum of the products of corresponding coordinates of two vectors.
+
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in space $\mathbb{R}^n$, where:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
+$$
+
+The dot product is defined as:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + \dots + a_nb_n = \sum_{i=1}^{n} a_i b_i
+$$
+
+Example for three-dimensional space ($ \mathbb{R}^3 $):
+
+For vectors $\mathbf{a} = [a_1, a_2, a_3]$ and $\mathbf{b} = [b_1, b_2, b_3]$, the dot product is:
+
+$$ 
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3
+$$
+
+The dot product returns a number that measures the "directional similarity" of two vectors. If $\mathbf{a} \cdot \mathbf{b} = 0$, the vectors are perpendicular.
+
+Alternatively, the dot product can be written as:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos(\theta),
+$$
+which is the product of the lengths of vectors $\mathbf{a}$ and $\mathbf{b}$ multiplied by the cosine of the angle between them.
+
+## Cross Product
+
+The cross product (also known as the vector product) is an operation that returns a new vector perpendicular to the two input vectors. It is only defined in three-dimensional space $ \mathbb{R}^3 $.
+
+For two vectors $ \mathbf{a} = [a_1, a_2, a_3] $ and $ \mathbf{b} = [b_1, b_2, b_3] $, the cross product $ \mathbf{a} \times \mathbf{b} $ is defined as:
+
+$$ \mathbf{a} \times \mathbf{b} =
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{vmatrix}
+$$
+
+Where $ \mathbf{i}, \mathbf{j}, \mathbf{k} $ are unit vectors along the $ x, y, z $ axes. Interestingly, to calculate the cross product and obtain the final vector, we use a determinant (scalar) of a matrix (second-order tensor), whose rows are base vectors (vectors) and vector components (scalars).
+
+The cross product can be written in expanded form:
+
+$$ \mathbf{a} \times \mathbf{b} = \left( a_2b_3 - a_3b_2 \right)\mathbf{i} - \left( a_1b_3 - a_3b_1 \right)\mathbf{j} + \left( a_1b_2 - a_2b_1 \right)\mathbf{k} $$
+
+The result of the cross product is a new vector:
+
+$$ \mathbf{c} = \mathbf{a} \times \mathbf{b} = [a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1] $$
+
+The cross product returns a vector $\mathbf{c}$ perpendicular to the plane defined by $ \mathbf{a} $ and $ \mathbf{b} $, and its magnitude equals the area of the parallelogram defined by vectors $ \mathbf{a} $ and $ \mathbf{b} $:
+$$
+|\mathbf{c}| = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+where $\theta$ is the angle between the vectors. The direction of vector $\vec{c}$ is determined by the right-hand rule.
+
+## Scalar Triple Product
+
+The scalar triple product of three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is defined as:
+
+$$
+\mathbf{a} \cdot \left( \mathbf{b} \times \mathbf{c} \right)
+$$
+
+This is equivalent to the dot product of $\mathbf{a}$ with the cross product of $\mathbf{b}$ and $\mathbf{c}$.
+
+The scalar triple product equals zero if vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ are colinear or parallel.
+
+The volume of a parallelepiped defined by three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ equals the absolute value of their scalar triple product.
+
+## Implementation
+
+```{python}
+import sympy as sp 
+# Vector definitions
+a = sp.Matrix([1, 2, 3])
+b = sp.Matrix([4, 5, 6])
+c = sp.Matrix([7, 0, 9])
+d = sp.Matrix([0, 2, 0])
+```
+
+```{python}
+# display vector c
+c
+```
+
+```{python}
+# adding vectors a and b
+a+b
+```
+
+```{python}
+# dot product of a and b
+(1*4+2*5+3*6)==a.dot(b)
+```
+
+```{python}
+# cross product of a and c
+# a = [1, 2, 3]
+# c = [7, 0, 9]
+
+# Helper: write vectors as 3x3 matrices
+# i, j, k
+# 1, 2, 3
+# 7, 0, 9
+
+# Now
+comp1 = (2*9-3*0)
+comp2 = -(1*9-3*7)
+comp3 = (1*0-2*7)
+
+# Result
+sp.Matrix([comp1, comp2, comp3])==a.cross(c)
+```
+
+```{python}
+# Perpendicularity of vectors
+# c = [7, 0, 9]
+# d = [0, 2, 0]
+
+# If the dot product of vectors equals 0, they are perpendicular
+dot_product = 7*0+0*2+9*0
+dot_product==0
+```
+
+## Applications
+
+### Calculating the Angle Between Vectors
+
+$$
+\cos \theta = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|}
+$$
+
+### Checking Vector Perpendicularity
+
+Vectors $\mathbf{a}$ and $\mathbf{b}$ are perpendicular if their dot product is zero:
+$$
+\mathbf{a} \cdot \mathbf{b} = 0 
+\quad \Leftrightarrow \quad
+ \mathbf{a} \perp \mathbf{b}
+$$
+
+### Finding Vector Projections
+
+$$
+\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}
+$$
+
+### Calculating Work Done by a Force in Physics
+
+For a force $\mathbf{F} = (F_x, F_y, F_z)$ acting along displacement $\mathbf{d} = (d_x, d_y, d_z)$, work is calculated as:
+
+$$
+W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| |\mathbf{d}| \cos \theta = F_x d_x + F_y d_y + F_z d_z
+$$
+
+### Torque
+
+In physics: torque is the cross product of the position vector and force vector:
+
+$$
+\mathbf{M} = \mathbf{r} \times \mathbf{F}
+$$
+
+### Calculating Parallelogram Area
+
+The area of a parallelogram spanned by two vectors:
+
+$$
+\text{Area}_{p} = \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+### Calculating Triangle Area
+
+The area of a triangle spanned by two vectors $\mathbf{a}$ and $\mathbf{b}$:
+
+$$
+\text{Area}_{t} = \frac{1}{2} |\mathbf{a} \times \mathbf{b}|
+$$
+
+### Calculating Volumes of Parallelepipeds and Tetrahedra
+
+The scalar triple product is used to calculate volumes of parallelepipeds and tetrahedra. For three vectors **$\mathbf{a}$**, **$\mathbf{b}$**, and **$\mathbf{c}$**, the volume of a parallelepiped is given by:
+
+$$
+V = |\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})|
+$$
+(Note: **| |** here denotes absolute value, not magnitude!)
+
+### Checking if Three Vectors are Coplanar
+
+If the scalar triple product of three vectors equals zero, it means the vectors are coplanar. Otherwise, they form a tetrahedron.
+
+---
+
+## Student Exercises
+
+A. Add vector $[2, 1]$ to vector $[-1, 1]$. Plot both vectors and their sum on a graph.
+
+B. Calculate the area of the triangle spanned by vectors $[2, 1]$ and $[-1, 1]$.
+
+C. Calculate the volume of the parallelepiped spanned by vectors $[2, 1]$, $[-1, 1]$, and $[1, 2]$.
+
+D. Check if vectors $[2, 1]$ and $[-1, 1]$ are perpendicular.
+
+E. Calculate the angle in degrees between vectors $[4,2,1]$ and $[1,3,2]$.
+
+F. For three-dimensional vectors: $\mathbf{a}=[a_x, a_y, a_z]$, $\mathbf{b}=[b_x, b_y, b_z]$, $\mathbf{c}=[c_x, c_y, c_z]$, prove the identity: 
+
+$$
+\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}.
+$$
