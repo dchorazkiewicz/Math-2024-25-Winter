@@ -1,0 +1,227 @@
+---
+title: 'Vectors - Scalar, Vector, Mixed Products'
+jupyter: python3
+---
+
+
+
+## Scalar Product
+
+The scalar product (also called the dot product) of two vectors is an operation that returns a scalar value. It is defined as the sum of the products of the corresponding components of two vectors.
+
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in the space $\mathbb{R}^n$, where:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
+$$
+
+The scalar product is defined as follows:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + \dots + a_nb_n = \sum_{i=1}^{n} a_i b_i
+$$
+
+Example for three-dimensional space ($ \mathbb{R}^3 $):
+
+For vectors $\mathbf{a} = [a_1, a_2, a_3]$ and $\mathbf{b} = [b_1, b_2, b_3]$, the scalar product is:
+
+$$ 
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3
+$$
+
+The scalar product returns a number that measures the "similarity of direction" between two vectors. If $\mathbf{a} \cdot \mathbf{b} = 0$, the vectors are perpendicular.
+
+Alternatively, the scalar product can be expressed as:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos(	heta),
+$$
+which is the product of the magnitudes of vectors $\mathbf{a}$ and $\mathbf{b}$ multiplied by the cosine of the angle between them.
+
+## Vector Product
+
+The vector product (also called the cross product) is an operation that returns a new vector perpendicular to the two input vectors. It is defined only in three-dimensional space $ \mathbb{R}^3 $.
+
+For two vectors $ \mathbf{a} = [a_1, a_2, a_3] $ and $ \mathbf{b} = [b_1, b_2, b_3] $, the vector product $ \mathbf{a} 	imes \mathbf{b} $ is defined as:
+
+$$ \mathbf{a} 	imes \mathbf{b} =
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{vmatrix}
+$$
+
+Where $ \mathbf{i}, \mathbf{j}, \mathbf{k} $ are unit vectors along the $ x, y, z $ axes. Interestingly, to calculate the vector product and obtain the resulting vector, we use the determinant (a scalar) of the matrix (a second-order tensor) whose rows are the basis vectors (vectors) and the components of the vectors (scalars).
+
+The vector product can be expressed in expanded form:
+
+$$ \mathbf{a} 	imes \mathbf{b} = \left( a_2b_3 - a_3b_2 \right)\mathbf{i} - \left( a_1b_3 - a_3b_1 \right)\mathbf{j} + \left( a_1b_2 - a_2b_1 \right)\mathbf{k} $$
+
+The result of the vector product is a new vector:
+
+$$ \mathbf{c} = \mathbf{a} 	imes \mathbf{b} = [a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1] $$
+
+The vector product returns a vector $\mathbf{c}$ perpendicular to the plane defined by $ \mathbf{a} $ and $ \mathbf{b} $, and its magnitude is equal to the area of the parallelogram whose sides are defined by the vectors $ \mathbf{a} $ and $ \mathbf{b} $
+$$
+|\mathbf{c}| = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+where $	heta$ is the angle between the vectors. The direction of vector $ec{c}$ is determined by the right-hand rule.
+
+## Mixed Product
+
+The mixed product of three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is defined as:
+
+$$
+\mathbf{a} \cdot \left( \mathbf{b} \times \mathbf{c} \right)
+$$
+
+This is equivalent to the scalar product $\mathbf{a} \times \left( \mathbf{b} \times \mathbf{c} \right)$.
+
+The mixed product is equal to zero if the vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ are collinear or parallel.
+
+The volume of the parallelepiped defined by three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is equal to the absolute value of the mixed product of these vectors.
+
+## Implementation
+
+```{python}
+import sympy as sp 
+# Vector definitions
+a = sp.Matrix([1, 2, 3])
+b = sp.Matrix([4, 5, 6])
+c = sp.Matrix([7, 0, 9])
+d = sp.Matrix([0, 2, 0])
+```
+
+```{python}
+# Display vector c
+c
+```
+
+```{python}
+# Adding vectors a and b
+a + b
+```
+
+```{python}
+# Dot product of a and b
+(1*4 + 2*5 + 3*6) == a.dot(b)
+```
+
+```{python}
+# Cross product of a and c
+# a = [1, 2, 3]
+# c = [7, 0, 9]
+
+# As an aid, write the vectors as 3x3 matrices
+# i, j, k
+# 1, 2, 3
+# 7, 0, 9
+
+# Now
+comp1 = (2*9 - 3*0)
+comp2 = -(1*9 - 3*7)
+comp3 = (1*0 - 2*7)
+
+# Result
+sp.Matrix([comp1, comp2, comp3]) == a.cross(c)
+```
+
+```{python}
+# Perpendicularity of vectors
+# c = [7, 0, 9]
+# d = [0, 2, 0]
+
+# If the dot product of vectors is equal to 0, they are perpendicular
+dot_product = 7*0 + 0*2 + 9*0
+dot_product == 0
+```
+
+## Applications
+
+### Calculating the Angle Between Vectors
+
+$$
+\cos \theta = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|}
+$$
+
+### Checking Vector Perpendicularity
+
+Vectors $\mathbf{a}$ and $\mathbf{b}$ are perpendicular if their dot product is zero:
+$$
+\mathbf{a} \cdot \mathbf{b} = 0 
+\quad \Leftrightarrow \quad
+ \mathbf{a} \perp \mathbf{b}
+$$
+
+### Finding Projections of Vectors onto Other Vectors
+
+$$
+\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}
+$$
+
+### Calculating Work Done by a Force in Physics
+
+For a force $\mathbf{F} = (F_x, F_y, F_z)$ acting along a displacement $\mathbf{d} = (d_x, d_y, d_z)$, work is calculated as:
+
+$$
+W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| |\mathbf{d}| \cos \theta = F_x d_x + F_y d_y + F_z d_z
+$$
+
+### Torque
+
+In physics: torque is the vector product of the force vector and the arm of the force:
+
+$$
+\mathbf{M} = \mathbf{r} \times \mathbf{F}
+$$
+
+### Calculating the Area of a Parallelogram
+
+The area of a parallelogram spanned by two vectors:
+
+$$
+\text{Area}_{r} = \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+### Calculating the Area of a Triangle
+
+The area of a triangle spanned by two vectors $\mathbf{a}$ and $\mathbf{b}$:
+
+$$
+\text{Area}_{t} = \frac{1}{2} |\mathbf{a} \times \mathbf{b}|
+$$
+
+### Calculating the Volume of Parallelepipeds and Tetrahedrons
+
+The mixed product of vectors is used to calculate the volume of parallelepipeds and tetrahedrons. For three vectors **$\mathbf{a}$**, **$\mathbf{b}$**, and **$\mathbf{c}$**, the volume of the parallelepiped is given by:
+
+$$
+V = |\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})|
+$$
+(Note: **| |** here denotes the absolute value, not the magnitude!)
+
+### Checking Coplanarity of Three Vectors
+
+If the mixed product of three vectors is equal to zero, it means that the vectors are coplanar. Otherwise, they form a tetrahedron.
+
+---
+
+## Student Exercises
+
+A. Perform the addition of vector $[2, 1]$ to vector $[-1, 1]$. Plot both vectors and their sum on a graph.
+
+B. Calculate the area of the triangle spanned by vectors $[2, 1]$ and $[-1, 1]$.
+
+C. Calculate the volume of the parallelepiped spanned by vectors $[2, 1]$, $[-1, 1]$, and $[1, 2]$.
+
+D. Check if vectors $[2, 1]$ and $[-1, 1]$ are perpendicular.
+
+E. Calculate the angle in degrees between vectors $[4,2,1]$ and $[1,3,2]$.
+
+F. For three-dimensional vectors: $\mathbf{a}=[a_x, a_y, a_z]$, $\mathbf{b}=[b_x, b_y, b_z]$, $\mathbf{c}=[c_x, c_y, c_z]$, prove that the following identity is satisfied:
+
+$$
+\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}.
+$$

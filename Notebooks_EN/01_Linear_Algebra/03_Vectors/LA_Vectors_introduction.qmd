@@ -1,0 +1,191 @@
+---
+title: 'Vectors - Introduction'
+jupyter: python3
+---
+
+
+**Vectors** are quantities that have both magnitude and direction in space. They are used to describe various physical quantities such as velocity, force, or electric field intensity. Unlike scalars, which have only magnitude (e.g., mass, temperature), vectors require a direction to be specified.
+
+A vector is represented with an arrow above the symbol $\vec{a}$ or in bold type $\mathbf{a}$.
+- The magnitude of a vector can be written as $\vec{a}|$ or $a$.
+- A vector of length 1 is called a unit vector and is denoted by $\hat{\mathbf{a}} = \frac{\vec{a}}{|\vec{a}|}$.
+
+**Example:**
+
+The vector $\mathbf{a}= [3, 4]$ has a magnitude $a = 5$, and the corresponding unit vector (unit vector along the direction of vector $\mathbf{a}$) is expressed as $\hat{\mathbf{a}} = \left[\frac{3}{5}, \frac{4}{5}\right]$.
+
+
+```{python}
+import sympy as sp  # import the sympy module
+
+# For vector $\mathbf{a} = [a_x, a_y]$, the magnitude is given by the formula: 
+# $$ |\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2} $$
+
+a_x, a_y = sp.symbols('a_x a_y')  # Step 1: Define symbolic variables a_x and a_y
+magnitude_a = sp.sqrt(a_x**2 + a_y**2)  # Step 2: Create the formula for the magnitude of vector a
+magnitude_a  # Step 3: Display the result
+```
+
+```{python}
+# Assign values to a_x and a_y
+a_x = 3  # x component of the vector
+a_y = 4  # y component of the vector
+
+magnitude_a = sp.sqrt(a_x**2 + a_y**2)  # Calculate the magnitude of the vector for a_x = 3 and a_y = 4
+magnitude_a.evalf()  # Numerically calculate the magnitude of the vector (expected result: 5)
+```
+
+## Vector Addition
+
+Vector addition involves adding the corresponding components of vectors of the same length.
+
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in the space $\mathbb{R}^n$, where:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
+$$
+
+Vector addition is defined as follows:
+
+$$
+\mathbf{a} + \mathbf{b} = [a_1 + b_1, a_2 + b_2, \dots, a_n + b_n]
+$$
+
+## Scalar Multiplication of a Vector
+
+Scalar multiplication of a vector involves multiplying each component of the vector by the same number.
+
+For a vector $\mathbf{a}$ and a scalar $k$:
+
+$$
+k \mathbf{a} = [k a_1, k a_2, \dots, k a_n]
+$$
+
+## Vectors in the Plane and Space
+
+**Vectors in 2D:**
+
+If $\mathbf{a} = [a_x, a_y]$, then the magnitude is given by the formula $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2}$.
+
+**Vectors in 3D:**
+
+If $\mathbf{a} = [a_x, a_y, a_z]$, then the magnitude of the vector is $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2 + a_z^2}$.
+
+## Plotting a Vector
+
+```{python}
+import matplotlib.pyplot as plt # import the matplotlib.pyplot module
+
+plt.figure() # create a new figure
+plt.quiver(0, 0, 3, 4, angles='xy', scale_units='xy', scale=1, color='r') # quick way to plot a vector quiver(x_start, y_start, x_end, y_end)
+plt.xlim(0, 5) # set x-axis range
+plt.ylim(0, 5) # set y-axis range
+plt.grid(True) # enable grid
+plt.gca().set_aspect('equal') # set equal scaling on x and y axes
+plt.show()
+```
+
+## Example of Simple Vector Implementation in Python
+
+Given vectors $\mathbf{a}=[1, 2]$ and $\mathbf{b}=[3, 4]$, we want to calculate their sum $\mathbf{c}=\mathbf{a}+\mathbf{b}= [1+3, 2+4] = [4, 6]$
+
+```{python}
+import sympy as sp # import the sympy module
+
+a=[1, 2] # vector a
+b=[3, 4] # vector b
+c = [a[0] + b[0], a[1] + b[1]] # sum of vectors a and b
+c # display the result
+```
+
+## Example of Better Vector Implementation in Python
+
+Vectors are represented as column matrices. Then vector addition is the same as matrix addition.
+
+```{python}
+import sympy as sp 
+
+# Vector definitions
+a = sp.Matrix([1, 2, 3])
+b = sp.Matrix([4, 5, 6])
+c = sp.Matrix([7, 0, 9])
+d = sp.Matrix([0, 2, 0])
+
+a + b + c - d # An operation involving addition and subtraction of vectors
+```
+
+## Plotting Vector Addition
+
+Example: $\mathbf{a}=[2,1]$ and $\mathbf{b}=[1,2]$ results in vector $\mathbf{c}=\mathbf{a}+\mathbf{b}=[3,3]$.
+
+```{python}
+import matplotlib.pyplot as plt # import the matplotlib.pyplot module #example of vector addition in two-dimensional space
+
+plt.figure() # create a new figure
+plt.quiver(0, 0, 2, 1, angles='xy', scale_units='xy', scale=1, color='r') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(0, 0, 1, 2, angles='xy', scale_units='xy', scale=1, color='b') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(0, 0, 3, 3, angles='xy', scale_units='xy', scale=1, color='g') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.xlim(-1, 4) # set x-axis range
+plt.ylim(-1, 4) # set y-axis range
+plt.grid(True) # enable grid
+plt.gca().set_aspect('equal') # set equal scaling on x and y axes
+plt.show()
+```
+
+## Coordinate Systems in the Plane and Space
+
+**Cartesian Coordinate System** is the basic coordinate system in which points in space are specified by their distances from fixed axes: $x$, $y$ (for 2D) and $z$ (for 3D).
+
+- In 2D, each point can be written as $(x, y)$.
+- In 3D, points are of the form $(x, y, z)$.
+
+**Polar Coordinate System** is used in 2D and defines a point by its distance from the origin (r) and the angle (θ) relative to the reference axis.
+
+**Spherical Coordinate System** is used in 3D and defines a point by its distance from the origin (r), azimuth angle (θ), and elevation angle (φ).
+
+Vectors can be represented using components in the Cartesian coordinate system, where each component corresponds to the distance of the point from the respective coordinate axis.
+
+- For a vector in two-dimensional space: $\mathbf{a} = [a_x, a_y] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}$
+- For a vector in three-dimensional space: $\mathbf{a} = [a_x, a_y, a_z] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}} + a_z\hat{\mathbf{k}}$
+
+## Basis
+
+**Basis** of vectors is a set of vectors that spans a vector space. In Cartesian space, the standard basis vectors are $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$.
+
+For 2D:
+
+$$
+\hat{\mathbf{i}} = [1, 0], \quad \hat{\mathbf{j}} = [0, 1]
+$$
+
+For 3D:
+
+$$
+\hat{\mathbf{i}} = [1, 0, 0], \quad \hat{\mathbf{j}} = [0, 1, 0], \quad \hat{\mathbf{k}} = [0, 0, 1]
+$$
+
+These basis vectors are unit vectors and are perpendicular to each other.
+
+### Finding the Coordinates of a Vector in a New Basis
+
+To find the coordinates of vector $\mathbf{v}$ in a new basis $\{\mathbf{b_1}, \mathbf{b_2}, \mathbf{b_3}\}$, express $\mathbf{v}$ as a linear combination of the basis vectors.
+
+$$
+\mathbf{v} = c_1 \mathbf{b_1} + c_2 \mathbf{b_2} + c_3 \mathbf{b_3}
+$$
+
+The coefficients $c_1, c_2, c_3$ are the coordinates of vector $\mathbf{v}$ in the new basis.
+
+---
+
+## Student Exercises
+
+A. By what number should vector $\mathbf{a} = [3, 4]$ be multiplied so that its length is equal to 1?
+
+B. Calculate the length of vector $\mathbf{b} = [1, 1]$ and find the unit vector of this vector.
+
+C. Plot the vector and the unit vector from the previous exercise.
+
+D. Calculate the length of vector $\mathbf{c} = [1, 2, 3]$ and find the unit vector of this vector.
+
+E. Find the Cartesian coordinates of vector $\mathbf{v} = [2, 3, 4]$ in the basis $\{\mathbf{b_1} = [1, 0, 1], \mathbf{b_2} = [0, 1, 0], \mathbf{b_3} = [1, 0, -1]\}$.
