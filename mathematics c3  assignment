@@ -1,0 +1,37 @@
+import numpy as np
+
+# Create two matrices
+A = np.array([[1, 2, 3],
+              [4, 5, 6],
+              [7, 8, 9]])
+
+B = np.array([[9, 8, 7],
+              [6, 5, 4],
+              [3, 2, 1]])
+
+# Matrix Addition
+C = A + B
+print("Matrix Addition:\n", C)
+
+# Matrix Subtraction
+D = A - B
+print("\nMatrix Subtraction:\n", D)
+
+# Matrix Multiplication (element-wise)
+E = A * B
+print("\nElement-wise Multiplication:\n", E)
+
+# Matrix Multiplication (dot product)
+F = np.dot(A, B)
+print("\nMatrix Dot Product:\n", F)
+
+# Matrix Transpose
+G = A.T
+print("\nMatrix Transpose:\n", G)
+
+# Inverse (if matrix is square and invertible)
+try:
+    H = np.linalg.inv(A)
+    print("\nMatrix Inverse:\n", H)
+except np.linalg.LinAlgError:
+    print("\nMatrix A is not invertible.")
