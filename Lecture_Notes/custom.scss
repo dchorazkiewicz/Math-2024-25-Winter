@@ -1,0 +1,13 @@
+/*-- scss:defaults --*/
+$body-bg: #ffffff;
+$body-color: #333333;
+$link-color: #16076e;
+$font-family-sans-serif: "Arial", sans-serif;
+$font-family-monospace: "Courier New", monospace;
+
+/*-- scss:rules --*/
+h1, h2, h3, h4, h5, h6 {
+    color: $link-color;
+    font-family: $font-family-sans-serif;
+  }
+  
