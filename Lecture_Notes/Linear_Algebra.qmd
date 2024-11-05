@@ -188,7 +188,7 @@ $$
 
 #### Non-Commutativity of Matrix Multiplication
 
-Let's consider a \(1 \times 2\) matrix $\mathbf{A}$ and a \(2 \times 1\) matrix $\mathbf{B}$:
+Consider a $1 \times 2$ row matrix $\mathbf{A}$ and a $2 \times 1$ column matrix $\mathbf{B}$:
 
 $$
 \mathbf{A} =
