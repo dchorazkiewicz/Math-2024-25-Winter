@@ -1,0 +1,16 @@
+---
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    page-layout: full
+    grid:
+      body-width: 1000px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 2rem
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+---

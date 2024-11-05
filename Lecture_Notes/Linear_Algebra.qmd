@@ -1,0 +1,111 @@
+---
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    page-layout: full
+    grid:
+      body-width: 1000px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 2rem
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+---
+
+# Introduction to Linear Algebra
+
+## What is Linear Algebra?
+
+## What is a Matrix?
+
+## Matrix Operations
+
+### Addition
+
+### Multiplication by a Scalar
+
+### Matrix Multiplication
+
+## Determinants
+
+### 2x2 Matrices
+
+### 3x3 Matrices
+
+### Laplace Expansion - Determinants of Larger Matrices
+
+## Inverse of a Matrix
+
+### Minors and Cofactors
+
+### Gauss-Jordan Elimination
+
+## Systems of Linear Equations
+
+### Gaussian Elimination
+
+### Matrix Form of a System of Equations
+
+### Cramer's Formula
+
+## Cartesian spaces
+
+### Coordinate Systems
+
+```{python}
+#|echo: false
+#|include: false
+# turn off warnings
+import warnings
+warnings.filterwarnings('ignore')
+```
+
+```{python}
+#|echo: false
+import sys,os
+import numpy as np
+sys.path.append(os.path.abspath(os.path.join('LA_python')))
+from plot_cart_grid import plot_coordinate_grid
+from plot_point_in_diff_coord import plot_side_by_side_systems
+```
+
+
+```{python}
+v1 = np.array([4, 5])  # some arbitrary vector
+v2 = np.array([4, -1]) # another arbitrary vector
+
+plot_coordinate_grid(v1, v2, grid_size=4)
+```
+
+```{python}
+# Example: Using non-standard vectors and a vector in space
+v1_basis1 = np.array([1,0])  # first versor of basis 1
+v2_basis1 = np.array([0,1]) # second versor of basis 1
+v1_basis2 = np.array([-1, 1])  # first versor of basis 2
+v2_basis2 = np.array([1, 0])  # second versor of basis 2
+
+vector = np.array([3, 2])  # Vector in cartesian coordinates
+
+plot_side_by_side_systems(v1_basis1, v2_basis1, v1_basis2, v2_basis2, vector)
+```
+
+```{python}
+# Example: Using non-standard vectors and a vector in space
+v1_basis1 = np.array([1,1])  # first versor of basis 1
+v2_basis1 = np.array([0,1]) # second versor of basis 1
+v1_basis2 = np.array([-1, -1])  # first versor of basis 2
+v2_basis2 = np.array([1, 0])  # second versor of basis 2
+
+vector = np.array([3, 2])  # Vector in the cartesian coordinates
+
+plot_side_by_side_systems(v1_basis1, v2_basis1, v1_basis2, v2_basis2, vector)
+```
+
+### Vectors
+
+### Basis Vectors
+
+
