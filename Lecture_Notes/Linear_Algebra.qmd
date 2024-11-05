@@ -139,7 +139,7 @@ Let's consider two matrices $\mathbf{A}$ of size $n \times m$ and $\mathbf{B}$ o
 Each element $c_{ij}$ of the resulting matrix $\mathbf{C}$ is calculated as:
 
 $$
-c_{ij} = \sum_{k=1}^{m} a_{ik} b_{kj}
+c_{\color{red}{i}\color{blue}{j}} = \sum_{\color{green}{k}=1}^{m} a_{\color{red}{i}\color{green}{k}} b_{\color{green}{k}\color{blue}{j}}
 $$
 
 for $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, p$.
