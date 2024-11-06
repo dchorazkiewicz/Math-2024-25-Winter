@@ -117,19 +117,18 @@ $$
 The product of the scalar $c$ and the matrix $\mathbf{A}$ is given by:
 
 $$
-c \cdot \mathbf{A} =
-c \cdot
+\textcolor{red}{c} \cdot \mathbf{A} =
+\textcolor{red}{c} \cdot
 \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22}
 \end{bmatrix}
 =
 \begin{bmatrix}
-c \cdot a_{11} & c \cdot a_{12} \\
-c \cdot a_{21} & c \cdot a_{22}
+\textcolor{red}{c} \cdot a_{11} & \textcolor{red}{c} \cdot a_{12} \\
+\textcolor{red}{c} \cdot a_{21} & \textcolor{red}{c} \cdot a_{22}
 \end{bmatrix}
 $$
-
 ### Matrix Multiplication
 
 #### General Form
