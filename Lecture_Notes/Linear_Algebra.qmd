@@ -13,6 +13,7 @@ format:
     theme:
       light: [flatly, custom.scss]
       dark: [darkly, custom.scss]
+    self-contained: true
 ---
 
 # Introduction to Linear Algebra
