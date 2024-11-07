@@ -84,18 +84,18 @@ The sum of matrices $\mathbf{A}$ and $\mathbf{B}$ is given by:
 $$
 \mathbf{A} + \mathbf{B} =
 \begin{bmatrix}
-a_{11} & a_{12} \\
-a_{21} & a_{22}
+\color{blue}{a_{11}} & \color{blue}{a_{12}} \\
+\color{blue}{a_{21}} & \color{blue}{a_{22}}
 \end{bmatrix}
 +
 \begin{bmatrix}
-b_{11} & b_{12} \\
-b_{21} & b_{22}
+\color{red}{b_{11}} & \color{red}{b_{12}} \\
+\color{red}{b_{21}} & \color{red}{b_{22}}
 \end{bmatrix}
 =
 \begin{bmatrix}
-a_{11} + b_{11} & a_{12} + b_{12} \\
-a_{21} + b_{21} & a_{22} + b_{22}
+\color{blue}{a_{11}} + \color{red}{b_{11}} & \color{blue}{a_{12}} + \color{red}{b_{12}} \\
+\color{blue}{a_{21}} + \color{red}{b_{21}} & \color{blue}{a_{22}} + \color{red}{b_{22}}
 \end{bmatrix}
 $$
 
@@ -210,15 +210,15 @@ The product $\mathbf{A} \cdot \mathbf{B}$ is:
 $$
 \mathbf{A} \cdot \mathbf{B} =
 \begin{bmatrix}
-a_{11} & a_{12}
+\color{blue}{a_{11}} & \color{blue}{a_{12}}
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-b_{11} \\
-b_{21}
+\color{red}{b_{11}} \\
+\color{red}{b_{21}}
 \end{bmatrix}
 =
-a_{11}b_{11} + a_{12}b_{21}
+\color{blue}{a_{11}}\color{red}{b_{11}} + \color{blue}{a_{12}}\color{red}{b_{21}}
 $$
 
 Now, let's consider the product $\mathbf{B} \cdot \mathbf{A}$:
@@ -226,17 +226,17 @@ Now, let's consider the product $\mathbf{B} \cdot \mathbf{A}$:
 $$
 \mathbf{B} \cdot \mathbf{A} =
 \begin{bmatrix}
-b_{11} \\
-b_{21}
+\color{red}{b_{11}} \\
+\color{red}{b_{21}}
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
-a_{11} & a_{12}
+\color{blue}{a_{11}} & \color{blue}{a_{12}}
 \end{bmatrix}
 =
 \begin{bmatrix}
-b_{11}a_{11} & b_{11}a_{12} \\
-b_{21}a_{11} & b_{21}a_{12}
+\color{red}{b_{11}}\color{blue}{a_{11}} & \color{red}{b_{11}}\color{blue}{a_{12}} \\
+\color{red}{b_{21}}\color{blue}{a_{11}} & \color{red}{b_{21}}\color{blue}{a_{12}}
 \end{bmatrix}
 $$
 
@@ -244,13 +244,152 @@ As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdo
 
 ## Determinants
 
-### 2x2 Matrices
+Determinants are a scalar value that can be computed from the elements of a square matrix and provide important information about the matrix. The determinant of a matrix is denoted by $\text{det}(\mathbf{A})$ or $|\mathbf{A}|$.
 
-### 3x3 Matrices
+#### 2x2 Matrices
+
+For a $2 \times 2$ matrix $\mathbf{A}$:
+
+$$
+\det(\mathbf{A}) = 
+\left| \begin{matrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{matrix} \right|
+=
+a_{11}a_{22} - a_{12}a_{21}
+$$
+
+
+#### 3x3 Matrices
+
+For a $3 \times 3$ matrix $\mathbf{A}$:
+
+$$
+\det(\mathbf{A}) =
+\left| \begin{matrix}
+\color{red}{a_{11}} & \color{green}{a_{12}} & \color{blue}{a_{13}} \\
+\color{red}{a_{21}} & \color{green}{a_{22}} & \color{blue}{a_{23}} \\
+\color{red}{a_{31}} & \color{green}{a_{32}} & \color{blue}{a_{33}}
+\end{matrix} \right|
+=
+{\color{red}{a_{11}}}({\color{green}{a_{22}}}{\color{blue}{a_{33}}} - {\color{green}{a_{23}}}{\color{blue}{a_{32}}}) - {\color{red}{a_{21}}}({\color{green}{a_{12}}}{\color{blue}{a_{33}}} - {\color{green}{a_{13}}}{\color{blue}{a_{32}}}) + {\color{red}{a_{31}}}({\color{green}{a_{12}}}{\color{blue}{a_{23}}} - {\color{green}{a_{13}}}{\color{blue}{a_{22}}})
+$$
+
+To visualize the calculation of the determinant of a $3 \times 3$ matrix, we can use the rule of Sarrus:
+<div style="text-align: center;">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Sarrus_rule_vertical.svg" alt="Sarrus Rule" width="200"/>
+</div>
 
 ### Laplace Expansion - Determinants of Larger Matrices
 
+The Laplace expansion, also known as cofactor expansion, is a method for calculating the determinant of an $n \times n$ matrix. This method involves expanding the determinant along a row or a column.
+
+For an $n \times n$ matrix $\mathbf{A}$, the determinant can be calculated by expanding along the $i$-th row as follows:
+
+$$
+\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+$$
+
+where $a_{ij}$ is the element of the matrix in the $i$-th row and $j$-th column, and $\mathbf{A}_{ij}$ is the $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
+
+Similarly, the determinant can be calculated by expanding along the $j$-th column:
+
+$$
+\det(\mathbf{A}) = \sum_{i=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+$$
+
+#### Example
+
+Consider the following $4 \times 4$ matrix $\mathbf{A}$:
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} & a_{14} \\
+a_{21} & a_{22} & a_{23} & a_{24} \\
+a_{31} & a_{32} & a_{33} & a_{34} \\
+a_{41} & a_{42} & a_{43} & a_{44}
+\end{bmatrix}
+$$
+
+The determinant of $\mathbf{A}$ can be calculated by expanding along the first row:
+
+$$
+\det(\mathbf{A}) = a_{11} \det(\mathbf{A}_{11}) - a_{12} \det(\mathbf{A}_{12}) + a_{13} \det(\mathbf{A}_{13}) - a_{14} \det(\mathbf{A}_{14})
+$$
+
+where:
+
+$$
+\mathbf{A}_{11} =
+\begin{bmatrix}
+a_{22} & a_{23} & a_{24} \\
+a_{32} & a_{33} & a_{34} \\
+a_{42} & a_{43} & a_{44}
+\end{bmatrix}
+$$
+
+$$
+\mathbf{A}_{12} =
+\begin{bmatrix}
+a_{21} & a_{23} & a_{24} \\
+a_{31} & a_{33} & a_{34} \\
+a_{41} & a_{43} & a_{44}
+\end{bmatrix}
+$$
+
+$$
+\mathbf{A}_{13} =
+\begin{bmatrix}
+a_{21} & a_{22} & a_{24} \\
+a_{31} & a_{32} & a_{34} \\
+a_{41} & a_{42} & a_{44}
+\end{bmatrix}
+$$
+
+$$
+\mathbf{A}_{14} =
+\begin{bmatrix}
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+a_{41} & a_{42} & a_{43}
+\end{bmatrix}
+$$
+
+Thus, the determinant of $\mathbf{A}$ is:
+
+$$
+\det(\mathbf{A}) = a_{11} \left| \begin{matrix}
+a_{22} & a_{23} & a_{24} \\
+a_{32} & a_{33} & a_{34} \\
+a_{42} & a_{43} & a_{44}
+\end{matrix} \right|
+- a_{12} \left| \begin{matrix}
+a_{21} & a_{23} & a_{24} \\
+a_{31} & a_{33} & a_{34} \\
+a_{41} & a_{43} & a_{44}
+\end{matrix} \right|
++ a_{13} \left| \begin{matrix}
+a_{21} & a_{22} & a_{24} \\
+a_{31} & a_{32} & a_{34} \\
+a_{41} & a_{42} & a_{44}
+\end{matrix} \right|
+- a_{14} \left| \begin{matrix}
+a_{21} & a_{22} & a_{23} \\
+a_{31} & a_{32} & a_{33} \\
+a_{41} & a_{42} & a_{43}
+\end{matrix} \right|
+$$
+
+
 ## Inverse of a Matrix
+
+The inverse of a matrix $\mathbf{A}$ is denoted by $\mathbf{A}^{-1}$ and is defined such that the product of $\mathbf{A}$ and $\mathbf{A}^{-1}$ is the identity matrix $\mathbf{I}$:
+
+$$
+\mathbf{A} \cdot \mathbf{A}^{-1} = \mathbf{A}^{-1} \cdot \mathbf{A} = \mathbf{I}
+$$
 
 ### Minors and Cofactors
 
@@ -263,62 +402,4 @@ As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdo
 ### Matrix Form of a System of Equations
 
 ### Cramer's Formula
-
-## Cartesian spaces
-
-### Coordinate Systems
-
-```{python}
-#|echo: false
-#|include: false
-# turn off warnings
-import warnings
-warnings.filterwarnings('ignore')
-```
-
-```{python}
-#|echo: false
-import sys,os
-import numpy as np
-sys.path.append(os.path.abspath(os.path.join('LA_python')))
-from plot_cart_grid import plot_coordinate_grid
-from plot_point_in_diff_coord import plot_side_by_side_systems
-```
-
-
-```{python}
-v1 = np.array([4, 5])  # some arbitrary vector
-v2 = np.array([4, -1]) # another arbitrary vector
-
-plot_coordinate_grid(v1, v2, grid_size=4)
-```
-
-```{python}
-# Example: Using non-standard vectors and a vector in space
-v1_basis1 = np.array([1,0])  # first versor of basis 1
-v2_basis1 = np.array([0,1]) # second versor of basis 1
-v1_basis2 = np.array([-1, 1])  # first versor of basis 2
-v2_basis2 = np.array([1, 0])  # second versor of basis 2
-
-vector = np.array([3, 2])  # Vector in cartesian coordinates
-
-plot_side_by_side_systems(v1_basis1, v2_basis1, v1_basis2, v2_basis2, vector)
-```
-
-```{python}
-# Example: Using non-standard vectors and a vector in space
-v1_basis1 = np.array([1,1])  # first versor of basis 1
-v2_basis1 = np.array([0,1]) # second versor of basis 1
-v1_basis2 = np.array([-1, -1])  # first versor of basis 2
-v2_basis2 = np.array([1, 0])  # second versor of basis 2
-
-vector = np.array([3, 2])  # Vector in the cartesian coordinates
-
-plot_side_by_side_systems(v1_basis1, v2_basis1, v1_basis2, v2_basis2, vector)
-```
-
-### Vectors
-
-### Basis Vectors
-
 
