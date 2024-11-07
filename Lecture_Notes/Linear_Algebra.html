@@ -3393,6 +3393,7 @@ c_{\color{red}{i}\color{blue}{j}} = \sum_{\color{green}{k}=1}^{m} a_{\color{red}
 \]</span></p>
 <p>for <span class="math inline">\(i = 1, 2, \ldots, n\)</span> and <span class="math inline">\(j = 1, 2, \ldots, p\)</span>.</p>
 <p>In other words, the element in the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column of <span class="math inline">\(\mathbf{C}\)</span> is the sum of the products of the elements from the <span class="math inline">\(i\)</span>-th row of <span class="math inline">\(\mathbf{A}\)</span> and the <span class="math inline">\(j\)</span>-th column of <span class="math inline">\(\mathbf{B}\)</span>.</p>
+<p>Check this link: <a href="http://matrixmultiplication.xyz/">Interactive multiplication</a></p>
 </section>
 <section id="x2-matrices" class="level4">
 <h4 class="anchored" data-anchor-id="x2-matrices">2x2 Matrices</h4>
@@ -3518,7 +3519,7 @@ b_{21}a_{11} &amp; b_{21}a_{12}
 <h2 class="anchored" data-anchor-id="cartesian-spaces">Cartesian spaces</h2>
 <section id="coordinate-systems" class="level3">
 <h3 class="anchored" data-anchor-id="coordinate-systems">Coordinate Systems</h3>
-<div id="127aa995" class="cell" data-execution_count="3">
+<div id="35b0ceaf" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">5</span>])  <span class="co"># some arbitrary vector</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="op">-</span><span class="dv">1</span>]) <span class="co"># another arbitrary vector</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3535,7 +3536,7 @@ Normalized v2: [ 0.9701425  -0.24253563]</code></pre>
 </div>
 </div>
 </div>
-<div id="6da138d7" class="cell" data-execution_count="4">
+<div id="3756f1b5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Using non-standard vectors and a vector in space</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>v1_basis1 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>])  <span class="co"># first versor of basis 1</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>v2_basis1 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="co"># second versor of basis 1</span></span>
@@ -3557,7 +3558,7 @@ Normalized v2: [ 0.9701425  -0.24253563]</code></pre>
 Vector components in basis 2: [2.82842712 5.        ]</code></pre>
 </div>
 </div>
-<div id="4116355f" class="cell" data-execution_count="5">
+<div id="32dbeb70" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Using non-standard vectors and a vector in space</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>v1_basis1 <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">1</span>])  <span class="co"># first versor of basis 1</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>v2_basis1 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">1</span>]) <span class="co"># second versor of basis 1</span></span>

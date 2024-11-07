@@ -145,6 +145,7 @@ for $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, p$.
 
 In other words, the element in the $i$-th row and $j$-th column of $\mathbf{C}$ is the sum of the products of the elements from the $i$-th row of $\mathbf{A}$ and the $j$-th column of $\mathbf{B}$.
 
+Check this link: [Interactive multiplication](http://matrixmultiplication.xyz/)
 
 #### 2x2 Matrices
 Let's consider two matrices $\mathbf{A}$ and $\mathbf{B}$ of the size $2 \times 2$:
