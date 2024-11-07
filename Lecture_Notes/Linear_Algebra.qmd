@@ -13,6 +13,7 @@ format:
     theme:
       light: [flatly, custom.scss]
       dark: [darkly, custom.scss]
+    self-contained: true
 ---
 
 # Introduction to Linear Algebra
@@ -21,17 +22,15 @@ format:
 
 ## What is a Matrix?
 
-A matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns. Each element in a matrix is identified by its row and column index. Matrices are fundamental in various fields of mathematics and engineering, particularly in solving systems of linear equations, performing linear transformations, and representing data.
-
 #### General form of a matrix
 
-A general $n \times m$ matrix (n rows and m columns) looks like this:
+Suppose we have two sets of indices $i\in\{1,\ldots,n\}$ and $j\in\{1,\ldots,m\}$. Let us define a mapping that assigns a number $a_{ij}$ to each pair of indices $(i,j)$. This mapping is called a matrix and is denoted by $\mathbf{A}$.
 
-
+Because pair of integers can be drawn as a two-dimensional grid, we can represent a matrix as a rectangular array of numbers. The size of the matrix is given by the number of rows and columns. For example, a matrix of size $n \times m$ has $n$ rows and $m$ columns:
 
 $$
 \mathbf{A}=
-[a_{ij}]=
+[a_{ij}]_{n \times m}=
 \begin{bmatrix}
 a_{11} & a_{12} & \cdots & a_{1m} \\
 a_{21} & a_{22} & \cdots & a_{2m} \\
@@ -117,16 +116,16 @@ $$
 The product of the scalar $c$ and the matrix $\mathbf{A}$ is given by:
 
 $$
-c \cdot \mathbf{A} =
-c \cdot
+\textcolor{red}{c} \cdot \mathbf{A} =
+\textcolor{red}{c} \cdot
 \begin{bmatrix}
 a_{11} & a_{12} \\
 a_{21} & a_{22}
 \end{bmatrix}
 =
 \begin{bmatrix}
-c \cdot a_{11} & c \cdot a_{12} \\
-c \cdot a_{21} & c \cdot a_{22}
+\textcolor{red}{c} \cdot a_{11} & \textcolor{red}{c} \cdot a_{12} \\
+\textcolor{red}{c} \cdot a_{21} & \textcolor{red}{c} \cdot a_{22}
 \end{bmatrix}
 $$
 
@@ -146,6 +145,7 @@ for $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, p$.
 
 In other words, the element in the $i$-th row and $j$-th column of $\mathbf{C}$ is the sum of the products of the elements from the $i$-th row of $\mathbf{A}$ and the $j$-th column of $\mathbf{B}$.
 
+Check this link: [Interactive multiplication](http://matrixmultiplication.xyz/)
 
 #### 2x2 Matrices
 Let's consider two matrices $\mathbf{A}$ and $\mathbf{B}$ of the size $2 \times 2$:
