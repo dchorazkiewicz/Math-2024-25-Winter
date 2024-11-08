@@ -318,9 +318,10 @@ $$
 $$
 
 To visualize the calculation of the determinant of a $3 \times 3$ matrix, we can use the rule of Sarrus:
-<div style="text-align: center;">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Sarrus_rule_vertical.svg" alt="Sarrus Rule" width="200"/>
-</div>
+
+::: {style="text-align: center;"}
+![Sarrus Rule (wikimedia.org)](https://upload.wikimedia.org/wikipedia/commons/0/0f/Sarrus_rule.png){ width=400 }
+:::
 
 
 
