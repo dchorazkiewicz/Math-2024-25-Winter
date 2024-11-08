@@ -1,0 +1,220 @@
+---
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    page-layout: full
+    grid:
+      body-width: 1000px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 2rem
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+    self-contained: true
+---
+
+
+# How to build a Cartesian space
+
+### Take a Euclidean plane
+
+```{python}
+#|echo: false
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Display the plot
+plt.show()
+```
+
+This is pure Euclidean plane. 
+
+### Draw a line
+
+You can draw any line you want. We will call it $x$.
+
+```{python}
+#|echo: false
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Draw a line
+plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
+
+# Display the plot
+plt.show()
+```
+
+### Choose a point on the line
+
+You can choose any point on the line.
+
+```{python}
+#|echo: false
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Draw a line
+plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
+plt.plot(0, 0, 'ro', markersize=10)
+
+# Display the plot
+plt.show()
+
+```
+
+### Draw a perpendicular line
+
+By axioms of Euclidean geometry, you can draw a perpendicular line to the first line. 
+This line is unique and it passes through the chosen point.
+We will call this line $y$.
+
+```{python}
+#|echo: false
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Draw the original line
+plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
+# Draw the perpendicular line
+plt.plot([0, 0], [-10, 10], color='black', linewidth=2)
+# Mark the chosen point
+plt.plot(0, 0, 'ro', markersize=10)
+
+# Display the plot
+plt.show()
+```
+
+A red point is called the origin of the Cartesian space.
+Lines are called the axes of the Cartesian space.
+
+### Defining the unit length
+
+Now, you can choose second point on $x$-axis.
+Distance between two points will be called an unit length of the Cartesian space.
+
+By axioms of Euclidean geometry, you can find a point on the
+ $y$-axis such that distance between this point and the origin is equal to the unit length.
+By doing this, we introduce numbers to the Cartesian space. 
+
+Those numbers describe the position of the points on the each axis.
+
+```{python}
+
+#|echo: false
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Draw the original line
+plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
+# Draw the perpendicular line
+plt.plot([0, 0], [-10, 10], color='black', linewidth=2)
+
+
+# Mark additional points on the axes
+for i in range(-9, 10):
+    plt.plot(i, 0, 'bo', markersize=5)
+    plt.plot(0, i, 'bo', markersize=5)
+    if i != 0:  # Avoid overlapping label at the origin
+        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
+        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+
+# Mark the origin
+plt.plot(0, 0, 'ro', markersize=10)
+
+# Display the plot
+plt.show()
+```
+
+### Describing the position of any point
+
+Let's take any point $P$ on the plane. From axioms of Euclidean geometry, 
+we know that there is a unique line $l$ which passing this point and it is
+perpendicular to first axis. A analogous line $m$ is perpendicular to the second axis.
+These lines intersect the axes at unique points $A$ and $B$ respectively.
+Because for any point $P$ there are unique points $A$ and $B$, 
+we can define the position of the point $P$ by these numbers which are called coordinates of the point $P$. 
+
+```{python}
+#|echo: false
+fig, ax = plt.subplots()
+# red background for the figure
+fig.patch.set_facecolor('lightgray')
+
+ax.set_aspect('equal')
+plt.xlim(-10, 10)
+plt.ylim(-10, 10)
+# turn off the axis
+ax.axis('off')
+
+# Draw the original line
+plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
+# Draw the perpendicular line
+plt.plot([0, 0], [-10, 10], color='black', linewidth=2)
+
+# Mark additional points on the axes
+for i in range(-9, 10):
+    plt.plot(i, 0, 'bo', markersize=5)
+    plt.plot(0, i, 'bo', markersize=5)
+    if i != 0:  # Avoid overlapping label at the origin
+        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
+        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+
+# Mark the origin
+plt.plot(0, 0, 'ro', markersize=10)
+
+# Define point P
+P = (4, 5)
+plt.plot(P[0], P[1], 'go', markersize=10)
+plt.text(P[0], P[1] + 0.5, 'P(4, 5)', fontsize=8, ha='center')
+
+# Draw projections of P on the axes
+plt.plot([P[0], P[0]], [0, P[1]], 'r--', linewidth=1, label='Px')
+plt.plot([0, P[0]], [P[1], P[1]], 'r--', linewidth=1, label='Py')
+
+# Display the plot
+plt.show()
+```
+
