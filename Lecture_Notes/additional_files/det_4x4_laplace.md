@@ -26,13 +26,13 @@ $$
 \end{pmatrix}
 $$
 
-Now, we calculate the determinant of \(\mathbf{A}'\) by expanding along the second row (as it contains several zeros):
+Now, we calculate the determinant of $\mathbf{A}'$ by expanding along the second row (as it contains several zeros):
 
 $$
 \det(\mathbf{A}') = 1 \cdot \det \begin{pmatrix} 5 & 4 & -1 \\ 3 & 2 & 1 \\ 5 & 4 & 0 \end{pmatrix}
 $$
 
-We now compute the determinant of the \(3 \times 3\) matrix:
+We now compute the determinant of the $3 \times 3$ matrix:
 
 $$
 \det \begin{pmatrix} 5 & 4 & -1 \\ 3 & 2 & 1 \\ 5 & 4 & 0 \end{pmatrix}
