@@ -383,6 +383,67 @@ a_{41} & a_{42} & a_{43}
 $$
 
 
+### Properties
+
+Determinants have several properties that can simplify their calculation:
+
+1. **Linearity**: The determinant is a linear function of the rows (or columns) of the matrix. This means that if you multiply a row by a scalar, the determinant is also multiplied by that scalar.
+   $$
+   \text{det}(cA) = c \cdot \text{det}(A)
+   $$
+
+2. **Row and Column Operations**:
+   - Swapping two rows (or columns) of a matrix multiplies the determinant by -1.
+     $$
+     \text{det}(A') = -\text{det}(A)
+     $$
+   - Adding a multiple of one row (or column) to another row (or column) does not change the determinant.
+     $$
+     \text{det}(A) = \text{det}(A + kB)
+     $$
+   - Multiplying a row (or column) by a scalar multiplies the determinant by that scalar.
+     $$
+     \text{det}(cA) = c \cdot \text{det}(A)
+     $$
+
+3. **Triangular Matrices**: The determinant of a triangular matrix (upper or lower) is the product of its diagonal elements.
+   $$
+   \text{det}(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}
+   $$
+
+4. **Determinant of the Identity Matrix**: The determinant of the identity matrix is 1.
+   $$
+   \text{det}(I) = 1
+   $$
+
+5. **Determinant of a Product**: The determinant of the product of two matrices is the product of their determinants.
+   $$
+   \text{det}(AB) = \text{det}(A) \cdot \text{det}(B)
+   $$
+
+6. **Determinant of the Transpose**: The determinant of a matrix is equal to the determinant of its transpose.
+   $$
+   \text{det}(A) = \text{det}(A^T)
+   $$
+
+7. **Determinant of an Inverse**: If a matrix is invertible, the determinant of its inverse is the reciprocal of the determinant of the matrix.
+   $$
+   \text{det}(A^{-1}) = \frac{1}{\text{det}(A)}
+   $$
+
+8. **Block Matrices**: For block matrices, if $A$ and $D$ are square matrices, and $B$ and $C$ are zero matrices, then:
+   $$
+   \text{det}\begin{pmatrix}
+   A & 0 \\
+   0 & D
+   \end{pmatrix} = \text{det}(A) \cdot \text{det}(D)
+   $$
+
+These properties can be used to simplify the calculation of determinants, especially for larger matrices.
+
+![Determinant Properties](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Lecture_Notes/additional_files/det_4x4_laplace.md)
+
+
 ## Inverse of a Matrix
 
 The inverse of a matrix $\mathbf{A}$ is denoted by $\mathbf{A}^{-1}$ and is defined such that the product of $\mathbf{A}$ and $\mathbf{A}^{-1}$ is the identity matrix $\mathbf{I}$:

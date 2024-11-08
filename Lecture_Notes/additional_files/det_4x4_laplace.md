@@ -15,7 +15,7 @@ We perform the following column operations:
 2. Add the second column to the third column.
 3. Subtract twice the second column from the fourth column.
 
-After these operations, matrix \(\mathbf{A}'\) becomes:
+After these operations, matrix $\mathbf{A}'$ becomes:
 
 $$
 \mathbf{A}' = \begin{pmatrix}
@@ -54,26 +54,32 @@ Expanding along the first row:
 
 $$
 M_{sub} =
-= 5 \cdot \det 
+5 \cdot \det 
 \begin{pmatrix} 
 2 & 1 \\
- 4 & 0 
+4 & 0 
 \end{pmatrix} 
- - 4 \cdot \det 
+- 4 \cdot \det 
 \begin{pmatrix} 
 3 & 1 \\
-  5 & 0 
+5 & 0 
 \end{pmatrix} 
  + (-1) \cdot \det 
 \begin{pmatrix} 
 3 & 2 \\
-  5 & 4 
+5 & 4 
 \end{pmatrix}
 $$
 
 Calculating the determinants of the smaller \(2 \times 2\) matrices:
 
-1. $$\det \begin{pmatrix} 2 & 1 \\ 4 & 0 \end{pmatrix} = 2 \cdot 0 - 1 \cdot 4 = -4$$
+1. 
+$$
+\det 
+\begin{pmatrix} 2 & 1 \\ 
+4 & 0 \end{pmatrix}
+= 2 \cdot 0 - 1 \cdot 4 = -4
+$$
 2. $$\det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} = 3 \cdot 0 - 1 \cdot 5 = -5$$
 3. $$\det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix} = 3 \cdot 4 - 2 \cdot 5 = 12 - 10 = 2$$
 
