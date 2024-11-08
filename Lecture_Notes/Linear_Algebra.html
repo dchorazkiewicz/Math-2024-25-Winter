@@ -3244,7 +3244,8 @@ window.Quarto = {
   <li><a href="#inverse-of-a-matrix" id="toc-inverse-of-a-matrix" class="nav-link" data-scroll-target="#inverse-of-a-matrix">Inverse of a Matrix</a>
   <ul class="collapse">
   <li><a href="#expansion-formula-for-the-inverse" id="toc-expansion-formula-for-the-inverse" class="nav-link" data-scroll-target="#expansion-formula-for-the-inverse">Expansion Formula for the Inverse</a></li>
-  <li><a href="#gauss-jordan-elimination" id="toc-gauss-jordan-elimination" class="nav-link" data-scroll-target="#gauss-jordan-elimination">Gauss-Jordan Elimination</a></li>
+  <li><a href="#gauss-jordan-method" id="toc-gauss-jordan-method" class="nav-link" data-scroll-target="#gauss-jordan-method">Gauss-Jordan method</a></li>
+  <li><a href="#step-by-step-solution" id="toc-step-by-step-solution" class="nav-link" data-scroll-target="#step-by-step-solution">Step-by-step solution:</a></li>
   </ul></li>
   <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations">Systems of Linear Equations</a>
   <ul class="collapse">
@@ -3282,11 +3283,11 @@ window.Quarto = {
 <section id="introduction-to-linear-algebra" class="level1">
 <h1>Introduction to Linear Algebra</h1>
 <p><strong>Under construction</strong></p>
-<div id="99c7e5c8" class="cell" data-execution_count="1">
+<div id="231a9109" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(time.ctime())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Fri Nov  8 07:54:18 2024</code></pre>
+<pre><code>Fri Nov  8 08:16:17 2024</code></pre>
 </div>
 </div>
 <section id="what-is-a-matrix" class="level2">
@@ -3858,7 +3859,7 @@ C_{12} &amp; C_{22} &amp; \ldots &amp; C_{n2} \\
 C_{1n} &amp; C_{2n} &amp; \ldots &amp; C_{nn}
 \end{pmatrix}
 \]</span></p>
-<p>where <span class="math inline">\(C_{ij}\)</span> is the cofactor of the element <span class="math inline">\(a_{ij}\)</span> in the matrix <span class="math inline">\(\mathbf{A}\)</span>. $$</p>
+<p>where <span class="math inline">\(C_{ij}\)</span> is the cofactor of the element <span class="math inline">\(a_{ij}\)</span> in the matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <p><strong>2x2 Matrix</strong></p>
 <p>For a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
 <p><span class="math display">\[
@@ -3902,8 +3903,68 @@ C_{33} &amp; = a_{11}a_{22} - a_{12}a_{21}
 \end{pmatrix}
 \]</span></p>
 </section>
-<section id="gauss-jordan-elimination" class="level3">
-<h3 class="anchored" data-anchor-id="gauss-jordan-elimination">Gauss-Jordan Elimination</h3>
+<section id="gauss-jordan-method" class="level3">
+<h3 class="anchored" data-anchor-id="gauss-jordan-method">Gauss-Jordan method</h3>
+<p>Finding the inverse of a matrix can be done using the Gauss-Jordan method. This method involves augmenting the matrix with the identity matrix and performing row operations to transform the original matrix into the identity matrix. The resulting matrix will be the inverse of the original matrix.</p>
+<section id="example-2" class="level4">
+<h4 class="anchored" data-anchor-id="example-2">Example</h4>
+<p>Let’s find the inverse of the following <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p>We will perform step-by-step transformations to find the inverse matrix for <span class="math inline">\(\mathbf{A}\)</span> using the Gauss-Jordan method. We will apply row operations to transform the left side of the augmented matrix into the identity matrix, and the right side will then become the inverse matrix.</p>
+<p>If the initial matrix <span class="math inline">\(\mathbf{A}\)</span> is</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{bmatrix} 2 &amp; 3 \\ 4 &amp; 1 \end{bmatrix}
+\]</span></p>
+<p>we can find the inverse by following the Gauss-Jordan steps with the augmented matrix <span class="math inline">\(\left[ \mathbf{A} \mid \mathbf{I} \right]\)</span>.</p>
+</section>
+</section>
+<section id="step-by-step-solution" class="level3">
+<h3 class="anchored" data-anchor-id="step-by-step-solution">Step-by-step solution:</h3>
+<ol type="1">
+<li><p><strong>Write the augmented matrix:</strong></p>
+<p><span class="math display">\[
+\left[ \mathbf{A} \mid \mathbf{I} \right] =
+\begin{bmatrix}
+2 &amp; 3 &amp; \big| &amp; 1 &amp; 0 \\
+4 &amp; 1 &amp; \big| &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p><strong>Make the first element in the first row a 1 by dividing the first row by 2:</strong></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; \frac{3}{2} &amp; \big| &amp; \frac{1}{2} &amp; 0 \\
+4 &amp; 1 &amp; \big| &amp; 0 &amp; 1 \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p><strong>Make the element below it (in the second row, first column) a 0 by subtracting 4 times the first row from the second row:</strong></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; \frac{3}{2} &amp; \big| &amp; \frac{1}{2} &amp; 0 \\
+0 &amp; -5 &amp; \big| &amp; -2 &amp; 1 \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p><strong>Make the second element in the second row a 1 by dividing the second row by -5:</strong></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; \frac{3}{2} &amp; \big| &amp; \frac{1}{2} &amp; 0 \\
+0 &amp; 1 &amp; \big| &amp; \frac{2}{5} &amp; -\frac{1}{5} \\
+\end{bmatrix}
+\]</span></p></li>
+<li><p><strong>Make the element above it (in the first row, second column) a 0 by subtracting <span class="math inline">\(\frac{3}{2}\)</span> times the second row from the first row:</strong></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 0 &amp; \big| &amp; \frac{1}{10} &amp; \frac{3}{10} \\
+0 &amp; 1 &amp; \big| &amp; \frac{2}{5} &amp; -\frac{1}{5} \\
+\end{bmatrix}
+\]</span></p></li>
+</ol>
+<p>The right side of the augmented matrix is now the inverse of <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{A}^{-1} =
+\begin{bmatrix}
+\frac{1}{10} &amp; \frac{3}{10} \\
+\frac{2}{5} &amp; -\frac{1}{5} \\
+\end{bmatrix}
+\]</span></p>
 </section>
 </section>
 <section id="systems-of-linear-equations" class="level2">

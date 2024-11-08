@@ -686,7 +686,6 @@ C_{1n} & C_{2n} & \ldots & C_{nn}
 $$
 
 where $C_{ij}$ is the cofactor of the element $a_{ij}$ in the matrix $\mathbf{A}$.
-$$
 
 **2x2 Matrix**
 
@@ -744,7 +743,83 @@ $$
 
  
 
-### Gauss-Jordan Elimination
+### Gauss-Jordan method
+
+Finding the inverse of a matrix can be done using the Gauss-Jordan method. This method involves augmenting the matrix with the identity matrix and performing row operations to transform the original matrix into the identity matrix. The resulting matrix will be the inverse of the original matrix.
+
+#### Example
+
+Let's find the inverse of the following $2 \times 2$ matrix $\mathbf{A}$:
+
+We will perform step-by-step transformations to find the inverse matrix for $\mathbf{A}$ using the Gauss-Jordan method. We will apply row operations to transform the left side of the augmented matrix into the identity matrix, and the right side will then become the inverse matrix.
+
+If the initial matrix $\mathbf{A}$ is 
+
+$$
+\mathbf{A} = \begin{bmatrix} 2 & 3 \\ 4 & 1 \end{bmatrix}
+$$
+
+we can find the inverse by following the Gauss-Jordan steps with the augmented matrix $\left[ \mathbf{A} \mid \mathbf{I} \right]$.
+
+### Step-by-step solution:
+
+1. **Write the augmented matrix:**
+
+   $$
+   \left[ \mathbf{A} \mid \mathbf{I} \right] = 
+   \begin{bmatrix}
+   2 & 3 & \big| & 1 & 0 \\
+   4 & 1 & \big| & 0 & 1 \\
+   \end{bmatrix}
+   $$
+
+2. **Make the first element in the first row a 1 by dividing the first row by 2:**
+
+   $$
+   \begin{bmatrix}
+   1 & \frac{3}{2} & \big| & \frac{1}{2} & 0 \\
+   4 & 1 & \big| & 0 & 1 \\
+   \end{bmatrix}
+   $$
+
+3. **Make the element below it (in the second row, first column) a 0 by subtracting 4 times the first row from the second row:**
+
+   $$
+   \begin{bmatrix}
+   1 & \frac{3}{2} & \big| & \frac{1}{2} & 0 \\
+   0 & -5 & \big| & -2 & 1 \\
+   \end{bmatrix}
+   $$
+
+4. **Make the second element in the second row a 1 by dividing the second row by -5:**
+
+   $$
+   \begin{bmatrix}
+   1 & \frac{3}{2} & \big| & \frac{1}{2} & 0 \\
+   0 & 1 & \big| & \frac{2}{5} & -\frac{1}{5} \\
+   \end{bmatrix}
+   $$
+
+5. **Make the element above it (in the first row, second column) a 0 by subtracting $\frac{3}{2}$ times the second row from the first row:**
+
+   $$
+   \begin{bmatrix}
+   1 & 0 & \big| & \frac{1}{10} & \frac{3}{10} \\
+   0 & 1 & \big| & \frac{2}{5} & -\frac{1}{5} \\
+   \end{bmatrix}
+   $$
+
+The right side of the augmented matrix is now the inverse of $\mathbf{A}$:
+
+$$
+\mathbf{A}^{-1} = 
+\begin{bmatrix}
+\frac{1}{10} & \frac{3}{10} \\
+\frac{2}{5} & -\frac{1}{5} \\
+\end{bmatrix}
+$$
+
+
 
 ## Systems of Linear Equations
 
