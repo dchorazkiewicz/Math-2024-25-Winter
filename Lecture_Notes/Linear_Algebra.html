@@ -3245,13 +3245,12 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#expansion-formula-for-the-inverse" id="toc-expansion-formula-for-the-inverse" class="nav-link" data-scroll-target="#expansion-formula-for-the-inverse">Expansion Formula for the Inverse</a></li>
   <li><a href="#gauss-jordan-method" id="toc-gauss-jordan-method" class="nav-link" data-scroll-target="#gauss-jordan-method">Gauss-Jordan method</a></li>
-  <li><a href="#step-by-step-solution" id="toc-step-by-step-solution" class="nav-link" data-scroll-target="#step-by-step-solution">Step-by-step solution:</a></li>
   </ul></li>
   <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations">Systems of Linear Equations</a>
   <ul class="collapse">
-  <li><a href="#gaussian-elimination" id="toc-gaussian-elimination" class="nav-link" data-scroll-target="#gaussian-elimination">Gaussian Elimination</a></li>
-  <li><a href="#matrix-form-of-a-system-of-equations" id="toc-matrix-form-of-a-system-of-equations" class="nav-link" data-scroll-target="#matrix-form-of-a-system-of-equations">Matrix Form of a System of Equations</a></li>
   <li><a href="#cramers-formula" id="toc-cramers-formula" class="nav-link" data-scroll-target="#cramers-formula">Cramer’s Formula</a></li>
+  <li><a href="#gaussian-elimination" id="toc-gaussian-elimination" class="nav-link" data-scroll-target="#gaussian-elimination">Gaussian Elimination</a></li>
+  <li><a href="#inverse-matrix-method" id="toc-inverse-matrix-method" class="nav-link" data-scroll-target="#inverse-matrix-method">Inverse Matrix Method</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -3283,11 +3282,11 @@ window.Quarto = {
 <section id="introduction-to-linear-algebra" class="level1">
 <h1>Introduction to Linear Algebra</h1>
 <p><strong>Under construction</strong></p>
-<div id="231a9109" class="cell" data-execution_count="1">
+<div id="13708d9c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(time.ctime())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Fri Nov  8 08:16:17 2024</code></pre>
+<pre><code>Fri Nov  8 09:57:37 2024</code></pre>
 </div>
 </div>
 <section id="what-is-a-matrix" class="level2">
@@ -3915,10 +3914,7 @@ C_{33} &amp; = a_{11}a_{22} - a_{12}a_{21}
 \mathbf{A} = \begin{bmatrix} 2 &amp; 3 \\ 4 &amp; 1 \end{bmatrix}
 \]</span></p>
 <p>we can find the inverse by following the Gauss-Jordan steps with the augmented matrix <span class="math inline">\(\left[ \mathbf{A} \mid \mathbf{I} \right]\)</span>.</p>
-</section>
-</section>
-<section id="step-by-step-solution" class="level3">
-<h3 class="anchored" data-anchor-id="step-by-step-solution">Step-by-step solution:</h3>
+<p><strong>Step-by-step solution:</strong></p>
 <ol type="1">
 <li><p><strong>Write the augmented matrix:</strong></p>
 <p><span class="math display">\[
@@ -3965,18 +3961,312 @@ C_{33} &amp; = a_{11}a_{22} - a_{12}a_{21}
 \frac{2}{5} &amp; -\frac{1}{5} \\
 \end{bmatrix}
 \]</span></p>
+<p>Please read about the <a href="https://en.wikipedia.org/wiki/Gaussian_elimination#Computational_efficiency">Computational_efficiency</a> for more information.</p>
+</section>
 </section>
 </section>
 <section id="systems-of-linear-equations" class="level2">
 <h2 class="anchored" data-anchor-id="systems-of-linear-equations">Systems of Linear Equations</h2>
-<section id="gaussian-elimination" class="level3">
-<h3 class="anchored" data-anchor-id="gaussian-elimination">Gaussian Elimination</h3>
-</section>
-<section id="matrix-form-of-a-system-of-equations" class="level3">
-<h3 class="anchored" data-anchor-id="matrix-form-of-a-system-of-equations">Matrix Form of a System of Equations</h3>
-</section>
+<p>A system of linear equations is a set of equations that can be written in the form:</p>
+<p><span class="math display">\[
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n &amp; = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n &amp; = b_2 \\
+\vdots &amp; \\
+a_{m1}x_1 + a_{m2}x_2 + \ldots + a_{mn}x_n &amp; = b_m \\
+\end{align*}
+\]</span></p>
+<p>where <span class="math inline">\(a_{ij}\)</span> are the coefficients of the variables <span class="math inline">\(x_i\)</span>, <span class="math inline">\(b_i\)</span> are the constants, and <span class="math inline">\(m\)</span> is the number of equations.</p>
+<p>This might be written in matrix form as:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{m1} &amp; a_{m2} &amp; \ldots &amp; a_{mn} \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_m \\
+\end{bmatrix}
+\]</span></p>
+<p><strong>Example</strong></p>
+<p>Consider the following system of linear equations:</p>
+<p><span class="math display">\[
+\begin{align*}
+2x + 2y &amp; = 6 \\
+4x - y &amp; = 7
+\end{align*}
+\]</span></p>
+<p>This system can be written in matrix form as:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+2 &amp; 2 \\
+4 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 \\
+4
+\end{bmatrix}
+\]</span></p>
+<p>One can check that the solution to this system is <span class="math inline">\(x = 2\)</span> and <span class="math inline">\(y = 1\)</span>.</p>
 <section id="cramers-formula" class="level3">
 <h3 class="anchored" data-anchor-id="cramers-formula">Cramer’s Formula</h3>
+<p>Cramer’s rule is a method for solving systems of linear equations using determinants. For a system of <span class="math inline">\(n\)</span> linear equations with <span class="math inline">\(n\)</span> variables, the solution can be expressed using determinants.</p>
+<p>Given a system of linear equations:</p>
+<p><span class="math display">\[
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n &amp; = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n &amp; = b_2 \\
+\vdots &amp; \\
+a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nn}x_n &amp; = b_n \\
+\end{align*}
+\]</span></p>
+<p>The solution for the variable <span class="math inline">\(x_i\)</span> is given by:</p>
+<p><span class="math display">\[
+x_i = \frac{\text{det}(\mathbf{A}_i)}{\text{det}(\mathbf{A})}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{A}\)</span> is the coefficient matrix of the system, and <span class="math inline">\(\mathbf{A}_i\)</span> is the matrix obtained by replacing the <span class="math inline">\(i\)</span>-th column of <span class="math inline">\(\mathbf{A}\)</span> with the column vector <span class="math inline">\(\mathbf{b}\)</span>.</p>
+<p><strong>Example - 2x2</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+2x + 2y &amp; = 6 \\
+4x - y &amp; = 7
+\end{align*}
+\]</span></p>
+<p>We have to comute the determinants of the matrices:</p>
+<p><span class="math display">\[
+\begin{align*}
+\text{det}(\mathbf{A}) &amp;= \begin{vmatrix} 2 &amp; 2 \\ 4 &amp; -1 \end{vmatrix} = 2 \cdot (-1) - 2 \cdot 4 = -2 - 8 = -10 \\
+\text{det}(\mathbf{A}_1) &amp;= \begin{vmatrix} 6 &amp; 2 \\ 7 &amp; -1 \end{vmatrix} = 6 \cdot (-1) - 2 \cdot 7 = -6 - 14 = -20 \\
+\text{det}(\mathbf{A}_2) &amp;= \begin{vmatrix} 2 &amp; 6 \\ 4 &amp; 7 \end{vmatrix} = 2 \cdot 7 - 6 \cdot 4 = 14 - 24 = -10
+\end{align*}
+\]</span></p>
+<p>so the solution is:</p>
+<p><span class="math display">\[
+x = \frac{\text{det}(\mathbf{A}_1)}{\text{det}(\mathbf{A})} = \frac{-20}{-10} = 2
+\]</span></p>
+<p><span class="math display">\[
+y = \frac{\text{det}(\mathbf{A}_2)}{\text{det}(\mathbf{A})} = \frac{-10}{-10} = 1
+\]</span></p>
+<p><strong>Example - 3x3</strong></p>
+<p>Consider the following system of linear equations:</p>
+<p><span class="math display">\[
+\begin{align*}
+x + 2y + 3z &amp; = 9 \\
+2x - y + z &amp; = 8 \\
+3x + y - 2z &amp; = 3
+\end{align*}
+\]</span></p>
+<p>We first form the coefficient matrix (), as well as the matrices (_1), (_2), and (_3) obtained by replacing the respective columns with the constants on the right-hand side:</p>
+<p><span class="math display">\[
+\begin{align*}
+\det(\mathbf{A}) &amp;=   \begin{vmatrix} 1 &amp; 2 &amp; 3 \\ 2 &amp; -1 &amp; 1 \\ 3 &amp; 1 &amp; -2 \end{vmatrix}=30\\
+\det(\mathbf{A}_1) &amp;= \begin{vmatrix} 9 &amp; 2 &amp; 3 \\ 8 &amp; -1 &amp; 1 \\ 3 &amp; 1 &amp; -2 \end{vmatrix}=80\\
+\det(\mathbf{A}_2) &amp;= \begin{vmatrix} 1 &amp; 9 &amp; 3 \\ 2 &amp; 8 &amp; 1 \\ 3 &amp; 3 &amp; -2  \end{vmatrix}=-10\\
+\det(\mathbf{A}_3) &amp;= \begin{vmatrix} 1 &amp; 2 &amp; 9 \\ 2 &amp; -1 &amp; 8 \\ 3 &amp; 1 &amp; 3  \end{vmatrix}=70
+\end{align*}
+\]</span></p>
+<p>so the solution is:</p>
+<p><span class="math display">\[
+\begin{align*}
+x &amp;= \frac{\det(\mathbf{A}_1)}{\det(\mathbf{A})} = \frac{80}{30} = \frac{8}{3} \\
+y &amp;= \frac{\det(\mathbf{A}_2)}{\det(\mathbf{A})} = \frac{-10}{30} = -\frac{1}{3} \\
+z &amp;= \frac{\det(\mathbf{A}_3)}{\det(\mathbf{A})} = \frac{70}{30} = \frac{7}{3}
+\end{align*}
+\]</span></p>
+</section>
+<section id="gaussian-elimination" class="level3">
+<h3 class="anchored" data-anchor-id="gaussian-elimination">Gaussian Elimination</h3>
+<section id="classical-method" class="level4">
+<h4 class="anchored" data-anchor-id="classical-method">Classical Method</h4>
+<p>Let’s consider the following system of linear equations:</p>
+<p><span class="math display">\[
+\begin{align*}
+x + y + z &amp;= 6 \\
+2x - y + z &amp;= 1 \\
+-x + 2y + 3z &amp;= 11
+\end{align*}
+\]</span></p>
+<p>We want to solve this system using Gaussian elimination. The first step is to write the augmented matrix:</p>
+<p><strong>Step 1: Add 1st row to 3rd row</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+x + y + z &amp;= 6 \\
+2x - y + z &amp;= 1 \\
+0x + 3y + 4z &amp;= 17
+\end{align*}
+\]</span></p>
+<p><strong>Step 2: Subtract 2 times the 1st row from the 2nd row</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+x + y + z &amp;= 6 \\
+0x - 3y - z &amp;= -11 \\
+0x + 3y + 4z &amp;= 17
+\end{align*}
+\]</span></p>
+<p><strong>Step 3: Add the 2nd row to the 3rd row</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+x + y + z &amp;= 6 \\
+0x - 3y - z &amp;= -11 \\
+0x + 0y + 3z &amp;= 6
+\end{align*}
+\]</span></p>
+<p>Now we can solve the system of equations:</p>
+<p><span class="math display">\[
+3z = 6 \Rightarrow z = 2
+\]</span></p>
+<p>Substitute <span class="math inline">\(z = 2\)</span> into the second equation:</p>
+<p><span class="math display">\[
+-3y - 2 = -11 \Rightarrow y = 3
+\]</span></p>
+<p>Substitute <span class="math inline">\(y = 3\)</span> and <span class="math inline">\(z = 2\)</span> into the first equation:</p>
+<p><span class="math display">\[
+x + 3 + 2 = 6 \Rightarrow x = 1
+\]</span></p>
+</section>
+<section id="matrix-form-of-a-system-of-equations" class="level4">
+<h4 class="anchored" data-anchor-id="matrix-form-of-a-system-of-equations">Matrix Form of a System of Equations</h4>
+<p>The system of linear equations can be written in matrix form as:</p>
+<p>We want to solve this system using Gaussian elimination. The first step is to write the augmented matrix:</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; | &amp; 6 \\
+2 &amp; -1 &amp; 1 &amp; | &amp; 1 \\
+-1 &amp; 2 &amp; 3 &amp; | &amp; 11
+\end{pmatrix}
+\]</span></p>
+<p><strong>Step 1: Add 1st row to 3rd row</strong></p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; | &amp; 6 \\
+2 &amp; -1 &amp; 1 &amp; | &amp; 1 \\
+0 &amp; 3 &amp; 4 &amp; | &amp; 17
+\end{pmatrix}
+\]</span></p>
+<p><strong>Step 2: Subtract 2 times the 1st row from the 2nd row</strong></p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; | &amp; 6 \\
+0 &amp; -3 &amp; -1 &amp; | &amp; -11 \\
+0 &amp; 3 &amp; 4 &amp; | &amp; 17
+\end{pmatrix}
+\]</span></p>
+<p><strong>Step 3: Add the 2nd row to the 3rd row</strong></p>
+<p><span class="math display">\[
+\begin{pmatrix}
+1 &amp; 1 &amp; 1 &amp; | &amp; 6 \\
+0 &amp; -3 &amp; -1 &amp; | &amp; -11 \\
+0 &amp; 0 &amp; 3 &amp; | &amp; 6
+\end{pmatrix}
+\]</span></p>
+<p>Now we can solve the system of equations:</p>
+<p><span class="math display">\[
+3z = 6 \Rightarrow z = 2
+\]</span></p>
+<p>Substitute <span class="math inline">\(z = 2\)</span> into the second equation:</p>
+<p><span class="math display">\[
+-3y - 2 = -11 \Rightarrow y = 3
+\]</span></p>
+<p>Substitute <span class="math inline">\(y = 3\)</span> and <span class="math inline">\(z = 2\)</span> into the first equation:</p>
+<p><span class="math display">\[
+x + 3 + 2 = 6 \Rightarrow x = 1
+\]</span></p>
+</section>
+</section>
+<section id="inverse-matrix-method" class="level3">
+<h3 class="anchored" data-anchor-id="inverse-matrix-method">Inverse Matrix Method</h3>
+<p>The system of linear equations can be written in matrix form as:</p>
+<p><span class="math display">\[
+\mathbf{A} \mathbf{x} = \mathbf{b}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{A}\)</span> is the coefficient matrix, <span class="math inline">\(\mathbf{x}\)</span> is the vector of variables, and <span class="math inline">\(\mathbf{b}\)</span> is the vector of constants. The solution to the system is given by:</p>
+<p><span class="math display">\[
+\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
+\]</span></p>
+<p>where <span class="math inline">\(\mathbf{A}^{-1}\)</span> is the inverse of the coefficient matrix <span class="math inline">\(\mathbf{A}\)</span>.</p>
+<p><strong>Example</strong></p>
+<p>Consider the following system of linear equations:</p>
+<p><span class="math display">\[
+\begin{align*}
+x + y + z &amp;= 6 \\
+2x - y + z &amp;= 1 \\
+-x + 2y + 3z &amp;= 11
+\end{align*}
+\]</span></p>
+<p>this system can be written in matrix form as:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 1 &amp; 1 \\
+2 &amp; -1 &amp; 1 \\
+-1 &amp; 2 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 \\
+1 \\
+11
+\end{bmatrix}
+\]</span></p>
+<p>Inverse of the matrix <span class="math inline">\(\mathbf{A}\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{A}^{-1} = \begin{bmatrix}
+\frac{5}{9} &amp; \frac{1}{9} &amp; -\frac{2}{9} \\
+\frac{7}{9} &amp; -\frac{4}{9} &amp; -\frac{1}{9} \\
+-\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3}
+\end{bmatrix}
+\]</span></p>
+<p>by multiplying the inverse matrix by the vector of constants, we can find the solution:</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{5}{9} &amp; \frac{1}{9} &amp; -\frac{2}{9} \\
+\frac{7}{9} &amp; -\frac{4}{9} &amp; -\frac{1}{9} \\
+-\frac{1}{3} &amp; \frac{1}{3} &amp; \frac{1}{3}
+\end{bmatrix}
+\begin{bmatrix}
+6 \\
+1 \\
+11
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{9}(5*6 + 1*1 - 2*11) \\
+\frac{1}{9}(7*6 - 4*1 - 1*11) \\
+\frac{1}{3}(-1*6 + 1*1 + 1*11)
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+3 \\
+2
+\end{bmatrix}
+\]</span></p>
 </section>
 </section>
 </section>

@@ -761,7 +761,7 @@ $$
 
 we can find the inverse by following the Gauss-Jordan steps with the augmented matrix $\left[ \mathbf{A} \mid \mathbf{I} \right]$.
 
-### Step-by-step solution:
+**Step-by-step solution:**
 
 1. **Write the augmented matrix:**
 
@@ -819,13 +819,381 @@ $$
 \end{bmatrix}
 $$
 
+Please read about the [Computational_efficiency](https://en.wikipedia.org/wiki/Gaussian_elimination#Computational_efficiency) for more information.
 
 
 ## Systems of Linear Equations
 
-### Gaussian Elimination
+A system of linear equations is a set of equations that can be written in the form:
 
-### Matrix Form of a System of Equations
+$$
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n & = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n & = b_2 \\
+\vdots & \\
+a_{m1}x_1 + a_{m2}x_2 + \ldots + a_{mn}x_n & = b_m \\
+\end{align*}
+$$
+
+where $a_{ij}$ are the coefficients of the variables $x_i$, $b_i$ are the constants, and $m$ is the number of equations.
+
+This might be written in matrix form as:
+
+$$
+\begin{bmatrix}
+a_{11} & a_{12} & \ldots & a_{1n} \\
+a_{21} & a_{22} & \ldots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \ldots & a_{mn} \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_m \\
+\end{bmatrix}
+$$
+
+**Example**
+
+Consider the following system of linear equations:
+
+$$
+\begin{align*}
+2x + 2y & = 6 \\
+4x - y & = 7
+\end{align*}
+$$
+
+This system can be written in matrix form as:
+
+$$
+\begin{bmatrix}
+2 & 2 \\
+4 & -1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 \\
+4
+\end{bmatrix}
+$$
+
+One can check that the solution to this system is $x = 2$ and $y = 1$.
+
 
 ### Cramer's Formula
 
+Cramer's rule is a method for solving systems of linear equations using determinants. For a system of $n$ linear equations with $n$ variables, the solution can be expressed using determinants.
+
+Given a system of linear equations:
+
+$$
+\begin{align*}
+a_{11}x_1 + a_{12}x_2 + \ldots + a_{1n}x_n & = b_1 \\
+a_{21}x_1 + a_{22}x_2 + \ldots + a_{2n}x_n & = b_2 \\
+\vdots & \\
+a_{n1}x_1 + a_{n2}x_2 + \ldots + a_{nn}x_n & = b_n \\
+\end{align*}
+$$
+
+The solution for the variable $x_i$ is given by:
+
+$$
+x_i = \frac{\text{det}(\mathbf{A}_i)}{\text{det}(\mathbf{A})}
+$$
+
+where $\mathbf{A}$ is the coefficient matrix of the system, and $\mathbf{A}_i$ is the matrix obtained by replacing the $i$-th column of $\mathbf{A}$ with the column vector $\mathbf{b}$.
+
+**Example - 2x2**
+
+$$
+\begin{align*}
+2x + 2y & = 6 \\
+4x - y & = 7
+\end{align*}
+$$
+
+We have to comute the determinants of the matrices:
+
+$$
+\begin{align*}
+\text{det}(\mathbf{A}) &= \begin{vmatrix} 2 & 2 \\ 4 & -1 \end{vmatrix} = 2 \cdot (-1) - 2 \cdot 4 = -2 - 8 = -10 \\
+\text{det}(\mathbf{A}_1) &= \begin{vmatrix} 6 & 2 \\ 7 & -1 \end{vmatrix} = 6 \cdot (-1) - 2 \cdot 7 = -6 - 14 = -20 \\
+\text{det}(\mathbf{A}_2) &= \begin{vmatrix} 2 & 6 \\ 4 & 7 \end{vmatrix} = 2 \cdot 7 - 6 \cdot 4 = 14 - 24 = -10
+\end{align*}
+$$
+
+so the solution is:
+
+$$
+x = \frac{\text{det}(\mathbf{A}_1)}{\text{det}(\mathbf{A})} = \frac{-20}{-10} = 2
+$$
+
+$$
+y = \frac{\text{det}(\mathbf{A}_2)}{\text{det}(\mathbf{A})} = \frac{-10}{-10} = 1
+$$
+
+**Example - 3x3**
+
+Consider the following system of linear equations:
+
+$$
+\begin{align*}
+x + 2y + 3z & = 9 \\
+2x - y + z & = 8 \\
+3x + y - 2z & = 3
+\end{align*}
+$$
+
+We first form the coefficient matrix \(\mathbf{A}\), as well as the matrices \(\mathbf{A}_1\), \(\mathbf{A}_2\), and \(\mathbf{A}_3\) obtained by replacing the respective columns with the constants on the right-hand side:
+
+$$
+\begin{align*}
+\det(\mathbf{A}) &=   \begin{vmatrix} 1 & 2 & 3 \\ 2 & -1 & 1 \\ 3 & 1 & -2 \end{vmatrix}=30\\
+\det(\mathbf{A}_1) &= \begin{vmatrix} 9 & 2 & 3 \\ 8 & -1 & 1 \\ 3 & 1 & -2 \end{vmatrix}=80\\
+\det(\mathbf{A}_2) &= \begin{vmatrix} 1 & 9 & 3 \\ 2 & 8 & 1 \\ 3 & 3 & -2  \end{vmatrix}=-10\\
+\det(\mathbf{A}_3) &= \begin{vmatrix} 1 & 2 & 9 \\ 2 & -1 & 8 \\ 3 & 1 & 3  \end{vmatrix}=70
+\end{align*}
+$$
+
+so the solution is:
+
+$$
+\begin{align*}
+x &= \frac{\det(\mathbf{A}_1)}{\det(\mathbf{A})} = \frac{80}{30} = \frac{8}{3} \\
+y &= \frac{\det(\mathbf{A}_2)}{\det(\mathbf{A})} = \frac{-10}{30} = -\frac{1}{3} \\
+z &= \frac{\det(\mathbf{A}_3)}{\det(\mathbf{A})} = \frac{70}{30} = \frac{7}{3}
+\end{align*}
+$$
+
+
+### Gaussian Elimination
+
+#### Classical Method
+
+Let's consider the following system of linear equations:
+
+$$
+\begin{align*}
+x + y + z &= 6 \\
+2x - y + z &= 1 \\
+-x + 2y + 3z &= 11
+\end{align*}
+$$
+
+We want to solve this system using Gaussian elimination. The first step is to write the augmented matrix:
+
+**Step 1: Add 1st row to 3rd row**
+
+$$
+\begin{align*}
+x + y + z &= 6 \\
+2x - y + z &= 1 \\
+0x + 3y + 4z &= 17
+\end{align*}
+$$
+
+**Step 2: Subtract 2 times the 1st row from the 2nd row**
+
+$$
+\begin{align*}
+x + y + z &= 6 \\
+0x - 3y - z &= -11 \\
+0x + 3y + 4z &= 17
+\end{align*}
+$$
+
+**Step 3: Add the 2nd row to the 3rd row**
+
+$$
+\begin{align*}
+x + y + z &= 6 \\
+0x - 3y - z &= -11 \\
+0x + 0y + 3z &= 6
+\end{align*}
+$$
+
+Now we can solve the system of equations:
+
+$$
+3z = 6 \Rightarrow z = 2
+$$
+
+Substitute $z = 2$ into the second equation:
+
+$$
+-3y - 2 = -11 \Rightarrow y = 3
+$$
+
+Substitute $y = 3$ and $z = 2$ into the first equation:
+
+$$
+x + 3 + 2 = 6 \Rightarrow x = 1
+$$
+
+#### Matrix Form of a System of Equations
+
+The system of linear equations can be written in matrix form as:
+ 
+We want to solve this system using Gaussian elimination. The first step is to write the augmented matrix:
+
+$$
+\begin{pmatrix}
+1 & 1 & 1 & | & 6 \\
+2 & -1 & 1 & | & 1 \\
+-1 & 2 & 3 & | & 11
+\end{pmatrix}
+$$
+
+**Step 1: Add 1st row to 3rd row**
+
+$$
+\begin{pmatrix}
+1 & 1 & 1 & | & 6 \\
+2 & -1 & 1 & | & 1 \\
+0 & 3 & 4 & | & 17
+\end{pmatrix}
+$$
+
+**Step 2: Subtract 2 times the 1st row from the 2nd row**
+
+$$
+\begin{pmatrix}
+1 & 1 & 1 & | & 6 \\
+0 & -3 & -1 & | & -11 \\
+0 & 3 & 4 & | & 17
+\end{pmatrix}
+$$
+
+**Step 3: Add the 2nd row to the 3rd row**
+
+$$
+\begin{pmatrix}
+1 & 1 & 1 & | & 6 \\
+0 & -3 & -1 & | & -11 \\
+0 & 0 & 3 & | & 6
+\end{pmatrix}
+$$
+
+Now we can solve the system of equations:
+
+$$
+3z = 6 \Rightarrow z = 2
+$$
+
+Substitute $z = 2$ into the second equation:
+
+$$
+-3y - 2 = -11 \Rightarrow y = 3
+$$
+
+Substitute $y = 3$ and $z = 2$ into the first equation:
+
+$$
+x + 3 + 2 = 6 \Rightarrow x = 1
+$$
+
+
+### Inverse Matrix Method
+
+The system of linear equations can be written in matrix form as:
+
+$$
+\mathbf{A} \mathbf{x} = \mathbf{b}
+$$
+
+where $\mathbf{A}$ is the coefficient matrix, $\mathbf{x}$ is the vector of variables, and $\mathbf{b}$ is the vector of constants. The solution to the system is given by:
+
+$$
+\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
+$$
+
+where $\mathbf{A}^{-1}$ is the inverse of the coefficient matrix $\mathbf{A}$.
+
+**Example**
+
+Consider the following system of linear equations:
+
+$$
+\begin{align*}
+x + y + z &= 6 \\
+2x - y + z &= 1 \\
+-x + 2y + 3z &= 11
+\end{align*}
+$$
+
+this system can be written in matrix form as:
+
+$$
+\begin{bmatrix}
+1 & 1 & 1 \\
+2 & -1 & 1 \\
+-1 & 2 & 3
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 \\
+1 \\
+11
+\end{bmatrix}
+$$
+
+Inverse of the matrix $\mathbf{A}$ is:
+
+$$
+\mathbf{A}^{-1} = \begin{bmatrix}
+\frac{5}{9} & \frac{1}{9} & -\frac{2}{9} \\
+\frac{7}{9} & -\frac{4}{9} & -\frac{1}{9} \\
+-\frac{1}{3} & \frac{1}{3} & \frac{1}{3}
+\end{bmatrix}
+$$
+
+by multiplying the inverse matrix by the vector of constants, we can find the solution:
+
+$$
+\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{5}{9} & \frac{1}{9} & -\frac{2}{9} \\
+\frac{7}{9} & -\frac{4}{9} & -\frac{1}{9} \\
+-\frac{1}{3} & \frac{1}{3} & \frac{1}{3}
+\end{bmatrix}
+\begin{bmatrix}
+6 \\
+1 \\
+11
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{1}{9}(5*6 + 1*1 - 2*11) \\
+\frac{1}{9}(7*6 - 4*1 - 1*11) \\
+\frac{1}{3}(-1*6 + 1*1 + 1*11)
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 \\
+3 \\
+2
+\end{bmatrix}
+$$
