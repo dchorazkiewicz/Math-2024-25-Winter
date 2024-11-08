@@ -29,19 +29,46 @@ $$
 Now, we calculate the determinant of $\mathbf{A}'$ by expanding along the second row (as it contains several zeros):
 
 $$
-\det(\mathbf{A}') = 1 \cdot \det \begin{pmatrix} 5 & 4 & -1 \\ 3 & 2 & 1 \\ 5 & 4 & 0 \end{pmatrix}
+\det(\mathbf{A}') = 
+1 \cdot \det 
+\begin{pmatrix} 
+5 & 4 & -1 \\ 
+3 & 2 & 1 \\ 
+5 & 4 & 0 
+\end{pmatrix}
 $$
 
 We now compute the determinant of the $3 \times 3$ matrix:
 
 $$
-\det \begin{pmatrix} 5 & 4 & -1 \\ 3 & 2 & 1 \\ 5 & 4 & 0 \end{pmatrix}
+M_{sub} =
+\det
+\begin{pmatrix}
+5 & 4 & -1 \\
+3 & 2 & 1 \\
+5 & 4 & 0
+\end{pmatrix}
 $$
 
 Expanding along the first row:
 
 $$
-= 5 \cdot \det \begin{pmatrix} 2 & 1 \\ 4 & 0 \end{pmatrix} - 4 \cdot \det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} + (-1) \cdot \det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix}
+M_{sub} =
+= 5 \cdot \det 
+\begin{pmatrix} 
+2 & 1 \\
+ 4 & 0 
+\end{pmatrix} 
+ - 4 \cdot \det 
+\begin{pmatrix} 
+3 & 1 \\
+  5 & 0 
+\end{pmatrix} 
+ + (-1) \cdot \det 
+\begin{pmatrix} 
+3 & 2 \\
+  5 & 4 
+\end{pmatrix}
 $$
 
 Calculating the determinants of the smaller \(2 \times 2\) matrices:
