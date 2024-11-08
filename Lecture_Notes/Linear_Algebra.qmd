@@ -18,6 +18,14 @@ format:
 
 # Introduction to Linear Algebra
 
+**Under construction**
+
+
+```{python}
+import time
+print(time.ctime())
+```
+
 ## What is Linear Algebra?
 
 ## What is a Matrix?
@@ -240,7 +248,40 @@ $$
 \end{bmatrix}
 $$
 
-As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdot \mathbf{A}$ is a \(2 \times 2\) matrix. Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
+As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdot \mathbf{A}$ is a $2 \times 2$ matrix. Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
+
+
+### Transpose
+
+The transpose of a matrix $\mathbf{A}$ is denoted by $\mathbf{A}^T$ and is obtained by swapping the rows and columns of the matrix. For example, if $\mathbf{A}$ is a $2 \times 3$ matrix:
+
+**Examples**
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 & 4 \\
+2 & 5 \\
+3 & 6
+\end{bmatrix}
+$$
+
+$$
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 & 2 & 3
+\end{bmatrix}
+$$
+
 
 ## Determinants
 
@@ -281,6 +322,73 @@ To visualize the calculation of the determinant of a $3 \times 3$ matrix, we can
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Sarrus_rule_vertical.svg" alt="Sarrus Rule" width="200"/>
 </div>
 
+
+
+### Minors and Cofactors
+
+A minor of a matrix is the determinant of a smaller matrix obtained by removing one or more rows and columns from the original matrix. For an $n \times n$ matrix $\mathbf{A}$, the minor $\mathbf{A}_{ij}$ is the $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
+A cofactor is the minor of a matrix with an additional sign factor. The sign factor is $(-1)^{i+j}$, where $i$ and $j$ are the row and column indices of the element in the original matrix.
+
+For example, consider the following $3 \times 3$ matrix $\mathbf{A}$:
+
+$$
+\mathbf{A} =
+\begin{bmatrix}
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9
+\end{bmatrix}
+$$
+
+The minor $\mathbf{A}_{12}$ is the $2 \times 2$ submatrix obtained by removing the first row and second column:
+
+$$
+\det(\mathbf{A}_{12}) =
+\begin{vmatrix}
+\times & \times & \times \\
+4 &\times & 6 \\
+7 & \times & 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+4 & 6 \\
+7 & 9
+\end{vmatrix}
+=
+4 \times 9 - 6 \times 7 = 36 - 42 = -6
+$$
+
+Then cofactor $C_{12}$ is the minor $\mathbf{A}_{12}$ with the sign factor $(-1)^{1+2} = -1$: 
+
+$$
+C_{12} = -1 \cdot A_{12} = 6
+$$
+
+Analogously, the minor $\mathbf{A}_{22}$
+
+$$
+\det(\mathbf{A}_{22}) =
+\begin{vmatrix}
+1 & \times & 3 \\
+\times & \times & \times \\
+7 & \times & 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+1 & 3 \\
+7 & 9
+\end{vmatrix}
+=
+1 \times 9 - 3 \times 7 = 9 - 21 = -12
+$$
+
+The cofactor $C_{22}$ is the minor $\mathbf{A}_{22}$ with the sign factor $(-1)^{2+2} = 1$:
+
+$$
+C_{22} = 1 \cdot A_{22} = -12
+$$
+
+
 ### Laplace Expansion - Determinants of Larger Matrices
 
 The Laplace expansion, also known as cofactor expansion, is a method for calculating the determinant of an $n \times n$ matrix. This method involves expanding the determinant along a row or a column.
@@ -288,7 +396,7 @@ The Laplace expansion, also known as cofactor expansion, is a method for calcula
 For an $n \times n$ matrix $\mathbf{A}$, the determinant can be calculated by expanding along the $i$-th row as follows:
 
 $$
-\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})= \sum_{j=1}^{n} a_{ij} C_{ij}
 $$
 
 where $a_{ij}$ is the element of the matrix in the $i$-th row and $j$-th column, and $\mathbf{A}_{ij}$ is the $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
@@ -297,6 +405,8 @@ Similarly, the determinant can be calculated by expanding along the $j$-th colum
 
 $$
 \det(\mathbf{A}) = \sum_{i=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+=
+\sum_{i=1}^{n} a_{ij} C_{ij}
 $$
 
 #### Example
@@ -388,48 +498,70 @@ $$
 Determinants have several properties that can simplify their calculation:
 
 1. **Linearity**: The determinant is a linear function of the rows (or columns) of the matrix. This means that if you multiply a row by a scalar, the determinant is also multiplied by that scalar.
-   $$
-   \text{det}(cA) = c \cdot \text{det}(A)
-   $$
+
+$$
+\begin{vmatrix}
+a_{11} & {\color{red}{a_{12}}} + {\color{green}{k}} {\color{blue}{b_{12}}} & a_{13} \\
+a_{21} & {\color{red}{a_{22}}} + {\color{green}{k}} {\color{blue}{b_{22}}} & a_{23} \\
+a_{31} & {\color{red}{a_{32}}} + {\color{green}{k}} {\color{blue}{b_{32}}} & a_{33}
+\end{vmatrix}
+=
+\begin{vmatrix}
+a_{11} & {\color{red}{a_{12}}} & a_{13} \\
+a_{21} & {\color{red}{a_{22}}} & a_{23} \\
+a_{31} & {\color{red}{a_{32}}} & a_{33}
+\end{vmatrix}
++ {\color{green}{k}} \begin{vmatrix}
+a_{11} & {\color{blue}{b_{12}}} & a_{13} \\
+a_{21} & {\color{blue}{b_{22}}} & a_{23} \\
+a_{31} & {\color{blue}{b_{32}}} & a_{33}
+\end{vmatrix}
+$$
+
+
 
 2. **Row and Column Operations**:
    - Swapping two rows (or columns) of a matrix multiplies the determinant by -1.
-     $$
-     \text{det}(A') = -\text{det}(A)
-     $$
    - Adding a multiple of one row (or column) to another row (or column) does not change the determinant.
-     $$
-     \text{det}(A) = \text{det}(A + kB)
-     $$
    - Multiplying a row (or column) by a scalar multiplies the determinant by that scalar.
-     $$
-     \text{det}(cA) = c \cdot \text{det}(A)
-     $$
 
-3. **Triangular Matrices**: The determinant of a triangular matrix (upper or lower) is the product of its diagonal elements.
-   $$
-   \text{det}(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}
-   $$
+3. **Triangular Matrices**: The determinant of a triangular matrix (upper or 
+lower) is the product of its diagonal elements.
+
+$$
+\det(\mathbf{A}) =
+\begin{vmatrix}
+\color{red}{a_{11}} & 0 & \ldots & 0 \\
+a_{21} & \color{red}{a_{22}} & \ldots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{n1} & a_{n2} & \ldots & \color{red}{a_{nn}}
+\end{vmatrix}
+= \color{red}{a_{11}} \cdot \color{red}{a_{22}} \cdot \ldots \cdot \color{red}{a_{nn}}
+$$
 
 4. **Determinant of the Identity Matrix**: The determinant of the identity matrix is 1.
-   $$
-   \text{det}(I) = 1
-   $$
+
+$$
+\det(\mathbf{I}) = 1
+$$
 
 5. **Determinant of a Product**: The determinant of the product of two matrices is the product of their determinants.
-   $$
-   \text{det}(AB) = \text{det}(A) \cdot \text{det}(B)
-   $$
+
+$$
+\det(\mathbf{A} \cdot \mathbf{B}) = \det(\mathbf{A}) \cdot \det(\mathbf{B})
+$$
 
 6. **Determinant of the Transpose**: The determinant of a matrix is equal to the determinant of its transpose.
-   $$
-   \text{det}(A) = \text{det}(A^T)
-   $$
+
+$$
+\det(\mathbf{A}) = \det(\mathbf{A}^T)
+$$
 
 7. **Determinant of an Inverse**: If a matrix is invertible, the determinant of its inverse is the reciprocal of the determinant of the matrix.
-   $$
-   \text{det}(A^{-1}) = \frac{1}{\text{det}(A)}
-   $$
+
+$$
+\det(\mathbf{A}^{-1}) = \frac{1}{\det(\mathbf{A})}
+$$
 
 8. **Block Matrices**: For block matrices, if $A$ and $D$ are square matrices, and $B$ and $C$ are zero matrices, then:
    $$
@@ -441,18 +573,175 @@ Determinants have several properties that can simplify their calculation:
 
 These properties can be used to simplify the calculation of determinants, especially for larger matrices.
 
-![Determinant Properties](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Lecture_Notes/additional_files/det_4x4_laplace.md)
+#### Example
+
+The initial matrix is:
+
+$$
+\mathbf{A} = \begin{pmatrix}
+2 & 3 & 1 & 5 \\
+-1 & 1 & -1 & 2 \\
+3 & 0 & 2 & 1 \\
+4 & 1 & 3 & 2
+\end{pmatrix}
+$$
+
+We perform the following column operations:
+
+1. Add the second column to the first column.
+2. Add the second column to the third column.
+3. Subtract twice the second column from the fourth column.
+
+After these operations, matrix $\mathbf{A}'$ becomes:
+
+$$
+\mathbf{A}' = \begin{pmatrix}
+5 & 3 & 4 & -1 \\
+0 & 1 & 0 & 0 \\
+3 & 0 & 2 & 1 \\
+5 & 1 & 4 & 0
+\end{pmatrix}
+$$
+
+Now, we calculate the determinant of $\mathbf{A}'$ by expanding along the second row (as it contains several zeros):
+
+$$
+\det(\mathbf{A}') = 
+1 \cdot \det 
+\begin{pmatrix} 
+5 & 4 & -1 \\ 
+3 & 2 & 1 \\ 
+5 & 4 & 0 
+\end{pmatrix}
+$$
+
+We now compute the determinant of the $3 \times 3$ matrix:
+
+$$
+\det(\mathbf{A}') =
+\det
+\begin{pmatrix}
+5 & 4 & -1 \\
+3 & 2 & 1 \\
+5 & 4 & 0
+\end{pmatrix}
+$$
+
+Expanding along the first row:
+
+$$
+\det(\mathbf{A}')
+= 5 \cdot \det \begin{pmatrix} 2 & 1 \\ 4 & 0 \end{pmatrix} - 4 \cdot \det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} + (-1) \cdot \det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix}
+$$
+
+Calculating the determinants of the smaller \(2 \times 2\) matrices:
+
+1. 
+$$
+\det 
+\begin{pmatrix} 2 & 1 \\ 
+4 & 0 \end{pmatrix}
+= 2 \cdot 0 - 1 \cdot 4 = -4
+$$
+2. $$\det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} = 3 \cdot 0 - 1 \cdot 5 = -5$$
+3. $$\det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix} = 3 \cdot 4 - 2 \cdot 5 = 12 - 10 = 2$$
+
+Substituting these values:
+
+$$
+\det(\mathbf{A}')= 5 \cdot (-4) - 4 \cdot (-5) - 1 \cdot 2=-2
+$$
+
+Thus, the determinant of matrix $\mathbf{A}$ is:
+
+$$
+\det(\mathbf{A}) = -2
+$$
 
 
 ## Inverse of a Matrix
 
-The inverse of a matrix $\mathbf{A}$ is denoted by $\mathbf{A}^{-1}$ and is defined such that the product of $\mathbf{A}$ and $\mathbf{A}^{-1}$ is the identity matrix $\mathbf{I}$:
+The inverse of a matrix $\mathbf{A}$ is denoted by $\mathbf{B}$ and is defined such that the product of $\mathbf{A}$ and $\mathbf{B}$ is the identity matrix $\mathbf{I}$:
 
 $$
-\mathbf{A} \cdot \mathbf{A}^{-1} = \mathbf{A}^{-1} \cdot \mathbf{A} = \mathbf{I}
+\mathbf{A} \cdot \mathbf{B} = \mathbf{B} \cdot \mathbf{A} = \mathbf{I}
 $$
 
-### Minors and Cofactors
+we will denote the inverse of a matrix $\mathbf{A}$ as $\mathbf{A}^{-1}$.
+Not all matrices have an inverse. A matrix is invertible if and only if its determinant is non-zero. By definition, the inverse of a matrix is unique and can be calculated only for square matrices.
+
+### Expansion Formula for the Inverse
+
+The inverse of a matrix can be calculated using the following formula:
+
+$$
+\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \cdot 
+\begin{pmatrix}
+C_{11} & C_{21} & \ldots & C_{n1} \\
+C_{12} & C_{22} & \ldots & C_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+C_{1n} & C_{2n} & \ldots & C_{nn}
+\end{pmatrix}
+$$
+
+where $C_{ij}$ is the cofactor of the element $a_{ij}$ in the matrix $\mathbf{A}$.
+$$
+
+**2x2 Matrix**
+
+For a $2 \times 2$ matrix $\mathbf{A}$:
+
+$$
+\mathbf{A} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}
+$$
+
+The inverse of $\mathbf{A}$ is:
+
+$$
+\mathbf{A}^{-1} = \frac{1}{a_{11}a_{22} - a_{12}a_{21}} \begin{pmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{pmatrix}
+$$
+
+**3x3 Matrix**
+
+For a $3 \times 3$ matrix $\mathbf{A}$:
+
+$$
+\mathbf{A} = \begin{pmatrix} a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \end{pmatrix}
+$$
+
+The cofactors of the elements are:
+
+$$
+\begin{align*}
+C_{11} & = a_{22}a_{33} - a_{23}a_{32} \\
+C_{12} & = -(a_{21}a_{33} - a_{23}a_{31}) \\
+C_{13} & = a_{21}a_{32} - a_{22}a_{31} \\
+C_{21} & = -(a_{12}a_{33} - a_{13}a_{32}) \\
+C_{22} & = a_{11}a_{33} - a_{13}a_{31} \\
+C_{23} & = -(a_{11}a_{32} - a_{12}a_{31}) \\
+C_{31} & = a_{12}a_{23} - a_{13}a_{22} \\
+C_{32} & = -(a_{11}a_{23} - a_{13}a_{21}) \\
+C_{33} & = a_{11}a_{22} - a_{12}a_{21}
+\end{align*}
+$$
+
+so the inverse of $\mathbf{A}$ is:
+
+$$
+\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \begin{pmatrix} 
+\color{red}{C_{11}} & \color{red}{C_{12}} & \color{red}{C_{13}} \\ 
+\color{blue}{C_{21}} & \color{blue}{C_{22}} & \color{blue}{C_{23}} \\ 
+\color{green}{C_{31}} & \color{green}{C_{32}} & \color{green}{C_{33}} 
+\end{pmatrix}^T
+=
+\frac{1}{\text{det}(\mathbf{A})} \begin{pmatrix} 
+\color{red}{C_{11}} & \color{blue}{C_{21}} & \color{green}{C_{31}} \\ 
+\color{red}{C_{12}} & \color{blue}{C_{22}} & \color{green}{C_{32}} \\ 
+\color{red}{C_{13}} & \color{blue}{C_{23}} & \color{green}{C_{33}} 
+\end{pmatrix}
+$$
+
+ 
 
 ### Gauss-Jordan Elimination
 

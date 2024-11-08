@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
 width: 0.8em;
 margin: 0 0.8em 0.2em -1em;  vertical-align: middle;
 }
+
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+}
+pre.numberSource { margin-left: 3em; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -3193,22 +3227,23 @@ window.Quarto = {
   <ul>
   <li><a href="#introduction-to-linear-algebra" id="toc-introduction-to-linear-algebra" class="nav-link active" data-scroll-target="#introduction-to-linear-algebra">Introduction to Linear Algebra</a>
   <ul class="collapse">
-  <li><a href="#what-is-linear-algebra" id="toc-what-is-linear-algebra" class="nav-link" data-scroll-target="#what-is-linear-algebra">What is Linear Algebra?</a></li>
   <li><a href="#what-is-a-matrix" id="toc-what-is-a-matrix" class="nav-link" data-scroll-target="#what-is-a-matrix">What is a Matrix?</a></li>
   <li><a href="#matrix-operations" id="toc-matrix-operations" class="nav-link" data-scroll-target="#matrix-operations">Matrix Operations</a>
   <ul class="collapse">
   <li><a href="#addition" id="toc-addition" class="nav-link" data-scroll-target="#addition">Addition</a></li>
   <li><a href="#multiplication-by-a-scalar" id="toc-multiplication-by-a-scalar" class="nav-link" data-scroll-target="#multiplication-by-a-scalar">Multiplication by a Scalar</a></li>
   <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
+  <li><a href="#transpose" id="toc-transpose" class="nav-link" data-scroll-target="#transpose">Transpose</a></li>
   </ul></li>
   <li><a href="#determinants" id="toc-determinants" class="nav-link" data-scroll-target="#determinants">Determinants</a>
   <ul class="collapse">
+  <li><a href="#minors-and-cofactors" id="toc-minors-and-cofactors" class="nav-link" data-scroll-target="#minors-and-cofactors">Minors and Cofactors</a></li>
   <li><a href="#laplace-expansion---determinants-of-larger-matrices" id="toc-laplace-expansion---determinants-of-larger-matrices" class="nav-link" data-scroll-target="#laplace-expansion---determinants-of-larger-matrices">Laplace Expansion - Determinants of Larger Matrices</a></li>
   <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
   </ul></li>
   <li><a href="#inverse-of-a-matrix" id="toc-inverse-of-a-matrix" class="nav-link" data-scroll-target="#inverse-of-a-matrix">Inverse of a Matrix</a>
   <ul class="collapse">
-  <li><a href="#minors-and-cofactors" id="toc-minors-and-cofactors" class="nav-link" data-scroll-target="#minors-and-cofactors">Minors and Cofactors</a></li>
+  <li><a href="#expansion-formula-for-the-inverse" id="toc-expansion-formula-for-the-inverse" class="nav-link" data-scroll-target="#expansion-formula-for-the-inverse">Expansion Formula for the Inverse</a></li>
   <li><a href="#gauss-jordan-elimination" id="toc-gauss-jordan-elimination" class="nav-link" data-scroll-target="#gauss-jordan-elimination">Gauss-Jordan Elimination</a></li>
   </ul></li>
   <li><a href="#systems-of-linear-equations" id="toc-systems-of-linear-equations" class="nav-link" data-scroll-target="#systems-of-linear-equations">Systems of Linear Equations</a>
@@ -3225,14 +3260,35 @@ window.Quarto = {
 </div>
 <main class="content column-page-right" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">What is Linear Algebra?</h1>
+</div>
 
+
+
+<div class="quarto-title-meta column-page-right">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="introduction-to-linear-algebra" class="level1">
 <h1>Introduction to Linear Algebra</h1>
-<section id="what-is-linear-algebra" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-linear-algebra">What is Linear Algebra?</h2>
-</section>
+<p><strong>Under construction</strong></p>
+<div id="c229f2e1" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(time.ctime())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fri Nov  8 07:18:47 2024</code></pre>
+</div>
+</div>
 <section id="what-is-a-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-a-matrix">What is a Matrix?</h2>
 <section id="general-form-of-a-matrix" class="level4">
@@ -3422,8 +3478,36 @@ b_{21}
 \color{red}{b_{21}}\color{blue}{a_{11}} &amp; \color{red}{b_{21}}\color{blue}{a_{12}}
 \end{bmatrix}
 \]</span></p>
-<p>As we can see, <span class="math inline">\(\mathbf{A} \cdot \mathbf{B}\)</span> is a scalar, while <span class="math inline">\(\mathbf{B} \cdot \mathbf{A}\)</span> is a (2 ) matrix. Therefore, <span class="math inline">\(\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}\)</span>, demonstrating that matrix multiplication is not commutative.</p>
+<p>As we can see, <span class="math inline">\(\mathbf{A} \cdot \mathbf{B}\)</span> is a scalar, while <span class="math inline">\(\mathbf{B} \cdot \mathbf{A}\)</span> is a <span class="math inline">\(2 \times 2\)</span> matrix. Therefore, <span class="math inline">\(\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}\)</span>, demonstrating that matrix multiplication is not commutative.</p>
 </section>
+</section>
+<section id="transpose" class="level3">
+<h3 class="anchored" data-anchor-id="transpose">Transpose</h3>
+<p>The transpose of a matrix <span class="math inline">\(\mathbf{A}\)</span> is denoted by <span class="math inline">\(\mathbf{A}^T\)</span> and is obtained by swapping the rows and columns of the matrix. For example, if <span class="math inline">\(\mathbf{A}\)</span> is a <span class="math inline">\(2 \times 3\)</span> matrix:</p>
+<p><strong>Examples</strong></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 &amp; 4 \\
+2 &amp; 5 \\
+3 &amp; 6
+\end{bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 \\
+2 \\
+3
+\end{bmatrix}^T
+=
+\begin{bmatrix}
+1 &amp; 2 &amp; 3
+\end{bmatrix}
+\]</span></p>
 </section>
 </section>
 <section id="determinants" class="level2">
@@ -3457,20 +3541,75 @@ a_{11}a_{22} - a_{12}a_{21}
 \]</span></p>
 To visualize the calculation of the determinant of a <span class="math inline">\(3 \times 3\)</span> matrix, we can use the rule of Sarrus:
 <div style="text-align: center;">
-<p><img role="img" aria-label="Sarrus Rule" src="data:text/html; charset=utf-8;charset=utf-8,%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Cmeta%20charset%3D%22utf%2D8%22%3E%0A%3Ctitle%3EWikimedia%20Error%3C%2Ftitle%3E%0A%3Cstyle%3E%0A%2A%20%7B%20margin%3A%200%3B%20padding%3A%200%3B%20%7D%0Abody%20%7B%20background%3A%20%23fff%3B%20font%3A%2015px%2F1%2E6%20sans%2Dserif%3B%20color%3A%20%23333%3B%20%7D%0A%2Econtent%20%7B%20margin%3A%207%25%20auto%200%3B%20padding%3A%202em%201em%201em%3B%20max%2Dwidth%3A%20640px%3B%20%7D%0A%2Efooter%20%7B%20clear%3A%20both%3B%20margin%2Dtop%3A%2014%25%3B%20border%2Dtop%3A%201px%20solid%20%23e5e5e5%3B%20background%3A%20%23f9f9f9%3B%20padding%3A%202em%200%3B%20font%2Dsize%3A%200%2E8em%3B%20text%2Dalign%3A%20center%3B%20%7D%0Aimg%20%7B%20float%3A%20left%3B%20margin%3A%200%202em%202em%200%3B%20%7D%0Aa%20img%20%7B%20border%3A%200%3B%20%7D%0Ah1%20%7B%20margin%2Dtop%3A%201em%3B%20font%2Dsize%3A%201%2E2em%3B%20%7D%0A%2Econtent%2Dtext%20%7B%20overflow%3A%20hidden%3B%20overflow%2Dwrap%3A%20break%2Dword%3B%20word%2Dwrap%3A%20break%2Dword%3B%20%2Dwebkit%2Dhyphens%3A%20auto%3B%20%2Dmoz%2Dhyphens%3A%20auto%3B%20%2Dms%2Dhyphens%3A%20auto%3B%20hyphens%3A%20auto%3B%20%7D%0Ap%20%7B%20margin%3A%200%2E7em%200%201em%200%3B%20%7D%0Aa%20%7B%20color%3A%20%230645ad%3B%20text%2Ddecoration%3A%20none%3B%20%7D%0Aa%3Ahover%20%7B%20text%2Ddecoration%3A%20underline%3B%20%7D%0Acode%20%7B%20font%2Dfamily%3A%20sans%2Dserif%3B%20%7D%0A%2Etext%2Dmuted%20%7B%20color%3A%20%23777%3B%20%7D%0A%40media%20%28prefers%2Dcolor%2Dscheme%3A%20dark%29%20%7B%0A%20%20a%20%7B%20color%3A%20%239e9eff%3B%20%7D%0A%20%20body%20%7B%20background%3A%20transparent%3B%20color%3A%20%23ddd%3B%20%7D%0A%20%20%2Efooter%20%7B%20border%2Dtop%3A%201px%20solid%20%23444%3B%20background%3A%20%23060606%3B%20%7D%0A%20%20%23logo%20%7B%20filter%3A%20invert%281%29%20hue%2Drotate%28180deg%29%3B%20%7D%0A%20%20%2Etext%2Dmuted%20%7B%20color%3A%20%23888%3B%20%7D%0A%7D%0A%3C%2Fstyle%3E%0A%3Cmeta%20name%3D%22color%2Dscheme%22%20content%3D%22light%20dark%22%3E%0A%3Cdiv%20class%3D%22content%22%20role%3D%22main%22%3E%0A%3Ca%20href%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%22%3E%3Cimg%20id%3D%22logo%22%20src%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%2Fstatic%2Fimages%2Fwmf%2Dlogo%2Epng%22%20srcset%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%2Fstatic%2Fimages%2Fwmf%2Dlogo%2D2x%2Epng%202x%22%20alt%3D%22Wikimedia%22%20width%3D%22135%22%20height%3D%22101%22%3E%0A%3C%2Fa%3E%0A%3Ch1%3EError%3C%2Fh1%3E%0A%3Cdiv%20class%3D%22content%2Dtext%22%3E%0A%0A%3Cp%3EOur%20servers%20are%20currently%20under%20maintenance%20or%20experiencing%20a%20technical%20issue%3C%2Fp%3E%0A%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22footer%22%3E%3Cp%3EIf%20you%20report%20this%20error%20to%20the%20Wikimedia%20System%20Administrators%2C%20please%20include%20the%20details%20below%2E%3C%2Fp%3E%3Cp%20class%3D%22text%2Dmuted%22%3E%3Ccode%3ERequest%20from%20212%2E106%2E161%2E4%20via%20cp3076%20cp3076%2C%20Varnish%20XID%20811926867%3Cbr%3EUpstream%20caches%3A%20cp3076%20int%3Cbr%3EError%3A%20403%2C%20Forbidden%2E%20Please%20comply%20with%20the%20User%2DAgent%20policy%3A%20https%3A%2F%2Fmeta%2Ewikimedia%2Eorg%2Fwiki%2FUser%2DAgent%5Fpolicy%20at%20Fri%2C%2008%20Nov%202024%2004%3A22%3A30%20GMT%3C%2Fcode%3E%3C%2Fp%3E%0A%3C%2Fdiv%3E%0A%3C%2Fhtml%3E%0A" alt="Sarrus Rule" width="200"></p>
+<p><img role="img" aria-label="Sarrus Rule" src="data:text/html; charset=utf-8;charset=utf-8,%3C%21DOCTYPE%20html%3E%0A%3Chtml%20lang%3D%22en%22%3E%0A%3Cmeta%20charset%3D%22utf%2D8%22%3E%0A%3Ctitle%3EWikimedia%20Error%3C%2Ftitle%3E%0A%3Cstyle%3E%0A%2A%20%7B%20margin%3A%200%3B%20padding%3A%200%3B%20%7D%0Abody%20%7B%20background%3A%20%23fff%3B%20font%3A%2015px%2F1%2E6%20sans%2Dserif%3B%20color%3A%20%23333%3B%20%7D%0A%2Econtent%20%7B%20margin%3A%207%25%20auto%200%3B%20padding%3A%202em%201em%201em%3B%20max%2Dwidth%3A%20640px%3B%20%7D%0A%2Efooter%20%7B%20clear%3A%20both%3B%20margin%2Dtop%3A%2014%25%3B%20border%2Dtop%3A%201px%20solid%20%23e5e5e5%3B%20background%3A%20%23f9f9f9%3B%20padding%3A%202em%200%3B%20font%2Dsize%3A%200%2E8em%3B%20text%2Dalign%3A%20center%3B%20%7D%0Aimg%20%7B%20float%3A%20left%3B%20margin%3A%200%202em%202em%200%3B%20%7D%0Aa%20img%20%7B%20border%3A%200%3B%20%7D%0Ah1%20%7B%20margin%2Dtop%3A%201em%3B%20font%2Dsize%3A%201%2E2em%3B%20%7D%0A%2Econtent%2Dtext%20%7B%20overflow%3A%20hidden%3B%20overflow%2Dwrap%3A%20break%2Dword%3B%20word%2Dwrap%3A%20break%2Dword%3B%20%2Dwebkit%2Dhyphens%3A%20auto%3B%20%2Dmoz%2Dhyphens%3A%20auto%3B%20%2Dms%2Dhyphens%3A%20auto%3B%20hyphens%3A%20auto%3B%20%7D%0Ap%20%7B%20margin%3A%200%2E7em%200%201em%200%3B%20%7D%0Aa%20%7B%20color%3A%20%230645ad%3B%20text%2Ddecoration%3A%20none%3B%20%7D%0Aa%3Ahover%20%7B%20text%2Ddecoration%3A%20underline%3B%20%7D%0Acode%20%7B%20font%2Dfamily%3A%20sans%2Dserif%3B%20%7D%0A%2Etext%2Dmuted%20%7B%20color%3A%20%23777%3B%20%7D%0A%40media%20%28prefers%2Dcolor%2Dscheme%3A%20dark%29%20%7B%0A%20%20a%20%7B%20color%3A%20%239e9eff%3B%20%7D%0A%20%20body%20%7B%20background%3A%20transparent%3B%20color%3A%20%23ddd%3B%20%7D%0A%20%20%2Efooter%20%7B%20border%2Dtop%3A%201px%20solid%20%23444%3B%20background%3A%20%23060606%3B%20%7D%0A%20%20%23logo%20%7B%20filter%3A%20invert%281%29%20hue%2Drotate%28180deg%29%3B%20%7D%0A%20%20%2Etext%2Dmuted%20%7B%20color%3A%20%23888%3B%20%7D%0A%7D%0A%3C%2Fstyle%3E%0A%3Cmeta%20name%3D%22color%2Dscheme%22%20content%3D%22light%20dark%22%3E%0A%3Cdiv%20class%3D%22content%22%20role%3D%22main%22%3E%0A%3Ca%20href%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%22%3E%3Cimg%20id%3D%22logo%22%20src%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%2Fstatic%2Fimages%2Fwmf%2Dlogo%2Epng%22%20srcset%3D%22https%3A%2F%2Fwww%2Ewikimedia%2Eorg%2Fstatic%2Fimages%2Fwmf%2Dlogo%2D2x%2Epng%202x%22%20alt%3D%22Wikimedia%22%20width%3D%22135%22%20height%3D%22101%22%3E%0A%3C%2Fa%3E%0A%3Ch1%3EError%3C%2Fh1%3E%0A%3Cdiv%20class%3D%22content%2Dtext%22%3E%0A%0A%3Cp%3EOur%20servers%20are%20currently%20under%20maintenance%20or%20experiencing%20a%20technical%20issue%3C%2Fp%3E%0A%3C%2Fdiv%3E%0A%3C%2Fdiv%3E%0A%3Cdiv%20class%3D%22footer%22%3E%3Cp%3EIf%20you%20report%20this%20error%20to%20the%20Wikimedia%20System%20Administrators%2C%20please%20include%20the%20details%20below%2E%3C%2Fp%3E%3Cp%20class%3D%22text%2Dmuted%22%3E%3Ccode%3ERequest%20from%20212%2E106%2E161%2E4%20via%20cp3076%20cp3076%2C%20Varnish%20XID%20819369881%3Cbr%3EUpstream%20caches%3A%20cp3076%20int%3Cbr%3EError%3A%20403%2C%20Forbidden%2E%20Please%20comply%20with%20the%20User%2DAgent%20policy%3A%20https%3A%2F%2Fmeta%2Ewikimedia%2Eorg%2Fwiki%2FUser%2DAgent%5Fpolicy%20at%20Fri%2C%2008%20Nov%202024%2006%3A18%3A50%20GMT%3C%2Fcode%3E%3C%2Fp%3E%0A%3C%2Fdiv%3E%0A%3C%2Fhtml%3E%0A" alt="Sarrus Rule" width="200"></p>
 </div>
+</section>
+<section id="minors-and-cofactors" class="level3">
+<h3 class="anchored" data-anchor-id="minors-and-cofactors">Minors and Cofactors</h3>
+<p>A minor of a matrix is the determinant of a smaller matrix obtained by removing one or more rows and columns from the original matrix. For an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, the minor <span class="math inline">\(\mathbf{A}_{ij}\)</span> is the <span class="math inline">\((n-1) \times (n-1)\)</span> submatrix obtained by removing the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column from <span class="math inline">\(\mathbf{A}\)</span>. A cofactor is the minor of a matrix with an additional sign factor. The sign factor is <span class="math inline">\((-1)^{i+j}\)</span>, where <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> are the row and column indices of the element in the original matrix.</p>
+<p>For example, consider the following <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{A} =
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9
+\end{bmatrix}
+\]</span></p>
+<p>The minor <span class="math inline">\(\mathbf{A}_{12}\)</span> is the <span class="math inline">\(2 \times 2\)</span> submatrix obtained by removing the first row and second column:</p>
+<p><span class="math display">\[
+\det(\mathbf{A}_{12}) =
+\begin{vmatrix}
+\times &amp; \times &amp; \times \\
+4 &amp;\times &amp; 6 \\
+7 &amp; \times &amp; 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+4 &amp; 6 \\
+7 &amp; 9
+\end{vmatrix}
+=
+4 \times 9 - 6 \times 7 = 36 - 42 = -6
+\]</span></p>
+<p>Then cofactor <span class="math inline">\(C_{12}\)</span> is the minor <span class="math inline">\(\mathbf{A}_{12}\)</span> with the sign factor <span class="math inline">\((-1)^{1+2} = -1\)</span>:</p>
+<p><span class="math display">\[
+C_{12} = -1 \cdot A_{12} = 6
+\]</span></p>
+<p>Analogously, the minor <span class="math inline">\(\mathbf{A}_{22}\)</span></p>
+<p><span class="math display">\[
+\det(\mathbf{A}_{22}) =
+\begin{vmatrix}
+1 &amp; \times &amp; 3 \\
+\times &amp; \times &amp; \times \\
+7 &amp; \times &amp; 9
+\end{vmatrix}
+=
+\begin{vmatrix}
+1 &amp; 3 \\
+7 &amp; 9
+\end{vmatrix}
+=
+1 \times 9 - 3 \times 7 = 9 - 21 = -12
+\]</span></p>
+<p>The cofactor <span class="math inline">\(C_{22}\)</span> is the minor <span class="math inline">\(\mathbf{A}_{22}\)</span> with the sign factor <span class="math inline">\((-1)^{2+2} = 1\)</span>:</p>
+<p><span class="math display">\[
+C_{22} = 1 \cdot A_{22} = -12
+\]</span></p>
 </section>
 <section id="laplace-expansion---determinants-of-larger-matrices" class="level3">
 <h3 class="anchored" data-anchor-id="laplace-expansion---determinants-of-larger-matrices">Laplace Expansion - Determinants of Larger Matrices</h3>
 <p>The Laplace expansion, also known as cofactor expansion, is a method for calculating the determinant of an <span class="math inline">\(n \times n\)</span> matrix. This method involves expanding the determinant along a row or a column.</p>
 <p>For an <span class="math inline">\(n \times n\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>, the determinant can be calculated by expanding along the <span class="math inline">\(i\)</span>-th row as follows:</p>
 <p><span class="math display">\[
-\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})= \sum_{j=1}^{n} a_{ij} C_{ij}
 \]</span></p>
 <p>where <span class="math inline">\(a_{ij}\)</span> is the element of the matrix in the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column, and <span class="math inline">\(\mathbf{A}_{ij}\)</span> is the <span class="math inline">\((n-1) \times (n-1)\)</span> submatrix obtained by removing the <span class="math inline">\(i\)</span>-th row and <span class="math inline">\(j\)</span>-th column from <span class="math inline">\(\mathbf{A}\)</span>.</p>
 <p>Similarly, the determinant can be calculated by expanding along the <span class="math inline">\(j\)</span>-th column:</p>
 <p><span class="math display">\[
 \det(\mathbf{A}) = \sum_{i=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
+=
+\sum_{i=1}^{n} a_{ij} C_{ij}
 \]</span></p>
 <section id="example" class="level4">
 <h4 class="anchored" data-anchor-id="example">Example</h4>
@@ -3550,47 +3689,81 @@ a_{41} &amp; a_{42} &amp; a_{43}
 <h3 class="anchored" data-anchor-id="properties">Properties</h3>
 <p>Determinants have several properties that can simplify their calculation:</p>
 <ol type="1">
-<li><p><strong>Linearity</strong>: The determinant is a linear function of the rows (or columns) of the matrix. This means that if you multiply a row by a scalar, the determinant is also multiplied by that scalar. <span class="math display">\[
-\text{det}(cA) = c \cdot \text{det}(A)
-\]</span></p></li>
-<li><p><strong>Row and Column Operations</strong>:</p>
+<li><strong>Linearity</strong>: The determinant is a linear function of the rows (or columns) of the matrix. This means that if you multiply a row by a scalar, the determinant is also multiplied by that scalar.</li>
+</ol>
+<p><span class="math display">\[
+\begin{vmatrix}
+a_{11} &amp; {\color{red}{a_{12}}} + {\color{green}{k}} {\color{blue}{b_{12}}} &amp; a_{13} \\
+a_{21} &amp; {\color{red}{a_{22}}} + {\color{green}{k}} {\color{blue}{b_{22}}} &amp; a_{23} \\
+a_{31} &amp; {\color{red}{a_{32}}} + {\color{green}{k}} {\color{blue}{b_{32}}} &amp; a_{33}
+\end{vmatrix}
+=
+\begin{vmatrix}
+a_{11} &amp; {\color{red}{a_{12}}} &amp; a_{13} \\
+a_{21} &amp; {\color{red}{a_{22}}} &amp; a_{23} \\
+a_{31} &amp; {\color{red}{a_{32}}} &amp; a_{33}
+\end{vmatrix}
++ {\color{green}{k}} \begin{vmatrix}
+a_{11} &amp; {\color{blue}{b_{12}}} &amp; a_{13} \\
+a_{21} &amp; {\color{blue}{b_{22}}} &amp; a_{23} \\
+a_{31} &amp; {\color{blue}{b_{32}}} &amp; a_{33}
+\end{vmatrix}
+\]</span></p>
+<ol start="2" type="1">
+<li><strong>Row and Column Operations</strong>:
 <ul>
-<li>Swapping two rows (or columns) of a matrix multiplies the determinant by -1. <span class="math display">\[
-\text{det}(A&#39;) = -\text{det}(A)
-\]</span></li>
-<li>Adding a multiple of one row (or column) to another row (or column) does not change the determinant. <span class="math display">\[
-\text{det}(A) = \text{det}(A + kB)
-\]</span></li>
-<li>Multiplying a row (or column) by a scalar multiplies the determinant by that scalar. <span class="math display">\[
-\text{det}(cA) = c \cdot \text{det}(A)
-\]</span></li>
+<li>Swapping two rows (or columns) of a matrix multiplies the determinant by -1.</li>
+<li>Adding a multiple of one row (or column) to another row (or column) does not change the determinant.</li>
+<li>Multiplying a row (or column) by a scalar multiplies the determinant by that scalar.</li>
 </ul></li>
-<li><p><strong>Triangular Matrices</strong>: The determinant of a triangular matrix (upper or lower) is the product of its diagonal elements. <span class="math display">\[
-\text{det}(A) = a_{11} \cdot a_{22} \cdot \ldots \cdot a_{nn}
-\]</span></p></li>
-<li><p><strong>Determinant of the Identity Matrix</strong>: The determinant of the identity matrix is 1. <span class="math display">\[
-\text{det}(I) = 1
-\]</span></p></li>
-<li><p><strong>Determinant of a Product</strong>: The determinant of the product of two matrices is the product of their determinants. <span class="math display">\[
-\text{det}(AB) = \text{det}(A) \cdot \text{det}(B)
-\]</span></p></li>
-<li><p><strong>Determinant of the Transpose</strong>: The determinant of a matrix is equal to the determinant of its transpose. <span class="math display">\[
-\text{det}(A) = \text{det}(A^T)
-\]</span></p></li>
-<li><p><strong>Determinant of an Inverse</strong>: If a matrix is invertible, the determinant of its inverse is the reciprocal of the determinant of the matrix. <span class="math display">\[
-\text{det}(A^{-1}) = \frac{1}{\text{det}(A)}
-\]</span></p></li>
-<li><p><strong>Block Matrices</strong>: For block matrices, if <span class="math inline">\(A\)</span> and <span class="math inline">\(D\)</span> are square matrices, and <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are zero matrices, then: <span class="math display">\[
+<li><strong>Triangular Matrices</strong>: The determinant of a triangular matrix (upper or lower) is the product of its diagonal elements.</li>
+</ol>
+<p><span class="math display">\[
+\det(\mathbf{A}) =
+\begin{vmatrix}
+\color{red}{a_{11}} &amp; 0 &amp; \ldots &amp; 0 \\
+a_{21} &amp; \color{red}{a_{22}} &amp; \ldots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; a_{n2} &amp; \ldots &amp; \color{red}{a_{nn}}
+\end{vmatrix}
+= \color{red}{a_{11}} \cdot \color{red}{a_{22}} \cdot \ldots \cdot \color{red}{a_{nn}}
+\]</span></p>
+<ol start="4" type="1">
+<li><strong>Determinant of the Identity Matrix</strong>: The determinant of the identity matrix is 1.</li>
+</ol>
+<p><span class="math display">\[
+\det(\mathbf{I}) = 1
+\]</span></p>
+<ol start="5" type="1">
+<li><strong>Determinant of a Product</strong>: The determinant of the product of two matrices is the product of their determinants.</li>
+</ol>
+<p><span class="math display">\[
+\det(\mathbf{A} \cdot \mathbf{B}) = \det(\mathbf{A}) \cdot \det(\mathbf{B})
+\]</span></p>
+<ol start="6" type="1">
+<li><strong>Determinant of the Transpose</strong>: The determinant of a matrix is equal to the determinant of its transpose.</li>
+</ol>
+<p><span class="math display">\[
+\det(\mathbf{A}) = \det(\mathbf{A}^T)
+\]</span></p>
+<ol start="7" type="1">
+<li><strong>Determinant of an Inverse</strong>: If a matrix is invertible, the determinant of its inverse is the reciprocal of the determinant of the matrix.</li>
+</ol>
+<p><span class="math display">\[
+\det(\mathbf{A}^{-1}) = \frac{1}{\det(\mathbf{A})}
+\]</span></p>
+<ol start="8" type="1">
+<li><strong>Block Matrices</strong>: For block matrices, if <span class="math inline">\(A\)</span> and <span class="math inline">\(D\)</span> are square matrices, and <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span> are zero matrices, then: <span class="math display">\[
 \text{det}\begin{pmatrix}
 A &amp; 0 \\
 0 &amp; D
 \end{pmatrix} = \text{det}(A) \cdot \text{det}(D)
-\]</span></p></li>
+\]</span></li>
 </ol>
 <p>These properties can be used to simplify the calculation of determinants, especially for larger matrices.</p>
-<section id="example-1" class="level5">
-<h5 class="anchored" data-anchor-id="example-1">Example</h5>
-<p>Consider the following 4x4 matrix:</p>
+<section id="example-1" class="level4">
+<h4 class="anchored" data-anchor-id="example-1">Example</h4>
+<p>The initial matrix is:</p>
 <p><span class="math display">\[
 \mathbf{A} = \begin{pmatrix}
 2 &amp; 3 &amp; 1 &amp; 5 \\
@@ -3599,54 +3772,130 @@ A &amp; 0 \\
 4 &amp; 1 &amp; 3 &amp; 2
 \end{pmatrix}
 \]</span></p>
-<p>We can simplify the calculation of the determinant by performing column operations to introduce zeros in the second row. Let’s add the second column to the first and third columns, and subtract twice the second column from the fourth column:</p>
+<p>We perform the following column operations:</p>
+<ol type="1">
+<li>Add the second column to the first column.</li>
+<li>Add the second column to the third column.</li>
+<li>Subtract twice the second column from the fourth column.</li>
+</ol>
+<p>After these operations, matrix <span class="math inline">\(\mathbf{A}&#39;\)</span> becomes:</p>
 <p><span class="math display">\[
-\begin{pmatrix}
-2 &amp; 3 &amp; 1 &amp; 5 \\
--1 &amp; 1 &amp; -1 &amp; 2 \\
+\mathbf{A}&#39; = \begin{pmatrix}
+5 &amp; 3 &amp; 4 &amp; -1 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
 3 &amp; 0 &amp; 2 &amp; 1 \\
-4 &amp; 1 &amp; 3 &amp; 2
+5 &amp; 1 &amp; 4 &amp; 0
 \end{pmatrix}
-\rightarrow
+\]</span></p>
+<p>Now, we calculate the determinant of <span class="math inline">\(\mathbf{A}&#39;\)</span> by expanding along the second row (as it contains several zeros):</p>
+<p><span class="math display">\[
+\det(\mathbf{A}&#39;) =
+1 \cdot \det
 \begin{pmatrix}
-5 &amp; 3 &amp; 4 &amp; 1 \\
-0 &amp; 1 &amp; 0 &amp; -2 \\
-3 &amp; 0 &amp; 2 &amp; 1 \\
-5 &amp; 1 &amp; 5 &amp; 0
+5 &amp; 4 &amp; -1 \\
+3 &amp; 2 &amp; 1 \\
+5 &amp; 4 &amp; 0
 \end{pmatrix}
 \]</span></p>
-<p>Now, we can expand the determinant along the second row, which has the most zeros:</p>
+<p>We now compute the determinant of the <span class="math inline">\(3 \times 3\)</span> matrix:</p>
 <p><span class="math display">\[
-\text{det}(\mathbf{A}) = 1 \cdot \begin{vmatrix}
-5 &amp; 4 &amp; 1 \\
+\det(\mathbf{A}&#39;) =
+\det
+\begin{pmatrix}
+5 &amp; 4 &amp; -1 \\
 3 &amp; 2 &amp; 1 \\
-5 &amp; 5 &amp; 0
-\end{vmatrix}
+5 &amp; 4 &amp; 0
+\end{pmatrix}
 \]</span></p>
-<p>Calculating the 3x3 determinant:</p>
+<p>Expanding along the first row:</p>
 <p><span class="math display">\[
-\begin{vmatrix}
-5 &amp; 4 &amp; 1 \\
-3 &amp; 2 &amp; 1 \\
-5 &amp; 5 &amp; 0
-\end{vmatrix} = 5 \cdot (2 \cdot 0 - 1 \cdot 5) - 4 \cdot (3 \cdot 0 - 1 \cdot 5) + 1 \cdot (3 \cdot 5 - 2 \cdot 5) = 5 \cdot (-5) - 4 \cdot (-5) + 1 \cdot (15 - 10) = -25 + 20 + 5 = 0
+\det(\mathbf{A}&#39;)
+= 5 \cdot \det \begin{pmatrix} 2 &amp; 1 \\ 4 &amp; 0 \end{pmatrix} - 4 \cdot \det \begin{pmatrix} 3 &amp; 1 \\ 5 &amp; 0 \end{pmatrix} + (-1) \cdot \det \begin{pmatrix} 3 &amp; 2 \\ 5 &amp; 4 \end{pmatrix}
 \]</span></p>
-<p>So, the determinant of <span class="math inline">\(\mathbf{A}\)</span> is:</p>
+<p>Calculating the determinants of the smaller (2 ) matrices:</p>
+<ol type="1">
+<li><span class="math display">\[
+\det
+\begin{pmatrix} 2 &amp; 1 \\
+4 &amp; 0 \end{pmatrix}
+= 2 \cdot 0 - 1 \cdot 4 = -4
+\]</span></li>
+<li><span class="math display">\[\det \begin{pmatrix} 3 &amp; 1 \\ 5 &amp; 0 \end{pmatrix} = 3 \cdot 0 - 1 \cdot 5 = -5\]</span></li>
+<li><span class="math display">\[\det \begin{pmatrix} 3 &amp; 2 \\ 5 &amp; 4 \end{pmatrix} = 3 \cdot 4 - 2 \cdot 5 = 12 - 10 = 2\]</span></li>
+</ol>
+<p>Substituting these values:</p>
 <p><span class="math display">\[
-\text{det}(\mathbf{A}) = 0
+\det(\mathbf{A}&#39;)= 5 \cdot (-4) - 4 \cdot (-5) - 1 \cdot 2=-2
 \]</span></p>
-<p>In this case, the determinant is zero, indicating that the matrix is singular and does not have an inverse.</p>
+<p>Thus, the determinant of matrix <span class="math inline">\(\mathbf{A}\)</span> is:</p>
+<p><span class="math display">\[
+\det(\mathbf{A}) = -2
+\]</span></p>
 </section>
 </section>
 </section>
 <section id="inverse-of-a-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="inverse-of-a-matrix">Inverse of a Matrix</h2>
-<p>The inverse of a matrix <span class="math inline">\(\mathbf{A}\)</span> is denoted by <span class="math inline">\(\mathbf{A}^{-1}\)</span> and is defined such that the product of <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{A}^{-1}\)</span> is the identity matrix <span class="math inline">\(\mathbf{I}\)</span>:</p>
+<p>The inverse of a matrix <span class="math inline">\(\mathbf{A}\)</span> is denoted by <span class="math inline">\(\mathbf{B}\)</span> and is defined such that the product of <span class="math inline">\(\mathbf{A}\)</span> and <span class="math inline">\(\mathbf{B}\)</span> is the identity matrix <span class="math inline">\(\mathbf{I}\)</span>:</p>
 <p><span class="math display">\[
-\mathbf{A} \cdot \mathbf{A}^{-1} = \mathbf{A}^{-1} \cdot \mathbf{A} = \mathbf{I}
+\mathbf{A} \cdot \mathbf{B} = \mathbf{B} \cdot \mathbf{A} = \mathbf{I}
 \]</span></p>
-<section id="minors-and-cofactors" class="level3">
-<h3 class="anchored" data-anchor-id="minors-and-cofactors">Minors and Cofactors</h3>
+<p>we will denote the inverse of a matrix <span class="math inline">\(\mathbf{A}\)</span> as <span class="math inline">\(\mathbf{A}^{-1}\)</span>. Not all matrices have an inverse. A matrix is invertible if and only if its determinant is non-zero. By definition, the inverse of a matrix is unique and can be calculated only for square matrices.</p>
+<section id="expansion-formula-for-the-inverse" class="level3">
+<h3 class="anchored" data-anchor-id="expansion-formula-for-the-inverse">Expansion Formula for the Inverse</h3>
+<p>The inverse of a matrix can be calculated using the following formula:</p>
+<p><span class="math display">\[
+\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \cdot
+\begin{pmatrix}
+C_{11} &amp; C_{21} &amp; \ldots &amp; C_{n1} \\
+C_{12} &amp; C_{22} &amp; \ldots &amp; C_{n2} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+C_{1n} &amp; C_{2n} &amp; \ldots &amp; C_{nn}
+\end{pmatrix}
+\]</span></p>
+<p>where <span class="math inline">\(C_{ij}\)</span> is the cofactor of the element <span class="math inline">\(a_{ij}\)</span> in the matrix <span class="math inline">\(\mathbf{A}\)</span>. $$</p>
+<p><strong>2x2 Matrix</strong></p>
+<p>For a <span class="math inline">\(2 \times 2\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}
+\]</span></p>
+<p>The inverse of <span class="math inline">\(\mathbf{A}\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{A}^{-1} = \frac{1}{a_{11}a_{22} - a_{12}a_{21}} \begin{pmatrix} a_{22} &amp; -a_{12} \\ -a_{21} &amp; a_{11} \end{pmatrix}
+\]</span></p>
+<p><strong>3x3 Matrix</strong></p>
+<p>For a <span class="math inline">\(3 \times 3\)</span> matrix <span class="math inline">\(\mathbf{A}\)</span>:</p>
+<p><span class="math display">\[
+\mathbf{A} = \begin{pmatrix} a_{11} &amp; a_{12} &amp; a_{13} \\ a_{21} &amp; a_{22} &amp; a_{23} \\ a_{31} &amp; a_{32} &amp; a_{33} \end{pmatrix}
+\]</span></p>
+<p>The cofactors of the elements are:</p>
+<p><span class="math display">\[
+\begin{align*}
+C_{11} &amp; = a_{22}a_{33} - a_{23}a_{32} \\
+C_{12} &amp; = -(a_{21}a_{33} - a_{23}a_{31}) \\
+C_{13} &amp; = a_{21}a_{32} - a_{22}a_{31} \\
+C_{21} &amp; = -(a_{12}a_{33} - a_{13}a_{32}) \\
+C_{22} &amp; = a_{11}a_{33} - a_{13}a_{31} \\
+C_{23} &amp; = -(a_{11}a_{32} - a_{12}a_{31}) \\
+C_{31} &amp; = a_{12}a_{23} - a_{13}a_{22} \\
+C_{32} &amp; = -(a_{11}a_{23} - a_{13}a_{21}) \\
+C_{33} &amp; = a_{11}a_{22} - a_{12}a_{21}
+\end{align*}
+\]</span></p>
+<p>so the inverse of <span class="math inline">\(\mathbf{A}\)</span> is:</p>
+<p><span class="math display">\[
+\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \begin{pmatrix}
+\color{red}{C_{11}} &amp; \color{red}{C_{12}} &amp; \color{red}{C_{13}} \\
+\color{blue}{C_{21}} &amp; \color{blue}{C_{22}} &amp; \color{blue}{C_{23}} \\
+\color{green}{C_{31}} &amp; \color{green}{C_{32}} &amp; \color{green}{C_{33}}
+\end{pmatrix}^T
+=
+\frac{1}{\text{det}(\mathbf{A})} \begin{pmatrix}
+\color{red}{C_{11}} &amp; \color{blue}{C_{21}} &amp; \color{green}{C_{31}} \\
+\color{red}{C_{12}} &amp; \color{blue}{C_{22}} &amp; \color{green}{C_{32}} \\
+\color{red}{C_{13}} &amp; \color{blue}{C_{23}} &amp; \color{green}{C_{33}}
+\end{pmatrix}
+\]</span></p>
 </section>
 <section id="gauss-jordan-elimination" class="level3">
 <h3 class="anchored" data-anchor-id="gauss-jordan-elimination">Gauss-Jordan Elimination</h3>
