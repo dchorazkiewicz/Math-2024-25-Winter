@@ -53,22 +53,7 @@ $$
 Expanding along the first row:
 
 $$
-M_{sub} =
-5 \cdot \det 
-\begin{pmatrix} 
-2 & 1 \\
-4 & 0 
-\end{pmatrix} 
-- 4 \cdot \det 
-\begin{pmatrix} 
-3 & 1 \\
-5 & 0 
-\end{pmatrix} 
- + (-1) \cdot \det 
-\begin{pmatrix} 
-3 & 2 \\
-5 & 4 
-\end{pmatrix}
+= 5 \cdot \det \begin{pmatrix} 2 & 1 \\ 4 & 0 \end{pmatrix} - 4 \cdot \det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} + (-1) \cdot \det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix}
 $$
 
 Calculating the determinants of the smaller \(2 \times 2\) matrices:
