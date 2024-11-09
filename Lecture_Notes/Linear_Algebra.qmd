@@ -4,31 +4,35 @@ format:
     toc: true
     toc-location: left
     toc-depth: 3
-    page-layout: full
+   #  page-layout: full
     grid:
-      body-width: 1000px
+      body-width: 1200px
       sidebar-width: 300px
       margin-width: 300px
       gutter-width: 2rem
     theme:
       light: [flatly, custom.scss]
       dark: [darkly, custom.scss]
-    self-contained: true
+self-contained: true
 ---
+
+```{python}
+#| echo: False
+import time
+print('Last updated: %s' %time.ctime())
+```
 
 # Introduction to Linear Algebra
 
-**Under construction**
-
-
-```{python}
-import time
-print(time.ctime())
-```
-
 ## What is Linear Algebra?
 
-## What is a Matrix?
+Linear Algebra is a branch of mathematics that focuses on the study of linear spaces, linear transformations, and systems of linear equations. At its core, linear algebra provides the tools for analyzing and solving problems related to these mathematical objects, making it an essential area of study in various fields, including computer science, engineering, physics, and economics.
+
+* [Neural network](https://en.wikipedia.org/wiki/Neural_network_(machine_learning)#Network_design)
+* [Essence of linear algebra - YouTube - 3Blue1Brown Playlist](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&ab_channel=3Blue1Brown)
+* [2x2 Image Transformations - YouTube](https://www.youtube.com/watch?v=K2XLXlyPqCA&ab_channel=FirstPrinciplesofComputerVision)
+
+## Matrix calculus
 
 #### General form of a matrix
 
@@ -75,15 +79,74 @@ a_{31} & a_{32} & a_{33} & a_{34} & a_{35}
 \end{bmatrix}
 $$
 
-Where $b_{ij}$ represents the element in the $i$-th row and $j$-th column.
+Where $a_{ij}$ represents the element in the $i$-th row and $j$-th column.
+
+## Special Matrices
+
+#### Square Matrix
+
+A square matrix has the same number of rows and columns. For example, a $3 \times 3$ matrix is a square matrix because it has 3 rows and 3 columns.
+
+#### Diagonal Matrix
+
+A diagonal matrix is a square matrix in which all the elements outside the main diagonal are zero. The main diagonal is the set of elements where the row and column indices are equal. For example, a $3 \times 3$ diagonal matrix looks like this:
+
+$$
+\begin{bmatrix}
+a_{11} & 0 & 0 \\
+0 & a_{22} & 0 \\
+0 & 0 & a_{33}
+\end{bmatrix}
+$$
+
+#### Identity Matrix
+
+The identity matrix is a special diagonal matrix in which all the elements on the main diagonal are equal to 1. We denote the identity matrix by $\mathbf{I}$ or $\mathbf{I}_n$ for an $n \times n$ matrix. For example, the $3 \times 3$ identity matrix is:
+
+$$
+\mathbf{I}_3 =
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{bmatrix}
+$$
+
+#### Zero Matrix
+
+The zero matrix is a matrix in which all the elements are zero. We denote the zero matrix by $\mathbf{0}$ or $\mathbf{0}_{n \times m}$ for an $n \times m$ matrix.
+
+#### Symmetric Matrix
+
+A symmetric matrix is a square matrix that is equal to its transpose. In other words, the element in the $i$-th row and $j$-th column is equal to the element in the $j$-th row and $i$-th column. For example, a $3 \times 3$ symmetric matrix looks like this:
+
+$$ 
+\begin{bmatrix}
+a_{11} & \color{red}{b} & \color{green}{c} \\
+\color{red}{b} & a_{22} & \color{blue}{d} \\
+\color{green}{c} & \color{blue}{d} & a_{33}
+\end{bmatrix}
+$$
+
+#### Triangular Matrix
+
+A triangular matrix is a square matrix in which all the elements above or below the main diagonal are zero. A matrix is called upper triangular if all the elements below the main diagonal are zero, and lower triangular if all the elements above the main diagonal are zero. For example, a $3 \times 3$ upper triangular matrix looks like this:
+
+$$
+\begin{bmatrix}
+a_{11} & a_{12} & a_{13} \\
+\color{red}{0} & a_{22} & a_{23} \\
+\color{red}{0} & \color{red}{0} & a_{33}
+\end{bmatrix}
+$$
 
 ## Matrix Operations
 
-For matrices of the same size, we can perform the following operations addition, subtraction, and scalar multiplication. We can also multiply two matrices together, but the dimensions of the matrices must be compatible. Division of matrices is not defined!
-
 ### Addition
 
-The sum of two matrices of the same size is obtained by adding the corresponding elements of the matrices.
+The addition of two matrices is defined only for matrices of the same size.
+The sum of two matrices is obtained by adding the elements of the matrices with the same row and column indices. 
+
 
 Let's consider two matrices $\mathbf{A}$ and $\mathbf{B}$ of the size $2 \times 2$:
 
@@ -109,9 +172,9 @@ $$
 
 
 
-### Multiplication by a Scalar
+### Multiplication by scalar
 
-Let's consider a matrix $\mathbf{A}$ of the size $2 \times 2$ and a scalar $c$:
+Let's consider a matrix $\mathbf{A}$ of the size $2 \times 2$ and a scalar (number)  $c$:
 
 $$
 \mathbf{A} =
@@ -141,19 +204,19 @@ $$
 
 #### General Form
 
-Let's consider two matrices $\mathbf{A}$ of size $n \times m$ and $\mathbf{B}$ of size $m \times p$. The product of matrices $\mathbf{A}$ and $\mathbf{B}$ is a matrix $\mathbf{C}$ of size $n \times p$.
+Let's consider two matrices $\mathbf{A}$ of size ${\color{red}n} \times {\color{green}m}$ and $\mathbf{B}$ of size ${\color{green}m} \times {\color{blue}p}$. The product of matrices $\mathbf{A}$ and $\mathbf{B}$ is a matrix $\mathbf{C}$ of size ${\color{red}n} \times {\color{blue}p}$.
 
 Each element $c_{ij}$ of the resulting matrix $\mathbf{C}$ is calculated as:
 
 $$
-c_{\color{red}{i}\color{blue}{j}} = \sum_{\color{green}{k}=1}^{m} a_{\color{red}{i}\color{green}{k}} b_{\color{green}{k}\color{blue}{j}}
+c_{\color{red}{i}\color{blue}{j}} = \sum_{\color{green}{k}=1}^{{\color{green}m}} a_{\color{red}{i}\color{green}{k}} b_{\color{green}{k}\color{blue}{j}}
+=a_{\color{red}{i}{\color{green}1}}b_{{\color{green}1}{\color{blue}j}} + a_{\color{red}{i}{\color{green}2}}b_{{\color{green}2}{\color{blue}j}} + \ldots + a_{\color{red}{i}{\color{green}m}}b_{{\color{green}m}{\color{blue}j}}
 $$
 
 for $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, p$.
 
 In other words, the element in the $i$-th row and $j$-th column of $\mathbf{C}$ is the sum of the products of the elements from the $i$-th row of $\mathbf{A}$ and the $j$-th column of $\mathbf{B}$.
 
-Check this link: [Interactive multiplication](http://matrixmultiplication.xyz/)
 
 #### 2x2 Matrices
 Let's consider two matrices $\mathbf{A}$ and $\mathbf{B}$ of the size $2 \times 2$:
@@ -226,7 +289,7 @@ $$
 \color{red}{b_{21}}
 \end{bmatrix}
 =
-\color{blue}{a_{11}}\color{red}{b_{11}} + \color{blue}{a_{12}}\color{red}{b_{21}}
+[\color{blue}{a_{11}}\color{red}{b_{11}} + \color{blue}{a_{12}}{\color{red}{b_{21}}}]
 $$
 
 Now, let's consider the product $\mathbf{B} \cdot \mathbf{A}$:
@@ -248,7 +311,13 @@ $$
 \end{bmatrix}
 $$
 
-As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdot \mathbf{A}$ is a $2 \times 2$ matrix. Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
+As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdot \mathbf{A}$ is a $2 \times 2$ matrix. 
+
+Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
+
+* [matrixmultiplication.xyz](http://matrixmultiplication.xyz/){.link-box-external}
+* [matrix-addition-multiplication-applet](https://www.intmath.com/matrices-determinants/matrix-addition-multiplication-applet.php){.link-box}
+
 
 
 ### Transpose
@@ -259,16 +328,17 @@ The transpose of a matrix $\mathbf{A}$ is denoted by $\mathbf{A}^T$ and is obtai
 
 $$
 \begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6
+{\color{red} 1} & {\color{red} 2} & {\color{red} 3} \\
+{\color{blue} 4} & {\color{blue} 5} & {\color{blue} 6}
 \end{bmatrix}^T
 =
 \begin{bmatrix}
-1 & 4 \\
-2 & 5 \\
-3 & 6
+{\color{red} 1} & {\color{blue} 4} \\
+{\color{red} 2} & {\color{blue} 5} \\
+{\color{red} 3} & {\color{blue} 6}
 \end{bmatrix}
 $$
+
 
 $$
 \begin{bmatrix}
@@ -285,7 +355,7 @@ $$
 
 ## Determinants
 
-Determinants are a scalar value that can be computed from the elements of a square matrix and provide important information about the matrix. The determinant of a matrix is denoted by $\text{det}(\mathbf{A})$ or $|\mathbf{A}|$.
+Determinants are a **scalar value** that can be computed from the elements of a **square matrix** and provide important information about the matrix. The determinant of a matrix is denoted by $\text{det}(\mathbf{A})$ or $|\mathbf{A}|$.
 
 #### 2x2 Matrices
 
@@ -327,8 +397,20 @@ To visualize the calculation of the determinant of a $3 \times 3$ matrix, we can
 
 ### Minors and Cofactors
 
-A minor of a matrix is the determinant of a smaller matrix obtained by removing one or more rows and columns from the original matrix. For an $n \times n$ matrix $\mathbf{A}$, the minor $\mathbf{A}_{ij}$ is the $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
-A cofactor is the minor of a matrix with an additional sign factor. The sign factor is $(-1)^{i+j}$, where $i$ and $j$ are the row and column indices of the element in the original matrix.
+**Minors**
+
+A minor of a matrix is the determinant of a **sub-matrix** obtained by removing one or more rows and columns from the original matrix. For an $n \times n$ matrix $\mathbf{A}$, the minor $M_{ij}$ is the determinant of $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
+
+**Cofactors**
+
+A cofactor $C_{ij}$ is the minor of a matrix with an additional sign factor
+
+$$
+C_{ij} = (-1)^{i+j} M_{ij}
+$$
+
+where $(-1)^{i+j}$ is the sign factor that depends on the row and column indices.
+
 
 For example, consider the following $3 \times 3$ matrix $\mathbf{A}$:
 
@@ -341,10 +423,10 @@ $$
 \end{bmatrix}
 $$
 
-The minor $\mathbf{A}_{12}$ is the $2 \times 2$ submatrix obtained by removing the first row and second column:
+The minor $M_{12}$ is determined by removing the first row and second column from $\mathbf{A}$:
 
 $$
-\det(\mathbf{A}_{12}) =
+M_{12} =
 \begin{vmatrix}
 \times & \times & \times \\
 4 &\times & 6 \\
@@ -359,16 +441,16 @@ $$
 4 \times 9 - 6 \times 7 = 36 - 42 = -6
 $$
 
-Then cofactor $C_{12}$ is the minor $\mathbf{A}_{12}$ with the sign factor $(-1)^{1+2} = -1$: 
+Then cofactor $C_{12}$ is the minor $M_{12}$ with the sign factor $(-1)^{1+2} = -1$: 
 
 $$
-C_{12} = -1 \cdot A_{12} = 6
+C_{12} = -1 \cdot M_{12} = 6
 $$
 
-Analogously, the minor $\mathbf{A}_{22}$
+Analogously, the minor $M_{22}$
 
 $$
-\det(\mathbf{A}_{22}) =
+M_{22} =
 \begin{vmatrix}
 1 & \times & 3 \\
 \times & \times & \times \\
@@ -383,11 +465,13 @@ $$
 1 \times 9 - 3 \times 7 = 9 - 21 = -12
 $$
 
-The cofactor $C_{22}$ is the minor $\mathbf{A}_{22}$ with the sign factor $(-1)^{2+2} = 1$:
+The cofactor $C_{22}$ is the minor $M_{22}$ with the sign factor $(-1)^{2+2} = 1$:
 
 $$
 C_{22} = 1 \cdot A_{22} = -12
 $$
+
+Number of minors and cofactors in a matrix is equal to the number of elements in the matrix. In case of a $3 \times 3$ matrix, there are 9 minors and 9 cofactors.
 
 
 ### Laplace Expansion - Determinants of Larger Matrices
@@ -396,19 +480,42 @@ The Laplace expansion, also known as cofactor expansion, is a method for calcula
 
 For an $n \times n$ matrix $\mathbf{A}$, the determinant can be calculated by expanding along the $i$-th row as follows:
 
+**Expansion along the rows**
 $$
-\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})= \sum_{j=1}^{n} a_{ij} C_{ij}
+\begin{align*}
+\det(\mathbf{A}) 
+&= \sum_{j=1}^{n} (-1)^{i+j} a_{1j} M_{1j}= \sum_{j=1}^{n} a_{1j} C_{1j} 
+& \text{first row}\\
+&= \sum_{j=1}^{n} (-1)^{i+j} a_{2j} M_{2j}= \sum_{j=1}^{n} a_{2j} C_{2j} 
+& \text{second row}\\
+&\qquad \vdots 
+& \\
+&= \sum_{j=1}^{n} (-1)^{i+j} a_{nj} M_{nj}= \sum_{j=1}^{n} a_{nj} C_{nj} 
+& \text{n-th row}
+\end{align*}
 $$
 
-where $a_{ij}$ is the element of the matrix in the $i$-th row and $j$-th column, and $\mathbf{A}_{ij}$ is the $(n-1) \times (n-1)$ submatrix obtained by removing the $i$-th row and $j$-th column from $\mathbf{A}$.
+where $a_{ij}$ is the element of the matrix in the $i$-th row and $j$-th column, and $M_{ij}$ is the minor of the element $a_{ij}$ and $C_{ij}$ is the cofactor of the element $a_{ij}$.
+
+**Expansion along the columns**
 
 Similarly, the determinant can be calculated by expanding along the $j$-th column:
 
 $$
-\det(\mathbf{A}) = \sum_{i=1}^{n} (-1)^{i+j} a_{ij} \det(\mathbf{A}_{ij})
-=
-\sum_{i=1}^{n} a_{ij} C_{ij}
+\begin{align*}
+\det(\mathbf{A}) &=
+\sum_{i=1}^{n} (-1)^{i+j} a_{i1} M_{i1} = \sum_{i=1}^{n} a_{i1} C_{i1} & \text{first column} \\
+&= \sum_{i=1}^{n} (-1)^{i+j} a_{i2} M_{i2} = \sum_{i=1}^{n} a_{i2} C_{i2} & \text{second column} \\
+&\qquad \vdots \\
+&= \sum_{i=1}^{n} (-1)^{i+j} a_{in} M_{in} = \sum_{i=1}^{n} a_{in} C_{in} & \text{n-th column}
+\end{align*}
 $$
+
+where $a_{ij}$ is the element of the matrix in the $i$-th row and $j$-th column, and $M_{ij}$ is the minor of the element $a_{ij}$ and $C_{ij}$ is the cofactor of the element $a_{ij}$.
+
+**Note**
+
+For a $3 \times 3$ matrix, there are $2 \times 3 = 6$ possible ways to expand the determinant using Laplace expansion (3 rows and 3 columns). It is generally advantageous to choose the row or column that contains the most zeros, as this simplifies the calculation.
 
 #### Example
 
@@ -427,71 +534,60 @@ $$
 The determinant of $\mathbf{A}$ can be calculated by expanding along the first row:
 
 $$
-\det(\mathbf{A}) = a_{11} \det(\mathbf{A}_{11}) - a_{12} \det(\mathbf{A}_{12}) + a_{13} \det(\mathbf{A}_{13}) - a_{14} \det(\mathbf{A}_{14})
+\det(\mathbf{A}) = a_{11} M_{11} - a_{12} M_{12} + a_{13} M_{13} - a_{14} M_{14}
 $$
 
 where:
 
 $$
-\mathbf{A}_{11} =
+M_{11} = \begin{vmatrix} a_{22} & a_{23} & a_{24} \\ a_{32} & a_{33} & a_{34} \\ a_{42} & a_{43} & a_{44} \end{vmatrix}
+\quad\text{and}\quad
+M_{12} = \begin{vmatrix} a_{21} & a_{23} & a_{24} \\ a_{31} & a_{33} & a_{34} \\ a_{41} & a_{43} & a_{44} \end{vmatrix}
+$$
+
+$$
+M_{13} = \begin{vmatrix} a_{21} & a_{22} & a_{24} \\ a_{31} & a_{32} & a_{34} \\ a_{41} & a_{42} & a_{44} \end{vmatrix}
+\quad\text{and}\quad
+M_{14} = \begin{vmatrix} a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \\ a_{41} & a_{42} & a_{43} \end{vmatrix}
+$$
+
+**Explicitly**
+
+$$
+\mathbf{A} = 
 \begin{bmatrix}
-a_{22} & a_{23} & a_{24} \\
-a_{32} & a_{33} & a_{34} \\
-a_{42} & a_{43} & a_{44}
+1&2&3&4\\
+0&1&0&0\\
+2&5&1&4\\
+4&3&2&1
 \end{bmatrix}
 $$
 
-$$
-\mathbf{A}_{12} =
-\begin{bmatrix}
-a_{21} & a_{23} & a_{24} \\
-a_{31} & a_{33} & a_{34} \\
-a_{41} & a_{43} & a_{44}
-\end{bmatrix}
-$$
+We will calculate the determinant of the matrix by expanding along the second row:
 
 $$
-\mathbf{A}_{13} =
-\begin{bmatrix}
-a_{21} & a_{22} & a_{24} \\
-a_{31} & a_{32} & a_{34} \\
-a_{41} & a_{42} & a_{44}
-\end{bmatrix}
+\det(\mathbf{A}) = -0 \cdot M_{21} + 1 \cdot M_{22} - 0 \cdot M_{23} + 0 \cdot M_{24}
 $$
 
-$$
-\mathbf{A}_{14} =
-\begin{bmatrix}
-a_{21} & a_{22} & a_{23} \\
-a_{31} & a_{32} & a_{33} \\
-a_{41} & a_{42} & a_{43}
-\end{bmatrix}
-$$
-
-Thus, the determinant of $\mathbf{A}$ is:
+where:
 
 $$
-\det(\mathbf{A}) = a_{11} \left| \begin{matrix}
-a_{22} & a_{23} & a_{24} \\
-a_{32} & a_{33} & a_{34} \\
-a_{42} & a_{43} & a_{44}
-\end{matrix} \right|
-- a_{12} \left| \begin{matrix}
-a_{21} & a_{23} & a_{24} \\
-a_{31} & a_{33} & a_{34} \\
-a_{41} & a_{43} & a_{44}
-\end{matrix} \right|
-+ a_{13} \left| \begin{matrix}
-a_{21} & a_{22} & a_{24} \\
-a_{31} & a_{32} & a_{34} \\
-a_{41} & a_{42} & a_{44}
-\end{matrix} \right|
-- a_{14} \left| \begin{matrix}
-a_{21} & a_{22} & a_{23} \\
-a_{31} & a_{32} & a_{33} \\
-a_{41} & a_{42} & a_{43}
-\end{matrix} \right|
+M_{22}=
+\begin{vmatrix}
+1 & 3 & 4 \\
+2 & 1 & 4 \\
+4 & 2 & 1
+\end{vmatrix}
+= 35
 $$
+
+so 
+
+$$
+\det(\mathbf{A}) = 35
+$$
+
+[Lecture Noteooks: LA_Matrix_determinant_Laplace](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_determinant_Laplace_en.ipynb){.link-box}
 
 
 ### Properties
