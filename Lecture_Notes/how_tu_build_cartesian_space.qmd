@@ -17,15 +17,42 @@ format:
 ---
 
 
-# How to build a Cartesian space
+## How to build a Cartesian space
+
+### Introduction
+
+Euclidian space is a fundamental concept in mathematics. It is defined by a set of axioms.
+
+* [Euclidean geometry](https://en.wikipedia.org/wiki/Euclidean_geometry)
+* [Hilbert's axioms](https://en.wikipedia.org/wiki/Hilbert%27s_axioms)
+
+In euclidean space, we have few basic concepts:
+
+**Primitive terms**
+
+* Points
+* Lines
+* Planes
+
+**Primitive relations**
+
+* Betweenness
+* Lies on
+* Congruence
+
+Using just axioms of Euclidean geometry it is very hard proving new theorems. Thanks to [Decartes](https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes) we can introduce a new concept called Cartesian space. This new approach allows us to use numbers and algebra to describe the objects and relations in the Euclidean space.
+
+Now we will build a [Cartesian space](https://en.wikipedia.org/wiki/Analytic_geometry) step by step.
 
 ### Take a Euclidean plane
+
+This is pure Euclidean plane.
 
 ```{python}
 #|echo: false
 import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -39,15 +66,13 @@ ax.axis('off')
 plt.show()
 ```
 
-This is pure Euclidean plane. 
-
 ### Draw a line
 
 You can draw any line you want. We will call it $x$.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -71,7 +96,7 @@ You can choose any point on the line.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -99,7 +124,7 @@ We will call this line $y$.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -137,7 +162,7 @@ Those numbers describe the position of the points on the each axis.
 ```{python}
 
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -158,8 +183,8 @@ for i in range(-9, 10):
     plt.plot(i, 0, 'bo', markersize=5)
     plt.plot(0, i, 'bo', markersize=5)
     if i != 0:  # Avoid overlapping label at the origin
-        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
-        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+        plt.text(i, -0.7, f'{i}', fontsize=8, ha='center')
+        plt.text(-0.7, i, f'{i}', fontsize=8, ha='center')
 
 # Mark the origin
 plt.plot(0, 0, 'ro', markersize=10)
@@ -179,7 +204,7 @@ we can define the position of the point $P$ by these numbers which are called co
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(8, 8))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -199,8 +224,8 @@ for i in range(-9, 10):
     plt.plot(i, 0, 'bo', markersize=5)
     plt.plot(0, i, 'bo', markersize=5)
     if i != 0:  # Avoid overlapping label at the origin
-        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
-        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+        plt.text(i, -0.7, f'{i}', fontsize=8, ha='center')
+        plt.text(-0.7, i, f'{i}', fontsize=8, ha='center')
 
 # Mark the origin
 plt.plot(0, 0, 'ro', markersize=10)
