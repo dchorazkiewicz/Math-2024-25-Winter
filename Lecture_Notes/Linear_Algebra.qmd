@@ -209,8 +209,18 @@ Let's consider two matrices $\mathbf{A}$ of size ${\color{red}n} \times {\color{
 Each element $c_{ij}$ of the resulting matrix $\mathbf{C}$ is calculated as:
 
 $$
-c_{\color{red}{i}\color{blue}{j}} = \sum_{\color{green}{k}=1}^{{\color{green}m}} a_{\color{red}{i}\color{green}{k}} b_{\color{green}{k}\color{blue}{j}}
-=a_{\color{red}{i}{\color{green}1}}b_{{\color{green}1}{\color{blue}j}} + a_{\color{red}{i}{\color{green}2}}b_{{\color{green}2}{\color{blue}j}} + \ldots + a_{\color{red}{i}{\color{green}m}}b_{{\color{green}m}{\color{blue}j}}
+c_{\color{red}{i}\color{blue}{j}} = 
+\sum_{{\color{green}k}=1}^{m} 
+a_{\color{red}{i}\color{green}{k}} 
+b_{\color{green}{k}\color{blue}{j}}
+=
+a_{\color{red}{i}{\color{green}1}}
+b_{{\color{green}1}{\color{blue}j}} 
++
+a_{\color{red}{i}{\color{green}2}}
+b_{{\color{green}2}{\color{blue}j}}
++
+\ldots + a_{\color{red}{i}{\color{green}m}}b_{{\color{green}m}{\color{blue}j}}
 $$
 
 for $i = 1, 2, \ldots, n$ and $j = 1, 2, \ldots, p$.
@@ -628,10 +638,10 @@ lower) is the product of its diagonal elements.
 $$
 \det(\mathbf{A}) =
 \begin{vmatrix}
-\color{red}{a_{11}} & 0 & \ldots & 0 \\
-a_{21} & \color{red}{a_{22}} & \ldots & 0 \\
+\color{red}{a_{11}} & \color{blue}{0} & \ldots & \color{blue}{0} \\
+\color{orange}{a_{21}} & \color{red}{a_{22}} & \ldots & \color{blue}{0} \\
 \vdots & \vdots & \ddots & \vdots \\
-a_{n1} & a_{n2} & \ldots & \color{red}{a_{nn}}
+\color{orange}{a_{n1}} & \color{orange}{a_{n2}} & \ldots & \color{red}{a_{nn}}
 \end{vmatrix}
 = \color{red}{a_{11}} \cdot \color{red}{a_{22}} \cdot \ldots \cdot \color{red}{a_{nn}}
 $$
@@ -672,15 +682,15 @@ These properties can be used to simplify the calculation of determinants, especi
 
 #### Example
 
-The initial matrix is:
+The initial form of determinant is:
 
 $$
-\mathbf{A} = \begin{pmatrix}
+D = \begin{vmatrix}
 2 & 3 & 1 & 5 \\
 -1 & 1 & -1 & 2 \\
 3 & 0 & 2 & 1 \\
 4 & 1 & 3 & 2
-\end{pmatrix}
+\end{vmatrix}
 $$
 
 We perform the following column operations:
@@ -689,96 +699,90 @@ We perform the following column operations:
 2. Add the second column to the third column.
 3. Subtract twice the second column from the fourth column.
 
-After these operations, matrix $\mathbf{A}'$ becomes:
+After these operations,
 
 $$
-\mathbf{A}' = \begin{pmatrix}
+D = \begin{vmatrix}
 5 & 3 & 4 & -1 \\
-0 & 1 & 0 & 0 \\
+0 & {\color{red}1} & 0 & 0 \\
 3 & 0 & 2 & 1 \\
 5 & 1 & 4 & 0
-\end{pmatrix}
+\end{vmatrix}
 $$
 
-Now, we calculate the determinant of $\mathbf{A}'$ by expanding along the second row (as it contains several zeros):
+Now, we calculate this determinant by expanding along the second row (as it contains several zeros):
 
 $$
-\det(\mathbf{A}') = 
-1 \cdot \det 
-\begin{pmatrix} 
+D = 
+(-1)^{2+2}\cdot {\color{red}1} \cdot \det 
+\begin{vmatrix} 
 5 & 4 & -1 \\ 
 3 & 2 & 1 \\ 
 5 & 4 & 0 
-\end{pmatrix}
+\end{vmatrix}
 $$
 
-We now compute the determinant of the $3 \times 3$ matrix:
+Now, we will do the same thing as before. Let's add the second row to the first row, which will give us:
 
 $$
-\det(\mathbf{A}') =
-\det
-\begin{pmatrix}
-5 & 4 & -1 \\
-3 & 2 & 1 \\
+D=\begin{vmatrix}
+8 & 6 & 0 \\
+3 & 2 & {\color{blue}1} \\
 5 & 4 & 0
-\end{pmatrix}
+\end{vmatrix}
 $$
 
-Expanding along the first row:
+Now we exand along the third column:
 
 $$
-\det(\mathbf{A}')
-= 5 \cdot \det \begin{pmatrix} 2 & 1 \\ 4 & 0 \end{pmatrix} - 4 \cdot \det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} + (-1) \cdot \det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix}
-$$
-
-Calculating the determinants of the smaller \(2 \times 2\) matrices:
-
-1. 
-$$
-\det 
-\begin{pmatrix} 2 & 1 \\ 
-4 & 0 \end{pmatrix}
-= 2 \cdot 0 - 1 \cdot 4 = -4
-$$
-2. $$\det \begin{pmatrix} 3 & 1 \\ 5 & 0 \end{pmatrix} = 3 \cdot 0 - 1 \cdot 5 = -5$$
-3. $$\det \begin{pmatrix} 3 & 2 \\ 5 & 4 \end{pmatrix} = 3 \cdot 4 - 2 \cdot 5 = 12 - 10 = 2$$
-
-Substituting these values:
-
-$$
-\det(\mathbf{A}')= 5 \cdot (-4) - 4 \cdot (-5) - 1 \cdot 2=-2
-$$
-
-Thus, the determinant of matrix $\mathbf{A}$ is:
-
-$$
-\det(\mathbf{A}) = -2
+D = (-1)^{2+3} \cdot {\color{blue}1}\cdot 
+\det
+\begin{vmatrix}
+8 & 6 \\
+5 & 4   
+\end{vmatrix}
+= -1 \cdot (8 \cdot 4 - 6 \cdot 5) = -2
 $$
 
 
 ## Inverse of a Matrix
 
-The inverse of a matrix $\mathbf{A}$ is denoted by $\mathbf{B}$ and is defined such that the product of $\mathbf{A}$ and $\mathbf{B}$ is the identity matrix $\mathbf{I}$:
+The inverse of a matrix $\mathbf{A}$ is a matrix $\mathbf{B}$ such that the product of $\mathbf{A}$ and $\mathbf{B}$ is the identity matrix $\mathbf{I}$:
 
 $$
 \mathbf{A} \cdot \mathbf{B} = \mathbf{B} \cdot \mathbf{A} = \mathbf{I}
 $$
 
 we will denote the inverse of a matrix $\mathbf{A}$ as $\mathbf{A}^{-1}$.
-Not all matrices have an inverse. A matrix is invertible if and only if its determinant is non-zero. By definition, the inverse of a matrix is unique and can be calculated only for square matrices.
+
+
+**Not all matrices are invertible**. A matrix is invertible if and only if its determinant is non-zero. By definition, the inverse of a matrix is unique and can be calculated only for square matrices.
 
 ### Expansion Formula for the Inverse
 
 The inverse of a matrix can be calculated using the following formula:
 
 $$
-\mathbf{A}^{-1} = \frac{1}{\text{det}(\mathbf{A})} \cdot 
+\begin{align*}
+\mathbf{A}^{-1} 
+&= 
+\frac{1}{\text{det}(\mathbf{A})}  
 \begin{pmatrix}
-C_{11} & C_{21} & \ldots & C_{n1} \\
-C_{12} & C_{22} & \ldots & C_{n2} \\
+\color{red}{C_{11}} & \color{orange}{C_{12}} & \ldots & \color{blue}{C_{1n}} \\
+\color{red}{C_{21}} & \color{orange}{C_{22}} & \ldots & \color{blue}{C_{2n}} \\
 \vdots & \vdots & \ddots & \vdots \\
-C_{1n} & C_{2n} & \ldots & C_{nn}
+\color{red}{C_{n1}} & \color{orange}{C_{n2}} & \ldots & \color{blue}{C_{nn}}
+\end{pmatrix}^{T}\\
+&  \\
+&= 
+\frac{1}{\text{det}(\mathbf{A})}  
+\begin{pmatrix}
+\color{red}{C_{11}} & \color{red}{C_{21}} & \ldots & \color{red}{C_{n1}} \\
+\color{orange}{C_{12}} & \color{orange}{C_{22}} & \ldots & \color{orange}{C_{n2}} \\
+\vdots & \vdots & \ddots & \vdots \\
+\color{blue}{C_{1n}} & \color{blue}{C_{2n}} & \ldots & \color{blue}{C_{nn}}
 \end{pmatrix}
+\end{align*}
 $$
 
 where $C_{ij}$ is the cofactor of the element $a_{ij}$ in the matrix $\mathbf{A}$.
@@ -794,7 +798,7 @@ $$
 The inverse of $\mathbf{A}$ is:
 
 $$
-\mathbf{A}^{-1} = \frac{1}{a_{11}a_{22} - a_{12}a_{21}} \begin{pmatrix} a_{22} & -a_{12} \\ -a_{21} & a_{11} \end{pmatrix}
+\mathbf{A}^{-1} = \frac{1}{ad - bc} \begin{pmatrix} d & -b \\ -c & a \end{pmatrix}
 $$
 
 **3x3 Matrix**
@@ -837,11 +841,11 @@ $$
 \end{pmatrix}
 $$
 
- 
+To check if our computation is correct, we can multiply the matrix $\mathbf{A}$ by its inverse $\mathbf{A}^{-1}$ and verify that the result is the identity matrix $\mathbf{I}$.
 
 ### Gauss-Jordan method
 
-Finding the inverse of a matrix can be done using the Gauss-Jordan method. This method involves augmenting the matrix with the identity matrix and performing row operations to transform the original matrix into the identity matrix. The resulting matrix will be the inverse of the original matrix.
+Finding the inverse of a matrix can be done using the Gauss-Jordan method. This method involves augmenting the matrix with the identity matrix and performing row operations to transform the original matrix into the identity matrix. The right side of the augmented matrix will then become the inverse matrix.
 
 #### Example
 
@@ -859,7 +863,7 @@ we can find the inverse by following the Gauss-Jordan steps with the augmented m
 
 **Step-by-step solution:**
 
-1. **Write the augmented matrix:**
+1. Write the augmented matrix:
 
    $$
    \left[ \mathbf{A} \mid \mathbf{I} \right] = 
@@ -869,7 +873,7 @@ we can find the inverse by following the Gauss-Jordan steps with the augmented m
    \end{bmatrix}
    $$
 
-2. **Make the first element in the first row a 1 by dividing the first row by 2:**
+2. Make the first element in the first row a "1" by dividing the first row by 2:
 
    $$
    \begin{bmatrix}
@@ -878,7 +882,7 @@ we can find the inverse by following the Gauss-Jordan steps with the augmented m
    \end{bmatrix}
    $$
 
-3. **Make the element below it (in the second row, first column) a 0 by subtracting 4 times the first row from the second row:**
+3. Make the element in the second row, first column a "0" by subtracting 4 times the first row from the second row:
 
    $$
    \begin{bmatrix}
@@ -887,7 +891,7 @@ we can find the inverse by following the Gauss-Jordan steps with the augmented m
    \end{bmatrix}
    $$
 
-4. **Make the second element in the second row a 1 by dividing the second row by -5:**
+4. Make the second element in the second row a "1" by dividing the second row by -5:
 
    $$
    \begin{bmatrix}
@@ -896,7 +900,7 @@ we can find the inverse by following the Gauss-Jordan steps with the augmented m
    \end{bmatrix}
    $$
 
-5. **Make the element above it (in the first row, second column) a 0 by subtracting $\frac{3}{2}$ times the second row from the first row:**
+5. Make the element in the first row, second column a "0" by subtracting $\frac{3}{2}$ times the second row from the first row:
 
    $$
    \begin{bmatrix}
@@ -931,9 +935,10 @@ a_{m1}x_1 + a_{m2}x_2 + \ldots + a_{mn}x_n & = b_m \\
 \end{align*}
 $$
 
-where $a_{ij}$ are the coefficients of the variables $x_i$, $b_i$ are the constants, and $m$ is the number of equations.
+where $a_{ij}$ are the coefficients of the variables $x_i$ and $b_i$ are the constants. 
 
-This might be written in matrix form as:
+The system can be written in matrix form as:
+ $b_i$ are the constants, and $m$ is the number of equations:
 
 $$
 \begin{bmatrix}
@@ -992,6 +997,13 @@ One can check that the solution to this system is $x = 2$ and $y = 1$.
 ### Cramer's Formula
 
 Cramer's rule is a method for solving systems of linear equations using determinants. For a system of $n$ linear equations with $n$ variables, the solution can be expressed using determinants.
+
+**Conditions**:
+
+* If $\det(A) \neq 0$: Unique solution exists.
+* If $\det(A) = 0$ and $\det(A_i) \neq 0$ for at least one $i$: No solution.
+* If $\det(A) = 0$ and $\det(A_i) = 0$ for all $i$: Infinite solutions.
+
 
 Given a system of linear equations:
 
@@ -1053,7 +1065,7 @@ x + 2y + 3z & = 9 \\
 \end{align*}
 $$
 
-We first form the coefficient matrix \(\mathbf{A}\), as well as the matrices \(\mathbf{A}_1\), \(\mathbf{A}_2\), and \(\mathbf{A}_3\) obtained by replacing the respective columns with the constants on the right-hand side:
+We first form the coefficient matrix $\mathbf{A}$, as well as the matrices $\mathbf{A}_1$, $\mathbf{A}_2$, and $\mathbf{A}_3$ obtained by replacing the respective columns with the constants on the right-hand side:
 
 $$
 \begin{align*}
@@ -1091,7 +1103,7 @@ $$
 
 We want to solve this system using Gaussian elimination. The first step is to write the augmented matrix:
 
-**Step 1: Add 1st row to 3rd row**
+Step 1: Add 1st row to 3rd row
 
 $$
 \begin{align*}
@@ -1101,7 +1113,7 @@ x + y + z &= 6 \\
 \end{align*}
 $$
 
-**Step 2: Subtract 2 times the 1st row from the 2nd row**
+Step 2: Subtract 2 times the 1st row from the 2nd row
 
 $$
 \begin{align*}
@@ -1111,7 +1123,7 @@ x + y + z &= 6 \\
 \end{align*}
 $$
 
-**Step 3: Add the 2nd row to the 3rd row**
+Step 3: Add the 2nd row to the 3rd row
 
 $$
 \begin{align*}
@@ -1153,7 +1165,7 @@ $$
 \end{pmatrix}
 $$
 
-**Step 1: Add 1st row to 3rd row**
+Step 1: Add 1st row to 3rd row
 
 $$
 \begin{pmatrix}
@@ -1163,7 +1175,7 @@ $$
 \end{pmatrix}
 $$
 
-**Step 2: Subtract 2 times the 1st row from the 2nd row**
+Step 2: Subtract 2 times the 1st row from the 2nd row
 
 $$
 \begin{pmatrix}
@@ -1173,7 +1185,7 @@ $$
 \end{pmatrix}
 $$
 
-**Step 3: Add the 2nd row to the 3rd row**
+Step 3: Add the 2nd row to the 3rd row
 
 $$
 \begin{pmatrix}
@@ -1207,16 +1219,45 @@ $$
 The system of linear equations can be written in matrix form as:
 
 $$
+\begin{bmatrix}
+a_{11} & a_{12} & \ldots & a_{1n} \\
+a_{21} & a_{22} & \ldots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \ldots & a_{mn} \\
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+b_1 \\
+b_2 \\
+\vdots \\
+b_m \\
+\end{bmatrix}
+$$
+
+in short
+$$
 \mathbf{A} \mathbf{x} = \mathbf{b}
 $$
 
-where $\mathbf{A}$ is the coefficient matrix, $\mathbf{x}$ is the vector of variables, and $\mathbf{b}$ is the vector of constants. The solution to the system is given by:
+where $\mathbf{A}$ is the coefficient matrix, $\mathbf{x}$ is the vector of variables, and $\mathbf{b}$ is the vector of constants. 
+
+By multiplying both sides of the equation by the inverse of the coefficient matrix $\mathbf{A}^{-1}$, we can solve for the vector of variables $\mathbf{x}$:
+
+$$
+\mathbf{A}^{-1}\mathbf{A}\mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
+$$
+
+so
 
 $$
 \mathbf{x} = \mathbf{A}^{-1} \mathbf{b}
 $$
-
-where $\mathbf{A}^{-1}$ is the inverse of the coefficient matrix $\mathbf{A}$.
 
 **Example**
 
