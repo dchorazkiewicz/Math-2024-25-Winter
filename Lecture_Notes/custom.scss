@@ -2,6 +2,8 @@
 $body-bg: #ffffff;
 $body-color: #333333;
 $link-color: #16076e;
+$link-color-box: #dcd685;
+$link-color-box-external: #a4b69f;
 $font-family-sans-serif: "Arial", sans-serif;
 $font-family-monospace: "Courier New", monospace;
 
@@ -56,4 +58,36 @@ h6 {
     color: $h6-color;
     font-size: $h6-size;
     font-family: $font-family-sans-serif;
+}
+
+/*-- scss:custom-link-box --*/
+.link-box {
+    border: 2px solid $link-color-box;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: $link-color-box;
+    display: inline-block;
+    text-decoration: none;
+    color: $link-color;
+}
+
+.link-box:hover {
+    background-color: lighten($link-color-box, 20%);
+    color: darken($link-color, 10%);
+}
+
+/*-- scss:custom-link-box-alt --*/
+.link-box-external {
+    border: 2px dashed $link-color-box-external;
+    padding: 2px;
+    border-radius: 5px;
+    background-color: $link-color-box-external;
+    display: inline-block;
+    text-decoration: none;
+    color: $link-color;
+}
+
+.link-box-external:hover {
+    background-color: lighten($link-color-box-external, 20%);
+    color: darken($link-color, 10%);
 }
