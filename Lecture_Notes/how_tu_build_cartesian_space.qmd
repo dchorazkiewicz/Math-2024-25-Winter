@@ -344,3 +344,13 @@ plt.ylim(-3, 7)
 plt.show()
 
 ```
+
+
+## Analityc geometry with GeoGebra
+
+#### Lines by two points
+
+Steps in GeoGebra:
+
+* Define two points $A$ and $B$. Write down the coordinates of the points: P=(1,2) and Q=(5,6).
+* Write down the equation of the line passing through points: eq1: y-y(P)=((y(Q)-y(P))/(x(Q)-x(P))) (x-x(P))
