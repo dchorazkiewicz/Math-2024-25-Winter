@@ -1,9 +1,10 @@
 ---
+title: Introduction to Linear Algebra
 format:
   html:
     toc: true
     toc-location: left
-    toc-depth: 3
+    toc-depth: 4
    #  page-layout: full
     grid:
       body-width: 1200px
@@ -21,8 +22,6 @@ self-contained: true
 import time
 print('Last updated: %s' %time.ctime())
 ```
-
-# Introduction to Linear Algebra
 
 ## What is Linear Algebra?
 
@@ -141,6 +140,8 @@ a_{11} & a_{12} & a_{13} \\
 $$
 
 ## Matrix Operations
+
+[Lecture Notebooks: LA_Matrix_basic_operations](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_basic_operations_en.ipynb){.link-box}
 
 ### Addition
 
@@ -326,7 +327,7 @@ As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdo
 Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
 
 * [matrixmultiplication.xyz](http://matrixmultiplication.xyz/){.link-box-external}
-* [matrix-addition-multiplication-applet](https://www.intmath.com/matrices-determinants/matrix-addition-multiplication-applet.php){.link-box}
+* [matrix-addition-multiplication-applet](https://www.intmath.com/matrices-determinants/matrix-addition-multiplication-applet.php){.link-box-external}
 
 
 
@@ -364,6 +365,8 @@ $$
 
 
 ## Determinants
+
+[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/01_Matrices){.link-box}
 
 Determinants are a **scalar value** that can be computed from the elements of a **square matrix** and provide important information about the matrix. The determinant of a matrix is denoted by $\text{det}(\mathbf{A})$ or $|\mathbf{A}|$.
 
@@ -923,6 +926,8 @@ Please read about the [Computational_efficiency](https://en.wikipedia.org/wiki/G
 
 
 ## Systems of Linear Equations
+
+[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/02_Systems_of_Linear_Equations){.link-box}
 
 A system of linear equations is a set of equations that can be written in the form:
 
