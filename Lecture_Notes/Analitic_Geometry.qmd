@@ -16,7 +16,6 @@ format:
     self-contained: true
 ---
 
-
 # Cartesian Coordinate System
 
 ## Introduction
@@ -77,9 +76,312 @@ vector = np.array([3, 2])  # Vector in the cartesian coordinates
 plot_side_by_side_systems(v1_basis1, v2_basis1, v1_basis2, v2_basis2, vector)
 ```
 
-### Vectors
 
-### Basis Vectors
+## Vectors
+
+### Definition by Damian
+
+...
+
+### Definition by Remik - old
+
+**Vectors** are quantities that have both magnitude and direction in space. They are used to describe various physical quantities such as velocity, force, or electric field intensity. Unlike scalars, which have only magnitude (e.g., mass, temperature), vectors require a direction to be specified.
+
+A vector is represented with an arrow above the symbol $\vec{a}$ or in bold type $\mathbf{a}$.
+- The magnitude of a vector can be written as $\vec{a}|$ or $a$.
+- A vector of length 1 is called a unit vector and is denoted by $\hat{\mathbf{a}} = \frac{\vec{a}}{|\vec{a}|}$.
+
+**Example:**
+
+The vector $\mathbf{a}= [3, 4]$ has a magnitude $a = 5$, and the corresponding unit vector (unit vector along the direction of vector $\mathbf{a}$) is expressed as $\hat{\mathbf{a}} = \left[\frac{3}{5}, \frac{4}{5}\right]$.
+
+### Coordinate Systems in the Plane and Space
+
+**Cartesian Coordinate System** is the basic coordinate system in which points in space are specified by their distances from fixed axes: $x$, $y$ (for 2D) and $z$ (for 3D).
+
+- In 2D, each point can be written as $(x, y)$.
+- In 3D, points are of the form $(x, y, z)$.
+
+**Polar Coordinate System** is used in 2D and defines a point by its distance from the origin (r) and the angle (θ) relative to the reference axis.
+
+**Spherical Coordinate System** is used in 3D and defines a point by its distance from the origin (r), azimuth angle (θ), and elevation angle (φ).
+
+Vectors can be represented using components in the Cartesian coordinate system, where each component corresponds to the distance of the point from the respective coordinate axis.
+
+- For a vector in two-dimensional space: $\mathbf{a} = [a_x, a_y] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}$
+- For a vector in three-dimensional space: $\mathbf{a} = [a_x, a_y, a_z] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}} + a_z\hat{\mathbf{k}}$
+
+### Basis
+
+**Basis** of vectors is a set of vectors that spans a vector space. In Cartesian space, the standard basis vectors are $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$.
+
+For 2D:
+
+$$
+\hat{\mathbf{i}} = [1, 0], \quad \hat{\mathbf{j}} = [0, 1]
+$$
+
+For 3D:
+
+$$
+\hat{\mathbf{i}} = [1, 0, 0], \quad \hat{\mathbf{j}} = [0, 1, 0], \quad \hat{\mathbf{k}} = [0, 0, 1]
+$$
+
+These basis vectors are unit vectors and are perpendicular to each other.
+
+### Finding the Coordinates of a Vector in a New Basis
+
+To find the coordinates of vector $\mathbf{v}$ in a new basis $\{\mathbf{b_1}, \mathbf{b_2}, \mathbf{b_3}\}$, express $\mathbf{v}$ as a linear combination of the basis vectors.
+
+$$
+\mathbf{v} = c_1 \mathbf{b_1} + c_2 \mathbf{b_2} + c_3 \mathbf{b_3}
+$$
+
+The coefficients $c_1, c_2, c_3$ are the coordinates of vector $\mathbf{v}$ in the new basis.
+
+### Vector Addition
+
+Vector addition involves adding the corresponding components of vectors of the same length.
+
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in the space $\mathbb{R}^n$, where:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
+$$
+
+Vector addition is defined as follows:
+
+$$
+\mathbf{a} + \mathbf{b} = [a_1 + b_1, a_2 + b_2, \dots, a_n + b_n]
+$$
+
+### Scalar Multiplication of a Vector
+
+Scalar multiplication of a vector involves multiplying each component of the vector by the same number.
+
+For a vector $\mathbf{a}$ and a scalar $k$:
+
+$$
+k \mathbf{a} = [k a_1, k a_2, \dots, k a_n]
+$$
+
+### Vectors in the Plane and Space
+
+**Vectors in 2D:**
+
+If $\mathbf{a} = [a_x, a_y]$, then the magnitude is given by the formula $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2}$.
+
+**Vectors in 3D:**
+
+If $\mathbf{a} = [a_x, a_y, a_z]$, then the magnitude of the vector is $|\mathbf{a}| = a = \sqrt{a_x^2 + a_y^2 + a_z^2}$.
+
+### Plotting a Vector
+
+```{python}
+import matplotlib.pyplot as plt # import the matplotlib.pyplot module
+
+plt.figure() # create a new figure
+plt.quiver(0, 0, 3, 4, angles='xy', scale_units='xy', scale=1, color='r') # quick way to plot a vector quiver(x_start, y_start, x_end, y_end)
+plt.xlim(0, 5) # set x-axis range
+plt.ylim(0, 5) # set y-axis range
+plt.grid(True) # enable grid
+plt.gca().set_aspect('equal') # set equal scaling on x and y axes
+plt.show()
+
+```
 
 
+```{python}
+import matplotlib.pyplot as plt # import the matplotlib.pyplot module #example of vector addition in two-dimensional space
 
+plt.figure() # create a new figure
+plt.quiver(0, 0, 2, 1, angles='xy', scale_units='xy', scale=1, color='r') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(0, 0, 1, 2, angles='xy', scale_units='xy', scale=1, color='b') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(0, 0, 3, 3, angles='xy', scale_units='xy', scale=1, color='g') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(1, 2, 2, 1, angles='xy', scale_units='xy', scale=1, color='y') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.quiver(2, 1, 1, 2, angles='xy', scale_units='xy', scale=1, color='m') # quick way to plot vectors quiver(x_start, y_start, x_end, y_end)
+plt.xlim(-1, 4) # set x-axis range
+plt.ylim(-1, 4) # set y-axis range
+plt.grid(True) # enable grid
+plt.gca().set_aspect('equal') # set equal scaling on x and y axes
+plt.show()
+```
+
+### Scalar Product
+
+The scalar product (also called the dot product) of two vectors is an operation that returns a scalar value. It is defined as the sum of the products of the corresponding components of two vectors.
+
+For two vectors $\mathbf{a}$ and $\mathbf{b}$ in the space $\mathbb{R}^n$, where:
+
+$$
+\mathbf{a} = [a_1, a_2, \dots, a_n], \quad \mathbf{b} = [b_1, b_2, \dots, b_n]
+$$
+
+The scalar product is defined as follows:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + \dots + a_nb_n = \sum_{i=1}^{n} a_i b_i
+$$
+
+Example for three-dimensional space ($\mathbb{R}^3$):
+
+For vectors $\mathbf{a} = [a_1, a_2, a_3]$ and $\mathbf{b} = [b_1, b_2, b_3]$, the scalar product is:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = a_1b_1 + a_2b_2 + a_3b_3
+$$
+
+The scalar product returns a number that measures the "similarity of direction" between two vectors. If $\mathbf{a} \cdot \mathbf{b} = 0$, the vectors are perpendicular.
+
+Alternatively, the scalar product can be expressed as:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\| \|\mathbf{b}\| \cos(\theta),
+$$
+which is the product of the magnitudes of vectors $\mathbf{a}$ and $\mathbf{b}$ multiplied by the cosine of the angle between them.
+
+### Vector Product
+
+The vector product (also called the cross product) is an operation that returns a new vector perpendicular to the two input vectors. It is defined only in three-dimensional space $ \mathbb{R}^3 $.
+
+For two vectors $\mathbf{a} = [a_1, a_2, a_3]$ and $\mathbf{b} = [b_1, b_2, b_3]$, the vector product $ \mathbf{a}  imes \mathbf{b} $ is defined as:
+
+$$ \mathbf{a}   \times \mathbf{b} =
+\begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+a_1 & a_2 & a_3 \\
+b_1 & b_2 & b_3
+\end{vmatrix}
+$$
+
+Where $\mathbf{i}, \mathbf{j}, \mathbf{k}$ are unit vectors along the $x, y, z$ axes. Interestingly, to calculate the vector product and obtain the resulting vector, we use the determinant (a scalar) of the matrix (a second-order tensor) whose rows are the basis vectors (vectors) and the components of the vectors (scalars).
+
+The vector product can be expressed in expanded form:
+
+$$ \mathbf{a}   \times \mathbf{b} = \left( a_2b_3 - a_3b_2 \right)\mathbf{i} - \left( a_1b_3 - a_3b_1 \right)\mathbf{j} + \left( a_1b_2 - a_2b_1 \right)\mathbf{k} $$
+
+The result of the vector product is a new vector:
+
+$$ \mathbf{c} = \mathbf{a}  \times \mathbf{b} = [a_2b_3 - a_3b_2, a_3b_1 - a_1b_3, a_1b_2 - a_2b_1] $$
+
+The vector product returns a vector $\mathbf{c}$ perpendicular to the plane defined by $ \mathbf{a} $ and $ \mathbf{b} $, and its magnitude is equal to the area of the parallelogram whose sides are defined by the vectors $ \mathbf{a} $ and $ \mathbf{b} $
+$$
+|\mathbf{c}| = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+where $ heta$ is the angle between the vectors. The direction of vector $\vec{c}$ is determined by the right-hand rule.
+
+### Mixed Product
+
+The mixed product of three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is defined as:
+
+$$
+\mathbf{a} \cdot \left( \mathbf{b} \times \mathbf{c} \right)
+$$
+
+The mixed product is equal to zero if the vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ are collinear or parallel.
+
+The volume of the parallelepiped defined by three vectors $\mathbf{a}, \mathbf{b}, \mathbf{c}$ is equal to the absolute value of the mixed product of these vectors.
+
+### Applications
+
+#### Calculating the Angle Between Vectors
+
+$$
+\cos \theta = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{a}\| \|\mathbf{b}\|}
+$$
+
+#### Checking Vector Perpendicularity
+
+Vectors $\mathbf{a}$ and $\mathbf{b}$ are perpendicular if their dot product is zero:
+$$
+\mathbf{a} \cdot \mathbf{b} = 0
+\quad \Leftrightarrow \quad
+ \mathbf{a} \perp \mathbf{b}
+$$
+
+#### Finding Projections of Vectors onto Other Vectors
+
+$$
+\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|}
+$$
+
+#### Calculating Work Done by a Force in Physics
+
+For a force $\mathbf{F} = (F_x, F_y, F_z)$ acting along a displacement $\mathbf{d} = (d_x, d_y, d_z)$, work is calculated as:
+
+$$
+W = \mathbf{F} \cdot \mathbf{d} = |\mathbf{F}| |\mathbf{d}| \cos \theta = F_x d_x + F_y d_y + F_z d_z
+$$
+
+#### Torque
+
+In physics: torque is the vector product of the force vector and the arm of the force:
+
+$$
+\mathbf{M} = \mathbf{r} \times \mathbf{F}
+$$
+
+#### Calculating the Area of a Parallelogram
+
+The area of a parallelogram spanned by two vectors:
+
+$$
+\text{Area}_{r} = \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta
+$$
+
+#### Calculating the Area of a Triangle
+
+The area of a triangle spanned by two vectors $\mathbf{a}$ and $\mathbf{b}$:
+
+$$
+\text{Area}_{t} = \frac{1}{2} |\mathbf{a} \times \mathbf{b}|
+$$
+
+#### Calculating the Volume of Parallelipeds and Tetrahedrons
+
+The mixed product of vectors is used to calculate the volume of parallelepipeds and tetrahedrons. For three vectors **$\mathbf{a}$**, **$\mathbf{b}$**, and **$\mathbf{c}$**, the volume of the parallelepiped is given by:
+
+$$
+V = |\mathbf{a} \cdot (\mathbf{b} \times \mathbf{c})|
+$$
+(Note: **| |** here denotes the absolute value, not the magnitude!)
+
+#### Checking Coplanarity of Three Vectors
+
+If the mixed product of three vectors is equal to zero, it means that the vectors are coplanar. Otherwise, they form a tetrahedron.
+
+
+### Student Exercises 1
+
+A. Perform the addition of vector $[2, 1]$ to vector $[-1, 1]$. Plot both vectors and their sum on a graph.
+
+B. Calculate the area of the triangle spanned by vectors $[2, 1]$ and $[-1, 1]$.
+
+C. Calculate the volume of the parallelepiped spanned by vectors $[2, 1]$, $[-1, 1]$, and $[1, 2]$.
+
+D. Check if vectors $[2, 1]$ and $[-1, 1]$ are perpendicular.
+
+E. Calculate the angle in degrees between vectors $[4,2,1]$ and $[1,3,2]$.
+
+F. For three-dimensional vectors: $\mathbf{a}=[a_x, a_y, a_z]$, $\mathbf{b}=[b_x, b_y, b_z]$, $\mathbf{c}=[c_x, c_y, c_z]$, prove that the following identity is satisfied:
+
+$$
+\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}.
+$$
+
+
+### Student Exercises 2
+
+A. By what number should vector $\mathbf{a} = [3, 4]$ be multiplied so that its length is equal to 1?
+
+B. Calculate the length of vector $\mathbf{b} = [1, 1]$ and find the unit vector of this vector.
+
+C. Plot the vector and the unit vector from the previous exercise.
+
+D. Calculate the length of vector $\mathbf{c} = [1, 2, 3]$ and find the unit vector of this vector.
+
+E. Find the Cartesian coordinates of vector $\mathbf{v} = [2, 3, 4]$ in the basis $\{\mathbf{b_1} = [1, 0, 1], \mathbf{b_2} = [0, 1, 0], \mathbf{b_3} = [1, 0, -1]\}$.
+
+
+## Geogebra Playground
