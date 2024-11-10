@@ -202,3 +202,104 @@ $$
 These implementations provide flexible ways to create and explore second-degree curves in GeoGebra, offering a dynamic approach to studying the properties of circles, ellipses, parabolas, and hyperbolas.
 
 
+## 3D Lines and Planes
+
+In GeoGebra 3D, we can also define lines and planes using equations and points in space. Below are common ways to represent these objects and instructions for implementing them in GeoGebra 3D.
+
+#### 1. Line in 3D
+
+A line in 3D space can be represented parametrically with a point $(x_0, y_0, z_0)$ on the line and a direction vector $(v_x, v_y, v_z)$:
+
+$$
+\begin{align*}
+x &= x_0 + t \cdot v_x \\
+y &= y_0 + t \cdot v_y \\
+z &= z_0 + t \cdot v_z
+\end{align*}
+$$
+
+where $t$ is a parameter that extends along the direction vector.
+
+- **Implementation in GeoGebra 3D**: Define the starting point using `A = (x_0, y_0, z_0)` and direction components `v_x`, `v_y`, and `v_z`. Enter `Curve[x(A) + t * v_x, y(A) + t * v_y, z(A) + t * v_z, t, -10, 10]`. If $v_x$, $v_y$, and $v_z$ are not specified, GeoGebra will create sliders for these components.
+
+#### 2. Plane
+
+A plane can be defined by a point $(x_0, y_0, z_0)$ on the plane and a normal vector $(n_x, n_y, n_z)$ perpendicular to it. The equation of the plane is:
+
+$$
+n_x(x - x_0) + n_y(y - y_0) + n_z(z - z_0) = 0
+$$
+
+Alternatively, the plane can also be expressed in general form:
+
+$$
+Ax + By + Cz + D = 0
+$$
+
+where $A$, $B$, $C$ are the components of the normal vector, and $D$ is a constant.
+
+- **Implementation in GeoGebra 3D**: Define a point `A = (x_0, y_0, z_0)` and the components of the normal vector `n_x`, `n_y`, and `n_z`. Enter the plane equation as `n_x * (x - x(A)) + n_y * (y - y(A)) + n_z * (z - z(A)) = 0`. Alternatively, use the general form by defining variables $A$, $B$, $C$, and $D$ and entering `A * x + B * y + C * z + D = 0`. If any constants are not defined, GeoGebra will create sliders for them.
+
+---
+
+## 3D Curves and Surfaces
+
+In GeoGebra 3D, second-degree surfaces such as spheres, ellipsoids, paraboloids, and hyperboloids, as well as 3D parametric curves, can be explored interactively.
+
+#### 1. Sphere
+
+The equation of a sphere with center $(h, k, l)$ and radius $r$ is:
+
+$$
+(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `(x - x(A))^2 + (y - y(A))^2 + (z - z(A))^2 = r^2`. GeoGebra will create a slider for $r$ if it is not defined, allowing dynamic adjustment of the sphere’s radius.
+
+#### 2. Ellipsoid
+
+The equation of an ellipsoid centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ along the $x$, $y$, and $z$ axes respectively is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} + \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) + ((z - z(A))^2 / c^2) = 1`. GeoGebra will automatically create sliders for $a$, $b$, and $c$ if they are not defined, enabling dynamic resizing of the ellipsoid along each axis.
+
+#### 3. Paraboloid
+
+A paraboloid with vertex at $(h, k, l)$ and parameter $p$ (opening along the $z$-axis) is given by:
+
+$$
+z - l = \frac{1}{4p} \left( (x - h)^2 + (y - k)^2 \right)
+$$
+
+- **Implementation in GeoGebra 3D**: Define the vertex point `A = (h, k, l)`. Then input `z - z(A) = (1 / (4 * p)) * ((x - x(A))^2 + (y - y(A))^2)`. GeoGebra will create a slider for $p$ if it is not defined, allowing adjustment of the paraboloid’s curvature.
+
+#### 4. Hyperboloid of One Sheet
+
+The equation of a hyperboloid of one sheet centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} - \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`. Enter `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) - ((z - z(A))^2 / c^2) = 1`. GeoGebra will create sliders for $a$, $b$, and $c$ if they are not specified, enabling interactive manipulation of the hyperboloid’s dimensions.
+
+#### 5. Parametric Curve in 3D
+
+A 3D curve can be defined parametrically with a parameter $t$, as follows:
+
+$$
+\begin{align*}
+x &= f(t) \\
+y &= g(t) \\
+z &= h(t)
+\end{align*}
+$$
+
+where $f(t)$, $g(t)$, and $h(t)$ define the $x$, $y$, and $z$ components of the curve.
+
+- **Implementation in GeoGebra 3D**: Use `Curve[f(t), g(t), h(t), t, t_{min}, t_{max}]`, replacing $f(t)$, $g(t)$, and $h(t)$ with specific functions of $t$. For example, `Curve[cos(t), sin(t), t, t, -10, 10]` defines a helical curve.
+
+These equations enable flexible creation and exploration of 3D lines, planes, curves, and surfaces in GeoGebra, allowing dynamic visualization and manipulation in three-dimensional space.
