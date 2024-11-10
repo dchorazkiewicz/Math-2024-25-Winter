@@ -1,0 +1,101 @@
+---
+title: GeoGebra Basics
+format:
+  html:
+    toc: true
+    toc-location: left
+    toc-depth: 3
+    page-layout: full
+    grid:
+      body-width: 1200px
+      sidebar-width: 300px
+      margin-width: 300px
+      gutter-width: 2rem
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom.scss]
+    self-contained: true
+---
+
+
+## Introduction to GeoGebra
+
+This document introduces essential GeoGebra functionalities for creating and manipulating objects such as points, segments, vectors, functions, curves, parameterizations, sliders, intersections, perpendicularity, and tangency.
+
+## Points and Their Components
+
+#### Creating a Point
+
+- **Using the Point Tool**: Select the **Point** tool and click on the Graphics View to place a point.
+- **Using the Input Field**: Enter `A = (3, 4)` to create point A at coordinates (3, 4).
+
+#### Accessing Point Coordinates
+
+- **X-Coordinate**: Use `x(A)` to get the x-coordinate of point A.
+- **Y-Coordinate**: Use `y(A)` to get the y-coordinate of point A.
+
+## Segments
+
+#### Creating a Segment
+
+- **Using the Segment Tool**: Select the **Segment** tool and click on two points to create a segment between them.
+- **Using the Input Field**: Enter `Segment[A, B]` to create a segment between points A and B.
+
+## Vectors
+
+#### Creating a Vector
+
+- **Using the Vector Tool**: Select the **Vector** tool and click on two points to create a vector from the first point to the second.
+- **Using the Input Field**:
+  - Enter `Vector[A, B]` to create a vector from point A to point B.
+  - Define a vector by its components, e.g., `v = (3, 2)`.
+
+#### Accessing Vector Components
+
+- **X-Component**: Use `x(v)` to get the x-component of vector v.
+- **Y-Component**: Use `y(v)` to get the y-component of vector v.
+
+## Functions
+
+#### Defining a Function
+
+- Enter `f(x) = x^2 + 3x + 5` to define a function f.
+
+## Curves
+
+#### Creating a Parametric Curve
+
+- Use the **Curve** tool or enter `Curve[expression, parameter, start, end]` in the input field.
+- Example: `Curve[3 * cos(t), 2 * sin(t), t, 0, 2π]` creates an ellipse.
+
+## Parameterization
+
+- Parameterization involves using a parameter, often `t`, to define the x and y components of a curve.
+
+## Sliders
+
+- **Creating a Slider**: Use the **Slider** tool to create a slider.
+- **Using a Slider**: Sliders can control parameters in functions, vectors, or any variable, enabling interactive models.
+  - Example: Define a parameter `a` as a slider, then use `f(x) = a * x^2` to observe how changing `a` affects the graph.
+
+## Intersections
+
+- **Finding Intersection Points**:
+  - Use the **Intersect** tool or enter `Intersect[object1, object2]` in the input field.
+  - Example: `Intersect[f, g]` finds the intersection points of functions f and g.
+
+## Perpendicularity
+
+- **Creating a Perpendicular Line**:
+  - Use the **Perpendicular Line** tool or enter `PerpendicularLine[point, line]` in the input field.
+  - Example: `PerpendicularLine[A, l]` creates a line through point A perpendicular to line l.
+
+## Tangency
+
+- **Creating a Tangent Line**:
+  - Use the **Tangent** tool or enter `Tangent[point, function]` in the input field.
+  - Example: `Tangent[A, f]` creates a tangent line to function f at point A.
+
+---
+
+These fundamental GeoGebra commands enable the creation and manipulation of basic mathematical objects, facilitating the development of interactive models and dynamic exploration of mathematical relationships.
