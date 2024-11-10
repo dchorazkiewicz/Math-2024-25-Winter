@@ -4,7 +4,7 @@ format:
     toc: true
     toc-location: left
     toc-depth: 3
-   #  page-layout: full
+    page-layout: full
     grid:
       body-width: 1200px
       sidebar-width: 300px
@@ -13,7 +13,7 @@ format:
     theme:
       light: [flatly, custom.scss]
       dark: [darkly, custom.scss]
-self-contained: true
+    self-contained: true
 ---
 
 ```{python}
