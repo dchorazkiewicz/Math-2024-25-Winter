@@ -99,3 +99,207 @@ This document introduces essential GeoGebra functionalities for creating and man
 ---
 
 These fundamental GeoGebra commands enable the creation and manipulation of basic mathematical objects, facilitating the development of interactive models and dynamic exploration of mathematical relationships.
+
+## Lines
+
+In GeoGebra, lines can be represented in various forms depending on the equation and approach used. Here are some common equations for lines and how they can be implemented in GeoGebra:
+
+#### 1. Slope-Intercept Form
+
+The slope-intercept form of a line is given by the equation:
+
+$$
+y = mx + b
+$$
+
+where $m$ is the slope and $b$ is the y-intercept.
+
+- **Implementation in GeoGebra**: Enter `y = m * x + b` directly into the input field. Varible `m` represents the slope, and `b` represents the y-intercept. Because we did not specify the values of `m` and `b`, GeoGebra will treat them as variables and create a dynamic slider that can be manipulated.
+
+#### 2. Point-Slope Form
+
+The point-slope form of a line is given by:
+
+$$
+y - y_1 = m(x - x_1)
+$$
+
+where $(x_1, y_1)$ is a point on the line and $m$ is the slope.
+
+- **Implementation in GeoGebra**: First define a pont $A$ using `A = (1,2)` and then enter the equation of the line using the point-slope form: `y - y(A) = m * (x - x(A))` in the input field. Because we did not specify the value of `m`, GeoGebra will create a slider for the slope.
+
+#### 3. General Form
+
+The general form of a line is:
+
+$$
+Ax + By + C = 0
+$$
+
+where $A$, $B$, and $C$ are constants.
+
+- **Implementation in GeoGebra**: First input letters: `A`, `B`, and `C` as variables using the input field. Theni input `A * x + B * y + C = 0`, and GeoGebra will treat $A$, $B$, and $C$ as variables that can be adjusted using sliders.
+
+#### 4. Parametric Form
+
+A line can also be described using a parameter $t$ as follows:
+
+$$
+\begin{align*}
+x &= x_0 + t \cdot v_x\\
+y &= y_0 + t \cdot v_y
+\end{align*}
+$$
+
+where $(x_0, y_0)$ is a point on the line, and $(v_x, v_y)$ is a vector parallel to the line (direction vector).
+
+- **Implementation in GeoGebra**: Define a point $A$ using `A = (1, 2)`. Use `Curve[x(A) + t * a, y(A) + t * b, t, -10, 10]`, becase we did not specify the values of `a` and `b`, GeoGebra will create sliders for them.
+
+## Second Degree Curves
+
+In GeoGebra, second-degree curves, such as circles, ellipses, parabolas, and hyperbolas, can be represented using various forms. Here are common equations for these curves and instructions for implementing them in GeoGebra.
+
+#### 1. Circle
+
+The equation of a circle with center $(h, k)$ and radius $r$ is:
+
+$$
+(x - h)^2 + (y - k)^2 = r^2
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)` and input ` (x - x(A))^2 + (y - y(A))^2 = r^2`. If $r$ is not defined, GeoGebra will create a slider for $r$ to dynamically adjust the radius.
+
+#### 2. Ellipse
+
+The general form of an ellipse centered at $(h, k)$ with semi-major axis $a$ and semi-minor axis $b$ is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)`. Then input `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) = 1`. If $a$ and $b$ are not defined, GeoGebra will automatically create sliders for these values, allowing dynamic resizing of the ellipse.
+
+#### 3. Parabola
+
+The equation of a parabola opening vertically with vertex $(h, k)$ and parameter $p$ (distance from the vertex to the focus) is:
+
+$$
+(y - k) = \frac{1}{4p} (x - h)^2
+$$
+
+- **Implementation in GeoGebra**: Define the vertex point using `A = (h, k)`. Enter `y - y(A) = (1 / (4 * p)) * (x - x(A))^2` into the input field. If $p$ is undefined, GeoGebra will generate a slider for $p$, which allows adjusting the parabola’s shape.
+
+#### 4. Hyperbola
+
+The standard form of a hyperbola centered at $(h, k)$, with transverse axis length $2a$ and conjugate axis length $2b$, is:
+
+$$
+\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)`. Input `((x - x(A))^2 / a^2) - ((y - y(A))^2 / b^2) = 1`. GeoGebra will create sliders for $a$ and $b$ if they are not defined, enabling dynamic manipulation of the hyperbola’s axes.
+
+These implementations provide flexible ways to create and explore second-degree curves in GeoGebra, offering a dynamic approach to studying the properties of circles, ellipses, parabolas, and hyperbolas.
+
+
+## 3D Lines and Planes
+
+In GeoGebra 3D, we can also define lines and planes using equations and points in space. Below are common ways to represent these objects and instructions for implementing them in GeoGebra 3D.
+
+#### 1. Line in 3D
+
+A line in 3D space can be represented parametrically with a point $(x_0, y_0, z_0)$ on the line and a direction vector $(v_x, v_y, v_z)$:
+
+$$
+\begin{align*}
+x &= x_0 + t \cdot v_x \\
+y &= y_0 + t \cdot v_y \\
+z &= z_0 + t \cdot v_z
+\end{align*}
+$$
+
+where $t$ is a parameter that extends along the direction vector.
+
+- **Implementation in GeoGebra 3D**: Define the starting point using `A = (x_0, y_0, z_0)` and direction components `v_x`, `v_y`, and `v_z`. Enter `Curve[x(A) + t * v_x, y(A) + t * v_y, z(A) + t * v_z, t, -10, 10]`. If $v_x$, $v_y$, and $v_z$ are not specified, GeoGebra will create sliders for these components.
+
+#### 2. Plane
+
+A plane can be defined by a point $(x_0, y_0, z_0)$ on the plane and a normal vector $(n_x, n_y, n_z)$ perpendicular to it. The equation of the plane is:
+
+$$
+n_x(x - x_0) + n_y(y - y_0) + n_z(z - z_0) = 0
+$$
+
+Alternatively, the plane can also be expressed in general form:
+
+$$
+Ax + By + Cz + D = 0
+$$
+
+where $A$, $B$, $C$ are the components of the normal vector, and $D$ is a constant.
+
+- **Implementation in GeoGebra 3D**: Define a point `A = (x_0, y_0, z_0)` and the components of the normal vector `n_x`, `n_y`, and `n_z`. Enter the plane equation as `n_x * (x - x(A)) + n_y * (y - y(A)) + n_z * (z - z(A)) = 0`. Alternatively, use the general form by defining variables $A$, $B$, $C$, and $D$ and entering `A * x + B * y + C * z + D = 0`. If any constants are not defined, GeoGebra will create sliders for them.
+
+---
+
+## 3D Curves and Surfaces
+
+In GeoGebra 3D, second-degree surfaces such as spheres, ellipsoids, paraboloids, and hyperboloids, as well as 3D parametric curves, can be explored interactively.
+
+#### 1. Sphere
+
+The equation of a sphere with center $(h, k, l)$ and radius $r$ is:
+
+$$
+(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `(x - x(A))^2 + (y - y(A))^2 + (z - z(A))^2 = r^2`. GeoGebra will create a slider for $r$ if it is not defined, allowing dynamic adjustment of the sphere’s radius.
+
+#### 2. Ellipsoid
+
+The equation of an ellipsoid centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ along the $x$, $y$, and $z$ axes respectively is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} + \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) + ((z - z(A))^2 / c^2) = 1`. GeoGebra will automatically create sliders for $a$, $b$, and $c$ if they are not defined, enabling dynamic resizing of the ellipsoid along each axis.
+
+#### 3. Paraboloid
+
+A paraboloid with vertex at $(h, k, l)$ and parameter $p$ (opening along the $z$-axis) is given by:
+
+$$
+z - l = \frac{1}{4p} \left( (x - h)^2 + (y - k)^2 \right)
+$$
+
+- **Implementation in GeoGebra 3D**: Define the vertex point `A = (h, k, l)`. Then input `z - z(A) = (1 / (4 * p)) * ((x - x(A))^2 + (y - y(A))^2)`. GeoGebra will create a slider for $p$ if it is not defined, allowing adjustment of the paraboloid’s curvature.
+
+#### 4. Hyperboloid of One Sheet
+
+The equation of a hyperboloid of one sheet centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} - \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`. Enter `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) - ((z - z(A))^2 / c^2) = 1`. GeoGebra will create sliders for $a$, $b$, and $c$ if they are not specified, enabling interactive manipulation of the hyperboloid’s dimensions.
+
+#### 5. Parametric Curve in 3D
+
+A 3D curve can be defined parametrically with a parameter $t$, as follows:
+
+$$
+\begin{align*}
+x &= f(t) \\
+y &= g(t) \\
+z &= h(t)
+\end{align*}
+$$
+
+where $f(t)$, $g(t)$, and $h(t)$ define the $x$, $y$, and $z$ components of the curve.
+
+- **Implementation in GeoGebra 3D**: Use `Curve[f(t), g(t), h(t), t, t_{min}, t_{max}]`, replacing $f(t)$, $g(t)$, and $h(t)$ with specific functions of $t$. For example, `Curve[cos(t), sin(t), t, t, -10, 10]` defines a helical curve.
+
+These equations enable flexible creation and exploration of 3D lines, planes, curves, and surfaces in GeoGebra, allowing dynamic visualization and manipulation in three-dimensional space.
