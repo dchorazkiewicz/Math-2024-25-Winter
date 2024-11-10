@@ -19,12 +19,12 @@ format:
 
 ## Introduction
 
-Euclidian space is a fundamental concept in mathematics. It is defined by a set of axioms.
+Euclidian space is a fundamental concept in mathematics. It is defined by a set of axioms (attributed to ancient Greek mathematician Euclid, 300 BC).
 
 * [Euclidean geometry](https://en.wikipedia.org/wiki/Euclidean_geometry)
 * [Hilbert's axioms](https://en.wikipedia.org/wiki/Hilbert%27s_axioms)
 
-In euclidean space, we have few basic concepts:
+In Euclidean space, we have few basic concepts:
 
 **Primitive terms**
 
@@ -48,7 +48,7 @@ Now we will build a [Cartesian space](https://en.wikipedia.org/wiki/Analytic_geo
 
 #### **Let's take a Euclidean plane**
 
-This is pure Euclidean plane, without any structures (lines, cicles, etc.).
+This is pure Euclidean plane, without any structures (lines, circles, etc.).
 
 ```{python}
 #|echo: false
@@ -423,7 +423,7 @@ To properly address this subtle distinction, one has to introduce the concept of
 
 ### Basis
 
-**Basis** of vectors is a set of vectors that spans a vector space. In Cartesian space, the standard basis vectors are $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$.
+The **basis** of vectors is a set of vectors that spans a vector space. In Cartesian space, the standard basis vectors are $\hat{\mathbf{i}}, \hat{\mathbf{j}}, \hat{\mathbf{k}}$.
 
 For 2D:
 
@@ -437,7 +437,7 @@ $$
 \hat{\mathbf{i}} = [1, 0, 0], \quad \hat{\mathbf{j}} = [0, 1, 0], \quad \hat{\mathbf{k}} = [0, 0, 1]
 $$
 
-Note, that basis vectors are unit vectors along the axes and are perpendicular to each other.
+Note that basis vectors are unit vectors along the axes and are perpendicular to each other.
 
 Vectors can be represented using components in the Cartesian coordinate system, where each component corresponds to the distance of the point from the respective coordinate axis.
 
@@ -488,7 +488,7 @@ $$
 {\color{maroon} k} \mathbf{a} = [{\color{maroon} k} a_1, {\color{maroon} k} a_2, \dots, {\color{maroon} k} a_n]
 $$
 
-### Vectors Length
+### Vector's Length
 
 Length of a vector is the magnitude of the vector. It is calculated as the square root of the sum of the squares of the components of the vector.
 $$
@@ -567,7 +567,7 @@ which is the product of the magnitudes of vectors $\mathbf{a}$ and $\mathbf{b}$ 
 
 Scalar product is commutative, i.e., $\mathbf{a} \cdot \mathbf{b} = \mathbf{b} \cdot \mathbf{a}$.
 
-Scalar product can be used to the length of a vector:
+The scalar product can be used to find the length of a vector:
 
 $$
 |\mathbf{a}| = \sqrt{\mathbf{a} \cdot \mathbf{a}}
