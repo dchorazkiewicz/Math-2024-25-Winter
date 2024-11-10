@@ -4,13 +4,8 @@ format:
   html:
     toc: true
     toc-location: left
-<<<<<<< HEAD
     toc-depth: 3
     page-layout: full
-=======
-    toc-depth: 4
-   #  page-layout: full
->>>>>>> 11fb1f556afdbfcae2b4796d977781f5b73bd205
     grid:
       body-width: 1200px
       sidebar-width: 300px
