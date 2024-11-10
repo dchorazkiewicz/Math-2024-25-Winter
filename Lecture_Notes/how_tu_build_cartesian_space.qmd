@@ -1,9 +1,10 @@
 ---
+title: How to build a Cartesian space
 format:
   html:
     toc: true
     toc-location: left
-    toc-depth: 3
+    toc-depth: 4
     page-layout: full
     grid:
       body-width: 1000px
@@ -17,15 +18,44 @@ format:
 ---
 
 
-# How to build a Cartesian space
 
-### Take a Euclidean plane
+## Introduction
+
+Euclidian space is a fundamental concept in mathematics. It is defined by a set of axioms.
+
+* [Euclidean geometry](https://en.wikipedia.org/wiki/Euclidean_geometry)
+* [Hilbert's axioms](https://en.wikipedia.org/wiki/Hilbert%27s_axioms)
+
+In euclidean space, we have few basic concepts:
+
+**Primitive terms**
+
+* Points
+* Lines
+* Planes
+
+**Primitive relations**
+
+* Betweenness
+* Lies on
+* Congruence
+
+Using just axioms of Euclidean geometry it is very hard proving new theorems. Thanks to [Decartes](https://en.wikipedia.org/wiki/Ren%C3%A9_Descartes) we can introduce a new concept called Cartesian space. This new approach allows us to use numbers and algebra to describe the objects and relations in the Euclidean space.
+
+Now we will build a [Cartesian space](https://en.wikipedia.org/wiki/Analytic_geometry) step by step.
+
+## Building a Cartesian space
+
+#### **Take a Euclidean plane**
+
+This is pure Euclidean plane.
 
 ```{python}
 #|echo: false
 import matplotlib.pyplot as plt
 
-fig, ax = plt.subplots()
+#|echo: false
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -39,15 +69,14 @@ ax.axis('off')
 plt.show()
 ```
 
-This is pure Euclidean plane. 
 
-### Draw a line
+#### **Draw a line**
 
 You can draw any line you want. We will call it $x$.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -65,13 +94,14 @@ plt.plot([-10, 10], [0, 0], color='black', linewidth=2)
 plt.show()
 ```
 
-### Choose a point on the line
+
+#### **Choose a point on the line**
 
 You can choose any point on the line.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -91,15 +121,15 @@ plt.show()
 
 ```
 
-### Draw a perpendicular line
+#### **Draw a perpendicular line**
 
-By axioms of Euclidean geometry, you can draw a perpendicular line to the first line. 
+By axioms of Euclidean geometry, you can draw a perpendicular line to the first line which passes through the chosen point. 
 This line is unique and it passes through the chosen point.
 We will call this line $y$.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -123,21 +153,23 @@ plt.show()
 A red point is called the origin of the Cartesian space.
 Lines are called the axes of the Cartesian space.
 
-### Defining the unit length
+#### **Defining the unit length**
 
-Now, you can choose second point on $x$-axis.
+Now, you can choose second point on $x$-axis different from the origin.
 Distance between two points will be called an unit length of the Cartesian space.
 
-By axioms of Euclidean geometry, you can find a point on the
- $y$-axis such that distance between this point and the origin is equal to the unit length.
-By doing this, we introduce numbers to the Cartesian space. 
+By eculidean axioms, you can fill the whole $x$-axis with points which are separated by the unit length.
+
+Also by axioms of Euclidean geometry, you can find a point on the $y$-axis such that distance between this point and the origin is equal to the unit length and further points on the $y$-axis are separated by the unit length.
+
+By doing this, we introduce numbers to the Euclidian space. 
 
 Those numbers describe the position of the points on the each axis.
 
 ```{python}
 
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -158,8 +190,8 @@ for i in range(-9, 10):
     plt.plot(i, 0, 'bo', markersize=5)
     plt.plot(0, i, 'bo', markersize=5)
     if i != 0:  # Avoid overlapping label at the origin
-        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
-        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+        plt.text(i, -0.7, f'{i}', fontsize=8, ha='center')
+        plt.text(-0.7, i, f'{i}', fontsize=8, ha='center')
 
 # Mark the origin
 plt.plot(0, 0, 'ro', markersize=10)
@@ -168,18 +200,13 @@ plt.plot(0, 0, 'ro', markersize=10)
 plt.show()
 ```
 
-### Describing the position of any point
+#### **Describing the position of any point**
 
-Let's take any point $P$ on the plane. From axioms of Euclidean geometry, 
-we know that there is a unique line $l$ which passing this point and it is
-perpendicular to first axis. A analogous line $m$ is perpendicular to the second axis.
-These lines intersect the axes at unique points $A$ and $B$ respectively.
-Because for any point $P$ there are unique points $A$ and $B$, 
-we can define the position of the point $P$ by these numbers which are called coordinates of the point $P$. 
+Let’s consider any point $P$ on the plane. From the axioms of Euclidean geometry, we know that there exists a unique line passing through this point that is perpendicular to the first axis. Similarly, there is a unique line that is perpendicular to the second axis and passes through point $P$. These lines intersect the axes at unique points $A$ and $B$, respectively. Since, for any point $P$, there are unique points $A$ and $B$ on the axes, we can define the position of $P$ by these numbers. We call these numbers the coordinates of point $P$.
 
 ```{python}
 #|echo: false
-fig, ax = plt.subplots()
+fig, ax = plt.subplots(figsize=(6, 6))
 # red background for the figure
 fig.patch.set_facecolor('lightgray')
 
@@ -199,8 +226,8 @@ for i in range(-9, 10):
     plt.plot(i, 0, 'bo', markersize=5)
     plt.plot(0, i, 'bo', markersize=5)
     if i != 0:  # Avoid overlapping label at the origin
-        plt.text(i, 0.5, f'{i}', fontsize=5, ha='center')
-        plt.text(0.5, i, f'{i}', fontsize=5, ha='center')
+        plt.text(i, -0.7, f'{i}', fontsize=8, ha='center')
+        plt.text(-0.7, i, f'{i}', fontsize=8, ha='center')
 
 # Mark the origin
 plt.plot(0, 0, 'ro', markersize=10)
@@ -218,3 +245,112 @@ plt.plot([0, P[0]], [P[1], P[1]], 'r--', linewidth=1, label='Py')
 plt.show()
 ```
 
+#### **Summary**
+
+We have built a Cartesian space. We have introduced numbers to the Euclidean space. We can describe the position of any point by two numbers. We can use algebra to describe the relations between points in the Euclidean space.
+
+## Cartesian space
+
+Below we present some basic terms and operations in the Cartesian space.
+
+#### Distance between two points
+
+The distance between two points $P_1=(x_1, y_1)$ and $P_2=(x_2, y_2)$ is given by the formula:
+
+$$
+d(P_1, P_2) = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+$$
+
+#### Midpoint of a line segment
+
+The midpoint of a line segment with endpoints $P_1=(x_1, y_1)$ and $P_2=(x_2, y_2)$ is given by the formula:
+
+$$
+M(P_1, P_2)=\left(\frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2}\right)
+$$
+
+#### Addition of two points
+
+The sum of two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$ is given by the formula:
+
+$$
+P_1 + P_2 = (x_1 + x_2, y_1 + y_2)
+$$
+
+#### Subtraction of two points
+
+The difference of two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$ is given by the formula:
+
+$$
+P_1 - P_2 = (x_1 - x_2, y_1 - y_2)
+$$
+
+#### Multiplication of a point by a scalar
+
+The multiplication of a point $P(x, y)$ by a scalar $k$ is given by the formula:
+
+$$
+k \cdot P = (k \cdot x, k \cdot y)
+$$
+
+
+#### Vector
+
+Ordered two points $P_1(x_1, y_1)$ and $P_2(x_2, y_2)$ define a vector. On plane vector is represented by an arrow pointing from $P_1$ to $P_2$. 
+
+
+```{python}
+#|echo: false
+import matplotlib.pyplot as plt
+
+# Set up the plot
+fig, ax = plt.subplots(figsize=(6, 6))
+
+# Define the grid with unit steps
+ax.set_xticks(range(-10, 11))
+ax.set_yticks(range(-10, 11))
+ax.grid(True)
+
+# Draw x and y axes
+plt.axhline(0, color='black', linewidth=2)
+plt.axvline(0, color='black', linewidth=2)
+
+# Only show ticks on the axes spines
+ax.spines['left'].set_position('zero')
+ax.spines['bottom'].set_position('zero')
+ax.spines['top'].set_color('none')
+ax.spines['right'].set_color('none')
+
+# Hide ticks on the top and right spines
+ax.xaxis.set_ticks_position('bottom')
+ax.yaxis.set_ticks_position('left')
+
+# Define points
+point1 = (1, 2)
+point2 = (5, 6)
+
+# Draw the vector
+plt.quiver(point1[0], point1[1], point2[0] - point1[0], point2[1] - point1[1], angles='xy', scale_units='xy', scale=1, color='blue')
+
+# Mark the points
+plt.plot(point1[0], point1[1], 'ro', markersize=10, label='P1(1, 2)')
+plt.plot(point2[0], point2[1], 'ro', markersize=10, label='P2(5, 6)')
+
+# Set plot limits
+plt.xlim(-3, 7)
+plt.ylim(-3, 7)
+
+# Display the plot
+plt.show()
+
+```
+
+
+## Analityc geometry with GeoGebra
+
+#### Lines by two points
+
+Steps in GeoGebra:
+
+* Define two points $A$ and $B$. Write down the coordinates of the points: P=(1,2) and Q=(5,6).
+* Write down the equation of the line passing through points: eq1: y-y(P)=((y(Q)-y(P))/(x(Q)-x(P))) (x-x(P))
