@@ -1,6 +1,6 @@
-# Mathematics W1
+# Mathematics
 
-**DCh** and **RD** [2024/2025]
+Exercise List 2024/2025
 
 ## Basic Operations on Matrices
 
