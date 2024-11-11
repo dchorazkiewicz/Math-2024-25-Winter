@@ -141,7 +141,7 @@ $$
 
 ## Matrix Operations
 
-[Lecture Notebooks: LA_Matrix_basic_operations](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_basic_operations_en.ipynb){.link-box}
+[Lecture Notebooks: LA_Matrix_basic_operations](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_basic_operations_en.ipynb)
 
 ### Addition
 
@@ -326,8 +326,8 @@ As we can see, $\mathbf{A} \cdot \mathbf{B}$ is a scalar, while $\mathbf{B} \cdo
 
 Therefore, $\mathbf{A} \cdot \mathbf{B} \neq \mathbf{B} \cdot \mathbf{A}$, demonstrating that matrix multiplication is not commutative.
 
-* [matrixmultiplication.xyz](http://matrixmultiplication.xyz/){.link-box-external}
-* [matrix-addition-multiplication-applet](https://www.intmath.com/matrices-determinants/matrix-addition-multiplication-applet.php){.link-box-external}
+* [matrixmultiplication.xyz](http://matrixmultiplication.xyz/)
+* [matrix-addition-multiplication-applet](https://www.intmath.com/matrices-determinants/matrix-addition-multiplication-applet.php)
 
 
 
@@ -366,7 +366,7 @@ $$
 
 ## Determinants
 
-[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/01_Matrices){.link-box}
+[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/01_Matrices)
 
 Determinants are a **scalar value** that can be computed from the elements of a **square matrix** and provide important information about the matrix. The determinant of a matrix is denoted by $\text{det}(\mathbf{A})$ or $|\mathbf{A}|$.
 
@@ -600,7 +600,7 @@ $$
 \det(\mathbf{A}) = 35
 $$
 
-[Lecture Noteooks: LA_Matrix_determinant_Laplace](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_determinant_Laplace_en.ipynb){.link-box}
+[Lecture Noteooks: LA_Matrix_determinant_Laplace](https://github.com/dchorazkiewicz/Math-2024-25-Winter/blob/main/Notebooks_EN/01_Linear_Algebra/01_Matrices/LA_Matrix_determinant_Laplace_en.ipynb)
 
 
 ### Properties
@@ -927,7 +927,7 @@ Please read about the [Computational_efficiency](https://en.wikipedia.org/wiki/G
 
 ## Systems of Linear Equations
 
-[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/02_Systems_of_Linear_Equations){.link-box}
+[Lecture Notebooks](https://github.com/dchorazkiewicz/Math-2024-25-Winter/tree/main/Notebooks_EN/01_Linear_Algebra/02_Systems_of_Linear_Equations)
 
 A system of linear equations is a set of equations that can be written in the form:
 
