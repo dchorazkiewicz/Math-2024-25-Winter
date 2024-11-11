@@ -444,7 +444,10 @@ Vectors can be represented using components in the Cartesian coordinate system, 
 - For a vector in two-dimensional space: $\mathbf{a} = [a_x, a_y] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}}$
 - For a vector in three-dimensional space: $\mathbf{a} = [a_x, a_y, a_z] = a_x\hat{\mathbf{i}} + a_y\hat{\mathbf{j}} + a_z\hat{\mathbf{k}}$
 
-![](https://upload.wikimedia.org/wikipedia/commons/f/fd/3D_Vector.svg){width=400px}
+
+::: {style="text-align: center;"}
+![](additional_files/3D_Vector.svg.png){width=400px}
+:::
 
 Different coordinate systems that can be used to represent vectors:
 
