@@ -29,7 +29,7 @@ This document introduces essential GeoGebra functionalities for creating and man
 ##### Creating a Point
 
 - **Using the Point Tool**: Select the **Point** tool and click on the Graphics View to place a point.
-- **Using the Input Field**: Enter `A = (3, 4)` to create point A at coordinates (3, 4).
+- **Using the Input Field**: Enter `A = (3, 4)` to create point A at coordinates (3, 4). You can define point just by specifying its coordinates like `(2,3)` Geogebra will automatically assign a name to the point. Try to write `B = (h,k)` in the input field and see what happens.
 
 ##### Accessing Point Coordinates
 
@@ -41,21 +41,49 @@ This document introduces essential GeoGebra functionalities for creating and man
 ##### Creating a Segment
 
 - **Using the Segment Tool**: Select the **Segment** tool and click on two points to create a segment between them.
-- **Using the Input Field**: Enter `Segment[A, B]` to create a segment between points A and B.
+- **Using the Input Field**: Create two points `A=(1,4)` and `B=(-2,2)`, then
+enter `Segment[A, B]` to create a segment between points A and B.
 
 ### Vectors
 
 ##### Creating a Vector
 
-- **Using the Vector Tool**: Select the **Vector** tool and click on two points to create a vector from the first point to the second.
+- **Using the Vector Tool**: Select the **Vector** tool, then click on two points to create a vector directed from the first point to the second.
 - **Using the Input Field**:
-  - Enter `Vector[A, B]` to create a vector from point A to point B.
-  - Define a vector by its components, e.g., `v = (3, 2)`.
+  - Create two points, `A=(1,4)` and `B=(-2,2)`, and then enter `Vector(A, B)` to create a vector from point A to point B.
+  - Define a vector by its components, for example, `v = (3, 2)`. This will create a vector from the **origin** `(0,0)` to the point `(3,2)`. Note that we use a lowercase `v` to define the vector; using an uppercase `V` will create a point instead.
+
 
 ##### Accessing Vector Components
 
 - **X-Component**: Use `x(v)` to get the x-component of vector v.
 - **Y-Component**: Use `y(v)` to get the y-component of vector v.
+
+##### Length
+
+- **Length**: Use `Length(v)` to get the length of vector v.
+
+### Matrices
+
+##### Creating a Matrix
+
+- **Using the Input Field**: Enter `M = {{1, 2}, {3, 4}}` to create a 2x2 matrix M. If you don't specify the name of the matrix, GeoGebra will assign a default name like `m1` ect.
+
+##### Operations
+
+- **Element Access**: Use `M(i, j)` to access the element in the i-th row and j-th column of matrix M.
+- **Multiplication**: Use `M * N` to multiply matrices M and N.
+- **Row Access**: Use `M(i)` to access the i-th row of matrix M.
+- **Determinant**: Use `Det(M)` to calculate the determinant of matrix M.
+- **Transpose**: Use `Transpose(M)` to find the transpose of matrix M.
+
+##### Apply Matrix on a Vector
+
+- **Using the Input Field**: Define a vector `v = (1, 2)` and a matrix `M = {{1, 2}, {3, 4}}`.
+- Entering `M * v` will create a **point** `(5, 11)`.
+- If you use `ApplyMatrix(M, v)`, this will create a **vector** from the origin to the point `(5, 11)`.
+
+
 
 ### Functions
 
@@ -63,16 +91,17 @@ This document introduces essential GeoGebra functionalities for creating and man
 
 - Enter `f(x) = x^2 + 3x + 5` to define a function f.
 
-### Curves
+##### Operations
 
-##### Creating a Parametric Curve
-
-- Use the **Curve** tool or enter `Curve[expression, parameter, start, end]` in the input field.
-- Example: `Curve[3 * cos(t), 2 * sin(t), t, 0, 2π]` creates an ellipse.
-
-### Parameterization
-
-- Parameterization involves using a parameter, often `t`, to define the x and y components of a curve.
+- **Value at a Point**: Use `f(a)` to find the value of function f at point a.
+- **Extremum**: Use `Extremum(f,a,b)` to find the extremum of function f in the interval [a, b].
+- **Derivative**: Use `f'(x)` to calculate the derivative of function f.
+- **Indefinite Integral**: Use `Integral(f)` to calculate the indefinite integral of function f with respect to x.
+- **Definite Integral**: Use `Integral(f, a, b)` to find the integral of function f from a to b.
+- **Intersection with Axis x**: Use `Root(f)` to find the x-intercepts of function f.
+- **Intersection with Axis y**: Use `f(0)` to find the y-intercept of function f.
+- **Tangent Line**: Use `Tangent(a,f)` to create the tangent line to function f at point `(a,f(a))`.
+- **Point of Intersection between Two Functions**: Use `Intersect(f, g, a,b)` to find the intersection points of functions f and g in the interval [a, b].
 
 ### Sliders
 
@@ -80,27 +109,27 @@ This document introduces essential GeoGebra functionalities for creating and man
 - **Using a Slider**: Sliders can control parameters in functions, vectors, or any variable, enabling interactive models.
   - Example: Define a parameter `a` as a slider, then use `f(x) = a * x^2` to observe how changing `a` affects the graph.
 
-### Intersections
+
+### Curves
+
+##### Creating a Parametric Curve
+
+- Use the **Curve** tool or enter `Curve(expression, parameter, start, end)` in the input field.
+- Example: `c=Curve(3 * cos(t), 2 * sin(t), t, 0, 2π)` creates an ellipse.
+
+##### Simulate points on a curve
+
+- Create slider `s` by entering just `s` in the input field.
+- Define a point `P` on the curve using `P = (x(c(s)), y(c(s)))`, where **x(c(s))** and **y(c(s))** are the x and y components of the curve **c** at parameter **s**.
+
+
+### Intersections of functions
 
 - **Finding Intersection Points**:
-  - Use the **Intersect** tool or enter `Intersect[object1, object2]` in the input field.
-  - Example: `Intersect[f, g]` finds the intersection points of functions f and g.
+  - Use the **Input Field** to enter the functions `f(x)` and `g(x)` and `Intersect(f, g, a, b)` where `a` and `b` are the interval limits in which to search for intersections.
 
-### Perpendicularity
 
-- **Creating a Perpendicular Line**:
-  - Use the **Perpendicular Line** tool or enter `PerpendicularLine[point, line]` in the input field.
-  - Example: `PerpendicularLine[A, l]` creates a line through point A perpendicular to line l.
-
-### Tangency
-
-- **Creating a Tangent Line**:
-  - Use the **Tangent** tool or enter `Tangent[point, function]` in the input field.
-  - Example: `Tangent[A, f]` creates a tangent line to function f at point A.
-
----
-
-These fundamental GeoGebra commands enable the creation and manipulation of basic mathematical objects, facilitating the development of interactive models and dynamic exploration of mathematical relationships.
+## Algebraic Objects in GeoGebra
 
 ### Lines
 
@@ -140,7 +169,7 @@ $$
 
 where $A$, $B$, and $C$ are constants.
 
-- **Implementation in GeoGebra**: First input letters: `A`, `B`, and `C` as variables using the input field. Theni input `A * x + B * y + C = 0`, and GeoGebra will treat $A$, $B$, and $C$ as variables that can be adjusted using sliders.
+- **Implementation in GeoGebra**: Input `A * x + B * y + C = 0`, and GeoGebra will treat $A$, $B$, and $C$ as variables that can be adjusted using sliders.
 
 ##### 4. Parametric Form
 
@@ -202,6 +231,11 @@ $$
 - **Implementation in GeoGebra**: Define the center point using `A = (h, k)`. Input `((x - x(A))^2 / a^2) - ((y - y(A))^2 / b^2) = 1`. GeoGebra will create sliders for $a$ and $b$ if they are not defined, enabling dynamic manipulation of the hyperbola’s axes.
 
 These implementations provide flexible ways to create and explore second-degree curves in GeoGebra, offering a dynamic approach to studying the properties of circles, ellipses, parabolas, and hyperbolas.
+
+
+##### 5. General Form of Conic Sections
+
+The general form of a conic section is `Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0`. Try to enter this equation in the input field and see what happens.
 
 
 ### 3D Lines and Planes
@@ -305,3 +339,7 @@ where $f(t)$, $g(t)$, and $h(t)$ define the $x$, $y$, and $z$ components of the 
 - **Implementation in GeoGebra 3D**: Use `Curve[f(t), g(t), h(t), t, t_{min}, t_{max}]`, replacing $f(t)$, $g(t)$, and $h(t)$ with specific functions of $t$. For example, `Curve[cos(t), sin(t), t, t, -10, 10]` defines a helical curve.
 
 These equations enable flexible creation and exploration of 3D lines, planes, curves, and surfaces in GeoGebra, allowing dynamic visualization and manipulation in three-dimensional space.
+
+## General Form of second order surfaces
+
+The general form of a second-order surface is `Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0`. Try to enter this equation in the input field and see what happens.

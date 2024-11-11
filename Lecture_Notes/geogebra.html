@@ -3196,18 +3196,20 @@ window.Quarto = {
   <li><a href="#points-and-their-components" id="toc-points-and-their-components" class="nav-link" data-scroll-target="#points-and-their-components">Points and Their Components</a></li>
   <li><a href="#segments" id="toc-segments" class="nav-link" data-scroll-target="#segments">Segments</a></li>
   <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
   <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions">Functions</a></li>
-  <li><a href="#curves" id="toc-curves" class="nav-link" data-scroll-target="#curves">Curves</a></li>
-  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization">Parameterization</a></li>
   <li><a href="#sliders" id="toc-sliders" class="nav-link" data-scroll-target="#sliders">Sliders</a></li>
-  <li><a href="#intersections" id="toc-intersections" class="nav-link" data-scroll-target="#intersections">Intersections</a></li>
-  <li><a href="#perpendicularity" id="toc-perpendicularity" class="nav-link" data-scroll-target="#perpendicularity">Perpendicularity</a></li>
-  <li><a href="#tangency" id="toc-tangency" class="nav-link" data-scroll-target="#tangency">Tangency</a></li>
+  <li><a href="#curves" id="toc-curves" class="nav-link" data-scroll-target="#curves">Curves</a></li>
+  <li><a href="#intersections-of-functions" id="toc-intersections-of-functions" class="nav-link" data-scroll-target="#intersections-of-functions">Intersections of functions</a></li>
+  </ul></li>
+  <li><a href="#algebraic-objects-in-geogebra" id="toc-algebraic-objects-in-geogebra" class="nav-link" data-scroll-target="#algebraic-objects-in-geogebra">Algebraic Objects in GeoGebra</a>
+  <ul class="collapse">
   <li><a href="#lines" id="toc-lines" class="nav-link" data-scroll-target="#lines">Lines</a></li>
   <li><a href="#second-degree-curves" id="toc-second-degree-curves" class="nav-link" data-scroll-target="#second-degree-curves">Second Degree Curves</a></li>
   <li><a href="#d-lines-and-planes" id="toc-d-lines-and-planes" class="nav-link" data-scroll-target="#d-lines-and-planes">3D Lines and Planes</a></li>
   <li><a href="#d-curves-and-surfaces" id="toc-d-curves-and-surfaces" class="nav-link" data-scroll-target="#d-curves-and-surfaces">3D Curves and Surfaces</a></li>
   </ul></li>
+  <li><a href="#general-form-of-second-order-surfaces" id="toc-general-form-of-second-order-surfaces" class="nav-link" data-scroll-target="#general-form-of-second-order-surfaces">General Form of second order surfaces</a></li>
   </ul>
 </nav>
 </div>
@@ -3244,7 +3246,7 @@ window.Quarto = {
 <h5 class="anchored" data-anchor-id="creating-a-point">Creating a Point</h5>
 <ul>
 <li><strong>Using the Point Tool</strong>: Select the <strong>Point</strong> tool and click on the Graphics View to place a point.</li>
-<li><strong>Using the Input Field</strong>: Enter <code>A = (3, 4)</code> to create point A at coordinates (3, 4).</li>
+<li><strong>Using the Input Field</strong>: Enter <code>A = (3, 4)</code> to create point A at coordinates (3, 4). You can define point just by specifying its coordinates like <code>(2,3)</code> Geogebra will automatically assign a name to the point. Try to write <code>B = (h,k)</code> in the input field and see what happens.</li>
 </ul>
 </section>
 <section id="accessing-point-coordinates" class="level5">
@@ -3261,7 +3263,7 @@ window.Quarto = {
 <h5 class="anchored" data-anchor-id="creating-a-segment">Creating a Segment</h5>
 <ul>
 <li><strong>Using the Segment Tool</strong>: Select the <strong>Segment</strong> tool and click on two points to create a segment between them.</li>
-<li><strong>Using the Input Field</strong>: Enter <code>Segment[A, B]</code> to create a segment between points A and B.</li>
+<li><strong>Using the Input Field</strong>: Create two points <code>A=(1,4)</code> and <code>B=(-2,2)</code>, then enter <code>Segment[A, B]</code> to create a segment between points A and B.</li>
 </ul>
 </section>
 </section>
@@ -3270,11 +3272,11 @@ window.Quarto = {
 <section id="creating-a-vector" class="level5">
 <h5 class="anchored" data-anchor-id="creating-a-vector">Creating a Vector</h5>
 <ul>
-<li><strong>Using the Vector Tool</strong>: Select the <strong>Vector</strong> tool and click on two points to create a vector from the first point to the second.</li>
+<li><strong>Using the Vector Tool</strong>: Select the <strong>Vector</strong> tool, then click on two points to create a vector directed from the first point to the second.</li>
 <li><strong>Using the Input Field</strong>:
 <ul>
-<li>Enter <code>Vector[A, B]</code> to create a vector from point A to point B.</li>
-<li>Define a vector by its components, e.g., <code>v = (3, 2)</code>.</li>
+<li>Create two points, <code>A=(1,4)</code> and <code>B=(-2,2)</code>, and then enter <code>Vector(A, B)</code> to create a vector from point A to point B.</li>
+<li>Define a vector by its components, for example, <code>v = (3, 2)</code>. This will create a vector from the <strong>origin</strong> <code>(0,0)</code> to the point <code>(3,2)</code>. Note that we use a lowercase <code>v</code> to define the vector; using an uppercase <code>V</code> will create a point instead.</li>
 </ul></li>
 </ul>
 </section>
@@ -3283,6 +3285,39 @@ window.Quarto = {
 <ul>
 <li><strong>X-Component</strong>: Use <code>x(v)</code> to get the x-component of vector v.</li>
 <li><strong>Y-Component</strong>: Use <code>y(v)</code> to get the y-component of vector v.</li>
+</ul>
+</section>
+<section id="length" class="level5">
+<h5 class="anchored" data-anchor-id="length">Length</h5>
+<ul>
+<li><strong>Length</strong>: Use <code>Length(v)</code> to get the length of vector v.</li>
+</ul>
+</section>
+</section>
+<section id="matrices" class="level3">
+<h3 class="anchored" data-anchor-id="matrices">Matrices</h3>
+<section id="creating-a-matrix" class="level5">
+<h5 class="anchored" data-anchor-id="creating-a-matrix">Creating a Matrix</h5>
+<ul>
+<li><strong>Using the Input Field</strong>: Enter <code>M = {{1, 2}, {3, 4}}</code> to create a 2x2 matrix M. If you don’t specify the name of the matrix, GeoGebra will assign a default name like <code>m1</code> ect.</li>
+</ul>
+</section>
+<section id="operations" class="level5">
+<h5 class="anchored" data-anchor-id="operations">Operations</h5>
+<ul>
+<li><strong>Element Access</strong>: Use <code>M(i, j)</code> to access the element in the i-th row and j-th column of matrix M.</li>
+<li><strong>Multiplication</strong>: Use <code>M * N</code> to multiply matrices M and N.</li>
+<li><strong>Row Access</strong>: Use <code>M(i)</code> to access the i-th row of matrix M.</li>
+<li><strong>Determinant</strong>: Use <code>Det(M)</code> to calculate the determinant of matrix M.</li>
+<li><strong>Transpose</strong>: Use <code>Transpose(M)</code> to find the transpose of matrix M.</li>
+</ul>
+</section>
+<section id="apply-matrix-on-a-vector" class="level5">
+<h5 class="anchored" data-anchor-id="apply-matrix-on-a-vector">Apply Matrix on a Vector</h5>
+<ul>
+<li><strong>Using the Input Field</strong>: Define a vector <code>v = (1, 2)</code> and a matrix <code>M = {{1, 2}, {3, 4}}</code>.</li>
+<li>Entering <code>M * v</code> will create a <strong>point</strong> <code>(5, 11)</code>.</li>
+<li>If you use <code>ApplyMatrix(M, v)</code>, this will create a <strong>vector</strong> from the origin to the point <code>(5, 11)</code>.</li>
 </ul>
 </section>
 </section>
@@ -3294,22 +3329,20 @@ window.Quarto = {
 <li>Enter <code>f(x) = x^2 + 3x + 5</code> to define a function f.</li>
 </ul>
 </section>
-</section>
-<section id="curves" class="level3">
-<h3 class="anchored" data-anchor-id="curves">Curves</h3>
-<section id="creating-a-parametric-curve" class="level5">
-<h5 class="anchored" data-anchor-id="creating-a-parametric-curve">Creating a Parametric Curve</h5>
+<section id="operations-1" class="level5">
+<h5 class="anchored" data-anchor-id="operations-1">Operations</h5>
 <ul>
-<li>Use the <strong>Curve</strong> tool or enter <code>Curve[expression, parameter, start, end]</code> in the input field.</li>
-<li>Example: <code>Curve[3 * cos(t), 2 * sin(t), t, 0, 2π]</code> creates an ellipse.</li>
+<li><strong>Value at a Point</strong>: Use <code>f(a)</code> to find the value of function f at point a.</li>
+<li><strong>Extremum</strong>: Use <code>Extremum(f,a,b)</code> to find the extremum of function f in the interval [a, b].</li>
+<li><strong>Derivative</strong>: Use <code>f&#39;(x)</code> to calculate the derivative of function f.</li>
+<li><strong>Indefinite Integral</strong>: Use <code>Integral(f)</code> to calculate the indefinite integral of function f with respect to x.</li>
+<li><strong>Definite Integral</strong>: Use <code>Integral(f, a, b)</code> to find the integral of function f from a to b.</li>
+<li><strong>Intersection with Axis x</strong>: Use <code>Root(f)</code> to find the x-intercepts of function f.</li>
+<li><strong>Intersection with Axis y</strong>: Use <code>f(0)</code> to find the y-intercept of function f.</li>
+<li><strong>Tangent Line</strong>: Use <code>Tangent(a,f)</code> to create the tangent line to function f at point <code>(a,f(a))</code>.</li>
+<li><strong>Point of Intersection between Two Functions</strong>: Use <code>Intersect(f, g, a,b)</code> to find the intersection points of functions f and g in the interval [a, b].</li>
 </ul>
 </section>
-</section>
-<section id="parameterization" class="level3">
-<h3 class="anchored" data-anchor-id="parameterization">Parameterization</h3>
-<ul>
-<li>Parameterization involves using a parameter, often <code>t</code>, to define the x and y components of a curve.</li>
-</ul>
 </section>
 <section id="sliders" class="level3">
 <h3 class="anchored" data-anchor-id="sliders">Sliders</h3>
@@ -3321,38 +3354,35 @@ window.Quarto = {
 </ul></li>
 </ul>
 </section>
-<section id="intersections" class="level3">
-<h3 class="anchored" data-anchor-id="intersections">Intersections</h3>
+<section id="curves" class="level3">
+<h3 class="anchored" data-anchor-id="curves">Curves</h3>
+<section id="creating-a-parametric-curve" class="level5">
+<h5 class="anchored" data-anchor-id="creating-a-parametric-curve">Creating a Parametric Curve</h5>
+<ul>
+<li>Use the <strong>Curve</strong> tool or enter <code>Curve(expression, parameter, start, end)</code> in the input field.</li>
+<li>Example: <code>c=Curve(3 * cos(t), 2 * sin(t), t, 0, 2π)</code> creates an ellipse.</li>
+</ul>
+</section>
+<section id="simulate-points-on-a-curve" class="level5">
+<h5 class="anchored" data-anchor-id="simulate-points-on-a-curve">Simulate points on a curve</h5>
+<ul>
+<li>Create slider <code>s</code> by entering just <code>s</code> in the input field.</li>
+<li>Define a point <code>P</code> on the curve using <code>P = (x(c(s)), y(c(s)))</code>, where <strong>x(c(s))</strong> and <strong>y(c(s))</strong> are the x and y components of the curve <strong>c</strong> at parameter <strong>s</strong>.</li>
+</ul>
+</section>
+</section>
+<section id="intersections-of-functions" class="level3">
+<h3 class="anchored" data-anchor-id="intersections-of-functions">Intersections of functions</h3>
 <ul>
 <li><strong>Finding Intersection Points</strong>:
 <ul>
-<li>Use the <strong>Intersect</strong> tool or enter <code>Intersect[object1, object2]</code> in the input field.</li>
-<li>Example: <code>Intersect[f, g]</code> finds the intersection points of functions f and g.</li>
+<li>Use the <strong>Input Field</strong> to enter the functions <code>f(x)</code> and <code>g(x)</code> and <code>Intersect(f, g, a, b)</code> where <code>a</code> and <code>b</code> are the interval limits in which to search for intersections.</li>
 </ul></li>
 </ul>
 </section>
-<section id="perpendicularity" class="level3">
-<h3 class="anchored" data-anchor-id="perpendicularity">Perpendicularity</h3>
-<ul>
-<li><strong>Creating a Perpendicular Line</strong>:
-<ul>
-<li>Use the <strong>Perpendicular Line</strong> tool or enter <code>PerpendicularLine[point, line]</code> in the input field.</li>
-<li>Example: <code>PerpendicularLine[A, l]</code> creates a line through point A perpendicular to line l.</li>
-</ul></li>
-</ul>
 </section>
-<section id="tangency" class="level3">
-<h3 class="anchored" data-anchor-id="tangency">Tangency</h3>
-<ul>
-<li><strong>Creating a Tangent Line</strong>:
-<ul>
-<li>Use the <strong>Tangent</strong> tool or enter <code>Tangent[point, function]</code> in the input field.</li>
-<li>Example: <code>Tangent[A, f]</code> creates a tangent line to function f at point A.</li>
-</ul></li>
-</ul>
-<hr>
-<p>These fundamental GeoGebra commands enable the creation and manipulation of basic mathematical objects, facilitating the development of interactive models and dynamic exploration of mathematical relationships.</p>
-</section>
+<section id="algebraic-objects-in-geogebra" class="level2">
+<h2 class="anchored" data-anchor-id="algebraic-objects-in-geogebra">Algebraic Objects in GeoGebra</h2>
 <section id="lines" class="level3">
 <h3 class="anchored" data-anchor-id="lines">Lines</h3>
 <p>In GeoGebra, lines can be represented in various forms depending on the equation and approach used. Here are some common equations for lines and how they can be implemented in GeoGebra:</p>
@@ -3386,7 +3416,7 @@ Ax + By + C = 0
 \]</span></p>
 <p>where <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> are constants.</p>
 <ul>
-<li><strong>Implementation in GeoGebra</strong>: First input letters: <code>A</code>, <code>B</code>, and <code>C</code> as variables using the input field. Theni input <code>A * x + B * y + C = 0</code>, and GeoGebra will treat <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> as variables that can be adjusted using sliders.</li>
+<li><strong>Implementation in GeoGebra</strong>: Input <code>A * x + B * y + C = 0</code>, and GeoGebra will treat <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span> as variables that can be adjusted using sliders.</li>
 </ul>
 </section>
 <section id="parametric-form" class="level5">
@@ -3447,6 +3477,10 @@ y &amp;= y_0 + t \cdot v_y
 <li><strong>Implementation in GeoGebra</strong>: Define the center point using <code>A = (h, k)</code>. Input <code>((x - x(A))^2 / a^2) - ((y - y(A))^2 / b^2) = 1</code>. GeoGebra will create sliders for <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> if they are not defined, enabling dynamic manipulation of the hyperbola’s axes.</li>
 </ul>
 <p>These implementations provide flexible ways to create and explore second-degree curves in GeoGebra, offering a dynamic approach to studying the properties of circles, ellipses, parabolas, and hyperbolas.</p>
+</section>
+<section id="general-form-of-conic-sections" class="level5">
+<h5 class="anchored" data-anchor-id="general-form-of-conic-sections">5. General Form of Conic Sections</h5>
+<p>The general form of a conic section is <code>Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0</code>. Try to enter this equation in the input field and see what happens.</p>
 </section>
 </section>
 <section id="d-lines-and-planes" class="level3">
@@ -3544,6 +3578,10 @@ z &amp;= h(t)
 <p>These equations enable flexible creation and exploration of 3D lines, planes, curves, and surfaces in GeoGebra, allowing dynamic visualization and manipulation in three-dimensional space.</p>
 </section>
 </section>
+</section>
+<section id="general-form-of-second-order-surfaces" class="level2">
+<h2 class="anchored" data-anchor-id="general-form-of-second-order-surfaces">General Form of second order surfaces</h2>
+<p>The general form of a second-order surface is <code>Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0</code>. Try to enter this equation in the input field and see what happens.</p>
 </section>
 
 </main>

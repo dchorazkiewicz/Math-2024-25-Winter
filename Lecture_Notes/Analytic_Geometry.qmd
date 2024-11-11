@@ -696,10 +696,330 @@ $$
 
 If the mixed product of three 3Dvectors is equal to zero, it means that the vectors are coplanar (lie in the same plane, which make them linearly dependent).
 
-## Geogebra Playground
 
-...
+## Introduction to GeoGebra
 
-## Exercises
+This document introduces essential GeoGebra functionalities for creating and manipulating objects such as points, segments, vectors, functions, curves, parameterizations, sliders, intersections, perpendicularity, and tangency.
 
-Link: [Last version](link)
+`Text with purple font color indicates the input to be entered in the GeoGebra input field.`
+
+### Points and Their Components
+
+##### Creating a Point
+
+- **Using the Point Tool**: Select the **Point** tool and click on the Graphics View to place a point.
+- **Using the Input Field**: Enter `A = (3, 4)` to create point A at coordinates (3, 4). You can define point just by specifying its coordinates like `(2,3)` Geogebra will automatically assign a name to the point. Try to write `B = (h,k)` in the input field and see what happens.
+
+##### Accessing Point Coordinates
+
+- **X-Coordinate**: Use `x(A)` to get the x-coordinate of point A.
+- **Y-Coordinate**: Use `y(A)` to get the y-coordinate of point A.
+
+### Segments
+
+##### Creating a Segment
+
+- **Using the Segment Tool**: Select the **Segment** tool and click on two points to create a segment between them.
+- **Using the Input Field**: Create two points `A=(1,4)` and `B=(-2,2)`, then
+enter `Segment[A, B]` to create a segment between points A and B.
+
+### Vectors
+
+##### Creating a Vector
+
+- **Using the Vector Tool**: Select the **Vector** tool, then click on two points to create a vector directed from the first point to the second.
+- **Using the Input Field**:
+  - Create two points, `A=(1,4)` and `B=(-2,2)`, and then enter `Vector(A, B)` to create a vector from point A to point B.
+  - Define a vector by its components, for example, `v = (3, 2)`. This will create a vector from the **origin** `(0,0)` to the point `(3,2)`. Note that we use a lowercase `v` to define the vector; using an uppercase `V` will create a point instead.
+
+
+##### Accessing Vector Components
+
+- **X-Component**: Use `x(v)` to get the x-component of vector v.
+- **Y-Component**: Use `y(v)` to get the y-component of vector v.
+
+##### Length
+
+- **Length**: Use `Length(v)` to get the length of vector v.
+
+### Matrices
+
+##### Creating a Matrix
+
+- **Using the Input Field**: Enter `M = {{1, 2}, {3, 4}}` to create a 2x2 matrix M. If you don't specify the name of the matrix, GeoGebra will assign a default name like `m1` ect.
+
+##### Operations
+
+- **Element Access**: Use `M(i, j)` to access the element in the i-th row and j-th column of matrix M.
+- **Multiplication**: Use `M * N` to multiply matrices M and N.
+- **Row Access**: Use `M(i)` to access the i-th row of matrix M.
+- **Determinant**: Use `Det(M)` to calculate the determinant of matrix M.
+- **Transpose**: Use `Transpose(M)` to find the transpose of matrix M.
+
+##### Apply Matrix on a Vector
+
+- **Using the Input Field**: Define a vector `v = (1, 2)` and a matrix `M = {{1, 2}, {3, 4}}`.
+- Entering `M * v` will create a **point** `(5, 11)`.
+- If you use `ApplyMatrix(M, v)`, this will create a **vector** from the origin to the point `(5, 11)`.
+
+
+
+### Functions
+
+##### Defining a Function
+
+- Enter `f(x) = x^2 + 3x + 5` to define a function f.
+
+##### Operations
+
+- **Value at a Point**: Use `f(a)` to find the value of function f at point a.
+- **Extremum**: Use `Extremum(f,a,b)` to find the extremum of function f in the interval [a, b].
+- **Derivative**: Use `f'(x)` to calculate the derivative of function f.
+- **Indefinite Integral**: Use `Integral(f)` to calculate the indefinite integral of function f with respect to x.
+- **Definite Integral**: Use `Integral(f, a, b)` to find the integral of function f from a to b.
+- **Intersection with Axis x**: Use `Root(f)` to find the x-intercepts of function f.
+- **Intersection with Axis y**: Use `f(0)` to find the y-intercept of function f.
+- **Tangent Line**: Use `Tangent(a,f)` to create the tangent line to function f at point `(a,f(a))`.
+- **Point of Intersection between Two Functions**: Use `Intersect(f, g, a,b)` to find the intersection points of functions f and g in the interval [a, b].
+
+### Sliders
+
+- **Creating a Slider**: Use the **Slider** tool to create a slider.
+- **Using a Slider**: Sliders can control parameters in functions, vectors, or any variable, enabling interactive models.
+  - Example: Define a parameter `a` as a slider, then use `f(x) = a * x^2` to observe how changing `a` affects the graph.
+
+
+### Curves
+
+##### Creating a Parametric Curve
+
+- Use the **Curve** tool or enter `Curve(expression, parameter, start, end)` in the input field.
+- Example: `c=Curve(3 * cos(t), 2 * sin(t), t, 0, 2π)` creates an ellipse.
+
+##### Simulate points on a curve
+
+- Create slider `s` by entering just `s` in the input field.
+- Define a point `P` on the curve using `P = (x(c(s)), y(c(s)))`, where **x(c(s))** and **y(c(s))** are the x and y components of the curve **c** at parameter **s**.
+
+
+### Intersections of functions
+
+- **Finding Intersection Points**:
+  - Use the **Input Field** to enter the functions `f(x)` and `g(x)` and `Intersect(f, g, a, b)` where `a` and `b` are the interval limits in which to search for intersections.
+
+
+## Algebraic Objects in GeoGebra
+
+### Lines
+
+In GeoGebra, lines can be represented in various forms depending on the equation and approach used. Here are some common equations for lines and how they can be implemented in GeoGebra:
+
+##### 1. Slope-Intercept Form
+
+The slope-intercept form of a line is given by the equation:
+
+$$
+y = mx + b
+$$
+
+where $m$ is the slope and $b$ is the y-intercept.
+
+- **Implementation in GeoGebra**: Enter `y = m * x + b` directly into the input field. Varible `m` represents the slope, and `b` represents the y-intercept. Because we did not specify the values of `m` and `b`, GeoGebra will treat them as variables and create a dynamic slider that can be manipulated.
+
+##### 2. Point-Slope Form
+
+The point-slope form of a line is given by:
+
+$$
+y - y_1 = m(x - x_1)
+$$
+
+where $(x_1, y_1)$ is a point on the line and $m$ is the slope.
+
+- **Implementation in GeoGebra**: First define a pont $A$ using `A = (1,2)` and then enter the equation of the line using the point-slope form: `y - y(A) = m * (x - x(A))` in the input field. Because we did not specify the value of `m`, GeoGebra will create a slider for the slope.
+
+##### 3. General Form
+
+The general form of a line is:
+
+$$
+Ax + By + C = 0
+$$
+
+where $A$, $B$, and $C$ are constants.
+
+- **Implementation in GeoGebra**: Input `A * x + B * y + C = 0`, and GeoGebra will treat $A$, $B$, and $C$ as variables that can be adjusted using sliders.
+
+##### 4. Parametric Form
+
+A line can also be described using a parameter $t$ as follows:
+
+$$
+\begin{align*}
+x &= x_0 + t \cdot v_x\\
+y &= y_0 + t \cdot v_y
+\end{align*}
+$$
+
+where $(x_0, y_0)$ is a point on the line, and $(v_x, v_y)$ is a vector parallel to the line (direction vector).
+
+- **Implementation in GeoGebra**: Define a point $A$ using `A = (1, 2)`. Use `Curve[x(A) + t * a, y(A) + t * b, t, -10, 10]`, becase we did not specify the values of `a` and `b`, GeoGebra will create sliders for them.
+
+### Second Degree Curves
+
+In GeoGebra, second-degree curves, such as circles, ellipses, parabolas, and hyperbolas, can be represented using various forms. Here are common equations for these curves and instructions for implementing them in GeoGebra.
+
+##### 1. Circle
+
+The equation of a circle with center $(h, k)$ and radius $r$ is:
+
+$$
+(x - h)^2 + (y - k)^2 = r^2
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)` and input ` (x - x(A))^2 + (y - y(A))^2 = r^2`. If $r$ is not defined, GeoGebra will create a slider for $r$ to dynamically adjust the radius.
+
+##### 2. Ellipse
+
+The general form of an ellipse centered at $(h, k)$ with semi-major axis $a$ and semi-minor axis $b$ is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} = 1
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)`. Then input `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) = 1`. If $a$ and $b$ are not defined, GeoGebra will automatically create sliders for these values, allowing dynamic resizing of the ellipse.
+
+##### 3. Parabola
+
+The equation of a parabola opening vertically with vertex $(h, k)$ and parameter $p$ (distance from the vertex to the focus) is:
+
+$$
+(y - k) = \frac{1}{4p} (x - h)^2
+$$
+
+- **Implementation in GeoGebra**: Define the vertex point using `A = (h, k)`. Enter `y - y(A) = (1 / (4 * p)) * (x - x(A))^2` into the input field. If $p$ is undefined, GeoGebra will generate a slider for $p$, which allows adjusting the parabola’s shape.
+
+##### 4. Hyperbola
+
+The standard form of a hyperbola centered at $(h, k)$, with transverse axis length $2a$ and conjugate axis length $2b$, is:
+
+$$
+\frac{(x - h)^2}{a^2} - \frac{(y - k)^2}{b^2} = 1
+$$
+
+- **Implementation in GeoGebra**: Define the center point using `A = (h, k)`. Input `((x - x(A))^2 / a^2) - ((y - y(A))^2 / b^2) = 1`. GeoGebra will create sliders for $a$ and $b$ if they are not defined, enabling dynamic manipulation of the hyperbola’s axes.
+
+These implementations provide flexible ways to create and explore second-degree curves in GeoGebra, offering a dynamic approach to studying the properties of circles, ellipses, parabolas, and hyperbolas.
+
+
+##### 5. General Form of Conic Sections
+
+The general form of a conic section is `Ax^2 + Bxy + Cy^2 + Dx + Ey + F = 0`. Try to enter this equation in the input field and see what happens.
+
+
+### 3D Lines and Planes
+
+In GeoGebra 3D, we can also define lines and planes using equations and points in space. Below are common ways to represent these objects and instructions for implementing them in GeoGebra 3D.
+
+##### 1. Line in 3D
+
+A line in 3D space can be represented parametrically with a point $(x_0, y_0, z_0)$ on the line and a direction vector $(v_x, v_y, v_z)$:
+
+$$
+\begin{align*}
+x &= x_0 + t \cdot v_x \\
+y &= y_0 + t \cdot v_y \\
+z &= z_0 + t \cdot v_z
+\end{align*}
+$$
+
+where $t$ is a parameter that extends along the direction vector.
+
+- **Implementation in GeoGebra 3D**: Define the starting point using `A = (x_0, y_0, z_0)` and direction components `v_x`, `v_y`, and `v_z`. Enter `Curve[x(A) + t * v_x, y(A) + t * v_y, z(A) + t * v_z, t, -10, 10]`. If $v_x$, $v_y$, and $v_z$ are not specified, GeoGebra will create sliders for these components.
+
+##### 2. Plane
+
+A plane can be defined by a point $(x_0, y_0, z_0)$ on the plane and a normal vector $(n_x, n_y, n_z)$ perpendicular to it. The equation of the plane is:
+
+$$
+n_x(x - x_0) + n_y(y - y_0) + n_z(z - z_0) = 0
+$$
+
+Alternatively, the plane can also be expressed in general form:
+
+$$
+Ax + By + Cz + D = 0
+$$
+
+where $A$, $B$, $C$ are the components of the normal vector, and $D$ is a constant.
+
+- **Implementation in GeoGebra 3D**: Define a point `A = (x_0, y_0, z_0)` and the components of the normal vector `n_x`, `n_y`, and `n_z`. Enter the plane equation as `n_x * (x - x(A)) + n_y * (y - y(A)) + n_z * (z - z(A)) = 0`. Alternatively, use the general form by defining variables $A$, $B$, $C$, and $D$ and entering `A * x + B * y + C * z + D = 0`. If any constants are not defined, GeoGebra will create sliders for them.
+
+---
+
+### 3D Curves and Surfaces
+
+In GeoGebra 3D, second-degree surfaces such as spheres, ellipsoids, paraboloids, and hyperboloids, as well as 3D parametric curves, can be explored interactively.
+
+##### 1. Sphere
+
+The equation of a sphere with center $(h, k, l)$ and radius $r$ is:
+
+$$
+(x - h)^2 + (y - k)^2 + (z - l)^2 = r^2
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `(x - x(A))^2 + (y - y(A))^2 + (z - z(A))^2 = r^2`. GeoGebra will create a slider for $r$ if it is not defined, allowing dynamic adjustment of the sphere’s radius.
+
+##### 2. Ellipsoid
+
+The equation of an ellipsoid centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ along the $x$, $y$, and $z$ axes respectively is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} + \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`, then input `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) + ((z - z(A))^2 / c^2) = 1`. GeoGebra will automatically create sliders for $a$, $b$, and $c$ if they are not defined, enabling dynamic resizing of the ellipsoid along each axis.
+
+##### 3. Paraboloid
+
+A paraboloid with vertex at $(h, k, l)$ and parameter $p$ (opening along the $z$-axis) is given by:
+
+$$
+z - l = \frac{1}{4p} \left( (x - h)^2 + (y - k)^2 \right)
+$$
+
+- **Implementation in GeoGebra 3D**: Define the vertex point `A = (h, k, l)`. Then input `z - z(A) = (1 / (4 * p)) * ((x - x(A))^2 + (y - y(A))^2)`. GeoGebra will create a slider for $p$ if it is not defined, allowing adjustment of the paraboloid’s curvature.
+
+##### 4. Hyperboloid of One Sheet
+
+The equation of a hyperboloid of one sheet centered at $(h, k, l)$ with semi-axes $a$, $b$, and $c$ is:
+
+$$
+\frac{(x - h)^2}{a^2} + \frac{(y - k)^2}{b^2} - \frac{(z - l)^2}{c^2} = 1
+$$
+
+- **Implementation in GeoGebra 3D**: Define the center point `A = (h, k, l)`. Enter `((x - x(A))^2 / a^2) + ((y - y(A))^2 / b^2) - ((z - z(A))^2 / c^2) = 1`. GeoGebra will create sliders for $a$, $b$, and $c$ if they are not specified, enabling interactive manipulation of the hyperboloid’s dimensions.
+
+##### 5. Parametric Curve in 3D
+
+A 3D curve can be defined parametrically with a parameter $t$, as follows:
+
+$$
+\begin{align*}
+x &= f(t) \\
+y &= g(t) \\
+z &= h(t)
+\end{align*}
+$$
+
+where $f(t)$, $g(t)$, and $h(t)$ define the $x$, $y$, and $z$ components of the curve.
+
+- **Implementation in GeoGebra 3D**: Use `Curve[f(t), g(t), h(t), t, t_{min}, t_{max}]`, replacing $f(t)$, $g(t)$, and $h(t)$ with specific functions of $t$. For example, `Curve[cos(t), sin(t), t, t, -10, 10]` defines a helical curve.
+
+These equations enable flexible creation and exploration of 3D lines, planes, curves, and surfaces in GeoGebra, allowing dynamic visualization and manipulation in three-dimensional space.
+
+##### 6. General Form of second order surfaces
+
+The general form of a second-order surface is `Ax^2 + By^2 + Cz^2 + Dxy + Exz + Fyz + Gx + Hy + Iz + J = 0`. Try to enter this equation in the input field and see what happens.
+
