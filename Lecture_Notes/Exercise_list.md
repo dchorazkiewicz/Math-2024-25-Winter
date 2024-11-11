@@ -1,11 +1,3 @@
-# <span style="color: red;">Mathematics</span>
-
-## <span style="color: red;">Basic Operations on Matrices</span>
-
-1. Calculate the sum of matrices $\mathbf{A}=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}$ and $\mathbf{B}=\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$.
-
-## <span style="color: red;">Determinants 2x2 and 3x3</span>
-
 # Mathematics
 
 Exercise List 2024/2025
