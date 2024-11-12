@@ -403,7 +403,7 @@ $$
 To visualize the calculation of the determinant of a $3 \times 3$ matrix, we can use the rule of Sarrus:
 
 ::: {style="text-align: center;"}
-![Sarrus Rule - wikimedia.org](https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Sarrus_ABC_red_blue_solid_dashed.svg/440px-Sarrus_ABC_red_blue_solid_dashed.svg.png){width=300}
+![Sarrus Rule - wikimedia.org](additional_files/Schema_sarrus-regel.png){width=300}
 :::
 
 
