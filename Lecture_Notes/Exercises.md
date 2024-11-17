@@ -6,9 +6,18 @@ Exercises 2024/2025
 
 1. Calculate the sum of matrices 
 
-$$\mathbf{A}=\begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}
+$$\mathbf{A}=
+\begin{pmatrix}
+1 & 2 \\
+3 & 4 
+\end{pmatrix}
 \qquad
-\mathbf{B}=\begin{pmatrix} 5 & 6 \\ 7 & 8 \end{pmatrix}$$
+\mathbf{B}=
+\begin{pmatrix}
+5 & 6 \\
+7 & 8
+\end{pmatrix}
+$$
 
 2. Calculate the product of matrix $\mathbf{A}=\begin{pmatrix} 4 & 2 \\ 12 & 4 \end{pmatrix}$ and scalar $k=\frac{1}{4}$.
 
