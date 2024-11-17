@@ -31,3 +31,7 @@ flowchart TB
 ```
 
 The task is to finish the Graph 2.
+
+### Task 2
+
+Prove that $a \star b = b \star a$.
