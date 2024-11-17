@@ -6,7 +6,8 @@ Exercises 2024/2025
 
 1. Calculate the sum of matrices 
 
-$$\mathbf{A}=
+$$
+\mathbf{A}=
 \begin{pmatrix}
 1 & 2 \\
 3 & 4 
