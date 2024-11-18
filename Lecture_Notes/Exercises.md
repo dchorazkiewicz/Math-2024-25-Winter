@@ -4,7 +4,7 @@ Exercises 2024/2025
 
 ## 1. Basic Operations on Matrices
 
-1. Calculate the sum of matrices 
+For follwing matrices 
 
 $$
 \mathbf{A}=
@@ -18,11 +18,32 @@ $$
 5 & 6 \\
 7 & 8
 \end{pmatrix}
+\quad
+\mathbf{C}=
+\begin{pmatrix}
+-1 & 2 \\
+3 & 0
+\end{pmatrix}
+\qquad
+\mathbf{D}=
+\begin{pmatrix}
+-1 & 2 & 3 \\
+4 & 0 & 6 
+\end{pmatrix}
+\qquad
+\mathbf{E}=
+\begin{pmatrix}
+1 & 2\\
+4 & 5\\
+7 & 8
+\end{pmatrix}
 $$
 
-2. Calculate the product of matrix $\mathbf{A}=\begin{pmatrix} 4 & 2 \\ 12 & 4 \end{pmatrix}$ and scalar $k=\frac{1}{4}$.
+1. Calculate: $\mathbf{A}+\mathbf{B}$;  $\mathbf{B}-\mathbf{A}$;  $\mathbf{A}+\mathbf{C}$; $\mathbf{D}+\mathbf{E}$. 
 
-3. Calculate the products $\mathbf{A}\cdot \mathbf{B}$ and $\mathbf{B} \cdot \mathbf{A}$ for matrices $\mathbf{A}=\begin{pmatrix} 3 & 2 \\ 2 & 4 \end{pmatrix}$ and $\mathbf{B}=\begin{pmatrix} 4 & 1 \\ 6 & 4 \end{pmatrix}$.
+2. Calculate $\frac{1}{2}\mathbf{A}$, $2\mathbf{B}$, $-3\mathbf{C}$, and $4\mathbf{D}$.
+
+3. Calculate the products $\mathbf{A}\cdot \mathbf{B}$; $\mathbf{B} \cdot \mathbf{A}$; $\mathbf{A} \cdot \mathbf{D}$; $\mathbf{D} \cdot \mathbf{E}$.
 
 ## 2. Determinants 2x2 and 3x3
 
