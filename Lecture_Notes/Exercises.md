@@ -151,18 +151,13 @@ $$
 
 ## 5. Inverse of a Matrix from the formula
 
-1. Find the inverse matrix for matrix
-
-$$
-\mathbf{A}
-=
-\begin{pmatrix}
+1. Find the inverse matrix for matrix 
+$$\begin{pmatrix}
 2 & 0 & 1 \\
 0 & 1 & 0 \\
 1 & 2 & 0
 \end{pmatrix}
 $$
-
 and verify if the result is correct.
 
 2. Determine the rank of the matrix:
@@ -213,16 +208,14 @@ Solve the following systems of equations without using matrices:
 ## 8. Linear equations by Cramer's Rule
 
 1. Solve the system of equations:
-   $$
-   \begin{cases}
-   2x_1 - 3x_2 = 7 \\
+   $$\begin{cases}
+   2x_1 - 3x_2 = 7\\
    3x_1 + 5x_2 = 2
    \end{cases}
    $$
 
 2. Solve the system of equations:
-   $$
-   \begin{cases}
+   $$\begin{cases}
    2x + y - z = 1 \\
    x - y + 2z = 4 \\
    3x - 2z = -1
@@ -230,8 +223,7 @@ Solve the following systems of equations without using matrices:
    $$
 
 3. Solve the system of equations:
-   $$
-   \begin{cases}
+   $$\begin{cases}
    x + y + z - t = 2 \\
    x - z + 2t = 6 \\
    2x - 3y + t = 4 \\
@@ -240,8 +232,7 @@ Solve the following systems of equations without using matrices:
    $$
 
 4. Why can't the following system of equations be solved using Cramer's rule?
-$$
-\begin{cases}
+$$\begin{cases}
 x_1 + 2x_2 + 3x_3 = 3 \\
 4x_1 + 5x_2 + 6x_3 = 2 \\
 7x_1 + 8x_2 + 9x_3 = 1
@@ -250,10 +241,25 @@ $$
 
 ## 9. Linear equations by Gauss Elimination
 
-$$
-\left\{\begin{array}{c}{x+2 y-2 z=4} \\ {2 x+y+z=0} \\ {3 x+2 y+z=1}\end{array}\right.\quad
-\left\{\begin{array}{c}{x+y+z-t=2} \\ {2 x+y+z=3} \\ {-x+z-t=0} \\ {3 x+2 y-z+2 t=-1}\end{array}\right.\quad
-\left\{\begin{array}{c}{x+y-z-t=0} \\ {2 x+3 y-2 z+t=4} \\ {3 x+5 z=0} \\ {-x+y-3 z+2 t=3}\end{array}\right.
+$$\begin{cases}
+x + 2y - 2z = 4 \\
+2x + y + z = 0 \\
+3x + 2y + z = 1
+\end{cases}
+\quad
+\begin{cases}
+x + y + z - t = 2 \\
+2x + y + z = 3 \\
+-x + z - t = 0 \\
+3x + 2y - z + 2t = -1
+\end{cases}
+\quad
+\begin{cases}
+x + y - z - t = 0 \\
+2x + 3y - 2z + t = 4 \\
+3x + 5z = 0 \\
+-x + y - 3z + 2t = 3
+\end{cases}
 $$
 
 ## 10. Linear equations by Matrix Inversion
