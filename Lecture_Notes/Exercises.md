@@ -152,23 +152,21 @@ $$
 ## 5. Inverse of a Matrix from the formula
 
 1. Find the inverse matrix for matrix 
-$$\begin{pmatrix}
+$$\mathbf{A}=\begin{pmatrix}
 2 & 0 & 1 \\
 0 & 1 & 0 \\
 1 & 2 & 0
-\end{pmatrix}
-$$
+\end{pmatrix}$$
+
 and verify if the result is correct.
 
 2. Determine the rank of the matrix:
-$$
-\mathbf{B} = 
+$$\mathbf{B} = 
 \begin{pmatrix}
 4 & -3 & 7 \\
 -1 & 6 & 3 \\
 2 & 9 & 1
-\end{pmatrix}
-$$
+\end{pmatrix}$$
 
 ## 6. Inverse of a Matrix using the Gauss Method
 
@@ -208,36 +206,32 @@ Solve the following systems of equations without using matrices:
 ## 8. Linear equations by Cramer's Rule
 
 1. Solve the system of equations:
-   $$\begin{cases}
+$$\begin{cases}
    2x_1 - 3x_2 = 7\\
    3x_1 + 5x_2 = 2
-   \end{cases}
-   $$
+\end{cases}$$
 
 2. Solve the system of equations:
-   $$\begin{cases}
+$$\begin{cases}
    2x + y - z = 1 \\
    x - y + 2z = 4 \\
    3x - 2z = -1
-   \end{cases}
-   $$
+\end{cases}$$
 
 3. Solve the system of equations:
-   $$\begin{cases}
+$$\begin{cases}
    x + y + z - t = 2 \\
    x - z + 2t = 6 \\
    2x - 3y + t = 4 \\
    3x + y + 3z - 4t = -2
-   \end{cases}
-   $$
+\end{cases}$$
 
 4. Why can't the following system of equations be solved using Cramer's rule?
 $$\begin{cases}
 x_1 + 2x_2 + 3x_3 = 3 \\
 4x_1 + 5x_2 + 6x_3 = 2 \\
 7x_1 + 8x_2 + 9x_3 = 1
-\end{cases}
-$$
+\end{cases}$$
 
 ## 9. Linear equations by Gauss Elimination
 
