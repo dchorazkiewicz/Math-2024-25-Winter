@@ -27,7 +27,7 @@ print('Last updated: %s' %time.ctime())
 
 Linear Algebra is a branch of mathematics that focuses on the study of linear spaces, linear transformations, and systems of linear equations. At its core, linear algebra provides the tools for analyzing and solving problems related to these mathematical objects, making it an essential area of study in various fields, including computer science, engineering, physics, and economics.
 
-* [Neural network](https://en.wikipedia.org/wiki/Neural_network_(machine_learning)#Network_design)
+* [Neural network](https://en.wikipedia.org/wiki/Neural_network_(machine_learning))
 * [Essence of linear algebra - YouTube - 3Blue1Brown Playlist](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&ab_channel=3Blue1Brown)
 * [2x2 Image Transformations - YouTube](https://www.youtube.com/watch?v=K2XLXlyPqCA&ab_channel=FirstPrinciplesofComputerVision)
 
