@@ -54,7 +54,9 @@ Use the ChatGPT to help you with the exercises. Ask it for help, ask it for expl
 
 If you do not have a GitHub account with your copied Jupyter files within 2 weeks, you will fail the course. We need to move forward with exercises, and we cannot wait for those who are not serious about participating.
 
+# Homework for the next class:
 
+Do your own repository on GitHub. Fork the original repository to your account. Open the Jupyter files in Colab, and start working on the exercises. Make sure that you are able to save your work! 
 
 ## Scope of the course
 
@@ -67,9 +69,9 @@ Here is the list of files/ materials (as 12.10.2024) that you will find in the c
 
 - **01_Linear_Algebra**  
   - **01_Matrices**  
-    - LA_Matrix_basic_operations_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
-    - LA_Matrix_determinant_Laplace_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
-    - LA_Matrix_determinants_2x2_3x3_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
+    - LA_Matrix_basic_operations_en.ipynb
+    - LA_Matrix_determinant_Laplace_en.ipynb
+    - LA_Matrix_determinants_2x2_3x3_en.ipynb
     - LA_Matrix_inversion_by_formula_en.ipynb  
     - LA_Matrix_inversion_of_a_matrix_using_gauss_en.ipynb  
     - LA_Matrix_triangular_en.ipynb  
@@ -160,22 +162,3 @@ LaTeX: https://www.latex-project.org/get/
 Geogebra https://www.geogebra.org/
 
 Wolfram Alpha https://www.wolframalpha.com/
-
----
-
-# Homework for the next class:
-
-Do your own repository on GitHub. Fork the original repository to your account. Open the Jupyter files in Colab, and start working on the exercises. Make sure that you are able to save your work! 
-
-- **00_Introduction**  
-  - What_is_a_function.ipynb   **[read and execute]**
-  - What_is_an_equation.ipynb   **[read and execute]**
-  - What_is_Jupyter_Notebook.ipynb  **[read and execute]**  
-
-- **01_Linear_Algebra**  
-  - **01_Matrices**  
-    - LA_Matrix_basic_operations_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
-    - LA_Matrix_determinant_Laplace_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
-    - LA_Matrix_determinants_2x2_3x3_en.ipynb  **[do exercises to present it in class 17/18 Oct]**
-
-See you in the next class!
