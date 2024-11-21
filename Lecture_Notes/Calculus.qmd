@@ -167,6 +167,46 @@ A number $g$ is the limit of a sequence $a_n$ if for every $\varepsilon>0$ there
 We write this as $$\lim_{n \to \infty} a_n=g$$.
 :::
 
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Function definition
+def a(n):
+    return 3 * n**2 / (n**2 + 1)
+
+# Parameters for visualization
+epsilon = 0.1  # Epsilon value to represent the "margin" around the limit
+N = 6  # Chosen N for the definition of limit
+
+# Generate data points
+n = np.arange(1, 20)  # Range of n values for plotting
+a_values = a(n)  # Compute the function values
+
+# Compute the limit for large n (L = 3)
+limit = 3
+
+# Create the plot
+fig, ax = plt.subplots(figsize=(8, 5))
+plt.scatter(n, a_values, label="Sequence $a(n) = \\frac{3n^2}{n^2 + 1}$", color="blue")  # Sequence points
+plt.axhline(y=limit, color="green", linestyle="-", label="Limit $L = 3$")  # The limit line
+plt.axhline(y=limit + epsilon, color="red", linestyle="--", label="$L + \\varepsilon$")  # Upper epsilon bound
+plt.axhline(y=limit - epsilon, color="red", linestyle="--", label="$L - \\varepsilon$")  # Lower epsilon bound
+plt.axvline(x=N, color="orange", linestyle="--", label="$N = 10$")  # Vertical line for N
+
+# Annotate the plot
+plt.title("Visualization of Limit of $a(n)$ as $n \\to \\infty$")
+plt.xlabel("$n$")
+plt.ylabel("$a(n)$")
+plt.legend(loc="lower right")
+plt.grid(True)
+
+# Display the plot
+plt.show()
+
+```
+
+
 Some important points to note about limits of sequences are:
 
 1. The limit of a sequence is unique. This means that if a sequence has a limit, then this limit is unique.
@@ -230,3 +270,178 @@ Therefore, by the Squeeze Theorem, we have
 $$
 \lim_{n \to \infty} \frac{\sin(n)}{n}=0
 $$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def a(n):
+    return -1/n
+def b(n):
+    return np.sin(n)/n
+def c(n):
+    return 1/n
+
+fig, ax = plt.subplots(figsize=(6,4))
+n=np.arange(1,20)
+plt.scatter(n,a(n),label='a(n)')
+plt.scatter(n,b(n),label='b(n)')
+plt.scatter(n,c(n),label='c(n)')
+plt.xlabel('n')
+plt.ylabel('f(n)')
+plt.legend()
+plt.show()
+```
+
+
+## Limits of Functions
+
+### Definition
+
+The limit of a function describes the behavior of the function as its input approaches a certain value. We denote it as:
+
+$$
+\lim_{x \to c} f(x) = L
+$$
+
+This means that as $x$ approaches $c$, the values of $f(x)$ get arbitrarily close to $L$.
+
+#### Formal Definition
+
+**Definition**: Let $f(x)$ be a function defined on some open interval containing $c$, except possibly at $c$ itself. We say that 
+
+$$
+\lim_{x \to c} f(x) = L
+$$
+
+if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$, we have 
+
+$$
+|f(x) - L| < \varepsilon.
+$$
+
+#### One-Sided Limits
+
+Limits can also be evaluated as $x$ approaches $c$ from one side:
+
+- **Left-hand limit**: If $x$ approaches $c$ from the left ($x \to c^-$), then:
+  $$
+  \lim_{x \to c^-} f(x) = L
+  $$
+
+- **Right-hand limit**: If $x$ approaches $c$ from the right ($x \to c^+$), then:
+  $$
+  \lim_{x \to c^+} f(x) = L
+  $$
+
+The **two-sided limit** exists if and only if:
+$$
+\lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = L.
+$$
+
+#### Properties of Limits
+
+For functions $f(x)$ and $g(x)$ with limits $\lim_{x \to c} f(x) = L_1$ and $\lim_{x \to c} g(x) = L_2$:
+
+**Sum**:
+   $$
+   \lim_{x \to c} [f(x) \pm g(x)] = \lim_{x \to c} f(x) \pm \lim_{x \to c} g(x) = L_1 + L_2
+   $$
+
+
+**Product**:
+   $$
+   \lim_{x \to c} [f(x) \cdot g(x)] = \lim_{x \to c} f(x) \cdot \lim_{x \to c} g(x) = L_1 \cdot L_2
+   $$
+
+**Quotient** (if $\lim_{x \to c} g(x) \neq 0$):
+   $$
+   \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)} = \frac{L_1}{L_2}
+   $$
+
+**Power**:
+   $$
+   \lim_{x \to c} [f(x)]^k = \left(\lim_{x \to c} f(x)\right)^k = L_1^k, \quad k \in \mathbb{R}.
+   $$
+
+### Limits at Infinity
+
+If there is a number $L$ such that for every $\varepsilon > 0$ there exists a number $M$ such that for all $x > M$ we have $|f(x) - L| < \varepsilon$, then we write:
+$$
+\lim_{x \to \infty} f(x) = L
+$$
+
+Similarly, if there is a number $L$ such that for every $\varepsilon > 0$ there exists a number $M$ such that for all $x < M$ we have $|f(x) - L| < \varepsilon$, then we write:
+
+$$
+\lim_{x \to -\infty} f(x) = L
+$$
+
+### Asymptotes
+
+An **asymptote** is a line that a curve approaches when $x$ becomes very large then the curve approaches a line $y=ax+b$
+
+$$
+f(x)\sim ax+b \qquad \text{for large } x
+$$
+
+which formaly means that
+
+$$
+\lim_{x \to \infty} (f(x) - ax+b) = 0
+$$
+
+Find $a$:
+
+$$
+a=\lim_{x \to \infty} \frac{f(x)}{x}
+$$
+
+Find $b$:
+
+$$
+b=\lim_{x \to \infty} (f(x) - ax)
+$$
+
+Example: Find the asymptotes of the function $f(x)=\frac{x^3+3x^2+1}{3x^2}$
+
+**Find**
+
+$$
+a=\lim_{x \to \infty} \frac{x^3+3x^2+1}{3x^2\cdot x}
+=
+\lim_{x \to \infty} \frac{1}{3}
+$$
+
+$$
+\begin{align*}
+b
+&=\lim_{x \to \infty} \left(\frac{x^3+3x^2+1}{3x^2}-\frac{1}{3}x\right)\\
+&=\lim_{x \to \infty} \left(\frac{x^3+3x^2+1-x^3}{3x^2}\right)\\
+&=\lim_{x \to \infty} \left(\frac{3x^2+1}{3x^2}\right)\\
+&=\lim_{x \to \infty} \left(1+\frac{1}{3x^2}\right)\\
+&=1
+\end{align*}
+$$
+
+Therefore, the asymptote of the function $f(x)=\frac{x^3+3x^2+1}{3x^2}$ is $y=\frac{1}{3}x+1$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+def f(x):
+    return (x**3+3*x**2+1)/(3*x**2)
+
+def line(x):
+    return 1/3*x+1
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(1,10,100)
+plt.plot(x,f(x),label='f(x)')
+plt.plot(x,line(x),label='asymptote')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+```
+
