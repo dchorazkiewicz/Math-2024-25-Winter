@@ -1,82 +1,184 @@
-# Mathematics
-
-Mathematical Analysis
-
-Alt+Shift  -> zaznacz pion
-Możliwe rozszerzenie -> END -> i dodanie przecinków lub "
-
-# Sequences, Functions and Limits
-
-## Sequences (with functions)
-
-* Definitions (sequence, general term, sum, types of sequences: geometric, arithmetic, harmonic, ...)
-* Limits of numerical sequences.
-* Limit of a function (theorems, continuity and points of discontinuity, de'lHopital mentioned, important limits: e^x przy x do infinity)
-
-# Differential Calculus
-
-## Derivatives
-
-  * Derivative of a function.
-  * Definition of the derivative, its geometric and physical significance.
-  * Differentiation rules.
-  * Differentiation of basic elementary functions.
-
-## Advanced:
-  
-   * Differentiation of composite functions.
-   * Derivative of an exponential function.
-   * Differentiation of logarithms.
-   * Inverse functions and their derivatives.
-
-## Applications:
-
-* Physics (Differential of a function and its geometric significance).
-* Extremum problems/Optimization: (Extrema of functions. Necessary and sufficient conditions for extrema. Finding maximum and minimum values. Convexity and concavity of functions. Inflection points.)
-* Calculating limits using L'Hopital’s Rule.
-* Differentiation of parametrically defined and implicitly defined functions.
-* Aproximation of functions (Taylor, ...)
-* Theorems (Rolle, Lagrange Mean Value Theorem, Cauchy Mean Value Theorem,Darboux, Weierstrass)
+# Mathematical Analysis
 
 ---
 
-# Integrals
+## Sequences, Functions, and Limits
 
-Indefinite Integral:
-* Definitions (as inverse to diff) and its properties, "Integral of deriovative vs derivative of integral")
-* Table of indefinite integrals being just derivative table in reverse.
-* +C, Integral constant!!!! :)
+* Definitions (sequence, general term, sum, types of sequences: geometric, arithmetic, harmonic, ...)
+* Limits of numerical sequences
+* Limit of a function (theorems, continuity and points of discontinuity, l'Hôpital's rule mentioned, important limits: $e^x$ as $x$ approaches infinity)
 
-Methods of Integration:
-* Guessing and testing.
-* Method of substitution.
-* Integration by parts.
-* Integration of rational functions (quadratic polynomials in the denominator).
-* Integration of expressions involving trigonometric functions.
+---
 
-Definite integral:
+## Differential Calculus
 
-* Definitions (definition, interpretation, and properties of the definite integral, Riemman Integral -> numerical and now symbolic, improper integrals (and rember and left/righ improper), substitution and integration by parts in the definite integral.)
-* Applications of the definite integral (distance, volume, area, lenght of arc, surface area of a solid of revolution, volume of solids of revolution)
+### Derivatives
 
-# Series
+* Derivative of a function
+* Definition of the derivative, its geometric and physical significance
+* Differentiation rules
+* Differentiation of basic elementary functions
+
+### Advanced
+
+* Differentiation of composite functions
+* Derivative of an exponential function
+* Differentiation of logarithms
+* Inverse functions and their derivatives
+
+### Applications
+
+* Physics (Differential of a function and its geometric significance)
+* Extremum problems/Optimization (Extrema of functions, necessary and sufficient conditions for extrema, finding maximum and minimum values, convexity and concavity of functions, inflection points)
+* Calculating limits using l'Hôpital's rule
+* Differentiation of parametrically defined and implicitly defined functions
+* Approximation of functions (Taylor series, ...)
+* Theorems (Rolle's theorem, Lagrange Mean Value Theorem, Cauchy Mean Value Theorem, Darboux's theorem, Weierstrass theorem)
+
+---
+
+## Integrals
+
+### Indefinite Integral
+
+* Definitions (as the inverse of differentiation) and its properties, "Integral of a derivative vs. derivative of an integral"
+* Table of indefinite integrals (derivative table in reverse)
+* integration constant $+C$
+
+### Methods of Integration
+
+* Guessing and testing
+* Method of substitution
+* Integration by parts
+* Integration of rational functions (quadratic polynomials in the denominator)
+* Integration of expressions involving trigonometric functions
+
+### Definite Integral
+
+* Definitions (definition, interpretation, and properties of the definite integral, Riemann integral – numerical and symbolic methods, improper integrals, left/right improper integrals)
+* Substitution and integration by parts in the definite integral
+* Applications of the definite integral (distance, volume, area, length of arc, surface area of a solid of revolution, volume of solids of revolution)
+
+---
+
+## Series
 
 * Definition of a series (numerical, functional: power series, Fourier series), examples of series
-Alternating series (naprzemiene, przykłady)
+* Alternating series (definition, examples)
+* Power Series (convergence criteria), examples of Taylor and Maclaurin series (applications of power series for finding function values and limits, and for integrating functions)
+* Fourier series (definition, applications)
 
-* Power Series: kryteriium zbieżności, example Taylor and Maclaurin series (Applications of power series for finding function values and limits, and for integrating functions.)
+---
 
-* Fourier series (def. zastosowania)
+# Exercises 2024/2025
+
+# Remik: Sequences and Series
+
+1. Determine the type of the sequence: $4, 4, 4, 4, 4, 4,\ldots$.
+
+2. Calculate the fifth term of an arithmetic sequence if the fourth term is $20$ and the sixth term is $28$.
+
+3. Find the value of the eighth term of a geometric sequence where the seventh term is $9$ and the ninth term is $1$.
+
+4. For the sequence with the general formula $a_n = 2n - 10$, determine how many terms of the sequence are negative.
+
+5. Provide the recursive formula $a_{n+1} = a_n + \ldots$ for an arithmetic sequence where the first term is $5$ and the tenth term is $23$.
+
+6. Calculate the sum of the terms of the geometric sequence $-1 + 2 - 4 + \ldots - 64$.
+
+7. Prove that the sequence $a_n = 2n^2 - 1$ is not an arithmetic sequence.
+
+8. An arithmetic sequence consists of $200$ terms. The first term is $-10$, and the last term is $60$. Find the sum of this sequence.
+
+9. Calculate the value of the expression $1 + 2 + 4 + 8 + \ldots + 2^{10}$.
+
+10. For what values of the parameter $n$ is the sequence $(n^2 - 1), (3n + 1), (2n^2 - 6)$ an arithmetic sequence?
+
+11. Insert two numbers between $4$ and $108$ such that they form a geometric sequence.
+
+12. Prove that in an arithmetic sequence, each term $a_n$ is the arithmetic mean of its neighbors, which can be expressed as:
+
+    $$
+    a_n = \frac{a_{n-1} + a_{n+1}}{2}.
+    $$
+
+13. Prove that in a geometric sequence, each term $a_n$ is the geometric mean of its neighbors, which can be expressed as:
+
+    $$
+    a_n^2 = a_{n-1} \cdot a_{n+1}.
+    $$
+
+# Remik: Derivatives
+
+1. Compute derivatives of functions:
+   1. $y(x) = -3x+3$
+   2. $y(x) = \pi x + \sin(1)$
+   3. $y(x) = \sin(2)$
+   4. $y(x) = x^7$
+   5. $y(x) = 2x^3 - 3x^2 + 8x - 9$
+   6. $y(x) = ax^2 + 2ax + a$
+   7. $y(x) = 6 x^{1/3}$
+   8. $y(x) = x^{\pi}$
+   9. $y(x) = \sqrt{x}$
+   10. $y(x) = \cos(x) + \sin(x)$
+   11. $y(x) = \exp(x)$
+   12. $y(x) = \ln(x)$
+   13. $y(x) = 2\sin(x) \cos(x)$
+   14. $y(x) = x\sin(x)$
+   15. $y(x) = xe^x$
+   16. $y(x) = \ln(x) \exp(x)$
+   17. $y(x) = (x+1)(x+1)$
+   18. $y(x) = (x+1)\exp(x)$
+   19. $y(x) = \ln(-x)$
+   20. $y(x) = \sin(-x)$
+   21. $y(x) = \sin(x^2)$
+   22. $y(x) = \exp(-2x)$
+   23. $y(x) = \exp(-3\sin(x))$
+   24. $y(x) = \frac{1}{x+1}$
+   25. $y(x) = \frac{x}{x+1}$
+   26. $y(x) = \frac{1}{\sin(x)}$
+   27. $y(x) = \frac{1}{1+\sin(x)}$
+   28. $y(x) = \frac{1}{\sin(x^2)}$
+   29. $y(x) = \frac{1}{\sin(x^2)+1}$
+   30. $y(x) = \sqrt{x+1}$
+   31. $y(x) = \log_{10}x$
+   32. $y(x) = 10^x$
+   33. $y(x) = x^x$
+   34. $y(x) = \arccos(x)$
+
+2. Compute the derivative using the definition of the difference quotient for:
+   - $3x+1$
+   - $x^2+1$
+   - a constant $a$
+
+3. Manually compute the velocity and acceleration as functions of time for the following motions. What were the position, velocity, and acceleration at the fifth second?
+   - $x(t) = 150 + 50t - 4.5t^2$
+   - $x(t) = \sin(t)$
+   - $x(t) = t - \frac{1}{t+1}$
+
+4. Using the functions from the previous task, plot _x, v, a_ on the same graph for each case above (don't forget to include a legend to distinguish the lines). Do the values at $t=5$ match your manual calculations?
+
+5. Given certain functions $f$ and $g$ such that $g(0) = 0$, $g'(0) = 2$, and $f'(0) = 4$, find the derivative of the composite function $f(g(x))$ at the point $x=0$.
+
+6. Using L'Hospital's Rule, find the improper limits:
+   - $\lim_{x\to 0} \frac{\sin{x}}{x}$
+   - $\lim_{x\to 0} \frac{1-\cos{x}}{x^2}$
+   - $\lim_{x\to 0} \frac{\sqrt{1+x} - 1}{x}$
+   - $\lim_{x\to \infty} \frac{\ln x}{x}$
+   - $\lim_{x\to \infty} \frac{\exp(x)}{x}$
+   - $\lim_{x\to \infty} \exp(x) \cdot \frac{1}{x}$
+
+7. Why can't L'Hospital's Rule be used to compute the following limit?
+   - $\lim_{x\to 0} \frac{x+1}{x-1}$
+
+8. Generalize the Leibniz rule to the case of the derivative of the product of three functions: $(f \cdot g \cdot h)'$.
+
+Link: https://www.geogebra.org/m/GAcTpGCh 
 
 
-
-
-
-
-
-Exercises 2024/2025
-
-# Limits of Numerical Sequences and Functions
+---
+ 
+## Limits of Numerical Sequences and Functions
 
 ### 1.1 Infinite Numerical Sequences
 
@@ -233,106 +335,3 @@ Exercises 2024/2025
    - Sketch the graph of the function.
 
 2. Repeat the analysis for $f(x) = e^{-x^2}$.
-
-# Remik: Sequences and Series
-
-1. Determine the type of the sequence: $4, 4, 4, 4, 4, 4,\ldots$.
-
-2. Calculate the fifth term of an arithmetic sequence if the fourth term is $20$ and the sixth term is $28$.
-
-3. Find the value of the eighth term of a geometric sequence where the seventh term is $9$ and the ninth term is $1$.
-
-4. For the sequence with the general formula $a_n = 2n - 10$, determine how many terms of the sequence are negative.
-
-5. Provide the recursive formula $a_{n+1} = a_n + \ldots$ for an arithmetic sequence where the first term is $5$ and the tenth term is $23$.
-
-6. Calculate the sum of the terms of the geometric sequence $-1 + 2 - 4 + \ldots - 64$.
-
-7. Prove that the sequence $a_n = 2n^2 - 1$ is not an arithmetic sequence.
-
-8. An arithmetic sequence consists of $200$ terms. The first term is $-10$, and the last term is $60$. Find the sum of this sequence.
-
-9. Calculate the value of the expression $1 + 2 + 4 + 8 + \ldots + 2^{10}$.
-
-10. For what values of the parameter $n$ is the sequence $(n^2 - 1), (3n + 1), (2n^2 - 6)$ an arithmetic sequence?
-
-11. Insert two numbers between $4$ and $108$ such that they form a geometric sequence.
-
-12. Prove that in an arithmetic sequence, each term $a_n$ is the arithmetic mean of its neighbors, which can be expressed as:
-
-    $$
-    a_n = \frac{a_{n-1} + a_{n+1}}{2}.
-    $$
-
-13. Prove that in a geometric sequence, each term $a_n$ is the geometric mean of its neighbors, which can be expressed as:
-
-    $$
-    a_n^2 = a_{n-1} \cdot a_{n+1}.
-    $$
-
-# Remik: Derivatives
-
-1. Compute derivatives of functions:
-   1. $ y(x) = -3x+3 $
-   2. $ y(x) = \pi x + \sin(1) $
-   3. $ y(x) = \sin(2) $
-   4. $ y(x) = x^7 $
-   5. $ y(x) = 2x^3 - 3x^2 + 8x - 9 $
-   6. $ y(x) = ax^2 + 2ax + a $
-   7. $ y(x) = 6 x^{1/3} $
-   8. $ y(x) = x^{\pi} $
-   9. $ y(x) = \sqrt{x} $
-   10. $ y(x) = \cos(x) + \sin(x) $
-   11. $ y(x) = \exp(x) $
-   12. $ y(x) = \ln(x) $
-   13. $ y(x) = 2\sin(x) \cos(x) $
-   14. $ y(x) = x\sin(x) $
-   15. $ y(x) = xe^x $
-   16. $ y(x) = \ln(x) \exp(x) $
-   17. $ y(x) = (x+1)(x+1) $
-   18. $ y(x) = (x+1)\exp(x) $
-   19. $ y(x) = \ln(-x) $
-   20. $ y(x) = \sin(-x) $
-   21. $ y(x) = \sin(x^2) $
-   22. $ y(x) = \exp(-2x) $
-   23. $ y(x) = \exp(-3\sin(x)) $
-   24. $ y(x) = \frac{1}{x+1} $
-   25. $ y(x) = \frac{x}{x+1} $
-   26. $ y(x) = \frac{1}{\sin(x)} $
-   27. $ y(x) = \frac{1}{1+\sin(x)} $
-   28. $ y(x) = \frac{1}{\sin(x^2)} $
-   29. $ y(x) = \frac{1}{\sin(x^2)+1} $
-   30. $ y(x) = \sqrt{x+1} $
-   31. $ y(x) = \log_{10}x $
-   32. $ y(x) = 10^x $
-   33. $ y(x) = x^x $
-   34. $ y(x) = \arccos(x) $
-
-2. Compute the derivative using the definition of the difference quotient for:
-   - $ 3x+1 $
-   - $ x^2+1 $
-   - a constant $ a $
-
-3. Manually compute the velocity and acceleration as functions of time for the following motions. What were the position, velocity, and acceleration at the fifth second?
-   - $ x(t) = 150 + 50t - 4.5t^2 $
-   - $ x(t) = \sin(t) $
-   - $ x(t) = t - \frac{1}{t+1} $
-
-4. Using the functions from the previous task, plot _x, v, a_ on the same graph for each case above (don't forget to include a legend to distinguish the lines). Do the values at $t=5$ match your manual calculations?
-
-5. Given certain functions $f$ and $g$ such that $g(0) = 0$, $g'(0) = 2$, and $f'(0) = 4$, find the derivative of the composite function $f(g(x))$ at the point $x=0$.
-
-6. Using L'Hospital's Rule, find the improper limits:
-   - $ \lim_{x\to 0} \frac{\sin{x}}{x} $
-   - $ \lim_{x\to 0} \frac{1-\cos{x}}{x^2} $
-   - $ \lim_{x\to 0} \frac{\sqrt{1+x} - 1}{x} $
-   - $ \lim_{x\to \infty} \frac{\ln x}{x} $
-   - $ \lim_{x\to \infty} \frac{\exp(x)}{x} $
-   - $ \lim_{x\to \infty} \exp(x) \cdot \frac{1}{x} $
-
-7. Why can't L'Hospital's Rule be used to compute the following limit?
-   - $ \lim_{x\to 0} \frac{x+1}{x-1} $
-
-8. Generalize the Leibniz rule to the case of the derivative of the product of three functions: $(f \cdot g \cdot h)'$.
-
-Link: https://www.geogebra.org/m/GAcTpGCh 
