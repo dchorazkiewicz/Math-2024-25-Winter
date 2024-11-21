@@ -1,5 +1,79 @@
 # Mathematics
 
+Mathematical Analysis
+
+Alt+Shift  -> zaznacz pion
+Możliwe rozszerzenie -> END -> i dodanie przecinków lub "
+
+# Sequences, Functions and Limits
+
+## Sequences (with functions)
+
+* Definitions (sequence, general term, sum, types of sequences: geometric, arithmetic, harmonic, ...)
+* Limits of numerical sequences.
+* Limit of a function (theorems, continuity and points of discontinuity, de'lHopital mentioned, important limits: e^x przy x do infinity)
+
+# Differential Calculus
+
+## Derivatives
+
+  * Derivative of a function.
+  * Definition of the derivative, its geometric and physical significance.
+  * Differentiation rules.
+  * Differentiation of basic elementary functions.
+
+## Advanced:
+  
+   * Differentiation of composite functions.
+   * Derivative of an exponential function.
+   * Differentiation of logarithms.
+   * Inverse functions and their derivatives.
+
+## Applications:
+
+* Physics (Differential of a function and its geometric significance).
+* Extremum problems/Optimization: (Extrema of functions. Necessary and sufficient conditions for extrema. Finding maximum and minimum values. Convexity and concavity of functions. Inflection points.)
+* Calculating limits using L'Hopital’s Rule.
+* Differentiation of parametrically defined and implicitly defined functions.
+* Aproximation of functions (Taylor, ...)
+* Theorems (Rolle, Lagrange Mean Value Theorem, Cauchy Mean Value Theorem,Darboux, Weierstrass)
+
+---
+
+# Integrals
+
+Indefinite Integral:
+* Definitions (as inverse to diff) and its properties, "Integral of deriovative vs derivative of integral")
+* Table of indefinite integrals being just derivative table in reverse.
+* +C, Integral constant!!!! :)
+
+Methods of Integration:
+* Guessing and testing.
+* Method of substitution.
+* Integration by parts.
+* Integration of rational functions (quadratic polynomials in the denominator).
+* Integration of expressions involving trigonometric functions.
+
+Definite integral:
+
+* Definitions (definition, interpretation, and properties of the definite integral, Riemman Integral -> numerical and now symbolic, improper integrals (and rember and left/righ improper), substitution and integration by parts in the definite integral.)
+* Applications of the definite integral (distance, volume, area, lenght of arc, surface area of a solid of revolution, volume of solids of revolution)
+
+# Series
+
+* Definition of a series (numerical, functional: power series, Fourier series), examples of series
+Alternating series (naprzemiene, przykłady)
+
+* Power Series: kryteriium zbieżności, example Taylor and Maclaurin series (Applications of power series for finding function values and limits, and for integrating functions.)
+
+* Fourier series (def. zastosowania)
+
+
+
+
+
+
+
 Exercises 2024/2025
 
 # Limits of Numerical Sequences and Functions
@@ -260,3 +334,5 @@ Exercises 2024/2025
    - $ \lim_{x\to 0} \frac{x+1}{x-1} $
 
 8. Generalize the Leibniz rule to the case of the derivative of the product of three functions: $(f \cdot g \cdot h)'$.
+
+Link: https://www.geogebra.org/m/GAcTpGCh 
