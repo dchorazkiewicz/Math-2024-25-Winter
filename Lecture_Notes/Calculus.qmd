@@ -147,3 +147,86 @@ A dictionary in Python is also a function that assigns each key a value. In our 
 ```{python}
 d={'a':1, 'b':2, 'c':3}
 ```
+
+## Limits of functions
+
+### Sequences
+
+An idea of a limit of sequence is very simple. It is a number that the sequence approaches as we take more and more elements of the sequence. For example, the sequence $a_n=\frac{1}{n}$ approaches 0 as we take more and more elements of the sequence. We write this as
+
+$$
+\lim_{n \to \infty} a_n=0
+$$
+
+Formal definition of a limit of a sequence is as follows:
+
+::: {.definition}
+**Definition: Limit of a sequence**
+
+A number $g$ is the limit of a sequence $a_n$ if for every $\varepsilon>0$ there exists $N$ such that for every $n>N$ we have $|a_n-g|<\epsilon$. 
+We write this as $$\lim_{n \to \infty} a_n=g$$.
+:::
+
+Some important points to note about limits of sequences are:
+
+1. The limit of a sequence is unique. This means that if a sequence has a limit, then this limit is unique.
+2. If a sequence has a limit, then the sequence is bounded. This means that there exists a number $M$ such that $|a_n| \leq M$ for all $n$.
+
+To compute the limit of a sequence, we often use the following rules:
+
+1. The limit of a sum of sequences is the sum of the limits of the sequences.
+
+$$
+\lim_{n \to \infty} (a_n\pm b_n)=\lim_{n \to \infty} a_n\pm\lim_{n \to \infty} b_n
+$$
+
+2. The limit of a product of sequences is the product of the limits of the sequences.
+
+$$
+\lim_{n \to \infty} (a_n \cdot b_n)=\lim_{n \to \infty} a_n \cdot \lim_{n \to \infty} b_n
+$$
+
+3. The limit of a quotient of sequences is the quotient of the limits of the sequences.
+
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n}=\frac{\lim\limits_{n \to \infty} a_n}{\lim\limits_{n \to \infty} b_n}
+$$
+
+4. The limit of a sequence raised to a power is the limit of the sequence raised to the power.
+
+$$
+\lim_{n \to \infty} a_n^k=(\lim_{n \to \infty} a_n)^k
+$$
+
+
+::: {.theorem}
+**The Squeeze Theorem**
+
+If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=g$, then $\lim_{n \to \infty} b_n=g$.
+:::
+
+Interpretation of the Squeeze Theorem is that if a sequence is squeezed between two sequences that have the same limit, then the sequence itself has the same limit.
+
+**Example**
+
+Let:
+
+$$
+a_n=-\frac{1}{n}, 
+\quad 
+b_n=\frac{\sin(n)}{n}
+, \quad
+c_n=\frac{1}{n}
+$$
+
+Then we have $a_n \leq b_n \leq c_n$ for all $n$. We also have 
+
+$$
+\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=0
+$$
+
+Therefore, by the Squeeze Theorem, we have
+
+$$
+\lim_{n \to \infty} \frac{\sin(n)}{n}=0
+$$

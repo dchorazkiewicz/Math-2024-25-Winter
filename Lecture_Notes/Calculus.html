@@ -3226,6 +3226,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#what-is-a-function" id="toc-what-is-a-function" class="nav-link active" data-scroll-target="#what-is-a-function">What is a function?</a></li>
+  <li><a href="#limits-of-functions" id="toc-limits-of-functions" class="nav-link" data-scroll-target="#limits-of-functions">Limits of functions</a>
+  <ul class="collapse">
+  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences">Sequences</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -3267,7 +3271,7 @@ f=\{(1,2), (2,3), (3,4)\}
 <p><span class="math display">\[
 f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 \]</span></p>
-<div id="58526359" class="cell" data-execution_count="1">
+<div id="09763142" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3297,7 +3301,7 @@ f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 f=\{(x,x^2): x \in \mathbb{R}\}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbb{R}\)</span> denotes the set of real numbers.</p>
-<div id="ed0791ce" class="cell" data-execution_count="2">
+<div id="234d4f03" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3345,9 +3349,76 @@ f=\{((A,B),A+B): A,B \text{ are matrices of the same dimensions}\}
 \]</span></p>
 <p><strong>Example 8</strong></p>
 <p>A dictionary in Python is also a function that assigns each key a value. In our notation, we write this as:</p>
-<div id="aa4c9eec" class="cell" data-execution_count="3">
+<div id="e87063c9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>, <span class="st">&#39;c&#39;</span>:<span class="dv">3</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+</section>
+<section id="limits-of-functions" class="level2">
+<h2 class="anchored" data-anchor-id="limits-of-functions">Limits of functions</h2>
+<section id="sequences" class="level3">
+<h3 class="anchored" data-anchor-id="sequences">Sequences</h3>
+<p>An idea of a limit of sequence is very simple. It is a number that the sequence approaches as we take more and more elements of the sequence. For example, the sequence <span class="math inline">\(a_n=\frac{1}{n}\)</span> approaches 0 as we take more and more elements of the sequence. We write this as</p>
+<p><span class="math display">\[
+\lim_{n \to \infty} a_n=0
+\]</span></p>
+<p>Formal definition of a limit of a sequence is as follows:</p>
+<div class="definition">
+<p><strong>Definition: Limit of a sequence</strong></p>
+<p>A number <span class="math inline">\(g\)</span> is the limit of a sequence <span class="math inline">\(a_n\)</span> if for every <span class="math inline">\(\varepsilon&gt;0\)</span> there exists <span class="math inline">\(N\)</span> such that for every <span class="math inline">\(n&gt;N\)</span> we have <span class="math inline">\(|a_n-g|&lt;\epsilon\)</span>. We write this as <span class="math display">\[\lim_{n \to \infty} a_n=g\]</span>.</p>
+</div>
+<p>Some important points to note about limits of sequences are:</p>
+<ol type="1">
+<li>The limit of a sequence is unique. This means that if a sequence has a limit, then this limit is unique.</li>
+<li>If a sequence has a limit, then the sequence is bounded. This means that there exists a number <span class="math inline">\(M\)</span> such that <span class="math inline">\(|a_n| \leq M\)</span> for all <span class="math inline">\(n\)</span>.</li>
+</ol>
+<p>To compute the limit of a sequence, we often use the following rules:</p>
+<ol type="1">
+<li>The limit of a sum of sequences is the sum of the limits of the sequences.</li>
+</ol>
+<p><span class="math display">\[
+\lim_{n \to \infty} (a_n\pm b_n)=\lim_{n \to \infty} a_n\pm\lim_{n \to \infty} b_n
+\]</span></p>
+<ol start="2" type="1">
+<li>The limit of a product of sequences is the product of the limits of the sequences.</li>
+</ol>
+<p><span class="math display">\[
+\lim_{n \to \infty} (a_n \cdot b_n)=\lim_{n \to \infty} a_n \cdot \lim_{n \to \infty} b_n
+\]</span></p>
+<ol start="3" type="1">
+<li>The limit of a quotient of sequences is the quotient of the limits of the sequences.</li>
+</ol>
+<p><span class="math display">\[
+\lim_{n \to \infty} \frac{a_n}{b_n}=\frac{\lim\limits_{n \to \infty} a_n}{\lim\limits_{n \to \infty} b_n}
+\]</span></p>
+<ol start="4" type="1">
+<li>The limit of a sequence raised to a power is the limit of the sequence raised to the power.</li>
+</ol>
+<p><span class="math display">\[
+\lim_{n \to \infty} a_n^k=(\lim_{n \to \infty} a_n)^k
+\]</span></p>
+<div class="theorem">
+<p><strong>The Squeeze Theorem</strong></p>
+<p>If <span class="math inline">\(a_n \leq b_n \leq c_n\)</span> for all <span class="math inline">\(n\)</span> and <span class="math inline">\(\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=g\)</span>, then <span class="math inline">\(\lim_{n \to \infty} b_n=g\)</span>.</p>
+</div>
+<p>Interpretation of the Squeeze Theorem is that if a sequence is squeezed between two sequences that have the same limit, then the sequence itself has the same limit.</p>
+<p><strong>Example</strong></p>
+<p>Let:</p>
+<p><span class="math display">\[
+a_n=-\frac{1}{n},
+\quad
+b_n=\frac{\sin(n)}{n}
+, \quad
+c_n=\frac{1}{n}
+\]</span></p>
+<p>Then we have <span class="math inline">\(a_n \leq b_n \leq c_n\)</span> for all <span class="math inline">\(n\)</span>. We also have</p>
+<p><span class="math display">\[
+\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=0
+\]</span></p>
+<p>Therefore, by the Squeeze Theorem, we have</p>
+<p><span class="math display">\[
+\lim_{n \to \infty} \frac{\sin(n)}{n}=0
+\]</span></p>
 </section>
 </section>
 
