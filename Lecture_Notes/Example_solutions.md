@@ -7,19 +7,19 @@ We have two matrices $A$ and $B$ defined as
 
 $$
 A = 
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 2 
 \\ 
 3 & 4 
-\end{pmatrix}
+\end{bmatrix}
 \quad
 \text{and}
 \quad
 B =
-\begin{pmatrix}
+\begin{bmatrix}
 5 & 6\\
 7 & 8
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 
@@ -27,14 +27,14 @@ Addition of the two matrices is given by
 
 
 $$A + B =
-\begin{pmatrix}
+\begin{bmatrix}
 1 + 5 & 2 + 6\\
 3 + 7 & 4 + 8
-\end{pmatrix}=
-\begin{pmatrix}
+\end{bmatrix}=
+\begin{bmatrix}
 6 & 8\\
 10 & 12
-\end{pmatrix}
+\end{bmatrix}
 $$
 
 
@@ -232,8 +232,7 @@ AA^{-1} =
 0 & \frac{1}{2} & -\frac{1}{4}\\
 0 & \frac{1}{2} & \frac{3}{4}\\
 1 & -\frac{1}{2} & \frac{1}{4}
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 1 & 0 & 0\\
 0 & 1 & 0\\
