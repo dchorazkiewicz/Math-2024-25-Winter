@@ -1,4 +1,5 @@
 ---
+title: Calculus
 format:
   html:
     toc: true

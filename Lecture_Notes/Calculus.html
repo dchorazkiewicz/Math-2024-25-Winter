@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>calculus</title>
+<title>Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -3248,7 +3248,23 @@ window.Quarto = {
 </div>
 <main class="content column-page-right" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Calculus</h1>
+</div>
 
+
+
+<div class="quarto-title-meta column-page-right">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="what-is-a-function" class="level2">
@@ -3282,7 +3298,7 @@ f=\{(1,2), (2,3), (3,4)\}
 <p><span class="math display">\[
 f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 \]</span></p>
-<div id="1b90ad50" class="cell" data-execution_count="1">
+<div id="7801d4e4" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3312,7 +3328,7 @@ f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 f=\{(x,x^2): x \in \mathbb{R}\}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbb{R}\)</span> denotes the set of real numbers.</p>
-<div id="f5d63cf4" class="cell" data-execution_count="2">
+<div id="d3d745b0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3360,7 +3376,7 @@ f=\{((A,B),A+B): A,B \text{ are matrices of the same dimensions}\}
 \]</span></p>
 <p><strong>Example 8</strong></p>
 <p>A dictionary in Python is also a function that assigns each key a value. In our notation, we write this as:</p>
-<div id="19c1c7c0" class="cell" data-execution_count="3">
+<div id="8faeb4db" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>, <span class="st">&#39;c&#39;</span>:<span class="dv">3</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -3378,7 +3394,7 @@ f=\{((A,B),A+B): A,B \text{ are matrices of the same dimensions}\}
 <p><strong>Definition: Limit of a sequence</strong></p>
 <p>A number <span class="math inline">\(g\)</span> is the limit of a sequence <span class="math inline">\(a_n\)</span> if for every <span class="math inline">\(\varepsilon&gt;0\)</span> there exists <span class="math inline">\(N\)</span> such that for every <span class="math inline">\(n&gt;N\)</span> we have <span class="math inline">\(|a_n-g|&lt;\epsilon\)</span>. We write this as <span class="math display">\[\lim_{n \to \infty} a_n=g\]</span>.</p>
 </div>
-<div id="b75f29b9" class="cell" data-execution_count="4">
+<div id="ed5237d2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3474,7 +3490,7 @@ c_n=\frac{1}{n}
 <p><span class="math display">\[
 \lim_{n \to \infty} \frac{\sin(n)}{n}=0
 \]</span></p>
-<div id="16966e16" class="cell" data-execution_count="5">
+<div id="297170a0" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3536,7 +3552,7 @@ c_n=\frac{1}{n}
 \lim_{x \to c^+} f(x) = L
 \]</span></p></li>
 </ul>
-<div id="ae06b83b" class="cell" data-execution_count="6">
+<div id="fb07cd2f" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3625,7 +3641,7 @@ b
 \end{align*}
 \]</span></p>
 <p>Therefore, the asymptote of the function <span class="math inline">\(f(x)=\frac{x^3+3x^2+1}{3x^2}\)</span> is <span class="math inline">\(y=\frac{1}{3}x+1\)</span>.</p>
-<div id="cd7bd769" class="cell" data-execution_count="7">
+<div id="3c1b3972" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -3661,7 +3677,7 @@ b
 f&#39;(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
 \]</span></p>
 <p>This limit represents the slope of the tangent line to the curve <span class="math inline">\(y=f(x)\)</span> at the point <span class="math inline">\((a, f(a))\)</span>.</p>
-<div id="7d26f860" class="cell" data-execution_count="8">
+<div id="f494c504" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
