@@ -24,8 +24,7 @@ $$
 
 Addition of the two matrices is given by
 
-$$
-A + B =
+$$A + B =
 \begin{bmatrix}
 1 + 5 & 2 + 6\\
 3 + 7 & 4 + 8
