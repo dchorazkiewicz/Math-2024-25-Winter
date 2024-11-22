@@ -30,8 +30,7 @@ $$A + B =
 \begin{pmatrix}
 1 + 5 & 2 + 6\\
 3 + 7 & 4 + 8
-\end{pmatrix}
-=
+\end{pmatrix}=
 \begin{pmatrix}
 6 & 8\\
 10 & 12
@@ -46,8 +45,7 @@ $$
 \begin{bmatrix}
 3 \cdot 1 & 3 \cdot 2\\
 3 \cdot 3 & 3 \cdot 4
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 3 & 6\\
 9 & 12
@@ -61,8 +59,7 @@ A B =
 \begin{bmatrix}
 1 \cdot 5 + 2 \cdot 7 & 1 \cdot 6 + 2 \cdot 8\\
 3 \cdot 5 + 4 \cdot 7 & 3 \cdot 6 + 4 \cdot 8
-\end{bmatrix}
-=
+\end{bmatrix}=
 \begin{bmatrix}
 19 & 22\\
 43 & 50
