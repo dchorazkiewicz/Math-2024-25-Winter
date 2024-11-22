@@ -471,9 +471,8 @@ plt.show()
 The **derivative** of a function $f(x)$ at a point $x=a$ is defined as:
 
 $$
-f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+f'({\color{red}a}) = \lim_{{\color{blue}h} \to 0} \frac{f({\color{red}a}+{\color{blue}h}) - f({\color{red}a})}{{\color{blue}h}}
 $$
-
 This limit represents the slope of the tangent line to the curve $y=f(x)$ at the point $(a, f(a))$.
 
 ```{python}
@@ -510,12 +509,12 @@ The derivative of a function at a point gives the rate of change of the function
 
 $$
 \begin{align*}
-f'(a)
-&=\lim_{h \to 0} \frac{sin(a+h)-sin(a)}{h}\\
-&=\lim_{h \to 0} \frac{sin(a)cos(h)+cos(a)sin(h)-sin(a)}{h}\\
-&=\lim_{h \to 0} \frac{sin(a)(cos(h)-1)+cos(a)sin(h)}{h}\\
-&=cos(a)\lim_{h \to 0} \frac{sin(h)}{h}\\
-&=cos(a)
+f'({\color{red}a})
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a}+{\color{blue}h})-\sin({\color{red}a})}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a})\cos({\color{blue}h})+\cos({\color{red}a})\sin({\color{blue}h})-\sin({\color{red}a})}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a})(\cos({\color{blue}h})-1)+\cos({\color{red}a})\sin({\color{blue}h})}{{\color{blue}h}}\\
+&=\cos({\color{red}a})\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{blue}h})}{{\color{blue}h}}\\
+&=\cos({\color{red}a})
 \end{align*}
 $$
 
@@ -526,11 +525,11 @@ $$
 
 $$
 \begin{align*}
-f'(a)&=
-\lim_{h \to 0} \frac{(a+h)^3-a^3}{h}\\
-&=\lim_{h \to 0} \frac{a^3+3a^2h+3ah^2+h^3-a^3}{h}\\
-&=\lim_{h \to 0} 3a^2+3ah+h^2\\
-&=3a^2
+f'({\color{red}a})&=
+\lim_{{\color{blue}h} \to 0} \frac{({\color{red}a}+{\color{blue}h})^3-{\color{red}a}^3}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{{\color{red}a}^3+3{\color{red}a}^2{\color{blue}h}+3{\color{red}a}{\color{blue}h}^2+{\color{blue}h}^3-{\color{red}a}^3}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} 3{\color{red}a}^2+3{\color{red}a}{\color{blue}h}+{\color{blue}h}^2\\
+&=3{\color{red}a}^2
 \end{align*}
 $$
 
@@ -556,56 +555,59 @@ $$
 
 $$
 \begin{align*}
-(f\pm g)'(x)&=f'(x)\pm g'(x)\\
-(fg)'(x)&=f'(x)g(x)+f(x)g'(x)\\
-\left(\frac{f}{g}\right)'(x)&=\frac{f'(x)g(x)-f(x)g'(x)}{g^2(x)}\\
-(f^n)'(x)&=nf'(x)f^{n-1}(x)
+({\color{red}f}\pm {\color{blue}g})'(x)&={\color{red}f}'(x)\pm {\color{blue}g}'(x)\\
+({\color{red}f}{\color{blue}g})'(x)&={\color{red}f}'(x){\color{blue}g}(x)+{\color{red}f}(x){\color{blue}g}'(x)\\
+\left(\frac{{\color{red}f}}{{\color{blue}g}}\right)'(x)&=\frac{{\color{red}f}'(x){\color{blue}g}(x)-{\color{red}f}(x){\color{blue}g}'(x)}{{\color{blue}g}^2(x)}\\
+({\color{red}f}^n)'(x)&=n{\color{red}f}'(x){\color{red}f}^{n-1}(x)
 \end{align*}
 $$
 
 **Applications**
 
-##### First example
-
-$$(x^4+3x^2+1)'=(x^4)' + (3x^2)' + (1)'=4x^3+6x$$
-
 ##### Second example
-
-$$(cos(x)e^x)'=(cos(x))'e^x+cos(x)(e^x)'=-sin(x)e^x+cos(x)e^x=(cos(x)-sin(x))e^x$$
-
-##### Third example
-More coplicated example: 
 
 $$
 \begin{align*}
-\tan(x)
-&=\left(\frac{\sin(x)}{\cos(x)}\right)'\\
-&=\frac{(\sin(x))'(\cos(x))-(\cos(x))'(\sin(x))}{\cos^2(x)}\\
-&=\frac{\cos(x)\cos(x)-(-\sin(x)\sin(x))}{\cos^2(x)}\\
-&=\frac{\cos^2(x)+\sin^2(x)}{\cos^2(x)}\\
-&=\frac{1}{\cos^2(x)}
+({\color{blue}{\cos(x)}}{\color{red}{e^x}})' 
+&= ({\color{blue}{\cos(x)}})' {\color{red}{e^x}} + {\color{blue}{\cos(x)}} ({\color{red}{e^x}})' \\[5pt]
+&= {\color{blue}{-\sin(x)}} {\color{red}{e^x}} + {\color{blue}{\cos(x)}} {\color{red}{e^x}} \\[5pt]
+&= ({\color{blue}{\cos(x)}} - {\color{blue}{\sin(x)}}) {\color{red}{e^x}}
+\end{align*}
+$$
+
+
+##### Third example
+
+$$
+\begin{align*}
+\tan(x) 
+&= \left(\frac{\color{blue}{\sin(x)}}{\color{red}{\cos(x)}}\right)' \\[5pt]
+&= \frac{(\color{blue}{\sin(x)})'(\color{red}{\cos(x)}) - (\color{red}{\cos(x)})'(\color{blue}{\sin(x)})}{(\color{red}{\cos(x)})^2} \\[5pt]
+&= \frac{\color{blue}{\cos(x)}\color{red}{\cos(x)} - (\color{red}{-\sin(x)})(\color{blue}{\sin(x)})}{(\color{red}{\cos(x)})^2} \\[5pt]
+&= \frac{\color{red}{\cos^2(x)} + \color{blue}{\sin^2(x)}}{\color{red}{\cos^2(x)}} \\[5pt]
+&= \frac{1}{\color{red}{\cos^2(x)}}
 \end{align*}
 $$
 
 #### Chain Rule
 
-This is very important rule that allows us to differentiate composite functions. If $f(x)=g(h(x))$, then
+This is a very important rule that allows us to differentiate composite functions. If ${\color{red}f}(x)={\color{blue}g}({\color{green}h}(x))$, then
 $$
-f'(x)=g'(h(x))h'(x)
+{\color{red}f}'(x)={\color{blue}g}'({\color{green}h}(x)){\color{green}h}'(x)
 $$
 
 ##### First example
 
- Let $f(x)=\sin(x^2)$. Then
+Let ${\color{red}f}(x)={\color{blue}\sin}({\color{green}x^2})$. Then
 
-* $g(y)=\sin(y) \Rightarrow g'(y)=\cos(y)$
-* $h(x)=x^2 \Rightarrow h'(x)=2x$
+* ${\color{blue}g}(y)=\sin(y) \Rightarrow {\color{blue}g}'(y)=\cos(y)$
+* ${\color{green}h}(x)=x^2 \Rightarrow {\color{green}h}'(x)=2x$
 
 so
 
 $$
 \begin{align*}
-f'(x)&=g'(h(x))h'(x)=\cos(x^2)\cdot 2x
+{\color{red}f}'(x)&={\color{blue}g}'({\color{green}h}(x)){\color{green}h}'(x)=\cos(x^2)\cdot 2x
 \end{align*}
 $$
 
