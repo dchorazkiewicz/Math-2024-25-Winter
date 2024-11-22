@@ -242,7 +242,7 @@ $$
 ::: {.theorem}
 **The Squeeze Theorem**
 
-If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=g$, then $\lim_{n \to \infty} b_n=g$.
+If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim\limits_{n \to \infty} a_n=\lim\limits_{n \to \infty} c_n=g$, then $\lim\limits_{n \to \infty} b_n=g$.
 :::
 
 Interpretation of the Squeeze Theorem is that if a sequence is squeezed between two sequences that have the same limit, then the sequence itself has the same limit.
@@ -320,6 +320,8 @@ $$
 |f(x) - L| < \varepsilon.
 $$
 
+![](additional_files/ep.jpg){width=400px}
+
 #### One-Sided Limits
 
 Limits can also be evaluated as $x$ approaches $c$ from one side:
@@ -333,6 +335,22 @@ Limits can also be evaluated as $x$ approaches $c$ from one side:
   $$
   \lim_{x \to c^+} f(x) = L
   $$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def fun(x):
+    return 1/(1+np.exp(-1/x))
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-3,3,500)
+plt.scatter(x,fun(x),s=5)
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.text(0,0.5,r'$f(x)=\frac{1}{1+e^{-1/x}}$', fontsize=16)
+plt.show()
+```
 
 The **two-sided limit** exists if and only if:
 $$
@@ -436,7 +454,7 @@ def line(x):
     return 1/3*x+1
 
 fig, ax = plt.subplots(figsize=(6,4))
-x=np.linspace(1,10,100)
+x=np.linspace(-10,10,100)
 plt.plot(x,f(x),label='f(x)')
 plt.plot(x,line(x),label='asymptote')
 plt.xlabel('x')
@@ -445,3 +463,162 @@ plt.legend()
 plt.show()
 ```
 
+## Derivatives
+
+### Definition
+
+The **derivative** of a function $f(x)$ at a point $x=a$ is defined as:
+
+$$
+f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}
+$$
+
+This limit represents the slope of the tangent line to the curve $y=f(x)$ at the point $(a, f(a))$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return x**2
+
+def f_prime(x):
+    return 2*x
+
+def tangent_line(x, a):
+    return f_prime(a)*(x-a) + f(a)
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-10,10,100)
+plt.plot(x,f(x),label='f(x)')
+plt.plot(x,tangent_line(x,2),label='tangent line at x=2')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.scatter(2,f(2),color='red')
+plt.show()
+```
+
+#### Interpretation
+
+The derivative of a function at a point gives the rate of change of the function at that point. It tells us how the function value changes as the input changes slightly.
+
+**Example**: Let $f(x)=\sin(x)$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=\cos(a)$. Now we will prove this.
+
+**Proof**: From trigonometry, we know that $sin(a+h)=sin(a)cos(h)+cos(a)sin(h)$. Therefore, we have
+
+$$
+\begin{align*}
+f'(a)
+&=\lim_{h \to 0} \frac{sin(a+h)-sin(a)}{h}\\
+&=\lim_{h \to 0} \frac{sin(a)cos(h)+cos(a)sin(h)-sin(a)}{h}\\
+&=\lim_{h \to 0} \frac{sin(a)(cos(h)-1)+cos(a)sin(h)}{h}\\
+&=cos(a)\lim_{h \to 0} \frac{sin(h)}{h}\\
+&=cos(a)
+\end{align*}
+$$
+
+
+**Example**: Let $f(x)=x^3$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=3a^2$. Now we will prove this.
+
+**Proof**: We have
+
+$$
+\begin{align*}
+f'(a)&=
+\lim_{h \to 0} \frac{(a+h)^3-a^3}{h}\\
+&=\lim_{h \to 0} \frac{a^3+3a^2h+3ah^2+h^3-a^3}{h}\\
+&=\lim_{h \to 0} 3a^2+3ah+h^2\\
+&=3a^2
+\end{align*}
+$$
+
+
+
+#### Basic Derivatives
+
+| Function $f(x)$ | Derivative $f'(x)$ |
+|------------------|--------------------|
+| $c$              | $0$                |
+| $x$              | $1$                |
+| $x^n$            | $nx^{n-1}$         |
+| $e^x$            | $e^x$              |
+| $a^x$            | $a^x \ln(a)$       |
+| $\ln(x)$         | $\frac{1}{x}$      |
+| $\log_a(x)$      | $\frac{1}{x \ln(a)}$ |
+| $\sin(x)$        | $\cos(x)$          |
+| $\cos(x)$        | $-\sin(x)$         |
+
+### Basic Theorems
+
+**Basics**
+
+$$
+\begin{align*}
+(f\pm g)'(x)&=f'(x)\pm g'(x)\\
+(fg)'(x)&=f'(x)g(x)+f(x)g'(x)\\
+\left(\frac{f}{g}\right)'(x)&=\frac{f'(x)g(x)-f(x)g'(x)}{g^2(x)}\\
+(f^n)'(x)&=nf'(x)f^{n-1}(x)
+\end{align*}
+$$
+
+**Applications**
+
+##### First example
+
+$$(x^4+3x^2+1)'=(x^4)' + (3x^2)' + (1)'=4x^3+6x$$
+
+##### Second example
+
+$$(cos(x)e^x)'=(cos(x))'e^x+cos(x)(e^x)'=-sin(x)e^x+cos(x)e^x=(cos(x)-sin(x))e^x$$
+
+##### Third example
+More coplicated example: 
+
+$$
+\begin{align*}
+\tan(x)
+&=\left(\frac{\sin(x)}{\cos(x)}\right)'\\
+&=\frac{(\sin(x))'(\cos(x))-(\cos(x))'(\sin(x))}{\cos^2(x)}\\
+&=\frac{\cos(x)\cos(x)-(-\sin(x)\sin(x))}{\cos^2(x)}\\
+&=\frac{\cos^2(x)+\sin^2(x)}{\cos^2(x)}\\
+&=\frac{1}{\cos^2(x)}
+\end{align*}
+$$
+
+#### Chain Rule
+
+This is very important rule that allows us to differentiate composite functions. If $f(x)=g(h(x))$, then
+$$
+f'(x)=g'(h(x))h'(x)
+$$
+
+##### First example
+
+ Let $f(x)=\sin(x^2)$. Then
+
+* $g(y)=\sin(y) \Rightarrow g'(y)=\cos(y)$
+* $h(x)=x^2 \Rightarrow h'(x)=2x$
+
+so
+
+$$
+\begin{align*}
+f'(x)&=g'(h(x))h'(x)=\cos(x^2)\cdot 2x
+\end{align*}
+$$
+
+##### Second example
+
+Let $f(x)=e^{x^2+\cos(x)}$. Then
+
+* $g(y)=e^y \Rightarrow g'(y)=e^y$
+* $h(x)=x^2+\cos(x) \Rightarrow h'(x)=2x-\sin(x)$
+
+so
+
+$$
+\begin{align*}
+f'(x)&=g'(h(x))h'(x)=e^{x^2+\cos(x)}\cdot (2x-\sin(x))
+\end{align*}
+$$
