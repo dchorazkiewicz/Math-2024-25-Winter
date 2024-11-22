@@ -19,10 +19,12 @@ B =
 \begin{bmatrix}
 5 & 6\\
 7 & 8
-\end{bmatrix}.
+\end{bmatrix}
 $$
 
+
 Addition of the two matrices is given by
+
 
 $$A + B =
 \begin{bmatrix}
@@ -33,8 +35,9 @@ $$A + B =
 \begin{bmatrix}
 6 & 8\\
 10 & 12
-\end{bmatrix}.
+\end{bmatrix}
 $$
+
 
 Multiplication by scalar $3$ is given by
 
@@ -48,7 +51,7 @@ $$
 \begin{bmatrix}
 3 & 6\\
 9 & 12
-\end{bmatrix}.
+\end{bmatrix}
 $$
 
 Multiplication of the two matrices is given by
@@ -63,7 +66,7 @@ A B =
 \begin{bmatrix}
 19 & 22\\
 43 & 50
-\end{bmatrix}.
+\end{bmatrix}
 $$
 
 ## Determinants
@@ -81,7 +84,7 @@ $$
 is given by
 
 $$
-\text{det}(A) = 2 \cdot 2 - 1 \cdot (-3) = 4 + 3 = 7.
+\text{det}(A) = 2 \cdot 2 - 1 \cdot (-3) = 4 + 3 = 7
 $$
 
 ## Laplace expansion
@@ -100,7 +103,7 @@ $$
 We will choose the third row for the expansion. The determinant is then given by
 
 $$
-\text{det}(A) = 0 \cdot C_{31} + 0 \cdot C_{32} + 9 \cdot C_{33},
+\text{det}(A) = 0 \cdot C_{31} + 0 \cdot C_{32} + 9 \cdot C_{33}
 $$
 
 where $C_{33}$ is the determinant of the $2 \times 2$ matrix
@@ -116,7 +119,7 @@ $$
 so that
 
 $$
-\text{det}(A) = 9 \cdot (1 \cdot 5 - 2 \cdot 4) = 9 \cdot (5 - 8) = 9 \cdot (-3) = -27.
+\text{det}(A) = 9 \cdot (1 \cdot 5 - 2 \cdot 4) = 9 \cdot (5 - 8) = 9 \cdot (-3) = -27
 $$
 
 ## Inverse matrix using Gauss-Jordan elimination
