@@ -332,6 +332,9 @@ $$
 |f(x) - L| < \varepsilon.
 $$
 
+[aplet1](https://www.geogebra.org/m/cwvFraYf)
+[aplet2](https://www.geogebra.org/m/ksuyccpy)
+
 ![](additional_files/ep.jpg){width=400px}
 
 #### One-Sided Limits
@@ -474,6 +477,17 @@ plt.ylabel('f(x)')
 plt.legend()
 plt.show()
 ```
+
+## Countinuity
+
+### Definition
+
+A function $f(x)$ is **continuous** at a point $x=a$ if the following three conditions are satisfied:
+
+1. $f(a)$ is defined.
+2. $\lim_{x \to a} f(x)$ exists.
+3. $\lim_{x \to a} f(x) = f(a)$.
+
 
 ## Derivatives
 
@@ -636,3 +650,162 @@ $$
 f'(x)&=g'(h(x))h'(x)=e^{x^2+\cos(x)}\cdot (2x-\sin(x))
 \end{align*}
 $$
+
+
+## Integrals
+
+### Rieman Integral
+
+The **Riemann integral** of a function $f(x)$ over the interval $[a,b]$ is defined as:
+
+$$
+\int_{a}^{b} f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i) \Delta x
+$$
+
+where $\Delta x = \frac{b-a}{n}$ and $x_i = a + i \Delta x$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function to integrate
+def f(x):
+    return x**2
+
+# Define the interval [a, b]
+a, b = 0, 2
+
+# Number of rectangles
+n = 10
+
+# Calculate the width of each rectangle
+dx = (b - a) / n
+
+# Define the x values for the left endpoints
+x = np.linspace(a, b, n, endpoint=False)
+
+# Calculate the y values (height of rectangles)
+y = f(x)
+
+# Plot the function
+x_fine = np.linspace(a, b, 500)
+plt.plot(x_fine, f(x_fine), label='f(x) = x^2', color='blue')
+
+# Draw the rectangles
+for i in range(n):
+    plt.bar(x[i], y[i], width=dx, align='edge', edgecolor='black', color='orange', alpha=0.5)
+
+# Add labels and title
+plt.title('Riemann Sum Approximation')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.axhline(0, color='black', linewidth=0.8)
+plt.axvline(0, color='black', linewidth=0.8)
+plt.legend()
+plt.grid(alpha=0.3)
+
+# Show the plot
+plt.show()
+
+```
+
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riemann Integral Simulation</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="riemannCanvas" width="800" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("riemannCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const width = canvas.width;
+        const height = canvas.height;
+
+        // Function to integrate (f(x) = x^2)
+        function f(x) {
+            return x * x;
+        }
+
+        // Simulation parameters
+        const a = 0; // Start of the interval
+        const b = 2; // End of the interval
+        let n = 1;   // Number of rectangles (starts small for animation)
+        const maxRectangles = 50; // Maximum number of rectangles
+        const speed = 500; // Milliseconds between updates
+
+        // Scale factors
+        const xScale = width / (b - a);
+        const yScale = height / Math.pow(b, 2);
+
+        // Animation loop
+        function drawRiemannSum() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw axes
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            ctx.lineTo(width, height);
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, height);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw the function curve
+            ctx.beginPath();
+            for (let x = a; x <= b; x += 0.01) {
+                const canvasX = x * xScale;
+                const canvasY = height - f(x) * yScale;
+                ctx.lineTo(canvasX, canvasY);
+            }
+            ctx.strokeStyle = "blue";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw the rectangles
+            const dx = (b - a) / n;
+            for (let i = 0; i < n; i++) {
+                const xLeft = a + i * dx;
+                const yHeight = f(xLeft);
+                const rectX = xLeft * xScale;
+                const rectY = height - yHeight * yScale;
+                const rectWidth = dx * xScale;
+                const rectHeight = yHeight * yScale;
+
+                ctx.fillStyle = "orange";
+                ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(rectX, rectY, rectWidth, rectHeight);
+            }
+
+            // Increase the number of rectangles for the next frame
+            if (n < maxRectangles) {
+                n++;
+            } else {
+                n = 1; // Reset the number of rectangles to loop the animation
+            }
+
+            // Call the function again for the next frame
+            setTimeout(drawRiemannSum, speed);
+        }
+
+        // Start the simulation
+        drawRiemannSum();
+    </script>
+</body>
+</html>
+```
