@@ -149,6 +149,17 @@ A dictionary in Python is also a function that assigns each key a value. In our 
 d={'a':1, 'b':2, 'c':3}
 ```
 
+### Geogebra examples
+
+Check the following examples in Geogebra:
+
+* ax^3 + bx^2 + cx + d
+* sin(ax + b)
+* e^( -x^2 / s)
+* x^2 + y^3 = 1
+* ImplicitCurve(xx+yyy-1)  which is the same as the previous one
+* ImplicitCurve(sin(x) + cos(y) - 1)
+
 ## Limits of functions
 
 ### Sequences
