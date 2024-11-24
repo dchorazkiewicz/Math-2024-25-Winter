@@ -19,7 +19,9 @@ format:
 
 ## What is a function?
 
-**Set-theory definition of a function** states that a function $f$ is a special case of a relation. A relation is simply any set of ordered pairs. A function, on the other hand, is a relation $f \subseteq X \times Y$ that satisfies an additional condition: for each element $x \in X$, there is **exactly one** element $y \in Y$ assigned to it.
+In school we are leraning that a function is a rule that assigns to each element of a set $X$ exactly one element of a set $Y$. This is a part of the definition of a function. Having a receipt for a cake is not a cake. Similarly, having a rule for a function is not a function yet.
+
+**Set-theory definition of a function** states that a function $f$ is a special case of a two argument relation. A two argument relation is simply any set of ordered pairs of elements from two sets $X$ and $Y$. A function, on the other hand, is a relation $f \subseteq X \times Y$ that satisfies an additional condition: for each element $x \in X$, there is **exactly one** element $y \in Y$ assigned to it.
 
 Formally, a function $f$ is a relation that satisfies the following condition:
 
@@ -27,7 +29,7 @@ $$
 \forall x_1, x_2 \in X, \, \forall y_1, y_2 \in Y \, \left( (x_1, y_1) \in f \land (x_2, y_2) \in f : (x_1 = x_2) \Rightarrow (y_1 = y_2) \right)
 $$
 
-This means that if for the same $x_1$ we have two pairs $(x_1, y_1)$ and $(x_1, y_2)$, then $y_1$ must be equal to $y_2$. In other words, no element from $X$ can be "associated" with more than one element from $Y$.
+This means that if for the same $x_1$ we have two pairs $(x_1, y_1)$ and $(x_1, y_2)$, then $y_1$ must be equal to $y_2$. In other words, no element from $X$ can be "associated" with more than one element from $Y$.  
 
 #### Important Points:
 1. **Relation** in set theory is simply a set of ordered pairs $(x, y)$, where $x$ comes from set $X$ and $y$ comes from set $Y$.
@@ -160,9 +162,25 @@ Check the following examples in Geogebra:
 * ImplicitCurve(xx+yyy-1)  which is the same as the previous one
 * ImplicitCurve(sin(x) + cos(y) - 1)
 
+### Composition of functions
+
+The composition of two functions $f$ and $g$ is written as $f\circ g$. It is a function that assigns each $x$ the value $(f\circ g)(x)=f(g(x))$. It is not hard to undestand mechanically what this means. We first apply $g$ to $x$ and then apply $f$ to the result:
+
+$$
+x\mapsto g(x) \mapsto f(g(x))
+$$
+
 ## Limits of functions
 
 ### Sequences
+
+Do not forget a sequence is a function that assigns each natural number a value, whcih we write as 
+
+$$\{(n,a_n): n \in \mathbb{N}\}=\{(0, a_0), (1, a_1), (2, a_2), ...\}$$
+
+Writing an argument is most often omitted, so we write this as 
+
+$$\{a_n\}=\{a_0, a_1, a_2, ...\}$$
 
 An idea of a limit of sequence is very simple. It is a number that the sequence approaches as we take more and more elements of the sequence. For example, the sequence $a_n=\frac{1}{n}$ approaches 0 as we take more and more elements of the sequence. We write this as
 
@@ -172,12 +190,10 @@ $$
 
 Formal definition of a limit of a sequence is as follows:
 
-::: {.definition}
-**Definition: Limit of a sequence**
+#### Definition: Limit of a sequence
 
 A number $g$ is the limit of a sequence $a_n$ if for every $\varepsilon>0$ there exists $N$ such that for every $n>N$ we have $|a_n-g|<\epsilon$. 
 We write this as $$\lim_{n \to \infty} a_n=g$$.
-:::
 
 ```{python}
 import numpy as np
@@ -251,11 +267,9 @@ $$
 $$
 
 
-::: {.theorem}
-**The Squeeze Theorem**
+#### The Squeeze Theorem
 
 If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim\limits_{n \to \infty} a_n=\lim\limits_{n \to \infty} c_n=g$, then $\lim\limits_{n \to \infty} b_n=g$.
-:::
 
 Interpretation of the Squeeze Theorem is that if a sequence is squeezed between two sequences that have the same limit, then the sequence itself has the same limit.
 
@@ -295,7 +309,7 @@ def c(n):
     return 1/n
 
 fig, ax = plt.subplots(figsize=(6,4))
-n=np.arange(1,20)
+n=np.arange(1,50)
 plt.scatter(n,a(n),label='a(n)')
 plt.scatter(n,b(n),label='b(n)')
 plt.scatter(n,c(n),label='c(n)')
@@ -309,6 +323,88 @@ plt.show()
 ## Limits of Functions
 
 ### Definition
+
+
+```{python}
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Function Definitions
+def func_1(x):
+    return np.sin(x)
+
+def func_2(x):
+    return np.sin(1 / x)
+
+# Parameters for f(x) = sin(x) at x = π
+epsilon_1 = 0.2  # Chosen epsilon
+delta_1 = 0.15    # Chosen delta
+target_x_1 = np.pi
+target_y_1 = func_1(target_x_1)
+
+# Parameters for f(x) = sin(1/x) near x = 0
+epsilon_2 = 0.2  # Chosen epsilon
+delta_2 = 0.1    # Chosen delta
+target_x_2 = 0
+
+# Generate x-values
+x_values_1 = np.linspace(target_x_1 - 2, target_x_1 + 2, 500)
+delta_range_1 = np.linspace(target_x_1 - delta_1, target_x_1 + delta_1, 500)
+
+x_values_2 = np.linspace(-0.5, 0.5, 1000)
+x_values_2 = x_values_2[x_values_2 != 0]  # Exclude zero for sin(1/x)
+delta_range_2 = np.linspace(-delta_2, delta_2, 500)
+delta_range_2 = delta_range_2[delta_range_2 != 0]  # Exclude zero
+
+# Calculate function values
+func_values_1 = func_1(x_values_1)
+delta_func_values_1 = func_1(delta_range_1)
+
+func_values_2 = func_2(x_values_2)
+delta_func_values_2 = func_2(delta_range_2)
+
+# Epsilon bands
+y_upper_1 = target_y_1 + epsilon_1
+y_lower_1 = target_y_1 - epsilon_1
+
+y_upper_2 = epsilon_2
+y_lower_2 = -epsilon_2
+
+# Create side-by-side plots
+fig, axs = plt.subplots(2,1, figsize=(10, 8))
+
+# First plot: f(x) = sin(x), epsilon-delta
+axs[0].plot(x_values_1, func_values_1, label="f(x) = sin(x)", color="blue")
+axs[0].axvline(target_x_1, color="red", linestyle="--", label=f"x = π (Target)")
+axs[0].axvline(target_x_1 - delta_1, color="green", linestyle="--", label=f"x = π - δ")
+axs[0].axvline(target_x_1 + delta_1, color="green", linestyle="--", label=f"x = π + δ")
+axs[0].hlines([y_upper_1, y_lower_1], target_x_1 - 2, target_x_1 + 2, colors="orange", linestyles="--", label="f(x) ± ε")
+axs[0].scatter([target_x_1], [target_y_1], color="red", s=100, label=f"Target Point (π, {round(target_y_1, 2)})")
+axs[0].set_title("Epsilon-Delta for f(x) = sin(x) at x = π")
+axs[0].set_xlabel("x")
+axs[0].set_ylabel("f(x)")
+axs[0].grid(alpha=0.4)
+axs[0].legend()
+
+# Second plot: f(x) = sin(1/x), epsilon-delta near zero
+axs[1].plot(x_values_2, func_values_2, label="f(x) = sin(1/x)", color="blue")
+axs[1].axvline(-delta_2, color="green", linestyle="--", label=f"x = -δ")
+axs[1].axvline(delta_2, color="green", linestyle="--", label=f"x = δ")
+axs[1].hlines([y_upper_2, y_lower_2], -0.5, 0.5, colors="orange", linestyles="--", label="f(x) ± ε")
+axs[1].scatter([0], [0], color="red", s=100, label=f"Target Point (0, 0)")
+axs[1].set_title("Epsilon-Delta for f(x) = sin(1/x) near x = 0")
+axs[1].set_xlabel("x")
+axs[1].set_ylabel("f(x)")
+axs[1].grid(alpha=0.4)
+axs[1].legend()
+
+# Adjust layout and show
+plt.tight_layout()
+plt.show()
+```
+
+
 
 The limit of a function describes the behavior of the function as its input approaches a certain value. We denote it as:
 
@@ -332,10 +428,12 @@ $$
 |f(x) - L| < \varepsilon.
 $$
 
-[aplet1](https://www.geogebra.org/m/cwvFraYf)
-[aplet2](https://www.geogebra.org/m/ksuyccpy)
+Geogebra: 
 
-![](additional_files/ep.jpg){width=400px}
+* [Aplet1](https://www.geogebra.org/m/cwvFraYf)
+* [Aplet2](https://www.geogebra.org/m/ksuyccpy)
+
+<!-- ![](additional_files/ep.jpg){width=400px} -->
 
 #### One-Sided Limits
 
@@ -389,7 +487,7 @@ For functions $f(x)$ and $g(x)$ with limits $\lim_{x \to c} f(x) = L_1$ and $\li
 
 **Quotient** (if $\lim_{x \to c} g(x) \neq 0$):
    $$
-   \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)} = \frac{L_1}{L_2}
+   \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)} = \frac{L_1}{L_2}
    $$
 
 **Power**:
@@ -651,6 +749,104 @@ f'(x)&=g'(h(x))h'(x)=e^{x^2+\cos(x)}\cdot (2x-\sin(x))
 \end{align*}
 $$
 
+## Taylor Series
+
+### Definition
+
+The **Taylor series** of a function $f(x)$ at a point $x=a$ is an infinite sum of terms that are calculated from the derivatives of $f(x)$ at $x=a$. It is given by:
+
+$$
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 +
+\cdots+
+\frac{f^{n-1}(a)}{(n-1)!}(x-a)^{n-1}+R_n(x)
+$$
+
+where $R_n(x)$ is the remainder term, which is given by:
+
+$$
+R_n(x) = \frac{f^{(n)}(c)}{n!}(x-a)^n \quad \text{for some } c\in(a,x)
+$$
+
+How to read this
+
+**First approximation**
+
+$$
+\begin{align*}
+f(x) &= f(a) + f'(a)(x-a)+R_1(x)\\
+&=f(a)+f'(a)(x-a)+\frac{f''(c)}{2!}(x-a)^2
+\end{align*}
+$$
+
+**Second approximation**
+
+$$
+\begin{align*}
+f(x) &= f(a) + f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+R_2(x)\\
+&=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(c)}{3!}(x-a)^3
+\end{align*}
+$$
+
+etc.
+
+**Example**: Let $f(x)=sin(x)$. Then the Taylor series of $f(x)$ at $x=0$ is
+
+$$
+\begin{align*}
+f(x)&=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots\\
+&=0+x-\frac{1}{2}x^2-\frac{1}{6}x^3+\cdots\\
+&=\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+\end{align*}
+$$
+
+Now we will plot first 5 aproximations of the function $f(x)=sin(x)$ using Taylor series.
+
+```{python}
+import numpy as np
+from scipy.special import factorial
+import matplotlib.pyplot as plt
+
+def f(x):
+    return np.sin(x)
+
+def taylor_series(x, n):
+    result = 0
+    for i in range(n):
+        result += (-1)**i * x**(2*i+1) / factorial(2*i+1)
+    return result
+
+fig, ax = plt.subplots(figsize=(10,6))
+x = np.linspace(-2*np.pi, 2*np.pi, 1000)
+
+plt.plot(x, f(x), label='sin(x)', color='blue', linestyle='-', linewidth=2)
+for i in range(1, 10):
+    plt.plot(x, taylor_series(x, i), label=f'(n={i})', linestyle='--')
+
+plt.ylim(-2, 2)
+
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+```
+
+#### Examples
+
+$$
+\begin{align*}
+e^x&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots = \sum_{n=0}^{\infty} \frac{x^n}{n!}\\
+\sin(x)&=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots=
+\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}\\
+\cos(x)&=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots=
+\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}\\
+\ln(1+x)&=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots=
+\sum_{n=1}^{\infty} (-1)^{n-1} \frac{x^n}{n}\\
+\frac{1}{1+x}&=1-x+x^2-x^3+\cdots=
+\sum_{n=0}^{\infty} (-1)^n x^n
+\end{align*}
+$$
+
+
 
 ## Integrals
 
@@ -809,3 +1005,60 @@ plt.show()
 </body>
 </html>
 ```
+
+
+### Properties of Integrals
+
+**Linearity**
+
+$$
+\int_{a}^{b} [f(x) \pm g(x)] \, dx = \int_{a}^{b} f(x) \, dx \pm \int_{a}^{b} g(x) \, dx
+$$
+
+$$
+\int_{a}^{b} c f(x) \, dx = c \int_{a}^{b} f(x) \, dx
+$$
+
+**Change of Variables**
+
+If $x=g(t)$ is a differentiable function on $[a,b]$ and $f$ is continuous on the range of $g$, then
+
+$$
+\int_{a}^{b} f(g(t))g'(t) \, dt = \int_{g(a)}^{g(b)} f(x) \, dx
+$$
+
+**Integration by Parts**
+
+$$
+\int u \, dv = uv - \int v \, du
+$$
+
+### Fundamental Theorem of Calculus 
+
+Let $f(x)$ be a continuous function on $[a,b]$. Then the function $F(x)$ defined by
+
+$$
+F(x)=\int_{a}^{x} f(t) \, dt
+$$
+
+is continuous on $[a,b]$, differentiable on $(a,b)$, and
+
+$$
+F'(x)=f(x)
+$$
+
+##### Proof
+
+Let $x_0 \in (a,b)$. Then
+
+$$
+\begin{align*}
+F'(x_0)&=\lim_{h \to 0} \frac{F(x_0+h)-F(x_0)}{h}\\
+&=\lim_{h \to 0} \frac{\int_{a}^{x_0+h} f(t) \, dt-\int_{a}^{x_0} f(t) \, dt}{h}\\
+&=\lim_{h \to 0} \frac{\int_{x_0}^{x_0+h} f(t) \, dt}{h}\\
+&=\lim_{h \to 0} \frac{f(x_0+\theta h)h}{h}\\
+&=f(x_0)
+\end{align*}
+$$
+
+
