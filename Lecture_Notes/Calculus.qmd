@@ -320,7 +320,7 @@ plt.show()
 ```
 
 
-### Limits of Functions
+### Limits of functions
 
 #### Definition
 
