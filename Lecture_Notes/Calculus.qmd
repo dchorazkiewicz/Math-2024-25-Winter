@@ -4,7 +4,7 @@ format:
   html:
     toc: true
     toc-location: left
-    toc-depth: 3
+    toc-depth: 4
     page-layout: full
     grid:
       body-width: 1000px
@@ -19,6 +19,8 @@ format:
 
 ## What is a function?
 
+### Formal definition
+
 In school we are leraning that a function is a rule that assigns to each element of a set $X$ exactly one element of a set $Y$. This is a part of the definition of a function. Having a receipt for a cake is not a cake. Similarly, having a rule for a function is not a function yet.
 
 **Set-theory definition of a function** states that a function $f$ is a special case of a two argument relation. A two argument relation is simply any set of ordered pairs of elements from two sets $X$ and $Y$. A function, on the other hand, is a relation $f \subseteq X \times Y$ that satisfies an additional condition: for each element $x \in X$, there is **exactly one** element $y \in Y$ assigned to it.
@@ -31,7 +33,7 @@ $$
 
 This means that if for the same $x_1$ we have two pairs $(x_1, y_1)$ and $(x_1, y_2)$, then $y_1$ must be equal to $y_2$. In other words, no element from $X$ can be "associated" with more than one element from $Y$.  
 
-#### Important Points:
+##### Important Points
 1. **Relation** in set theory is simply a set of ordered pairs $(x, y)$, where $x$ comes from set $X$ and $y$ comes from set $Y$.
 2. **Function** is a relation that additionally satisfies the condition that for every $x$ there is exactly one pair $(x, y)$ in this relation.
 
@@ -101,8 +103,6 @@ plt.ylabel('f(x)')
 plt.show()
 ```
 
-where $\mathbb{R}$ denotes the set of real numbers.
-
 **Example 5**
 
 The determinant of a matrix is a function that assigns each matrix a number. In our notation, we write this as
@@ -151,9 +151,9 @@ A dictionary in Python is also a function that assigns each key a value. In our 
 d={'a':1, 'b':2, 'c':3}
 ```
 
-### Geogebra examples
+#### Geogebra examples
 
-Check the following examples in Geogebra:
+Check the following examples in [Geogebra](https://www.geogebra.org/?lang=en):
 
 * ax^3 + bx^2 + cx + d
 * sin(ax + b)
@@ -170,15 +170,63 @@ $$
 x\mapsto g(x) \mapsto f(g(x))
 $$
 
+##### Example 1
+
+Let $f(x)=x^2$ and $g(x)=x+1$. Then the composition of these functions is
+
+$$
+(f\circ g)(x)=f(g(x))=f(x+1)=(x+1)^2
+$$
+
+##### Example 2
+
+Let $f(x)=\sin(x)$ and $g(x)=x^2$. Then the composition $f\circ g$ is
+
+$$
+(f\circ g)(x)=f(g(x))=f(x^2)=\sin(x^2)
+$$
+
+but $g\circ f$ is
+
+$$
+(g\circ f)(x)=g(f(x))=g(\sin(x))=\sin^2(x)
+$$
+
+From these examples we see that the composition of functions is not commutative, that is, in general $f\circ g \neq g\circ f$.
+
+Below is a Python code that visualizes the composition of two functions $f$ and $g$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def gf(x):
+    return np.sin(x**2)
+
+def fg(x):
+    return np.sin(x)**2
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-6,6,1000)
+plt.plot(x,gf(x),label='g(f(x))')
+plt.plot(x,fg(x),label='f(g(x))')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+```
+
+
+
 ## Limits of functions
 
-### Sequences
+### Sequences ($\mathbb{N}\rightarrow\mathbb{R}$)
 
 Do not forget a sequence is a function that assigns each natural number a value, whcih we write as 
 
 $$\{(n,a_n): n \in \mathbb{N}\}=\{(0, a_0), (1, a_1), (2, a_2), ...\}$$
 
-Writing an argument is most often omitted, so we write this as 
+The argument is most often omitted, so we write this as 
 
 $$\{a_n\}=\{a_0, a_1, a_2, ...\}$$
 
@@ -320,7 +368,7 @@ plt.show()
 ```
 
 
-### Limits of functions
+### Limits of real functions ($\mathbb{R}\rightarrow\mathbb{R}$)
 
 #### Definition
 
@@ -508,41 +556,46 @@ $$
 \lim_{x \to -\infty} f(x) = L
 $$
 
-### Asymptotes
+#### Asymptotes
 
-An **asymptote** is a line that a curve approaches when $x$ becomes very large then the curve approaches a line $y=ax+b$
+In mathematics, functions often exhibit interesting behavior as their inputs grow very large or very small. One such phenomenon is when a function approaches a straight line, called an **asymptote**, as $x$ becomes large. 
 
-$$
-f(x)\sim ax+b \qquad \text{for large } x
-$$
-
-which formaly means that
+If a function $f(x)$ approaches a line $y = ax + b$ as $x$ grows, we say the function has an **oblique asymptote** defined by the equation:
 
 $$
-\lim_{x \to \infty} (f(x) - ax+b) = 0
+f(x) \sim ax + b \qquad \text{for large } x,
 $$
 
-Find $a$:
+which formally means:
 
 $$
-a=\lim_{x \to \infty} \frac{f(x)}{x}
+\lim_{x \to \infty} \big(f(x) - (ax + b)\big) = 0.
 $$
 
-Find $b$:
+To find the slope $a$ of the asymptote:
 
 $$
-b=\lim_{x \to \infty} (f(x) - ax)
+a = \lim_{x \to \infty} \frac{f(x)}{x}.
 $$
+
+To find the intercept $b$:
+
+$$
+b = \lim_{x \to \infty} \big(f(x) - ax\big).
+$$
+
 
 Example: Find the asymptotes of the function $f(x)=\frac{x^3+3x^2+1}{3x^2}$
 
-**Find**
+First, we find the slope of the asymptote:
 
 $$
 a=\lim_{x \to \infty} \frac{x^3+3x^2+1}{3x^2\cdot x}
 =
 \lim_{x \to \infty} \frac{1}{3}
 $$
+
+Next, we find the intercept of the asymptote:
 
 $$
 \begin{align*}
@@ -573,6 +626,7 @@ plt.plot(x,line(x),label='asymptote')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.legend()
+plt.ylim(-10,10)
 plt.show()
 ```
 
@@ -580,11 +634,42 @@ plt.show()
 
 ### Definition
 
-A function $f(x)$ is **continuous** at a point $x=a$ if the following three conditions are satisfied:
+A function $f(x)$ is **continuous** at a point $x = a$ if the following three conditions are satisfied:
 
-1. $f(a)$ is defined.
-2. $\lim_{x \to a} f(x)$ exists.
-3. $\lim_{x \to a} f(x) = f(a)$.
+1. $f(a)$ is defined.  
+   This means that the function must have a value at $x = a$. If $f(a)$ is not defined, the function cannot be continuous at that point.
+
+2. $\lim\limits_{x \to a} f(x)$ exists.  
+   The limit of $f(x)$ as $x$ approaches $a$ must exist. This ensures that the function does not have a "jump" or oscillation around $x = a$.
+
+3. $\lim\limits_{x \to a} f(x) = f(a)$.  
+   The value of the limit as $x$ approaches $a$ must equal the actual value of the function at $x = a$. This condition guarantees that there is no "hole" or discontinuity at the point.
+
+If any of these conditions fail, the function is not continuous at $x = a$.
+
+### Intuition
+
+Continuity intuitively means that the graph of a function can be drawn without lifting the pen from the paper. For instance:
+
+- Polynomials like $f(x) = x^2 + 3x + 2$ are continuous everywhere.
+- Piecewise functions may fail to be continuous if there is a jump, hole, or break in their definition.
+
+### Types of Discontinuities
+
+When a function is not continuous at $x = a$, we classify the discontinuity into three types:
+
+1. **Removable Discontinuity**:  
+   Occurs when $\lim_{x \to a} f(x)$ exists, but $f(a)$ is not defined or differs from the limit.  
+   Example: $f(x) = \frac{x^2 - 1}{x - 1}$ has a removable discontinuity at $x = 1$.
+
+2. **Jump Discontinuity**:  
+   Occurs when the left-hand limit $\lim_{x \to a^-} f(x)$ and right-hand limit $\lim_{x \to a^+} f(x)$ exist but are not equal.  
+   Example: A piecewise function with different definitions on either side of $x = a$.
+
+3. **Infinite Discontinuity**:  
+   Occurs when $f(x)$ approaches infinity or negative infinity as $x$ approaches $a$.  
+   Example: $f(x) = \frac{1}{x}$ has an infinite discontinuity at $x = 0$.
+
 
 
 ## Derivatives
@@ -622,9 +707,24 @@ plt.scatter(2,f(2),color='red')
 plt.show()
 ```
 
-#### Interpretation
 
-The derivative of a function at a point gives the rate of change of the function at that point. It tells us how the function value changes as the input changes slightly.
+### Interpretation
+
+1. **Slope of the Tangent Line**:  
+   The derivative is the slope of the line that just "touches" the curve at a single point without crossing it (locally). This tangent line provides a linear approximation to the function near that point.
+
+2. **Instantaneous Rate of Change**:  
+   If $f(x)$ represents position, then $f'(x)$ represents velocity—how quickly the position is changing at a specific moment.
+
+3. **Geometric Insight**:  
+   At points where the derivative is:
+   - **Positive** ($f'(x) > 0$): The function is increasing.  
+   - **Negative** ($f'(x) < 0$): The function is decreasing.  
+   - **Zero** ($f'(x) = 0$): The function has a horizontal tangent line, potentially a local maximum, minimum, or inflection point.
+
+4. **Practical Example**:  
+   Consider the function $f(x) = x^2$. The derivative $f'(x) = 2x$ tells us that the slope of the curve increases as $x$ increases, meaning the curve becomes steeper as you move away from the origin.
+
 
 **Example**: Let $f(x)=\sin(x)$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=\cos(a)$. Now we will prove this.
 
@@ -748,6 +848,116 @@ $$
 f'(x)&=g'(h(x))h'(x)=e^{x^2+\cos(x)}\cdot (2x-\sin(x))
 \end{align*}
 $$
+
+### Finding Extrema
+
+Extrema of a function are points where the function reaches its **maximum** or **minimum** values, either locally (in a neighborhood) or globally (on the entire domain). To find extrema, we use the following process:
+
+#### Steps to Find Extrema
+
+1. **Compute the Derivative**:  
+   Find the first derivative $f'(x)$ of the function $f(x)$. The derivative represents the slope of the tangent line.
+
+2. **Set the Derivative to Zero**:  
+   Solve the equation $f'(x) = 0$. These points are called **critical points**, where the function's slope is horizontal.
+
+3. **Check for Undefined Points**:  
+   Identify points where $f'(x)$ does not exist but $f(x)$ is still defined. These can also be critical points.
+
+4. **Use the Second Derivative Test** (Optional):  
+   Compute the second derivative $f''(x)$ to determine the nature of each critical point:
+   - If $f''(x) > 0$, the function has a local minimum at that point.
+   - If $f''(x) < 0$, the function has a local maximum at that point.
+   - If $f''(x) = 0$, the test is inconclusive. Use other methods, such as analyzing the function's behavior.
+
+5. **Boundary Points** (if the domain is restricted):  
+   For a function defined on a closed interval $[a, b]$, evaluate $f(a)$ and $f(b)$, as extrema can occur at the boundaries.
+
+#### Necessary Conditions for Extrema
+
+- A point $x=c$ is a **candidate** for an extremum if:
+  1. $f'(c) = 0$ (critical point), or
+  2. $f'(c)$ is undefined but $f(c)$ is defined.
+
+- A point is a **local extremum** only if it satisfies the conditions above and meets additional criteria (e.g., second derivative test or sign change in $f'(x)$).
+
+#### Example
+
+Consider the function $f(x) = x^3 - 3x^2 + 4$:
+
+1. Compute the first derivative:  
+   $f'(x) = 3x^2 - 6x$.
+
+2. Solve $f'(x) = 0$:  
+   $3x^2 - 6x = 0$  
+   $x(x-2) = 0$  
+   Critical points are $x = 0$ and $x = 2$.
+
+3. Compute the second derivative:  
+   $f''(x) = 6x - 6$.
+
+   - At $x = 0$: $f''(0) = -6$ (local maximum).  
+   - At $x = 2$: $f''(2) = 6$ (local minimum).
+
+4. Evaluate boundaries (if applicable):  
+   Not relevant here, as the domain is not restricted.
+
+#### Conclusion
+
+Extrema occur at $x = 0$ (local maximum) and $x = 2$ (local minimum). Use this structured approach to identify extrema systematically.
+
+
+### Applications in Computer Science
+
+Finding extrema plays a critical role in computer science, particularly in solving **optimization problems**. Optimization involves determining the maximum or minimum value of a function, often under specific constraints. Here are some key applications:
+
+#### 1. **Machine Learning**
+In machine learning, training models often involves minimizing a loss function, which measures the error between the predicted and actual values. For example:
+- Gradient Descent: An optimization algorithm that uses derivatives to find the minimum of a function (e.g., loss function).
+- Convergence to a Global Minimum: Finding extrema ensures the model learns the best possible parameters.
+
+#### 2. **Data Analysis and Fitting**
+In data analysis, functions are fit to data points (e.g., regression models) by minimizing error metrics. The derivative helps identify the optimal parameters for the function.
+
+#### 3. **Algorithm Design**
+Many algorithms in computer science involve optimization:
+- Pathfinding Algorithms: Algorithms like Dijkstra’s and A* aim to minimize the cost of reaching a destination.
+- Scheduling Problems: Finding the minimum time or resources required to complete tasks.
+
+#### 4. **Computer Graphics**
+Optimization is critical in computer graphics for rendering, animation, and physics simulations. Examples include:
+- Minimizing energy functions for realistic cloth or fluid simulations.
+- Optimizing curves and surfaces for smooth rendering.
+
+#### 5. **Operations Research**
+In operations research, optimization is used to solve problems involving resource allocation, scheduling, and logistics. For example:
+- Linear Programming: Derivatives are used in the simplex method to maximize or minimize objective functions.
+- Nonlinear Optimization: Extrema are crucial in finding optimal solutions to more complex problems.
+
+#### 6. **Artificial Intelligence**
+In AI, optimization problems arise in areas like:
+- Game Theory: Finding optimal strategies for agents by maximizing rewards or minimizing losses.
+- Reinforcement Learning: Optimizing policies to maximize cumulative rewards over time.
+
+#### Example: Gradient Descent in Neural Networks
+In neural networks, the goal is to minimize the loss function during training. The process involves:
+1. Computing the gradient (derivative) of the loss function with respect to the model parameters.
+2. Updating the parameters in the direction opposite to the gradient to reduce the loss.
+
+Mathematically:
+$$
+\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
+$$
+where:
+- $\theta_t$: Current parameters
+- $\eta$: Learning rate
+- $\nabla L(\theta_t)$: Gradient of the loss function
+
+This iterative process uses derivatives to converge toward a minimum, improving model performance.
+
+#### Conclusion
+The ability to find extrema is fundamental to numerous optimization problems in computer science, enabling efficient algorithms and solutions across various domains, from machine learning to operations research.
+
 
 ## Taylor Series
 
