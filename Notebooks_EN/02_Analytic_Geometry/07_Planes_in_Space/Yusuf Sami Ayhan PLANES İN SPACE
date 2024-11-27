@@ -1,1 +1,131 @@
+#ex1
+import sympy as sp
+
+# Define points A, B, C
+A = sp.Matrix([1, 2, 3])
+B = sp.Matrix([3, 4, 5])
+C = sp.Matrix([2, 1, 4])
+
+# Find vectors AB and AC
+AB = B - A
+AC = C - A
+
+# Find the normal vector (cross product of AB and AC)
+normal_vector = AB.cross(AC)
+
+# Equation of the plane: normal_vector.(x - A) = 0
+x, y, z = sp.symbols('x y z')
+plane_eq = normal_vector[0]*(x - A[0]) + normal_vector[1]*(y - A[1]) + normal_vector[2]*(z - A[2])
+
+plane_eq.simplify()
+
+#ex2
+# Normal vector of the given plane
+normal_plane = sp.Matrix([2, 3, 4])
+
+# Point A
+A = sp.Matrix([1, 2, 3])
+
+# Plane equation: normal_vector.(x - A) = 0
+x, y, z = sp.symbols('x y z')
+plane_parallel = normal_plane[0]*(x - A[0]) + normal_plane[1]*(y - A[1]) + normal_plane[2]*(z - A[2])
+
+plane_parallel.simplify()
+
+#ex3
+# Normal vector for the plane
+normal_vector = sp.Matrix([2, 3, 4])
+
+# Point A
+A = sp.Matrix([1, 2, 3])
+
+# Plane equation: normal_vector.(x - A) = 0
+x, y, z = sp.symbols('x y z')
+plane_perpendicular = normal_vector[0]*(x - A[0]) + normal_vector[1]*(y - A[1]) + normal_vector[2]*(z - A[2])
+
+plane_perpendicular.simplify()
+
+#ex4
+from sympy import symbols, Eq, solve, Matrix
+
+x, y, z = symbols('x y z')
+
+# Equations of the two planes
+plane1 = Eq(2*x + 3*y + 4*z, 5)
+plane2 = Eq(3*x + 4*y + 2*z, 6)
+
+# Solve the system to find the parametric equations of the line of intersection
+sol = solve((plane1, plane2), (x, y, z))
+sol
+
+#ex5
+v1 = sp.Matrix([1, 0, 1])
+v2 = sp.Matrix([0, 1, -1])
+A = sp.Matrix([1, 2, 3])
+
+# Normal vector is the cross product of v1 and v2
+normal_vector = v1.cross(v2)
+
+# Plane equation: normal_vector.(x - A) = 0
+x, y, z = sp.symbols('x y z')
+plane_parallel_vectors = normal_vector[0]*(x - A[0]) + normal_vector[1]*(y - A[1]) + normal_vector[2]*(z - A[2])
+
+plane_parallel_vectors.simplify()
+
+#ex6
+# Normal vector of the given plane
+normal_plane = sp.Matrix([2, 3, 4])
+
+# For the parallel plane, use the same normal vector
+x, y, z = sp.symbols('x y z')
+parallel_plane = normal_plane[0]*x + normal_plane[1]*y + normal_plane[2]*z - (normal_plane[0]*1 + normal_plane[1]*2 + normal_plane[2]*3)
+
+# For the perpendicular plane, we find a vector perpendicular to the normal of the plane
+# Example: for simplicity, assume the perpendicular normal vector is arbitrary, such as [1, 0, 0] or [0, 1, 0].
+perpendicular_plane = sp.Matrix([1, 0, 0])[0]*x + sp.Matrix([1, 0, 0])[1]*y + sp.Matrix([1, 0, 0])[2]*z - (1*1 + 0*2 + 0*3)
+
+parallel_plane.simplify(), perpendicular_plane.simplify()
+
+#ex7
+# Define the point and the plane equation
+point = sp.Matrix([1, 2, 3])
+normal = sp.Matrix([2, 3, 4])
+D = 5
+
+# Distance formula: |Ax0 + By0 + Cz0 + D| / sqrt(A^2 + B^2 + C^2)
+distance = abs(normal.dot(point) + D) / normal.norm()
+distance
+
+#ex8
+# Points of intersection
+A = sp.Matrix([2, 0, 0])
+B = sp.Matrix([0, 3, 0])
+C = sp.Matrix([0, 0, 4])
+
+# Use the determinant method to find the equation of the plane
+# Plane equation: (x - A.x) / a + (y - B.y) / b + (z - C.z) / c = 1
+a = A[0]
+b = B[1]
+c = C[2]
+
+plane_intersection = (x / a) + (y / b) + (z / c) - 1
+plane_intersection.simplify()
+
+#ex9
+# Normal vectors of the planes
+normal1 = sp.Matrix([1, 1, 1])
+normal2 = sp.Matrix([1, 0, 0])
+
+# Angle formula: cos(θ) = (normal1 . normal2) / (|normal1| * |normal2|)
+cos_theta = normal1.dot(normal2) / (normal1.norm() * normal2.norm())
+
+# Angle in radians
+theta = sp.acos(cos_theta)
+theta.evalf()
+
+#ex10
+# Normal vector of the plane x + y + z = 1
+normal_to_plane = sp.Matrix([1, 1, 1])
+normal_to_plane
+
 
