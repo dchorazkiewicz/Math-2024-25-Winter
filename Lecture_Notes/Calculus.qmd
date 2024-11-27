@@ -1373,8 +1373,7 @@ F'(x_0)&=\lim_{h \to 0} \frac{\color{red}{F(x_0+h)}-\color{blue}{F(x_0)}}{h}\\
 \end{align*}
 $$
 
-### Antiderivative
-
+#### Antiderivative
  
 
 In calculus, an antiderivative, primitive function, primitive integral, or indefinite integral of a function $f$ is a differentiable function $F$ whose derivative is equal to the original function $f$. This can be stated symbolically as $F'(x) = f(x)$. The process of solving for antiderivatives is called antidifferentiation (or indefinite integration), and its opposite operation is called differentiation, which is the process of finding a derivative.
@@ -1445,43 +1444,11 @@ $$
 
 Thus, the total signed area under $f(x)$ from $x=1$ to $x=3$ is $8$.
 
----
-
-#### Geometric Interpretation
-
-The definite integral represents the **signed area** under the curve $f(x)$ between $x = a$ and $x = b$. The use of antiderivatives simplifies this calculation by avoiding the need for approximation methods like Riemann sums.
-
----
-
-#### Practical Applications
-
-1. **Physics**:  
-   - **Displacement from velocity**:  
-     If $v(t)$ is the velocity of an object, the displacement over $[t_1, t_2]$ is:
-     $$
-     \int_{t_1}^{t_2} v(t) \, dt
-     $$
-
-2. **Economics**:  
-   - **Total revenue or cost**:  
-     If $C'(x)$ represents the marginal cost to produce $x$ units, the total cost for producing between $x_1$ and $x_2$ units is:
-     $$
-     \int_{x_1}^{x_2} C'(x) \, dx = C(x_2) - C(x_1)
-     $$
-
-3. **Engineering**:  
-   - **Work done by a force**:  
-     If $F(x)$ is the force applied over a distance, the total work is:
-     $$
-     \int_a^b F(x) \, dx
-     $$
-
 
 ### Applications of Definite Integrals
 
 Definite integrals are widely used to compute quantities such as area, volume, arc length, surface area, and volumes of solids of revolution. Below is a summary of the key formulas and methods for these applications:
 
----
 
 #### 1. Area Under a Curve
 
@@ -1497,7 +1464,6 @@ $$
   A = \int_a^b \left[ f(x) - g(x) \right] \, dx
   $$
 
----
 
 #### 2. Volume of a Solid
 
@@ -1511,12 +1477,7 @@ $$
   $$
   V = \pi \int_a^b \left[ f(x) \right]^2 \, dx
   $$
-- **For rotation around the $y$-axis**:
-  $$
-  V = \pi \int_a^b \left[ g(y) \right]^2 \, dy
-  $$
 
----
 
 #### 3. Arc Length of a Curve
 
@@ -1531,7 +1492,6 @@ $$
   L = \int_a^b \sqrt{\left[ \frac{dx}{dt} \right]^2 + \left[ \frac{dy}{dt} \right]^2} \, dt
   $$
 
----
 
 #### 4. Surface Area of a Solid of Revolution
 
@@ -1541,45 +1501,178 @@ $$
 S = 2\pi \int_a^b f(x) \sqrt{1 + \left[ f'(x) \right]^2} \, dx
 $$
 
-- For rotation around the $y$-axis:
-  $$
-  S = 2\pi \int_a^b x \sqrt{1 + \left[ f'(x) \right]^2} \, dx
-  $$
+
+#### Practical Applications
+
+1. **Physics**:  
+   - **Displacement from velocity**:  
+     If $v(t)$ is the velocity of an object, the displacement over $[t_1, t_2]$ is:
+
+     $$
+     \int_{t_1}^{t_2} v(t) \, dt
+     $$
+
+   - **Work done by a force**:  
+
+     If $F(x)$ is the force applied over a distance, the total work is:
+
+     $$
+     \int_a^b F(x) \, dx
+     $$
+
+
+### Differential Equations
+
+A **differential equation** is a mathematical equation that relates a function with its derivatives. Differential equations are used to model various phenomena in physics, engineering, biology, economics, and more.
+
+#### General Form
+
+A differential equation can be written as:
+
+$$
+F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0
+$$
+
+Here:
+
+- $y = y(x)$ is the unknown function (solution).
+- $y', y'', \dots, y^{(n)}$ are its derivatives.
 
 ---
 
-#### 5. Volume of Solids of Revolution
+#### Types of Differential Equations
 
-For solids of revolution, the **disk method** or **shell method** is used:
+1. **Ordinary Differential Equations (ODEs)**:
+   - Involves derivatives of a function with respect to a single variable.
+   - Example: 
+     $$
+     \frac{dy}{dx} + 2y = e^x
+     $$
 
-- **Disk Method** (rotating around $x$-axis):
-  $$
-  V = \pi \int_a^b \left[ f(x) \right]^2 \, dx
-  $$
-- **Shell Method** (rotating around $y$-axis):
-  $$
-  V = 2\pi \int_a^b x f(x) \, dx
-  $$
+2. **Partial Differential Equations (PDEs)**:
+   - Involves partial derivatives of a function with respect to multiple variables.
+   - Example:
+     $$
+     \frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}
+     $$
+
+3. **Linear Differential Equations**:
+   - A differential equation is linear if it can be written as:
+     $$
+     a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_0(x)y = g(x)
+     $$
+   - Example: 
+     $$
+     y'' - 3y' + 2y = \sin(x)
+     $$
+
+4. **Nonlinear Differential Equations**:
+   - A differential equation is nonlinear if it does not satisfy the linearity property.
+   - Example: 
+     $$
+     y'' + y^2 = 0
+     $$
 
 ---
 
-### Summary Table
+#### Initial and Boundary Value Problems
 
-| Application                     | Formula                                              |
-|---------------------------------|------------------------------------------------------|
-| **Area under a curve**          | $A = \int_a^b f(x) \, dx$                            |
-| **Volume (cross-sections)**     | $V = \int_a^b A(x) \, dx$                            |
-| **Volume (disk method)**        | $V = \pi \int_a^b \left[ f(x) \right]^2 \, dx$      |
-| **Volume (shell method)**       | $V = 2\pi \int_a^b x f(x) \, dx$                    |
-| **Arc length**                  | $L = \int_a^b \sqrt{1 + \left[ f'(x) \right]^2} \, dx$ |
-| **Surface area (rotation)**     | $S = 2\pi \int_a^b f(x) \sqrt{1 + \left[ f'(x) \right]^2} \, dx$ |
+1. **Initial Value Problem (IVP)**:
+   - Solve a differential equation with given initial conditions.
+   - Example:
+     $$
+     \frac{dy}{dx} = 2x, \quad y(0) = 1
+     $$
+
+2. **Boundary Value Problem (BVP)**:
+   - Solve a differential equation with specified values at the boundaries of the domain.
+   - Example:
+     $$
+     y'' + y = 0, \quad y(0) = 1, \quad y(\pi) = 0
+     $$
+
+---
+
+#### Solving Differential Equations
+
+1. **Separable Equations**:
+   - An ODE is separable if it can be written as:
+     $$
+     \frac{dy}{dx} = g(x)h(y)
+     $$
+   - Solution:
+     $$
+     \int \frac{1}{h(y)} \, dy = \int g(x) \, dx
+     $$
+
+2. **Linear First-Order Equations**:
+   - General form:
+     $$
+     \frac{dy}{dx} + P(x)y = Q(x)
+     $$
+   - Solution:
+     $$
+     y(x) = \frac{1}{\mu(x)} \left( \int \mu(x) Q(x) \, dx + C \right)
+     $$
+     where $\mu(x) = e^{\int P(x) \, dx}$ is the integrating factor.
+
+3. **Second-Order Linear Equations**:
+   - General form:
+     $$
+     y'' + p(x)y' + q(x)y = g(x)
+     $$
+   - Solution depends on whether the equation is homogeneous or non-homogeneous.
+
+4. **Numerical Methods**:
+   - For equations that cannot be solved analytically, numerical methods such as Euler's method or Runge-Kutta methods are used.
 
 ---
 
-### Notes
+#### Applications of Differential Equations
 
-1. These formulas assume functions are continuous and differentiable on the interval $[a, b]$.
-2. Adjust limits of integration based on the axis of rotation or the interval of the curve.
-3. Applications span multiple disciplines, including physics, engineering, and economics.
+1. **Physics**:
+   - Modeling motion (Newton’s laws).
+   - Heat conduction (Fourier’s law).
+   - Wave equations.
+
+2. **Biology**:
+   - Population growth models (Logistic equation).
+   - Spread of diseases (SIR model).
+
+3. **Economics**:
+   - Modeling capital accumulation.
+   - Growth models (Solow model).
+
+4. **Engineering**:
+   - Circuit analysis (RLC circuits).
+   - Control systems.
 
 ---
+
+#### Example: Simple ODE
+
+Solve the equation:
+$$
+\frac{dy}{dx} = 2x, \quad y(0) = 1
+$$
+
+1. Separate variables:
+   $$
+   dy = 2x \, dx
+   $$
+
+2. Integrate both sides:
+   $$
+   y = x^2 + C
+   $$
+
+3. Apply the initial condition $y(0) = 1$:
+   $$
+   1 = 0^2 + C \implies C = 1
+   $$
+
+4. Final solution:
+   $$
+   y = x^2 + 1
+   $$
+
