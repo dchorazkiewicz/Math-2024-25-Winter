@@ -1,9 +1,10 @@
 ---
+title: Calculus
 format:
   html:
     toc: true
     toc-location: left
-    toc-depth: 3
+    toc-depth: 4
     page-layout: full
     grid:
       body-width: 1000px
@@ -16,41 +17,124 @@ format:
     self-contained: true
 ---
 
-## What is a function?
 
-**Set-theory definition of a function** states that a function $f$ is a special case of a relation. A relation is simply any set of ordered pairs. A function, on the other hand, is a relation $f \subseteq X \times Y$ that satisfies an additional condition: for each element $x \in X$, there is **exactly one** element $y \in Y$ assigned to it.
+## Functions
 
-Formally, a function $f$ is a relation that satisfies the following condition:
+### What is a Relation?
 
-$$
-\forall x_1, x_2 \in X, \, \forall y_1, y_2 \in Y \, \left( (x_1, y_1) \in f \land (x_2, y_2) \in f : (x_1 = x_2) \Rightarrow (y_1 = y_2) \right)
-$$
+In mathematics, a **relation** describes a connection or association between elements of two sets. It is a fundamental concept that generalizes how elements from one set can correspond to elements of another set.
 
-This means that if for the same $x_1$ we have two pairs $(x_1, y_1)$ and $(x_1, y_2)$, then $y_1$ must be equal to $y_2$. In other words, no element from $X$ can be "associated" with more than one element from $Y$.
+#### Formal Definition of a Relation
 
-#### Important Points:
-1. **Relation** in set theory is simply a set of ordered pairs $(x, y)$, where $x$ comes from set $X$ and $y$ comes from set $Y$.
-2. **Function** is a relation that additionally satisfies the condition that for every $x$ there is exactly one pair $(x, y)$ in this relation.
-
-Thus, a function $f \subseteq X \times Y$ is a relation that satisfies the additional condition that for each $x \in X$ there is exactly one $y \in Y$ such that $(x, y) \in f$.
-
-#### Examples
-
-**Example 1**
+A **relation** between two sets $X$ and $Y$ is any subset of the Cartesian product $X \times Y$. The Cartesian product $X \times Y$ is the set of all ordered pairs $(x, y)$, where $x \in X$ and $y \in Y$. Formally, a relation $R$ is defined as:
 
 $$
-f=\{(\text{dog}, \text{pies}), (\text{cat}, \text{kot}), (\text{horse}, \text{koń})\}
+R \subseteq X \times Y
 $$
 
-**Example 2**
+If $(x, y) \in R$, we say that $x$ is related to $y$ by $R$, and we write $x \, R \, y$.
+
+#### Properties of Relations
+
+Relations can have various properties depending on the specific subset of $X \times Y$:
+
+1. **Reflexive Relation**: A relation $R \subseteq X \times X$ is reflexive if every element in $X$ is related to itself:
+   $$
+   \forall x \in X, \, (x, x) \in R
+   $$
+
+2. **Symmetric Relation**: $R$ is symmetric if:
+   $$
+   \forall x, y \in X, \, (x, y) \in R \implies (y, x) \in R
+   $$
+
+3. **Transitive Relation**: $R$ is transitive if:
+   $$
+   \forall x, y, z \in X, \, (x, y) \in R \land (y, z) \in R \implies (x, z) \in R
+   $$
+
+4. **Antisymmetric Relation**: $R$ is antisymmetric if:
+   $$
+   \forall x, y \in X, \, (x, y) \in R \land (y, x) \in R \implies x = y
+   $$
+
+#### Examples of Relations
+
+1. **Equality Relation**: The relation $R = \{(x, x) \mid x \in X\}$ is reflexive, symmetric, and transitive.
+
+2. **Divisibility Relation**: For $X = Y = \mathbb{Z}$, the relation $R = \{(x, y) \mid x \text{ divides } y\}$ is reflexive, transitive, but not symmetric.
+
+3. **Friendship Relation**: Let $X$ be a set of people. The relation $R = \{(x, y) \mid x \text{ is friends with } y\}$ is symmetric but not necessarily reflexive or transitive.
+
+4. **Order Relation**: For $X = Y = \mathbb{R}$, the relation $R = \{(x, y) \mid x \leq y\}$ is reflexive, antisymmetric, and transitive.
+
+---
+
+### What is a Function?
+
+Now that we understand the concept of relations, we can define a **function** as a special type of relation with additional constraints.
+
+#### Formal Definition of a Function
+
+A **function** $f$ is a relation between two sets $X$ and $Y$ that satisfies the following condition: for every element $x \in X$, there exists exactly one element $y \in Y$ such that $(x, y) \in f$. Formally:
 
 $$
-f=\{(1,2), (2,3), (3,4)\}
+f \subseteq X \times Y, \quad \text{and} \quad \forall x \in X, \exists! y \in Y \text{ such that } (x, y) \in f
 $$
 
-This means that $f(1)=2$, $f(2)=3$, and $f(3)=4$.
+This means that no element of $X$ can be associated with more than one element of $Y$.
 
-**Example 3**
+#### Important Notes
+
+1. Every function is a relation, but not every relation is a function.
+2. Functions are deterministic: for a given input $x$, the output $y$ is uniquely determined.
+
+#### Examples of Functions
+
+##### **Mapping in a Graph**:
+
+   Suppose $X = \{\text{A, B, C}\}$ and $Y = \{1, 2, 3, 4\}$. A function $f$ could be:
+   $$
+   f = \{(\text{A}, 1), (\text{B}, 2), (\text{C}, 3)\}
+   $$
+   Here, each element in $X$ maps to exactly one element in $Y$.
+
+
+<div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+
+```{mermaid}
+graph LR
+    subgraph X [Set X]
+        style X fill:#f0f8ff,stroke:#87cefa,stroke-width:2px,rx:10px,ry:10px
+        A[A]
+        B[B]
+        C[C]
+        style A fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+        style B fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+        style C fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+    end
+
+    subgraph Y [Set Y]
+        style Y fill:#e6f7ff,stroke:#4682b4,stroke-width:2px,rx:10px,ry:10px
+        Y1[1]
+        Y2[2]
+        Y3[3]
+        Y4[4]
+        style Y1 fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+        style Y2 fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+        style Y3 fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+        style Y4 fill:#add8e6,stroke:#000,stroke-width:1px,rx:5px,ry:5px
+    end
+
+    A --> Y1
+    B --> Y2
+    C --> Y3
+```
+</div>
+
+
+##### **Sequence**:
+
 
 $$
 f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
@@ -63,7 +147,7 @@ import matplotlib.pyplot as plt
 def f(n):
     return 1/n
 
-fig, ax = plt.subplots(figsize=(6,4))
+fig, ax = plt.subplots(figsize=(8,4))
 n=np.arange(1,20)
 plt.scatter(n,f(n))
 plt.xlabel('n')
@@ -76,7 +160,9 @@ where $\mathbb{N}$ denotes the set of natural numbers. This function assigns eac
 
 We often denote sequences using $f(n)=1/n$.
 
-**Example 4**
+
+##### **Real Function**:
+
 
 The quadratic function often written as $f(x)=x^2$ is a function that assigns each $x$ the value $x^2$. In our notation, we write this as
 
@@ -98,9 +184,7 @@ plt.ylabel('f(x)')
 plt.show()
 ```
 
-where $\mathbb{R}$ denotes the set of real numbers.
-
-**Example 5**
+##### **Determinant**
 
 The determinant of a matrix is a function that assigns each matrix a number. In our notation, we write this as
 
@@ -108,7 +192,7 @@ $$
 f=\{(M,\text{det}(M)): M \text{ is a square matrix}\}
 $$
 
-**Example 6**
+##### **Matrix**
 
 A matrix itself is also a function that assigns each pair of indices $(i,j)$ where $i,j \in \{1,2,...,n\}$ the element of the matrix at position $(i,j)$. In our notation, we write this as
 
@@ -127,7 +211,7 @@ M_{n1} & M_{n2} & \cdots & M_{nn}
 \end{bmatrix}
 $$
 
-**Example 7**
+##### **Matrix addition**
 
 Matrix addition is a function that assigns each pair of matrices their sum. In our notation, we write this as
 
@@ -140,7 +224,7 @@ $$
 (A+B)_{ij}=A_{ij}+B_{ij}
 $$
 
-**Example 8**
+##### **Python dictionary**
 
 A dictionary in Python is also a function that assigns each key a value. In our notation, we write this as:
 
@@ -148,9 +232,84 @@ A dictionary in Python is also a function that assigns each key a value. In our 
 d={'a':1, 'b':2, 'c':3}
 ```
 
+#### Geogebra examples
+
+Check the following examples in [Geogebra](https://www.geogebra.org/?lang=en):
+
+* ax^3 + bx^2 + cx + d
+* sin(ax + b)
+* e^( -x^2 / s)
+* x^2 + y^3 = 1
+* ImplicitCurve(xx+yyy-1)  which is the same as the previous one
+* ImplicitCurve(sin(x) + cos(y) - 1)
+
+### Composition of functions
+
+The composition of two functions $f$ and $g$ is written as $f\circ g$. It is a function that assigns each $x$ the value $(f\circ g)(x)=f(g(x))$. It is not hard to undestand mechanically what this means. We first apply $g$ to $x$ and then apply $f$ to the result:
+
+$$
+x\mapsto g(x) \mapsto f(g(x))
+$$
+
+##### **Example 1**
+
+Let $f(x)=x^2$ and $g(x)=x+1$. Then the composition of these functions is
+
+$$
+(f\circ g)(x)=f(g(x))=f(x+1)=(x+1)^2
+$$
+
+##### **Example 2**
+
+Let $f(x)=\sin(x)$ and $g(x)=x^2$. Then the composition $f\circ g$ is
+
+$$
+(f\circ g)(x)=f(g(x))=f(x^2)=\sin(x^2)
+$$
+
+but $g\circ f$ is
+
+$$
+(g\circ f)(x)=g(f(x))=g(\sin(x))=\sin^2(x)
+$$
+
+From these examples we see that the composition of functions is not commutative, that is, in general $f\circ g \neq g\circ f$.
+
+Below is a Python code that visualizes the composition of two functions $f$ and $g$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def gf(x):
+    return np.sin(x**2)
+
+def fg(x):
+    return np.sin(x)**2
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-6,6,1000)
+plt.plot(x,gf(x),label='g(f(x))')
+plt.plot(x,fg(x),label='f(g(x))')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+```
+
+
+
 ## Limits of functions
 
-### Sequences
+### Sequences ($\mathbb{N}\rightarrow\mathbb{R}$)
+
+Do not forget a sequence is a function that assigns each natural number a value, whcih we write as 
+
+$$\{(n,a_n): n \in \mathbb{N}\}=\{(0, a_0), (1, a_1), (2, a_2), ...\}$$
+
+The argument is most often omitted, so we write this as 
+
+$$\{a_n\}=\{a_0, a_1, a_2, ...\}$$
 
 An idea of a limit of sequence is very simple. It is a number that the sequence approaches as we take more and more elements of the sequence. For example, the sequence $a_n=\frac{1}{n}$ approaches 0 as we take more and more elements of the sequence. We write this as
 
@@ -160,12 +319,10 @@ $$
 
 Formal definition of a limit of a sequence is as follows:
 
-::: {.definition}
-**Definition: Limit of a sequence**
+#### Definition: Limit of a sequence
 
 A number $g$ is the limit of a sequence $a_n$ if for every $\varepsilon>0$ there exists $N$ such that for every $n>N$ we have $|a_n-g|<\epsilon$. 
 We write this as $$\lim_{n \to \infty} a_n=g$$.
-:::
 
 ```{python}
 import numpy as np
@@ -239,11 +396,9 @@ $$
 $$
 
 
-::: {.theorem}
-**The Squeeze Theorem**
+#### The Squeeze Theorem
 
-If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim_{n \to \infty} a_n=\lim_{n \to \infty} c_n=g$, then $\lim_{n \to \infty} b_n=g$.
-:::
+If $a_n \leq b_n \leq c_n$ for all $n$ and $\lim\limits_{n \to \infty} a_n=\lim\limits_{n \to \infty} c_n=g$, then $\lim\limits_{n \to \infty} b_n=g$.
 
 Interpretation of the Squeeze Theorem is that if a sequence is squeezed between two sequences that have the same limit, then the sequence itself has the same limit.
 
@@ -283,7 +438,7 @@ def c(n):
     return 1/n
 
 fig, ax = plt.subplots(figsize=(6,4))
-n=np.arange(1,20)
+n=np.arange(1,50)
 plt.scatter(n,a(n),label='a(n)')
 plt.scatter(n,b(n),label='b(n)')
 plt.scatter(n,c(n),label='c(n)')
@@ -294,9 +449,91 @@ plt.show()
 ```
 
 
-## Limits of Functions
+### Limits of real functions ($\mathbb{R}\rightarrow\mathbb{R}$)
 
-### Definition
+#### Definition
+
+
+```{python}
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Function Definitions
+def func_1(x):
+    return np.sin(x)
+
+def func_2(x):
+    return np.sin(1 / x)
+
+# Parameters for f(x) = sin(x) at x = π
+epsilon_1 = 0.2  # Chosen epsilon
+delta_1 = 0.15    # Chosen delta
+target_x_1 = np.pi
+target_y_1 = func_1(target_x_1)
+
+# Parameters for f(x) = sin(1/x) near x = 0
+epsilon_2 = 0.2  # Chosen epsilon
+delta_2 = 0.1    # Chosen delta
+target_x_2 = 0
+
+# Generate x-values
+x_values_1 = np.linspace(target_x_1 - 2, target_x_1 + 2, 500)
+delta_range_1 = np.linspace(target_x_1 - delta_1, target_x_1 + delta_1, 500)
+
+x_values_2 = np.linspace(-0.5, 0.5, 1000)
+x_values_2 = x_values_2[x_values_2 != 0]  # Exclude zero for sin(1/x)
+delta_range_2 = np.linspace(-delta_2, delta_2, 500)
+delta_range_2 = delta_range_2[delta_range_2 != 0]  # Exclude zero
+
+# Calculate function values
+func_values_1 = func_1(x_values_1)
+delta_func_values_1 = func_1(delta_range_1)
+
+func_values_2 = func_2(x_values_2)
+delta_func_values_2 = func_2(delta_range_2)
+
+# Epsilon bands
+y_upper_1 = target_y_1 + epsilon_1
+y_lower_1 = target_y_1 - epsilon_1
+
+y_upper_2 = epsilon_2
+y_lower_2 = -epsilon_2
+
+# Create side-by-side plots
+fig, axs = plt.subplots(2,1, figsize=(10, 8))
+
+# First plot: f(x) = sin(x), epsilon-delta
+axs[0].plot(x_values_1, func_values_1, label="f(x) = sin(x)", color="blue")
+axs[0].axvline(target_x_1, color="red", linestyle="--", label=f"x = π (Target)")
+axs[0].axvline(target_x_1 - delta_1, color="green", linestyle="--", label=f"x = π - δ")
+axs[0].axvline(target_x_1 + delta_1, color="green", linestyle="--", label=f"x = π + δ")
+axs[0].hlines([y_upper_1, y_lower_1], target_x_1 - 2, target_x_1 + 2, colors="orange", linestyles="--", label="f(x) ± ε")
+axs[0].scatter([target_x_1], [target_y_1], color="red", s=100, label=f"Target Point (π, {round(target_y_1, 2)})")
+axs[0].set_title("Epsilon-Delta for f(x) = sin(x) at x = π")
+axs[0].set_xlabel("x")
+axs[0].set_ylabel("f(x)")
+axs[0].grid(alpha=0.4)
+axs[0].legend()
+
+# Second plot: f(x) = sin(1/x), epsilon-delta near zero
+axs[1].plot(x_values_2, func_values_2, label="f(x) = sin(1/x)", color="blue")
+axs[1].axvline(-delta_2, color="green", linestyle="--", label=f"x = -δ")
+axs[1].axvline(delta_2, color="green", linestyle="--", label=f"x = δ")
+axs[1].hlines([y_upper_2, y_lower_2], -0.5, 0.5, colors="orange", linestyles="--", label="f(x) ± ε")
+axs[1].scatter([0], [0], color="red", s=100, label=f"Target Point (0, 0)")
+axs[1].set_title("Epsilon-Delta for f(x) = sin(1/x) near x = 0")
+axs[1].set_xlabel("x")
+axs[1].set_ylabel("f(x)")
+axs[1].grid(alpha=0.4)
+axs[1].legend()
+
+# Adjust layout and show
+plt.tight_layout()
+plt.show()
+```
+
+
 
 The limit of a function describes the behavior of the function as its input approaches a certain value. We denote it as:
 
@@ -320,6 +557,13 @@ $$
 |f(x) - L| < \varepsilon.
 $$
 
+Geogebra: 
+
+* [Aplet1](https://www.geogebra.org/m/cwvFraYf)
+* [Aplet2](https://www.geogebra.org/m/ksuyccpy)
+
+<!-- ![](additional_files/ep.jpg){width=400px} -->
+
 #### One-Sided Limits
 
 Limits can also be evaluated as $x$ approaches $c$ from one side:
@@ -333,6 +577,22 @@ Limits can also be evaluated as $x$ approaches $c$ from one side:
   $$
   \lim_{x \to c^+} f(x) = L
   $$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def fun(x):
+    return 1/(1+np.exp(-1/x))
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-3,3,500)
+plt.scatter(x,fun(x),s=5)
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.text(0,0.5,r'$f(x)=\frac{1}{1+e^{-1/x}}$', fontsize=16)
+plt.show()
+```
 
 The **two-sided limit** exists if and only if:
 $$
@@ -356,7 +616,7 @@ For functions $f(x)$ and $g(x)$ with limits $\lim_{x \to c} f(x) = L_1$ and $\li
 
 **Quotient** (if $\lim_{x \to c} g(x) \neq 0$):
    $$
-   \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim_{x \to c} f(x)}{\lim_{x \to c} g(x)} = \frac{L_1}{L_2}
+   \lim_{x \to c} \frac{f(x)}{g(x)} = \frac{\lim\limits_{x \to c} f(x)}{\lim\limits_{x \to c} g(x)} = \frac{L_1}{L_2}
    $$
 
 **Power**:
@@ -377,41 +637,46 @@ $$
 \lim_{x \to -\infty} f(x) = L
 $$
 
-### Asymptotes
+#### Asymptotes
 
-An **asymptote** is a line that a curve approaches when $x$ becomes very large then the curve approaches a line $y=ax+b$
+In mathematics, functions often exhibit interesting behavior as their inputs grow very large or very small. One such phenomenon is when a function approaches a straight line, called an **asymptote**, as $x$ becomes large. 
 
-$$
-f(x)\sim ax+b \qquad \text{for large } x
-$$
-
-which formaly means that
+If a function $f(x)$ approaches a line $y = ax + b$ as $x$ grows, we say the function has an **oblique asymptote** defined by the equation:
 
 $$
-\lim_{x \to \infty} (f(x) - ax+b) = 0
+f(x) \sim ax + b \qquad \text{for large } x,
 $$
 
-Find $a$:
+which formally means:
 
 $$
-a=\lim_{x \to \infty} \frac{f(x)}{x}
+\lim_{x \to \infty} \big(f(x) - (ax + b)\big) = 0.
 $$
 
-Find $b$:
+To find the slope $a$ of the asymptote:
 
 $$
-b=\lim_{x \to \infty} (f(x) - ax)
+a = \lim_{x \to \infty} \frac{f(x)}{x}.
 $$
+
+To find the intercept $b$:
+
+$$
+b = \lim_{x \to \infty} \big(f(x) - ax\big).
+$$
+
 
 Example: Find the asymptotes of the function $f(x)=\frac{x^3+3x^2+1}{3x^2}$
 
-**Find**
+First, we find the slope of the asymptote:
 
 $$
 a=\lim_{x \to \infty} \frac{x^3+3x^2+1}{3x^2\cdot x}
 =
 \lim_{x \to \infty} \frac{1}{3}
 $$
+
+Next, we find the intercept of the asymptote:
 
 $$
 \begin{align*}
@@ -436,12 +701,978 @@ def line(x):
     return 1/3*x+1
 
 fig, ax = plt.subplots(figsize=(6,4))
-x=np.linspace(1,10,100)
+x=np.linspace(-10,10,100)
 plt.plot(x,f(x),label='f(x)')
 plt.plot(x,line(x),label='asymptote')
 plt.xlabel('x')
 plt.ylabel('f(x)')
 plt.legend()
+plt.ylim(-10,10)
 plt.show()
 ```
+
+## Countinuity
+
+### Definition
+
+A function $f(x)$ is **continuous** at a point $x = a$ if the following three conditions are satisfied:
+
+1. $f(a)$ is defined.  
+   This means that the function must have a value at $x = a$. If $f(a)$ is not defined, the function cannot be continuous at that point.
+
+2. $\lim\limits_{x \to a} f(x)$ exists.  
+   The limit of $f(x)$ as $x$ approaches $a$ must exist. This ensures that the function does not have a "jump" or oscillation around $x = a$.
+
+3. $\lim\limits_{x \to a} f(x) = f(a)$.  
+   The value of the limit as $x$ approaches $a$ must equal the actual value of the function at $x = a$. This condition guarantees that there is no "hole" or discontinuity at the point.
+
+If any of these conditions fail, the function is not continuous at $x = a$.
+
+### Intuition
+
+Continuity intuitively means that the graph of a function can be drawn without lifting the pen from the paper. For instance:
+
+- Polynomials like $f(x) = x^2 + 3x + 2$ are continuous everywhere.
+- Piecewise functions may fail to be continuous if there is a jump, hole, or break in their definition.
+
+### Types of Discontinuities
+
+When a function is not continuous at $x = a$, we classify the discontinuity into three types:
+
+1. **Removable Discontinuity**:  
+   Occurs when $\lim\limits_{x \to a} f(x)$ exists, but $f(a)$ is not defined or differs from the limit.  
+   Example: $f(x) = \frac{x^2 - 1}{x - 1}$ has a removable discontinuity at $x = 1$.
+
+2. **Jump Discontinuity**:  
+   Occurs when the left-hand limit $\lim\limits_{x \to a^-} f(x)$ and right-hand limit $\lim\limits_{x \to a^+} f(x)$ exist but are not equal.  
+   Example: A piecewise function with different definitions on either side of $x = a$.
+
+3. **Infinite Discontinuity**:  
+   Occurs when $f(x)$ approaches infinity or negative infinity as $x$ approaches $a$.  
+   Example: $f(x) = \frac{1}{x}$ has an infinite discontinuity at $x = 0$.
+
+
+
+## Derivatives
+
+### Definition
+
+The **derivative** of a function $f(x)$ at a point $x=a$ is defined as:
+
+$$
+f'({\color{red}a}) = \lim_{{\color{blue}h} \to 0} \frac{f({\color{red}a}+{\color{blue}h}) - f({\color{red}a})}{{\color{blue}h}}
+$$
+This limit represents the slope of the tangent line to the curve $y=f(x)$ at the point $(a, f(a))$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x):
+    return x**2
+
+def f_prime(x):
+    return 2*x
+
+def tangent_line(x, a):
+    return f_prime(a)*(x-a) + f(a)
+
+fig, ax = plt.subplots(figsize=(6,4))
+x=np.linspace(-10,10,100)
+plt.plot(x,f(x),label='f(x)')
+plt.plot(x,tangent_line(x,2),label='tangent line at x=2')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.scatter(2,f(2),color='red')
+plt.show()
+```
+
+
+### Interpretation
+
+1. **Slope of the Tangent Line**:  
+   The derivative is the slope of the line that just "touches" the curve at a single point without crossing it (locally). This tangent line provides a linear approximation to the function near that point.
+
+2. **Instantaneous Rate of Change**:  
+   If $f(x)$ represents position, then $f'(x)$ represents velocity—how quickly the position is changing at a specific moment.
+
+3. **Geometric Insight**:  
+   At points where the derivative is:
+   - **Positive** ($f'(x) > 0$): The function is increasing.  
+   - **Negative** ($f'(x) < 0$): The function is decreasing.  
+   - **Zero** ($f'(x) = 0$): The function has a horizontal tangent line, potentially a local maximum, minimum, or inflection point.
+
+4. **Practical Example**:  
+   Consider the function $f(x) = x^2$. The derivative $f'(x) = 2x$ tells us that the slope of the curve increases as $x$ increases, meaning the curve becomes steeper as you move away from the origin.
+
+
+**Example**: Let $f(x)=\sin(x)$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=\cos(a)$. Now we will prove this.
+
+**Proof**: From trigonometry, we know that $sin(a+h)=sin(a)cos(h)+cos(a)sin(h)$. Therefore, we have
+
+$$
+\begin{align*}
+f'({\color{red}a})
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a}+{\color{blue}h})-\sin({\color{red}a})}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a})\cos({\color{blue}h})+\cos({\color{red}a})\sin({\color{blue}h})-\sin({\color{red}a})}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{red}a})(\cos({\color{blue}h})-1)+\cos({\color{red}a})\sin({\color{blue}h})}{{\color{blue}h}}\\
+&=\cos({\color{red}a})\lim_{{\color{blue}h} \to 0} \frac{\sin({\color{blue}h})}{{\color{blue}h}}\\
+&=\cos({\color{red}a})
+\end{align*}
+$$
+
+
+**Example**: Let $f(x)=x^3$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=3a^2$. Now we will prove this.
+
+**Proof**: We have
+
+$$
+\begin{align*}
+f'({\color{red}a})&=
+\lim_{{\color{blue}h} \to 0} \frac{({\color{red}a}+{\color{blue}h})^3-{\color{red}a}^3}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} \frac{{\color{red}a}^3+3{\color{red}a}^2{\color{blue}h}+3{\color{red}a}{\color{blue}h}^2+{\color{blue}h}^3-{\color{red}a}^3}{{\color{blue}h}}\\
+&=\lim_{{\color{blue}h} \to 0} 3{\color{red}a}^2+3{\color{red}a}{\color{blue}h}+{\color{blue}h}^2\\
+&=3{\color{red}a}^2
+\end{align*}
+$$
+
+
+
+#### Basic Derivatives
+
+| Function $f(x)$ | Derivative $f'(x)$ |
+|------------------|--------------------|
+| $c$              | $0$                |
+| $x$              | $1$                |
+| $x^n$            | $nx^{n-1}$         |
+| $e^x$            | $e^x$              |
+| $a^x$            | $a^x \ln(a)$       |
+| $\ln(x)$         | $\frac{1}{x}$      |
+| $\log_a(x)$      | $\frac{1}{x \ln(a)}$ |
+| $\sin(x)$        | $\cos(x)$          |
+| $\cos(x)$        | $-\sin(x)$         |
+
+### Basic Theorems
+
+**Basics**
+
+$$
+\begin{align*}
+({\color{red}f}\pm {\color{blue}g})'(x)&={\color{red}f}'(x)\pm {\color{blue}g}'(x)\\
+({\color{red}f}{\color{blue}g})'(x)&={\color{red}f}'(x){\color{blue}g}(x)+{\color{red}f}(x){\color{blue}g}'(x)\\
+\left(\frac{{\color{red}f}}{{\color{blue}g}}\right)'(x)&=\frac{{\color{red}f}'(x){\color{blue}g}(x)-{\color{red}f}(x){\color{blue}g}'(x)}{{\color{blue}g}^2(x)}\\
+({\color{red}f}^n)'(x)&=n{\color{red}f}'(x){\color{red}f}^{n-1}(x)
+\end{align*}
+$$
+
+**Applications**
+
+##### Second example
+
+$$
+\begin{align*}
+({\color{blue}{\cos(x)}}{\color{red}{e^x}})' 
+&= ({\color{blue}{\cos(x)}})' {\color{red}{e^x}} + {\color{blue}{\cos(x)}} ({\color{red}{e^x}})' \\[5pt]
+&= {\color{blue}{-\sin(x)}} {\color{red}{e^x}} + {\color{blue}{\cos(x)}} {\color{red}{e^x}} \\[5pt]
+&= ({\color{blue}{\cos(x)}} - {\color{blue}{\sin(x)}}) {\color{red}{e^x}}
+\end{align*}
+$$
+
+
+##### Third example
+
+$$
+\begin{align*}
+\tan(x) 
+&= \left(\frac{\color{blue}{\sin(x)}}{\color{red}{\cos(x)}}\right)' \\[5pt]
+&= \frac{(\color{blue}{\sin(x)})'(\color{red}{\cos(x)}) - (\color{red}{\cos(x)})'(\color{blue}{\sin(x)})}{(\color{red}{\cos(x)})^2} \\[5pt]
+&= \frac{\color{blue}{\cos(x)}\color{red}{\cos(x)} - (\color{red}{-\sin(x)})(\color{blue}{\sin(x)})}{(\color{red}{\cos(x)})^2} \\[5pt]
+&= \frac{\color{red}{\cos^2(x)} + \color{blue}{\sin^2(x)}}{\color{red}{\cos^2(x)}} \\[5pt]
+&= \frac{1}{\color{red}{\cos^2(x)}}
+\end{align*}
+$$
+
+#### Chain Rule
+
+This is a very important rule that allows us to differentiate composite functions. If ${\color{red}f}(x)={\color{blue}g}({\color{green}h}(x))$, then
+$$
+{\color{red}f}'(x)={\color{blue}g}'({\color{green}h}(x)){\color{green}h}'(x)
+$$
+
+##### First example
+
+Let ${\color{red}f}(x)={\color{blue}\sin}({\color{green}x^2})$. Then
+
+* ${\color{blue}g}(y)=\sin(y) \Rightarrow {\color{blue}g}'(y)=\cos(y)$
+* ${\color{green}h}(x)=x^2 \Rightarrow {\color{green}h}'(x)=2x$
+
+so
+
+$$
+\begin{align*}
+{\color{red}f}'(x)&={\color{blue}g}'({\color{green}h}(x)){\color{green}h}'(x)=\cos(x^2)\cdot 2x
+\end{align*}
+$$
+
+##### Second example
+
+Let $f(x)=e^{x^2+\cos(x)}$. Then
+
+* $g(y)=e^y \Rightarrow g'(y)=e^y$
+* $h(x)=x^2+\cos(x) \Rightarrow h'(x)=2x-\sin(x)$
+
+so
+
+$$
+\begin{align*}
+f'(x)&=g'(h(x))h'(x)=e^{x^2+\cos(x)}\cdot (2x-\sin(x))
+\end{align*}
+$$
+
+### Finding Extrema
+
+Extrema of a function are points where the function reaches its **maximum** or **minimum** values, either locally (in a neighborhood) or globally (on the entire domain). To find extrema, we use the following process:
+
+#### Steps to Find Extrema
+
+1. **Compute the Derivative**:  
+   Find the first derivative $f'(x)$ of the function $f(x)$. The derivative represents the slope of the tangent line.
+
+2. **Set the Derivative to Zero**:  
+   Solve the equation $f'(x) = 0$. These points are called **critical points**, where the function's slope is horizontal.
+
+3. **Check for Undefined Points**:  
+   Identify points where $f'(x)$ does not exist but $f(x)$ is still defined. These can also be critical points.
+
+4. **Use the Second Derivative Test** (Optional):  
+   Compute the second derivative $f''(x)$ to determine the nature of each critical point:
+   - If $f''(x) > 0$, the function has a local minimum at that point.
+   - If $f''(x) < 0$, the function has a local maximum at that point.
+   - If $f''(x) = 0$, the test is inconclusive. Use other methods, such as analyzing the function's behavior.
+
+5. **Boundary Points** (if the domain is restricted):  
+   For a function defined on a closed interval $[a, b]$, evaluate $f(a)$ and $f(b)$, as extrema can occur at the boundaries.
+
+#### Necessary Conditions for Extrema
+
+- A point $x=c$ is a **candidate** for an extremum if:
+  1. $f'(c) = 0$ (critical point), or
+  2. $f'(c)$ is undefined but $f(c)$ is defined.
+
+- A point is a **local extremum** only if it satisfies the conditions above and meets additional criteria (e.g., second derivative test or sign change in $f'(x)$).
+
+#### Example
+
+Consider the function $f(x) = x^3 - 3x^2 + 4$:
+
+1. Compute the first derivative:  
+   $f'(x) = 3x^2 - 6x$.
+
+2. Solve $f'(x) = 0$:  
+   $3x^2 - 6x = 0$  
+   $x(x-2) = 0$  
+   Critical points are $x = 0$ and $x = 2$.
+
+3. Compute the second derivative:  
+   $f''(x) = 6x - 6$.
+
+   - At $x = 0$: $f''(0) = -6$ (local maximum).  
+   - At $x = 2$: $f''(2) = 6$ (local minimum).
+
+4. Evaluate boundaries (if applicable):  
+   Not relevant here, as the domain is not restricted.
+
+#### Conclusion
+
+Extrema occur at $x = 0$ (local maximum) and $x = 2$ (local minimum). Use this structured approach to identify extrema systematically.
+
+
+### Applications in Computer Science
+
+Finding extrema plays a critical role in computer science, particularly in solving **optimization problems**. Optimization involves determining the maximum or minimum value of a function, often under specific constraints. Here are some key applications:
+
+#### 1. **Machine Learning**
+In machine learning, training models often involves minimizing a loss function, which measures the error between the predicted and actual values. For example:
+
+- Gradient Descent: An optimization algorithm that uses derivatives to find the minimum of a function (e.g., loss function).
+- Convergence to a Global Minimum: Finding extrema ensures the model learns the best possible parameters.
+
+#### 2. **Data Analysis and Fitting**
+In data analysis, functions are fit to data points (e.g., regression models) by minimizing error metrics. The derivative helps identify the optimal parameters for the function.
+
+#### 3. **Algorithm Design**
+Many algorithms in computer science involve optimization:
+
+- Pathfinding Algorithms: Algorithms like Dijkstra’s and A* aim to minimize the cost of reaching a destination.
+- Scheduling Problems: Finding the minimum time or resources required to complete tasks.
+
+#### 4. **Computer Graphics**
+Optimization is critical in computer graphics for rendering, animation, and physics simulations. Examples include:
+
+- Minimizing energy functions for realistic cloth or fluid simulations.
+- Optimizing curves and surfaces for smooth rendering.
+
+#### 5. **Operations Research**
+In operations research, optimization is used to solve problems involving resource allocation, scheduling, and logistics. For example:
+
+- Linear Programming: Derivatives are used in the simplex method to maximize or minimize objective functions.
+- Nonlinear Optimization: Extrema are crucial in finding optimal solutions to more complex problems.
+
+#### 6. **Artificial Intelligence**
+In AI, optimization problems arise in areas like:
+
+- Game Theory: Finding optimal strategies for agents by maximizing rewards or minimizing losses.
+- Reinforcement Learning: Optimizing policies to maximize cumulative rewards over time.
+
+#### Example: Gradient Descent in Neural Networks
+In neural networks, the goal is to minimize the loss function during training. The process involves:
+
+1. Computing the gradient (derivative) of the loss function with respect to the model parameters.
+2. Updating the parameters in the direction opposite to the gradient to reduce the loss.
+
+Mathematically:
+$$
+\theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
+$$
+where:
+
+- $\theta_t$: Current parameters
+- $\eta$: Learning rate
+- $\nabla L(\theta_t)$: Gradient of the loss function
+
+This iterative process uses derivatives to converge toward a minimum, improving model performance.
+
+#### Conclusion
+The ability to find extrema is fundamental to numerous optimization problems in computer science, enabling efficient algorithms and solutions across various domains, from machine learning to operations research.
+
+
+## Taylor Series
+
+### Definition
+
+The **Taylor series** of a function $f(x)$ at a point $x=a$ is an infinite sum of terms that are calculated from the derivatives of $f(x)$ at $x=a$. It is given by:
+
+$$
+f(x) = f(a) + f'(a)(x-a) + \frac{f''(a)}{2!}(x-a)^2 +
+\cdots+
+\frac{f^{n-1}(a)}{(n-1)!}(x-a)^{n-1}+R_n(x)
+$$
+
+where $R_n(x)$ is the remainder term, which is given by:
+
+$$
+R_n(x) = \frac{f^{(n)}(c)}{n!}(x-a)^n \quad \text{for some } c\in(a,x)
+$$
+
+#### How to read this
+
+**First approximation**
+
+$$
+\begin{align*}
+f(x) &= f(a) + f'(a)(x-a)+R_1(x)\\
+&=f(a)+f'(a)(x-a)+\frac{f''(c)}{2!}(x-a)^2
+\end{align*}
+$$
+
+**Second approximation**
+
+$$
+\begin{align*}
+f(x) &= f(a) + f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+R_2(x)\\
+&=f(a)+f'(a)(x-a)+\frac{f''(a)}{2!}(x-a)^2+\frac{f'''(c)}{3!}(x-a)^3
+\end{align*}
+$$
+
+etc.
+
+**Example**: Let $f(x)=\sin(x)$. Then the Taylor series of $f(x)$ at $x=0$ is
+
+$$
+\begin{align*}
+f(x)&=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots\\
+&=0+x-\frac{1}{2}x^2-\frac{1}{6}x^3+\cdots\\
+&=\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}
+\end{align*}
+$$
+
+Now we will plot first 5 aproximations of the function $f(x)=\sin(x)$ using Taylor series.
+
+```{python}
+import numpy as np
+from scipy.special import factorial
+import matplotlib.pyplot as plt
+
+def f(x):
+    return np.sin(x)
+
+def taylor_series(x, n):
+    result = 0
+    for i in range(n):
+        result += (-1)**i * x**(2*i+1) / factorial(2*i+1)
+    return result
+
+fig, ax = plt.subplots(figsize=(10,6))
+x = np.linspace(-2*np.pi, 2*np.pi, 1000)
+
+plt.plot(x, f(x), label='sin(x)', color='blue', linestyle='-', linewidth=2)
+for i in range(1, 10):
+    plt.plot(x, taylor_series(x, i), label=f'(n={i})', linestyle='--')
+
+plt.ylim(-2, 2)
+
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.show()
+```
+
+#### Examples
+
+$$
+\begin{align*}
+e^x&=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots = \sum_{n=0}^{\infty} \frac{x^n}{n!}\\
+\sin(x)&=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\cdots=
+\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}\\
+\cos(x)&=1-\frac{x^2}{2!}+\frac{x^4}{4!}-\cdots=
+\sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}\\
+\ln(1+x)&=x-\frac{x^2}{2}+\frac{x^3}{3}-\cdots=
+\sum_{n=1}^{\infty} (-1)^{n-1} \frac{x^n}{n}\\
+\frac{1}{1+x}&=1-x+x^2-x^3+\cdots=
+\sum_{n=0}^{\infty} (-1)^n x^n
+\end{align*}
+$$
+
+
+
+## Integrals
+
+### Rieman Integral
+
+The **Riemann integral** of a function $f(x)$ over the interval $[a,b]$ is defined as:
+
+$$
+\int_{a}^{b} f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i) \Delta x
+$$
+
+where $\Delta x = \frac{b-a}{n}$ and $x_i = a + i \Delta x$.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function to integrate
+def f(x):
+    return x**2
+
+# Define the interval [a, b]
+a, b = 0, 2
+
+# Number of rectangles
+n = 10
+
+# Calculate the width of each rectangle
+dx = (b - a) / n
+
+# Define the x values for the left endpoints
+x = np.linspace(a, b, n, endpoint=False)
+
+# Calculate the y values (height of rectangles)
+y = f(x)
+
+# Plot the function
+x_fine = np.linspace(a, b, 500)
+plt.plot(x_fine, f(x_fine), label='f(x) = x^2', color='blue')
+
+# Draw the rectangles
+for i in range(n):
+    plt.bar(x[i], y[i], width=dx, align='edge', edgecolor='black', color='orange', alpha=0.5)
+
+# Add labels and title
+plt.title('Riemann Sum Approximation')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.axhline(0, color='black', linewidth=0.8)
+plt.axvline(0, color='black', linewidth=0.8)
+plt.legend()
+plt.grid(alpha=0.3)
+
+# Show the plot
+plt.show()
+
+```
+
+
+```{=html}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riemann Integral Simulation</title>
+    <style>
+        canvas {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="riemannCanvas" width="800" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById("riemannCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const width = canvas.width;
+        const height = canvas.height;
+
+        // Function to integrate (f(x) = x^2)
+        function f(x) {
+            return x * x;
+        }
+
+        // Simulation parameters
+        const a = 0; // Start of the interval
+        const b = 2; // End of the interval
+        let n = 1;   // Number of rectangles (starts small for animation)
+        const maxRectangles = 50; // Maximum number of rectangles
+        const speed = 500; // Milliseconds between updates
+
+        // Scale factors
+        const xScale = width / (b - a);
+        const yScale = height / Math.pow(b, 2);
+
+        // Animation loop
+        function drawRiemannSum() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw axes
+            ctx.beginPath();
+            ctx.moveTo(0, height);
+            ctx.lineTo(width, height);
+            ctx.moveTo(0, 0);
+            ctx.lineTo(0, height);
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw the function curve
+            ctx.beginPath();
+            for (let x = a; x <= b; x += 0.01) {
+                const canvasX = x * xScale;
+                const canvasY = height - f(x) * yScale;
+                ctx.lineTo(canvasX, canvasY);
+            }
+            ctx.strokeStyle = "blue";
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Draw the rectangles
+            const dx = (b - a) / n;
+            for (let i = 0; i < n; i++) {
+                const xLeft = a + i * dx;
+                const yHeight = f(xLeft);
+                const rectX = xLeft * xScale;
+                const rectY = height - yHeight * yScale;
+                const rectWidth = dx * xScale;
+                const rectHeight = yHeight * yScale;
+
+                ctx.fillStyle = "orange";
+                ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(rectX, rectY, rectWidth, rectHeight);
+            }
+
+            // Increase the number of rectangles for the next frame
+            if (n < maxRectangles) {
+                n++;
+            } else {
+                n = 1; // Reset the number of rectangles to loop the animation
+            }
+
+            // Call the function again for the next frame
+            setTimeout(drawRiemannSum, speed);
+        }
+
+        // Start the simulation
+        drawRiemannSum();
+    </script>
+</body>
+</html>
+```
+
+
+### Properties of Integrals
+
+**Linearity**
+
+$$
+\int_{a}^{b} [f(x) \pm g(x)] \, dx = \int_{a}^{b} f(x) \, dx \pm \int_{a}^{b} g(x) \, dx
+$$
+
+$$
+\int_{a}^{b} c f(x) \, dx = c \int_{a}^{b} f(x) \, dx
+$$
+
+$$
+\int_{a}^{c} f(x) \, dx = \int_{a}^{b} f(x) \, dx+\int_{b}^{c} f(x) \, dx 
+\quad \text{for } [a,c]=[a,b]\cup[b,c]
+$$
+
+**Change of Variables**
+
+If $x=g(t)$ is a differentiable function on $[a,b]$ and $f$ is continuous on the range of $g$, then
+
+$$
+\int_{a}^{b} f(g(t))g'(t) \, dt = \int_{g(a)}^{g(b)} f(x) \, dx
+$$
+
+**Integration by Parts**
+
+$$
+\int u \, dv = uv - \int v \, du
+$$
+
+#### Wolfram Alpha
+
+* [Link 1](https://www.wolframalpha.com/input?i=integral+x%2Bsin%283x%29+from+0+to+pi%2F4)
+* [Link 2](https://www.wolframalpha.com/input?i=integral+x%5En+exp%28-x%29+from+0+to+infty)
+
+### Fundamental Theorem of Calculus 
+
+Let $f(x)$ be a continuous function on $[a,b]$. Then the function $F(x)$ defined by
+
+$$
+F(x)=\int_{a}^{x} f(t) \, dt
+$$
+
+is continuous on $[a,b]$, differentiable on $(a,b)$, and
+
+$$
+F'(x)=f(x)
+$$
+
+##### Proof
+
+Let $x_0 \in (a,b)$. Then
+
+$$
+\begin{align*}
+F'(x_0)&=\lim_{h \to 0} \frac{\color{red}{F(x_0+h)}-\color{blue}{F(x_0)}}{h}\\
+&=\lim_{h \to 0} \frac{\color{red}{\int_{a}^{x_0+h} f(t) \, dt}-
+\color{blue}{\int_{a}^{x_0} f(t) \, dt}}{h}\\
+&=\lim_{h \to 0} \frac{\color{red}{\int_{a}^{x_0} f(t) \, dt}
++\int_{x_0}^{x_0+h} f(t) \, dt
+-\color{blue}{\int_{a}^{x_0} f(t) \, dt}}{h}\\
+&=\lim_{h \to 0} \frac{\int_{x_0}^{x_0+h} f(t) \, dt}{h}\\
+&=\lim_{h \to 0} \frac{f(x_0+\theta h)h}{h}\\
+&=f(x_0)
+\end{align*}
+$$
+
+#### Antiderivative
+ 
+
+In calculus, an antiderivative, primitive function, primitive integral, or indefinite integral of a function $f$ is a differentiable function $F$ whose derivative is equal to the original function $f$. This can be stated symbolically as $F'(x) = f(x)$. The process of solving for antiderivatives is called antidifferentiation (or indefinite integration), and its opposite operation is called differentiation, which is the process of finding a derivative.
+
+| $f(x)$             | $F(x)$                             |
+|---------------------|------------------------------------|
+| $x^n$              | $\frac{x^{n+1}}{n+1} + C$         |
+| $\frac{1}{x}$      | $\ln|x| + C$                       |
+| $e^x$              | $e^x + C$                         |
+| $\sin(x)$          | $-\cos(x) + C$                    |
+| $\cos(x)$          | $\sin(x) + C$                     |
+
+
+### Using Antiderivatives in Definite Integrals
+
+The **definite integral** of a function $f(x)$ over an interval $[a, b]$ is defined as:
+
+$$
+\int_a^b f(x) \, dx
+$$
+
+According to the **Fundamental Theorem of Calculus**, if $F(x)$ is an antiderivative of $f(x)$ (i.e., $F'(x) = f(x)$), the value of the definite integral is given by:
+
+$$
+\int_a^b f(x) \, dx = F(b) - F(a)
+$$
+
+This means that the definite integral can be computed using the antiderivative $F(x)$ evaluated at the endpoints $a$ and $b$. 
+
+---
+
+#### Step-by-Step Process
+
+To calculate a definite integral using an antiderivative:
+
+1. **Find the Antiderivative**:  
+   Determine $F(x)$ such that $F'(x) = f(x)$.
+   
+2. **Evaluate at the Bounds**:  
+   Compute $F(b)$ and $F(a)$.
+   
+3. **Subtract**:  
+   The result of the integral is $F(b) - F(a)$.
+
+---
+
+#### Example: Compute a Definite Integral
+
+Let $f(x) = 2x$, and compute the integral over $[1, 3]$:
+
+$$
+\int_1^3 2x \, dx
+$$
+
+1. **Find the Antiderivative**:  
+   $$
+   \int 2x \, dx = x^2 + C
+   $$
+
+2. **Evaluate at the Bounds**:  
+   - $F(3) = 3^2 = 9$
+   - $F(1) = 1^2 = 1$
+
+3. **Subtract**:  
+   $$
+   \int_1^3 2x \, dx = F(3) - F(1) = 9 - 1 = 8
+   $$
+
+Thus, the total signed area under $f(x)$ from $x=1$ to $x=3$ is $8$.
+
+
+### Applications of Definite Integrals
+
+Definite integrals are widely used to compute quantities such as area, volume, arc length, surface area, and volumes of solids of revolution. Below is a summary of the key formulas and methods for these applications:
+
+
+#### 1. Area Under a Curve
+
+The area between a curve $y = f(x)$ and the $x$-axis over an interval $[a, b]$ is given by:
+
+$$
+A = \int_a^b f(x) \, dx
+$$
+
+- **For areas below the $x$-axis**, take the absolute value of the integral or split the integral into positive and negative parts.
+- For areas between two curves $y = f(x)$ and $y = g(x)$:
+  $$
+  A = \int_a^b \left[ f(x) - g(x) \right] \, dx
+  $$
+
+
+#### 2. Volume of a Solid
+
+To compute the volume of a solid with a cross-sectional area $A(x)$ perpendicular to the $x$-axis:
+
+$$
+V = \int_a^b A(x) \, dx
+$$
+
+- **For solids of revolution** (rotating around the $x$-axis):
+  $$
+  V = \pi \int_a^b \left[ f(x) \right]^2 \, dx
+  $$
+
+
+#### 3. Arc Length of a Curve
+
+The length of a curve $y = f(x)$ from $x = a$ to $x = b$ is:
+
+$$
+L = \int_a^b \sqrt{1 + \left[ f'(x) \right]^2} \, dx
+$$
+
+- For parametric curves $(x(t), y(t))$:
+  $$
+  L = \int_a^b \sqrt{\left[ \frac{dx}{dt} \right]^2 + \left[ \frac{dy}{dt} \right]^2} \, dt
+  $$
+
+
+#### 4. Surface Area of a Solid of Revolution
+
+The surface area of a solid generated by rotating a curve $y = f(x)$ about the $x$-axis is:
+
+$$
+S = 2\pi \int_a^b f(x) \sqrt{1 + \left[ f'(x) \right]^2} \, dx
+$$
+
+
+#### Practical Applications
+
+1. **Physics**:  
+   - **Displacement from velocity**:  
+     If $v(t)$ is the velocity of an object, the displacement over $[t_1, t_2]$ is:
+
+     $$
+     \int_{t_1}^{t_2} v(t) \, dt
+     $$
+
+   - **Work done by a force**:  
+
+     If $F(x)$ is the force applied over a distance, the total work is:
+
+     $$
+     \int_a^b F(x) \, dx
+     $$
+
+
+### Differential Equations
+
+A **differential equation** is a mathematical equation that relates a function with its derivatives. Differential equations are used to model various phenomena in physics, engineering, biology, economics, and more.
+
+#### General Form
+
+A differential equation can be written as:
+
+$$
+F\left(x, y, y', y'', \dots, y^{(n)}\right) = 0
+$$
+
+Here:
+
+- $y = y(x)$ is the unknown function (solution).
+- $y', y'', \dots, y^{(n)}$ are its derivatives.
+
+---
+
+#### Types of Differential Equations
+
+1. **Ordinary Differential Equations (ODEs)**:
+   - Involves derivatives of a function with respect to a single variable.
+   - Example: 
+     $$
+     \frac{dy}{dx} + 2y = e^x
+     $$
+
+2. **Partial Differential Equations (PDEs)**:
+   - Involves partial derivatives of a function with respect to multiple variables.
+   - Example:
+     $$
+     \frac{\partial u}{\partial t} = c^2 \frac{\partial^2 u}{\partial x^2}
+     $$
+
+3. **Linear Differential Equations**:
+   - A differential equation is linear if it can be written as:
+     $$
+     a_n(x)y^{(n)} + a_{n-1}(x)y^{(n-1)} + \cdots + a_0(x)y = g(x)
+     $$
+   - Example: 
+     $$
+     y'' - 3y' + 2y = \sin(x)
+     $$
+
+4. **Nonlinear Differential Equations**:
+   - A differential equation is nonlinear if it does not satisfy the linearity property.
+   - Example: 
+     $$
+     y'' + y^2 = 0
+     $$
+
+---
+
+#### Initial and Boundary Value Problems
+
+1. **Initial Value Problem (IVP)**:
+   - Solve a differential equation with given initial conditions.
+   - Example:
+     $$
+     \frac{dy}{dx} = 2x, \quad y(0) = 1
+     $$
+
+2. **Boundary Value Problem (BVP)**:
+   - Solve a differential equation with specified values at the boundaries of the domain.
+   - Example:
+     $$
+     y'' + y = 0, \quad y(0) = 1, \quad y(\pi) = 0
+     $$
+
+---
+
+#### Solving Differential Equations
+
+1. **Separable Equations**:
+   - An ODE is separable if it can be written as:
+     $$
+     \frac{dy}{dx} = g(x)h(y)
+     $$
+   - Solution:
+     $$
+     \int \frac{1}{h(y)} \, dy = \int g(x) \, dx
+     $$
+
+2. **Linear First-Order Equations**:
+   - General form:
+     $$
+     \frac{dy}{dx} + P(x)y = Q(x)
+     $$
+   - Solution:
+     $$
+     y(x) = \frac{1}{\mu(x)} \left( \int \mu(x) Q(x) \, dx + C \right)
+     $$
+     where $\mu(x) = e^{\int P(x) \, dx}$ is the integrating factor.
+
+3. **Second-Order Linear Equations**:
+   - General form:
+     $$
+     y'' + p(x)y' + q(x)y = g(x)
+     $$
+   - Solution depends on whether the equation is homogeneous or non-homogeneous.
+
+4. **Numerical Methods**:
+   - For equations that cannot be solved analytically, numerical methods such as Euler's method or Runge-Kutta methods are used.
+
+---
+
+#### Applications of Differential Equations
+
+1. **Physics**:
+   - Modeling motion (Newton’s laws).
+   - Heat conduction (Fourier’s law).
+   - Wave equations.
+
+2. **Biology**:
+   - Population growth models (Logistic equation).
+   - Spread of diseases (SIR model).
+
+3. **Economics**:
+   - Modeling capital accumulation.
+   - Growth models (Solow model).
+
+4. **Engineering**:
+   - Circuit analysis (RLC circuits).
+   - Control systems.
+
+---
+
+#### Example: Simple ODE
+
+Solve the equation:
+$$
+\frac{dy}{dx} = 2x, \quad y(0) = 1
+$$
+
+1. Separate variables:
+   $$
+   dy = 2x \, dx
+   $$
+
+2. Integrate both sides:
+   $$
+   y = x^2 + C
+   $$
+
+3. Apply the initial condition $y(0) = 1$:
+   $$
+   1 = 0^2 + C \implies C = 1
+   $$
+
+4. Final solution:
+   $$
+   y = x^2 + 1
+   $$
 
