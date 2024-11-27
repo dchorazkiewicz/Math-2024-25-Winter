@@ -1,75 +1,3 @@
-# Mathematical Analysis
-
----
-
-## Sequences, Functions, and Limits
-
-* Definitions (sequence, general term, sum, types of sequences: geometric, arithmetic, harmonic, ...)
-* Limits of numerical sequences
-* Limit of a function (theorems, continuity and points of discontinuity, l'Hôpital's rule mentioned, important limits: $e^x$ as $x$ approaches infinity)
-
----
-
-## Differential Calculus
-
-### Derivatives
-
-* Derivative of a function
-* Definition of the derivative, its geometric and physical significance
-* Differentiation rules
-* Differentiation of basic elementary functions
-
-### Advanced
-
-* Differentiation of composite functions
-* Derivative of an exponential function
-* Differentiation of logarithms
-* Inverse functions and their derivatives
-
-### Applications
-
-* Physics (Differential of a function and its geometric significance)
-* Extremum problems/Optimization (Extrema of functions, necessary and sufficient conditions for extrema, finding maximum and minimum values, convexity and concavity of functions, inflection points)
-* Calculating limits using l'Hôpital's rule
-* Differentiation of parametrically defined and implicitly defined functions
-* Approximation of functions (Taylor series, ...)
-* Theorems (Rolle's theorem, Lagrange Mean Value Theorem, Cauchy Mean Value Theorem, Darboux's theorem, Weierstrass theorem)
-
----
-
-## Integrals
-
-### Indefinite Integral
-
-* Definitions (as the inverse of differentiation) and its properties, "Integral of a derivative vs. derivative of an integral"
-* Table of indefinite integrals (derivative table in reverse)
-* integration constant $+C$
-
-### Methods of Integration
-
-* Guessing and testing
-* Method of substitution
-* Integration by parts
-* Integration of rational functions (quadratic polynomials in the denominator)
-* Integration of expressions involving trigonometric functions
-
-### Definite Integral
-
-* Definitions (definition, interpretation, and properties of the definite integral, Riemann integral – numerical and symbolic methods, improper integrals, left/right improper integrals)
-* Substitution and integration by parts in the definite integral
-* Applications of the definite integral (distance, volume, area, length of arc, surface area of a solid of revolution, volume of solids of revolution)
-
----
-
-## Series
-
-* Definition of a series (numerical, functional: power series, Fourier series), examples of series
-* Alternating series (definition, examples)
-* Power Series (convergence criteria), examples of Taylor and Maclaurin series (applications of power series for finding function values and limits, and for integrating functions)
-* Fourier series (definition, applications)
-
----
-
 # Exercises 2024/2025
 
 # Remik: Sequences and Series
@@ -174,7 +102,6 @@
 8. Generalize the Leibniz rule to the case of the derivative of the product of three functions: $(f \cdot g \cdot h)'$.
 
 Link: https://www.geogebra.org/m/GAcTpGCh 
-
 
 ---
  
