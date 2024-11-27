@@ -913,6 +913,7 @@ Finding extrema plays a critical role in computer science, particularly in solvi
 
 #### 1. **Machine Learning**
 In machine learning, training models often involves minimizing a loss function, which measures the error between the predicted and actual values. For example:
+
 - Gradient Descent: An optimization algorithm that uses derivatives to find the minimum of a function (e.g., loss function).
 - Convergence to a Global Minimum: Finding extrema ensures the model learns the best possible parameters.
 
@@ -921,26 +922,31 @@ In data analysis, functions are fit to data points (e.g., regression models) by 
 
 #### 3. **Algorithm Design**
 Many algorithms in computer science involve optimization:
+
 - Pathfinding Algorithms: Algorithms like Dijkstra’s and A* aim to minimize the cost of reaching a destination.
 - Scheduling Problems: Finding the minimum time or resources required to complete tasks.
 
 #### 4. **Computer Graphics**
 Optimization is critical in computer graphics for rendering, animation, and physics simulations. Examples include:
+
 - Minimizing energy functions for realistic cloth or fluid simulations.
 - Optimizing curves and surfaces for smooth rendering.
 
 #### 5. **Operations Research**
 In operations research, optimization is used to solve problems involving resource allocation, scheduling, and logistics. For example:
+
 - Linear Programming: Derivatives are used in the simplex method to maximize or minimize objective functions.
 - Nonlinear Optimization: Extrema are crucial in finding optimal solutions to more complex problems.
 
 #### 6. **Artificial Intelligence**
 In AI, optimization problems arise in areas like:
+
 - Game Theory: Finding optimal strategies for agents by maximizing rewards or minimizing losses.
 - Reinforcement Learning: Optimizing policies to maximize cumulative rewards over time.
 
 #### Example: Gradient Descent in Neural Networks
 In neural networks, the goal is to minimize the loss function during training. The process involves:
+
 1. Computing the gradient (derivative) of the loss function with respect to the model parameters.
 2. Updating the parameters in the direction opposite to the gradient to reduce the loss.
 
@@ -949,6 +955,7 @@ $$
 \theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
 $$
 where:
+
 - $\theta_t$: Current parameters
 - $\eta$: Learning rate
 - $\nabla L(\theta_t)$: Gradient of the loss function

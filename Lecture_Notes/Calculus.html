@@ -3362,7 +3362,7 @@ f=\{(1,2), (2,3), (3,4)\}
 <p><span class="math display">\[
 f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 \]</span></p>
-<div id="0d37676e" class="cell" data-execution_count="1">
+<div id="95e48f6e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3392,7 +3392,7 @@ f=\{(1,1),(2,1/2),(3,1/3),...\}=\{(n,1/n): n \in \mathbb{N}\}
 f=\{(x,x^2): x \in \mathbb{R}\}
 \]</span></p>
 <p>where <span class="math inline">\(\mathbb{R}\)</span> denotes the set of real numbers.</p>
-<div id="f1faddec" class="cell" data-execution_count="2">
+<div id="ecda0301" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3439,7 +3439,7 @@ f=\{((A,B),A+B): A,B \text{ are matrices of the same dimensions}\}
 \]</span></p>
 <p><strong>Example 8</strong></p>
 <p>A dictionary in Python is also a function that assigns each key a value. In our notation, we write this as:</p>
-<div id="c4b119e7" class="cell" data-execution_count="3">
+<div id="1bf08cc5" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d<span class="op">=</span>{<span class="st">&#39;a&#39;</span>:<span class="dv">1</span>, <span class="st">&#39;b&#39;</span>:<span class="dv">2</span>, <span class="st">&#39;c&#39;</span>:<span class="dv">3</span>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -3481,7 +3481,7 @@ x\mapsto g(x) \mapsto f(g(x))
 \]</span></p>
 <p>From these examples we see that the composition of functions is not commutative, that is, in general <span class="math inline">\(f\circ g \neq g\circ f\)</span>.</p>
 <p>Below is a Python code that visualizes the composition of two functions <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>.</p>
-<div id="ad84d04e" class="cell" data-execution_count="4">
+<div id="0157f356" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3526,7 +3526,7 @@ x\mapsto g(x) \mapsto f(g(x))
 <section id="definition-limit-of-a-sequence" class="level4">
 <h4 class="anchored" data-anchor-id="definition-limit-of-a-sequence">Definition: Limit of a sequence</h4>
 <p>A number <span class="math inline">\(g\)</span> is the limit of a sequence <span class="math inline">\(a_n\)</span> if for every <span class="math inline">\(\varepsilon&gt;0\)</span> there exists <span class="math inline">\(N\)</span> such that for every <span class="math inline">\(n&gt;N\)</span> we have <span class="math inline">\(|a_n-g|&lt;\epsilon\)</span>. We write this as <span class="math display">\[\lim_{n \to \infty} a_n=g\]</span>.</p>
-<div id="9e2fe7c6" class="cell" data-execution_count="5">
+<div id="10df86cf" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3622,7 +3622,7 @@ c_n=\frac{1}{n}
 <p><span class="math display">\[
 \lim_{n \to \infty} \frac{\sin(n)}{n}=0
 \]</span></p>
-<div id="89a749b3" class="cell" data-execution_count="6">
+<div id="911be50b" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3656,7 +3656,7 @@ c_n=\frac{1}{n}
 <h3 class="anchored" data-anchor-id="limits-of-real-functions-mathbbrrightarrowmathbbr">Limits of real functions (<span class="math inline">\(\mathbb{R}\rightarrow\mathbb{R}\)</span>)</h3>
 <section id="definition" class="level4">
 <h4 class="anchored" data-anchor-id="definition">Definition</h4>
-<div id="1d31b217" class="cell" data-execution_count="7">
+<div id="7f18b6d0" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import necessary libraries</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -3775,7 +3775,7 @@ c_n=\frac{1}{n}
 \lim_{x \to c^+} f(x) = L
 \]</span></p></li>
 </ul>
-<div id="28402d45" class="cell" data-execution_count="8">
+<div id="f84298f2" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3865,7 +3865,7 @@ b
 \end{align*}
 \]</span></p>
 <p>Therefore, the asymptote of the function <span class="math inline">\(f(x)=\frac{x^3+3x^2+1}{3x^2}\)</span> is <span class="math inline">\(y=\frac{1}{3}x+1\)</span>.</p>
-<div id="afc71b7f" class="cell" data-execution_count="9">
+<div id="d7de06ff" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -3941,7 +3941,7 @@ Example: <span class="math inline">\(f(x) = \frac{1}{x}\)</span> has an infinite
 <p><span class="math display">\[
 f&#39;({\color{red}a}) = \lim_{{\color{blue}h} \to 0} \frac{f({\color{red}a}+{\color{blue}h}) - f({\color{red}a})}{{\color{blue}h}}
 \]</span> This limit represents the slope of the tangent line to the curve <span class="math inline">\(y=f(x)\)</span> at the point <span class="math inline">\((a, f(a))\)</span>.</p>
-<div id="65856605" class="cell" data-execution_count="10">
+<div id="83c6ae24" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -4200,7 +4200,11 @@ Not relevant here, as the domain is not restricted.</p></li>
 <p>Finding extrema plays a critical role in computer science, particularly in solving <strong>optimization problems</strong>. Optimization involves determining the maximum or minimum value of a function, often under specific constraints. Here are some key applications:</p>
 <section id="machine-learning" class="level4">
 <h4 class="anchored" data-anchor-id="machine-learning">1. <strong>Machine Learning</strong></h4>
-<p>In machine learning, training models often involves minimizing a loss function, which measures the error between the predicted and actual values. For example: - Gradient Descent: An optimization algorithm that uses derivatives to find the minimum of a function (e.g., loss function). - Convergence to a Global Minimum: Finding extrema ensures the model learns the best possible parameters.</p>
+<p>In machine learning, training models often involves minimizing a loss function, which measures the error between the predicted and actual values. For example:</p>
+<ul>
+<li>Gradient Descent: An optimization algorithm that uses derivatives to find the minimum of a function (e.g., loss function).</li>
+<li>Convergence to a Global Minimum: Finding extrema ensures the model learns the best possible parameters.</li>
+</ul>
 </section>
 <section id="data-analysis-and-fitting" class="level4">
 <h4 class="anchored" data-anchor-id="data-analysis-and-fitting">2. <strong>Data Analysis and Fitting</strong></h4>
@@ -4208,26 +4212,51 @@ Not relevant here, as the domain is not restricted.</p></li>
 </section>
 <section id="algorithm-design" class="level4">
 <h4 class="anchored" data-anchor-id="algorithm-design">3. <strong>Algorithm Design</strong></h4>
-<p>Many algorithms in computer science involve optimization: - Pathfinding Algorithms: Algorithms like Dijkstra’s and A* aim to minimize the cost of reaching a destination. - Scheduling Problems: Finding the minimum time or resources required to complete tasks.</p>
+<p>Many algorithms in computer science involve optimization:</p>
+<ul>
+<li>Pathfinding Algorithms: Algorithms like Dijkstra’s and A* aim to minimize the cost of reaching a destination.</li>
+<li>Scheduling Problems: Finding the minimum time or resources required to complete tasks.</li>
+</ul>
 </section>
 <section id="computer-graphics" class="level4">
 <h4 class="anchored" data-anchor-id="computer-graphics">4. <strong>Computer Graphics</strong></h4>
-<p>Optimization is critical in computer graphics for rendering, animation, and physics simulations. Examples include: - Minimizing energy functions for realistic cloth or fluid simulations. - Optimizing curves and surfaces for smooth rendering.</p>
+<p>Optimization is critical in computer graphics for rendering, animation, and physics simulations. Examples include:</p>
+<ul>
+<li>Minimizing energy functions for realistic cloth or fluid simulations.</li>
+<li>Optimizing curves and surfaces for smooth rendering.</li>
+</ul>
 </section>
 <section id="operations-research" class="level4">
 <h4 class="anchored" data-anchor-id="operations-research">5. <strong>Operations Research</strong></h4>
-<p>In operations research, optimization is used to solve problems involving resource allocation, scheduling, and logistics. For example: - Linear Programming: Derivatives are used in the simplex method to maximize or minimize objective functions. - Nonlinear Optimization: Extrema are crucial in finding optimal solutions to more complex problems.</p>
+<p>In operations research, optimization is used to solve problems involving resource allocation, scheduling, and logistics. For example:</p>
+<ul>
+<li>Linear Programming: Derivatives are used in the simplex method to maximize or minimize objective functions.</li>
+<li>Nonlinear Optimization: Extrema are crucial in finding optimal solutions to more complex problems.</li>
+</ul>
 </section>
 <section id="artificial-intelligence" class="level4">
 <h4 class="anchored" data-anchor-id="artificial-intelligence">6. <strong>Artificial Intelligence</strong></h4>
-<p>In AI, optimization problems arise in areas like: - Game Theory: Finding optimal strategies for agents by maximizing rewards or minimizing losses. - Reinforcement Learning: Optimizing policies to maximize cumulative rewards over time.</p>
+<p>In AI, optimization problems arise in areas like:</p>
+<ul>
+<li>Game Theory: Finding optimal strategies for agents by maximizing rewards or minimizing losses.</li>
+<li>Reinforcement Learning: Optimizing policies to maximize cumulative rewards over time.</li>
+</ul>
 </section>
 <section id="example-gradient-descent-in-neural-networks" class="level4">
 <h4 class="anchored" data-anchor-id="example-gradient-descent-in-neural-networks">Example: Gradient Descent in Neural Networks</h4>
-<p>In neural networks, the goal is to minimize the loss function during training. The process involves: 1. Computing the gradient (derivative) of the loss function with respect to the model parameters. 2. Updating the parameters in the direction opposite to the gradient to reduce the loss.</p>
+<p>In neural networks, the goal is to minimize the loss function during training. The process involves:</p>
+<ol type="1">
+<li>Computing the gradient (derivative) of the loss function with respect to the model parameters.</li>
+<li>Updating the parameters in the direction opposite to the gradient to reduce the loss.</li>
+</ol>
 <p>Mathematically: <span class="math display">\[
 \theta_{t+1} = \theta_t - \eta \nabla L(\theta_t)
-\]</span> where: - <span class="math inline">\(\theta_t\)</span>: Current parameters - <span class="math inline">\(\eta\)</span>: Learning rate - <span class="math inline">\(\nabla L(\theta_t)\)</span>: Gradient of the loss function</p>
+\]</span> where:</p>
+<ul>
+<li><span class="math inline">\(\theta_t\)</span>: Current parameters</li>
+<li><span class="math inline">\(\eta\)</span>: Learning rate</li>
+<li><span class="math inline">\(\nabla L(\theta_t)\)</span>: Gradient of the loss function</li>
+</ul>
 <p>This iterative process uses derivatives to converge toward a minimum, improving model performance.</p>
 </section>
 <section id="conclusion-1" class="level4">
@@ -4275,7 +4304,7 @@ f(x)&amp;=f(0)+f&#39;(0)x+\frac{f&#39;&#39;(0)}{2!}x^2+\frac{f&#39;&#39;&#39;(0)
 \end{align*}
 \]</span></p>
 <p>Now we will plot first 5 aproximations of the function <span class="math inline">\(f(x)=sin(x)\)</span> using Taylor series.</p>
-<div id="cbbea261" class="cell" data-execution_count="11">
+<div id="d5059b6e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.special <span class="im">import</span> factorial</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -4337,7 +4366,7 @@ e^x&amp;=1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\cdots = \sum_{n=0}^{\infty} \frac{x^
 \int_{a}^{b} f(x) \, dx = \lim_{n \to \infty} \sum_{i=1}^{n} f(x_i) \Delta x
 \]</span></p>
 <p>where <span class="math inline">\(\Delta x = \frac{b-a}{n}\)</span> and <span class="math inline">\(x_i = a + i \Delta x\)</span>.</p>
-<div id="b87618ee" class="cell" data-execution_count="12">
+<div id="55d8309b" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
