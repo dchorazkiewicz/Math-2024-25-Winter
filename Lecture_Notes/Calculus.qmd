@@ -1065,7 +1065,7 @@ $$
 R_n(x) = \frac{f^{(n)}(c)}{n!}(x-a)^n \quad \text{for some } c\in(a,x)
 $$
 
-How to read this
+#### How to read this
 
 **First approximation**
 
@@ -1087,7 +1087,7 @@ $$
 
 etc.
 
-**Example**: Let $f(x)=sin(x)$. Then the Taylor series of $f(x)$ at $x=0$ is
+**Example**: Let $f(x)=\sin(x)$. Then the Taylor series of $f(x)$ at $x=0$ is
 
 $$
 \begin{align*}
@@ -1097,7 +1097,7 @@ f(x)&=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+\frac{f'''(0)}{3!}x^3+\cdots\\
 \end{align*}
 $$
 
-Now we will plot first 5 aproximations of the function $f(x)=sin(x)$ using Taylor series.
+Now we will plot first 5 aproximations of the function $f(x)=\sin(x)$ using Taylor series.
 
 ```{python}
 import numpy as np
@@ -1317,6 +1317,11 @@ $$
 \int_{a}^{b} c f(x) \, dx = c \int_{a}^{b} f(x) \, dx
 $$
 
+$$
+\int_{a}^{c} f(x) \, dx = \int_{a}^{b} f(x) \, dx+\int_{b}^{c} f(x) \, dx 
+\quad \text{for } [a,c]=[a,b]\cup[b,c]
+$$
+
 **Change of Variables**
 
 If $x=g(t)$ is a differentiable function on $[a,b]$ and $f$ is continuous on the range of $g$, then
@@ -1330,6 +1335,11 @@ $$
 $$
 \int u \, dv = uv - \int v \, du
 $$
+
+#### Wolfram Alpha
+
+* [Link 1](https://www.wolframalpha.com/input?i=integral+x%2Bsin%283x%29+from+0+to+pi%2F4)
+* [Link 2](https://www.wolframalpha.com/input?i=integral+x%5En+exp%28-x%29+from+0+to+infty)
 
 ### Fundamental Theorem of Calculus 
 
@@ -1351,12 +1361,225 @@ Let $x_0 \in (a,b)$. Then
 
 $$
 \begin{align*}
-F'(x_0)&=\lim_{h \to 0} \frac{F(x_0+h)-F(x_0)}{h}\\
-&=\lim_{h \to 0} \frac{\int_{a}^{x_0+h} f(t) \, dt-\int_{a}^{x_0} f(t) \, dt}{h}\\
+F'(x_0)&=\lim_{h \to 0} \frac{\color{red}{F(x_0+h)}-\color{blue}{F(x_0)}}{h}\\
+&=\lim_{h \to 0} \frac{\color{red}{\int_{a}^{x_0+h} f(t) \, dt}-
+\color{blue}{\int_{a}^{x_0} f(t) \, dt}}{h}\\
+&=\lim_{h \to 0} \frac{\color{red}{\int_{a}^{x_0} f(t) \, dt}
++\int_{x_0}^{x_0+h} f(t) \, dt
+-\color{blue}{\int_{a}^{x_0} f(t) \, dt}}{h}\\
 &=\lim_{h \to 0} \frac{\int_{x_0}^{x_0+h} f(t) \, dt}{h}\\
 &=\lim_{h \to 0} \frac{f(x_0+\theta h)h}{h}\\
 &=f(x_0)
 \end{align*}
 $$
 
+### Antiderivative
 
+ 
+
+In calculus, an antiderivative, primitive function, primitive integral, or indefinite integral of a function $f$ is a differentiable function $F$ whose derivative is equal to the original function $f$. This can be stated symbolically as $F'(x) = f(x)$. The process of solving for antiderivatives is called antidifferentiation (or indefinite integration), and its opposite operation is called differentiation, which is the process of finding a derivative.
+
+| $f(x)$             | $F(x)$                             |
+|---------------------|------------------------------------|
+| $x^n$              | $\frac{x^{n+1}}{n+1} + C$         |
+| $\frac{1}{x}$      | $\ln|x| + C$                       |
+| $e^x$              | $e^x + C$                         |
+| $\sin(x)$          | $-\cos(x) + C$                    |
+| $\cos(x)$          | $\sin(x) + C$                     |
+
+
+### Using Antiderivatives in Definite Integrals
+
+The **definite integral** of a function $f(x)$ over an interval $[a, b]$ is defined as:
+
+$$
+\int_a^b f(x) \, dx
+$$
+
+According to the **Fundamental Theorem of Calculus**, if $F(x)$ is an antiderivative of $f(x)$ (i.e., $F'(x) = f(x)$), the value of the definite integral is given by:
+
+$$
+\int_a^b f(x) \, dx = F(b) - F(a)
+$$
+
+This means that the definite integral can be computed using the antiderivative $F(x)$ evaluated at the endpoints $a$ and $b$. 
+
+---
+
+#### Step-by-Step Process
+
+To calculate a definite integral using an antiderivative:
+
+1. **Find the Antiderivative**:  
+   Determine $F(x)$ such that $F'(x) = f(x)$.
+   
+2. **Evaluate at the Bounds**:  
+   Compute $F(b)$ and $F(a)$.
+   
+3. **Subtract**:  
+   The result of the integral is $F(b) - F(a)$.
+
+---
+
+#### Example: Compute a Definite Integral
+
+Let $f(x) = 2x$, and compute the integral over $[1, 3]$:
+
+$$
+\int_1^3 2x \, dx
+$$
+
+1. **Find the Antiderivative**:  
+   $$
+   \int 2x \, dx = x^2 + C
+   $$
+
+2. **Evaluate at the Bounds**:  
+   - $F(3) = 3^2 = 9$
+   - $F(1) = 1^2 = 1$
+
+3. **Subtract**:  
+   $$
+   \int_1^3 2x \, dx = F(3) - F(1) = 9 - 1 = 8
+   $$
+
+Thus, the total signed area under $f(x)$ from $x=1$ to $x=3$ is $8$.
+
+---
+
+#### Geometric Interpretation
+
+The definite integral represents the **signed area** under the curve $f(x)$ between $x = a$ and $x = b$. The use of antiderivatives simplifies this calculation by avoiding the need for approximation methods like Riemann sums.
+
+---
+
+#### Practical Applications
+
+1. **Physics**:  
+   - **Displacement from velocity**:  
+     If $v(t)$ is the velocity of an object, the displacement over $[t_1, t_2]$ is:
+     $$
+     \int_{t_1}^{t_2} v(t) \, dt
+     $$
+
+2. **Economics**:  
+   - **Total revenue or cost**:  
+     If $C'(x)$ represents the marginal cost to produce $x$ units, the total cost for producing between $x_1$ and $x_2$ units is:
+     $$
+     \int_{x_1}^{x_2} C'(x) \, dx = C(x_2) - C(x_1)
+     $$
+
+3. **Engineering**:  
+   - **Work done by a force**:  
+     If $F(x)$ is the force applied over a distance, the total work is:
+     $$
+     \int_a^b F(x) \, dx
+     $$
+
+
+### Applications of Definite Integrals
+
+Definite integrals are widely used to compute quantities such as area, volume, arc length, surface area, and volumes of solids of revolution. Below is a summary of the key formulas and methods for these applications:
+
+---
+
+#### 1. Area Under a Curve
+
+The area between a curve $y = f(x)$ and the $x$-axis over an interval $[a, b]$ is given by:
+
+$$
+A = \int_a^b f(x) \, dx
+$$
+
+- **For areas below the $x$-axis**, take the absolute value of the integral or split the integral into positive and negative parts.
+- For areas between two curves $y = f(x)$ and $y = g(x)$:
+  $$
+  A = \int_a^b \left[ f(x) - g(x) \right] \, dx
+  $$
+
+---
+
+#### 2. Volume of a Solid
+
+To compute the volume of a solid with a cross-sectional area $A(x)$ perpendicular to the $x$-axis:
+
+$$
+V = \int_a^b A(x) \, dx
+$$
+
+- **For solids of revolution** (rotating around the $x$-axis):
+  $$
+  V = \pi \int_a^b \left[ f(x) \right]^2 \, dx
+  $$
+- **For rotation around the $y$-axis**:
+  $$
+  V = \pi \int_a^b \left[ g(y) \right]^2 \, dy
+  $$
+
+---
+
+#### 3. Arc Length of a Curve
+
+The length of a curve $y = f(x)$ from $x = a$ to $x = b$ is:
+
+$$
+L = \int_a^b \sqrt{1 + \left[ f'(x) \right]^2} \, dx
+$$
+
+- For parametric curves $(x(t), y(t))$:
+  $$
+  L = \int_a^b \sqrt{\left[ \frac{dx}{dt} \right]^2 + \left[ \frac{dy}{dt} \right]^2} \, dt
+  $$
+
+---
+
+#### 4. Surface Area of a Solid of Revolution
+
+The surface area of a solid generated by rotating a curve $y = f(x)$ about the $x$-axis is:
+
+$$
+S = 2\pi \int_a^b f(x) \sqrt{1 + \left[ f'(x) \right]^2} \, dx
+$$
+
+- For rotation around the $y$-axis:
+  $$
+  S = 2\pi \int_a^b x \sqrt{1 + \left[ f'(x) \right]^2} \, dx
+  $$
+
+---
+
+#### 5. Volume of Solids of Revolution
+
+For solids of revolution, the **disk method** or **shell method** is used:
+
+- **Disk Method** (rotating around $x$-axis):
+  $$
+  V = \pi \int_a^b \left[ f(x) \right]^2 \, dx
+  $$
+- **Shell Method** (rotating around $y$-axis):
+  $$
+  V = 2\pi \int_a^b x f(x) \, dx
+  $$
+
+---
+
+### Summary Table
+
+| Application                     | Formula                                              |
+|---------------------------------|------------------------------------------------------|
+| **Area under a curve**          | $A = \int_a^b f(x) \, dx$                            |
+| **Volume (cross-sections)**     | $V = \int_a^b A(x) \, dx$                            |
+| **Volume (disk method)**        | $V = \pi \int_a^b \left[ f(x) \right]^2 \, dx$      |
+| **Volume (shell method)**       | $V = 2\pi \int_a^b x f(x) \, dx$                    |
+| **Arc length**                  | $L = \int_a^b \sqrt{1 + \left[ f'(x) \right]^2} \, dx$ |
+| **Surface area (rotation)**     | $S = 2\pi \int_a^b f(x) \sqrt{1 + \left[ f'(x) \right]^2} \, dx$ |
+
+---
+
+### Notes
+
+1. These formulas assume functions are continuous and differentiable on the interval $[a, b]$.
+2. Adjust limits of integration based on the axis of rotation or the interval of the curve.
+3. Applications span multiple disciplines, including physics, engineering, and economics.
+
+---
