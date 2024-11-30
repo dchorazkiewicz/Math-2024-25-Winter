@@ -297,7 +297,25 @@ plt.legend()
 plt.show()
 ```
 
+### Inverse function
 
+The inverse of a function $f$ is a function that "undoes" the action of $f$. It is denoted as $f^{-1}$ and is defined as follows:
+
+$$
+f^{-1}(f(x))=x
+$$
+
+$$
+f(f^{-1}(x))=x
+$$
+
+The inverse of a function $f$ is not always defined. For the inverse to exist, the function $f$ must be one-to-one (injective). A function is one-to-one if it maps distinct elements of its domain to distinct elements of its codomain.
+
+$$
+x \xrightarrow{\text{$f$}} y \xrightarrow{\text{$g$}} x
+$$
+
+As function is tuple $(x,y)$, the inverse function is $(y,x)$.
 
 ## Limits of functions
 
@@ -357,7 +375,9 @@ Consider:
 * $a_n=a_{n-1}+a_{n-2}$
 * ...
 
-The n-th term for a Fibbonacci sequence is $$a_n=a_{n-1}+a_{n-2}$$. Example: $a_n=a_{n-1}+a_{n-2}$ giving the sequence $0,1,1,2,3,5,8,...$.
+The n-th term for a Fibbonacci sequence is $$a_n=a_{n-1}+a_{n-2}$$. 
+
+Example: $a_n=a_{n-1}+a_{n-2}$ giving the sequence $0,1,1,2,3,5,8,...$.
 
 See link for more examples of sequences: [Oeis.org](https://oeis.org/)
 
