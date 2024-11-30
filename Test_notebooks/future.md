@@ -146,34 +146,26 @@ $$
 ## Differential Equations
 
 1. Solve the following differential equations:
-   - $y' = y$
-   - $y' = \frac{1}{2y}$
+   - $y'(x)= y$
+   - $y'(x) = \frac{1}{2y(x)}$
   
-2. Solve the first-order differential equations using the method of separation of variables:
+2. Solve the first-order differential equations using the method of separation of variables for $x$ and $y=y(x)$:
 
-a. $\frac{dy}{dx} = \frac{x}{y}$
-
-b. $\frac{dy}{dx} = \frac{y}{x}$
-
-c. $\frac{dy}{dx} = \frac{1}{x}$
-
-d. $\frac{dy}{dx} = xy$
-
-e. $\frac{dy}{dx} = \sqrt{x}$
-
-f. $y dx + x dy = 0$
+   - $\frac{dy}{dx} = \frac{x}{y}$
+   - $\frac{dy}{dx} = \frac{y}{x}$
+   - $\frac{dy}{dx} = xy$
 
 3. Solve the second-order differential equations:
 
-a. $\frac{d^2x}{dt^2} - a = 0$
+   * $y''(x) + y'(x) = 0$, with boundary conditions $y(0) = 2$ and $y'(0) = -1$
 
-b. $\frac{d^2y}{dx^2} - \frac{dy}{dx} = 0$
+   * $y''(x) - y(x)= 0$, with boundary conditions $y(0) = 2$ and $y'(0) = 0$
 
-c. $y'' + y' = 0$, with boundary conditions $y(0) = 2$ and $y'(0) = -1$
+   * $\frac{d^2\,y(x)}{dx^2} = -\omega^2 y(x)$.
 
-d. $y'' - y = 0$, with boundary conditions $y(0) = 2$ and $y'(0) = 0$
+4. Check if the function $\psi(t, x) = A \cos(\omega t + kx)$ is a solution of the partial differential equation (the so-called "wave equation"):
 
-e. $\frac{d^2y}{dx^2} = \omega^2 y$
-
-f. $\frac{d^2y}{dx^2} = -\omega^2 y$
-```
+$$
+\frac{\partial^2 \psi(t, x)}{\partial t^2} - v^2 \frac{\partial^2 \psi(t, x)}{\partial x^2} = 0,
+$$
+where $v = \frac{\omega}{k} = \frac{2\pi / T}{2\pi / \lambda}$.
