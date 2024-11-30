@@ -2,13 +2,13 @@
 
 ## Functions
 
-1. Draw in one Geogebra notebook the following functions:
+1. Draw in a single Geogebra notebook the following functions:
    - $f(x) = x^2$
    - $g(x) = \sqrt{x}$
    - $h(x) = \frac{1}{x}$
    - $j(x) = \sin(x)$
 
-Find value of all above functions at $x = 2$.
+Find value of all the above functions at $x = 2$.
 
 2. Let $f(x) = 3x - 1$ and $g(x) = \sqrt{x}$. Find:
    - $f(g(x))$
@@ -16,7 +16,7 @@ Find value of all above functions at $x = 2$.
    - $f(f(x))$
    - $g(g(x))$
 
-and visualize functions on the same Geogebra notebook.
+and visualize functions in a single Geogebra notebook.
 
 3. Let $f(x) = e^x$ and $g(x) = \ln(x)$. Check: $f(g(x))$ and $g(f(x))$. What do you notice?
 
@@ -33,10 +33,10 @@ and visualize functions on the same Geogebra notebook.
 
    - $\displaystyle \lim_{n \to \infty} \frac{(2n+3)^3}{n^3-1}$
 
-2. Prove using squeze theorem:
+2. Prove using the squeeze theorem:
    - $\displaystyle\lim_{n \to \infty} \frac{\sin(n)}{n}$
 
-3. Find limit of the sequence:
+4. Find the limit of the sequence:
    - $a_n = (1+\frac{1}{n})^n$
 
 ## Limits of Real Functions
@@ -48,7 +48,7 @@ and visualize functions on the same Geogebra notebook.
    
    - $\displaystyle \lim_{x \to 0} \frac{\sin(3x)}{2x+1}$.
 
-4. Find asymptotes of the function:
+4. Find the asymptotes of the function:
   
    - $f(x) = \frac{x^2 - 1}{x^2 + 1}$
    - $g(x) = \frac{\sin(x)}{x^2+1}$
@@ -79,33 +79,32 @@ and visualize functions on the same Geogebra notebook.
 3. For $f(x) = \cos(x)$, verify that $f''(x) = -f(x)$.
 
 4. Using de l'Hospital's Rule, find the improper limits:
-   - $\lim_{x\to 0} \frac{\sin{x}}{x}$
+   - $\displaystyle \lim_{x\to 0} \frac{\sin{x}}{x}$
 
-   - $\lim_{x\to \infty} \frac{\ln x}{x}$
+   - $\displaystyle \lim_{x\to \infty} \frac{\ln x}{x}$
 
-   - $\lim_{x\to \infty} \frac{\exp(x)}{x}$
+   - $\displaystyle \lim_{x\to \infty} \frac{\exp(x)}{x}$
 
-## 7. Extrema
+5. In physics, the position of a particle is given by $x(t) = 3t^2 - 6t + 1$. Find the velocity $V(t)=x'(t)$ and acceleration $a(t)=V'(t)=x''(t)$ of the particle at time $t = 2$.
 
-1. The profit function is $P(x) = -2x^2 + 50x - 300$, where $x$ is the number of units sold. Find the number of units that maximize profit.
+## Extremum
 
-2. You have 10 meters of string, and you need to use it to enclose the largest possible rectangular.
+6. The profit function is $P(u) = -2u^2 + 50u - 300$, where $u$ is the number of units sold. Find the number of units that maximize profit.
 
-3. Find extremum od $f(x) = x^2 + 3x - 5$.
+7. You have 10 meters of string, and you need to use it to enclose the largest possible rectangular. Find the dimensions of the rectangle.
 
-4. Find extremum of $f(x) =\frac{x^2+2x+1}{x-1}$.
+8. Find extremum od $f(x) = x^2 + 3x - 5$.
 
-5. In physics, the postion of a particle is given by $x(t) = 3t^2 - 6t + 1$. Find the velocity $V(t)=x'(t)$ and acceleration $a(t)=V'(t)=x''(t)$ of the particle at time $t = 2$.
+9. Find extremum of $f(x) =\frac{x^2+2x+1}{x-1}$.
 
 ## Taylor Series
 
-1. Find the Taylor series for:
+1. Find the Taylor series and visualize obtained functions in Geogebra:
    - $f(x) = \cos(x)$ around $x = 0$ up to the 4th degree.
-   - $h(x) = 1/(1-x)$ around $x = \pi$ up to the 4rd degree.
+   - $h(x) = 1/(1-x)$ around $x = 0$ up to the 4rd degree.
    - $g(x) = \sin(x)$ around $x = \pi$ up to the 4rd degree.
-and visualize functions in Geogebra.
 
-2. Find tangent line $y = f'(x_0) (x-x_0) + f(x_0)$ to the function $f(x) = e^{\sin(x)}$ at $x = \pi$. Hints for Geogebra visualization: define f(x), include slider s, define y = f'(s) (x-s) + f(s), include point P(s, f(s)).
+2. Find a tangent line $y = f'(x_0) (x-x_0) + f(x_0)$ to the function $f(x) = e^{\sin(x)}$ at $x_0 = \pi$. Hints for Geogebra visualization: define f(x), include slider s, define y = f'(s) (x-s) + f(s), and include point P(s, f(s)).
 
 ## Integrals
 
@@ -125,8 +124,8 @@ and visualize functions in Geogebra.
    - $\int x \ln(x) \, dx$
    - $\int x e^x \, dx$
 
-2. Calculate integrals over the interval $[0, \pi]$. 
-   - $f(x)=2x+1$ 
+2. Calculate integrals over the interval $[0, \pi]$ and visualize them in Geogebra:
+   - $f(x)=2x+1$
    - $g(x)=x^2$
 
 3. Calculate the area of the region bounded by the lines:
@@ -145,17 +144,17 @@ $$
 
 ## Differential Equations
 
-1. Solve the following differential equations:
+1. Solve the following first-order ordinary differential equations:
    - $y'(x)= y$
    - $y'(x) = \frac{1}{2y(x)}$
   
-2. Solve the first-order differential equations using the method of separation of variables for $x$ and $y=y(x)$:
+3. Solve the first-order ordinary differential equations using the method of separation of variables for $x$ and $y=y(x)$:
 
    - $\frac{dy}{dx} = \frac{x}{y}$
    - $\frac{dy}{dx} = \frac{y}{x}$
    - $\frac{dy}{dx} = xy$
 
-3. Solve the second-order differential equations:
+4. Solve the second-order ordinary differential equations:
 
    * $y''(x) + y'(x) = 0$, with boundary conditions $y(0) = 2$ and $y'(0) = -1$
 
@@ -163,9 +162,8 @@ $$
 
    * $\frac{d^2\,y(x)}{dx^2} = -\omega^2 y(x)$.
 
-4. Check if the function $\psi(t, x) = A \cos(\omega t + kx)$ is a solution of the partial differential equation (the so-called "wave equation"):
+5. Check if the function $\psi(t, x) = A \cos(\omega t + kx)$ is a solution of the second-order partial differential equation (the so-called "wave equation"), where $v = \frac{\omega}{k} = \frac{2\pi / T}{2\pi / \lambda}$:
 
 $$
-\frac{\partial^2 \psi(t, x)}{\partial t^2} - v^2 \frac{\partial^2 \psi(t, x)}{\partial x^2} = 0,
+\frac{\partial^2 \psi(t, x)}{\partial t^2} - v^2 \frac{\partial^2 \psi(t, x)}{\partial x^2} = 0.
 $$
-where $v = \frac{\omega}{k} = \frac{2\pi / T}{2\pi / \lambda}$.
