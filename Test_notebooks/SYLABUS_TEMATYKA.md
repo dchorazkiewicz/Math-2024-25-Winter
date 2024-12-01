@@ -1,6 +1,48 @@
-# Scope of the course
+# UPDATED SYLLABUS
 
+---
 
+## Linear Algebra		
+
+### Matrices
+Introduction to matrices and arithmetic operations on matrices, types of matrices, determinants (Laplace expansion method, Gauss-Jordan method), and their properties, algebraic complements, minors, cofactors, rank. Finding the inverse of a matrix by various methods.	6	10
+
+### Linear Equations 
+
+Systems of linear equations and methods for solving them, Cramer's Rule, matrix method for solving systems of linear equations, Gaussian elimination method.	4	5
+
+---
+
+## Analytic Geometry
+		
+### Vector Algebra
+ 
+Coordinate systems in the plane and space, vectors, linear operations on vectors, basis, finding the coordinates of a vector in a new basis, projection of a vector onto an axis, properties and applications of scalar product, vector product, and mixed product.
+
+### Curves and surfaces
+
+Utilizing algebraic language to describe curves and surfaces in Cartesian spaces, including the parametrization of curves and surfaces. Implicit and explicit equations of curves and surfaces. 
+
+Additionally, matrix calculus and systems of linear equations are reinterpreted geometrically, providing deeper insights into the structure of linear transformations, projections, and the geometric relationships between vectors, planes, and spaces within the framework of analytic geometry.
+
+---
+
+## Calculus
+		
+### Differential Calculus 
+
+Sequences, real functions, and limits as foundational concepts for calculus. Exploration of derivatives, including their definition, rules, and higher-order derivatives. Applications of derivatives in analyzing the behavior of functions, including finding extrema, inflection points, and solving optimization problems. Geometric interpretations such as tangents to curves and rates of change. Introduction to Taylor series, providing approximations of functions. 
+
+### Integrals
+
+Introduction to definite and indefinite integrals, fundamental theorem of calculus, and techniques of integration such as substitution and integration by parts.  Applications of integrals in calculating areas, volumes of solids of revolution, arc lengths, and solving real-world problems such as accumulation functions and probability distributions. Geometric interpretation of integration as the accumulation of quantities under a curve.	3	6
+
+### Differential Equations 
+Introduction to ordinary differential equations (ODEs). Applications in modeling physical systems, population dynamics, and growth/decay processes, emphasizing the role of differential equations in connecting calculus to real-world phenomena.
+
+---
+
+# OLD SYLLABUS
 
 # Calculus
 
