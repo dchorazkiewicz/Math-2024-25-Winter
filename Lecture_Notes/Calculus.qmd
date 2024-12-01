@@ -297,7 +297,9 @@ plt.legend()
 plt.show()
 ```
 
+## Inverse functions
 
+TO BE DONE!!!!
 
 ## Limits of functions
 
@@ -451,6 +453,27 @@ plt.show()
 
 ### Limits of real functions ($\mathbb{R}\rightarrow\mathbb{R}$)
 
+#### Formal Definition
+
+**Definition**: Let $f(x)$ be a function defined on some open interval containing $c$, except possibly at $c$ itself. We say that 
+
+$$
+\lim_{x \to c} f(x) = L
+$$
+
+if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$, we have 
+
+$$
+|f(x) - L| < \varepsilon.
+$$
+
+Geogebra: 
+
+* [Aplet1](https://www.geogebra.org/m/cwvFraYf)
+* [Aplet2](https://www.geogebra.org/m/ksuyccpy)
+
+<!-- ![](additional_files/ep.jpg){width=400px} -->
+
 #### Definition
 
 
@@ -543,26 +566,7 @@ $$
 
 This means that as $x$ approaches $c$, the values of $f(x)$ get arbitrarily close to $L$.
 
-#### Formal Definition
 
-**Definition**: Let $f(x)$ be a function defined on some open interval containing $c$, except possibly at $c$ itself. We say that 
-
-$$
-\lim_{x \to c} f(x) = L
-$$
-
-if for every $\varepsilon > 0$ there exists a $\delta > 0$ such that whenever $0 < |x - c| < \delta$, we have 
-
-$$
-|f(x) - L| < \varepsilon.
-$$
-
-Geogebra: 
-
-* [Aplet1](https://www.geogebra.org/m/cwvFraYf)
-* [Aplet2](https://www.geogebra.org/m/ksuyccpy)
-
-<!-- ![](additional_files/ep.jpg){width=400px} -->
 
 #### One-Sided Limits
 
@@ -809,7 +813,7 @@ plt.show()
 
 **Example**: Let $f(x)=\sin(x)$. Then the derivative of $f(x)$ at $x=a$ is $f'(a)=\cos(a)$. Now we will prove this.
 
-**Proof**: From trigonometry, we know that $sin(a+h)=sin(a)cos(h)+cos(a)sin(h)$. Therefore, we have
+**Proof**: From trigonometry, we know that $\sin(a+h)=\sin(a)\cos(h)+\cos(a)\sin(h)$. Therefore, we have
 
 $$
 \begin{align*}
