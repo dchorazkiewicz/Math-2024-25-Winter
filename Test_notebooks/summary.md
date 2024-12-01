@@ -58,50 +58,6 @@ If you do not have a GitHub account with your copied Jupyter files within 2 week
 
 Do your own repository on GitHub. Fork the original repository to your account. Open the Jupyter files in Colab, and start working on the exercises. Make sure that you are able to save your work! 
 
-## Scope of the course
-
-Here is the list of files/ materials (as 12.10.2024) that you will find in the courserepository. The list is not complete yet (we need to update last section):
-
-- **00_Introduction**  
-  - What_is_a_function.ipynb   **[read and execute]**
-  - What_is_an_equation.ipynb   **[read and execute]**
-  - What_is_Jupyter_Notebook.ipynb  **[read and execute]**  
-
-- **01_Linear_Algebra**  
-  - **01_Matrices**  
-    - LA_Matrix_basic_operations_en.ipynb
-    - LA_Matrix_determinant_Laplace_en.ipynb
-    - LA_Matrix_determinants_2x2_3x3_en.ipynb
-    - LA_Matrix_inversion_by_formula_en.ipynb  
-    - LA_Matrix_inversion_of_a_matrix_using_gauss_en.ipynb  
-    - LA_Matrix_triangular_en.ipynb  
-
-  - **02_Systems_of_Linear_Equations**  
-    - LA_SoLE_old_school_en.ipynb  
-    - LA_SoLE_Cramer_en.ipynb  
-    - LA_SoLE_Gauss_en.ipynb  
-    - LA_SoLE_inverse_matrix_en.ipynb  
-
-  - **03_Vectors**  
-    - LA_Vectors_introduction_en.ipynb  
-    - LA_Vectors_products_en.ipynb  
-    - LA_Vectors_projections_en.ipynb  
-
-- **02_Analytic_Geometry**  
-  - **05_Lines**  
-      - exercise_list.md 
-  - **06_Conic_Curves**
-      - exercise_list.md 
-  - **07_Planes_in_Space**
-      - exercise_list.md  
-  - **08_Second_Order_Surfaces**
-      - exercise_list.md   
-  - **09_Basics_of_Tensor_Calculus**  
-      - exercise_list.md 
-
-- **03_Mathematical_Analysis**
-  - [still in progress - will be updated soon]
-  
 ---
 
 # Course original repository

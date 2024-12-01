@@ -297,9 +297,25 @@ plt.legend()
 plt.show()
 ```
 
-## Inverse functions
+### Inverse function
 
-TO BE DONE!!!!
+The inverse of a function $f$ is a function that "undoes" the action of $f$. It is denoted as $f^{-1}$ and is defined as follows:
+
+$$
+f^{-1}(f(x))=x
+$$
+
+$$
+f(f^{-1}(x))=x
+$$
+
+The inverse of a function $f$ is not always defined. For the inverse to exist, the function $f$ must be one-to-one (injective). A function is one-to-one if it maps distinct elements of its domain to distinct elements of its codomain.
+
+$$
+x \xrightarrow{\text{$f$}} y \xrightarrow{\text{$g$}} x
+$$
+
+As function is tuple $(x,y)$, the inverse function is $(y,x)$.
 
 ## Limits of functions
 
@@ -312,6 +328,60 @@ $$\{(n,a_n): n \in \mathbb{N}\}=\{(0, a_0), (1, a_1), (2, a_2), ...\}$$
 The argument is most often omitted, so we write this as 
 
 $$\{a_n\}=\{a_0, a_1, a_2, ...\}$$
+
+There are different ways to define a sequences.
+
+##### Arithmetic sequence
+
+Consider:
+
+* $a_0$
+* $a_1=a_0+r$
+* $a_2=a_1+r=a_0+2r$
+* $a_3=a_2+r=a_0+3r$
+* $a_4=a_3+r=a_0+4r$
+* ... 
+* $a_n=a_{n-1}+r = a_0+nr$
+* ...
+
+The n-th term for an arithmetic sequence is $$a_n=a_0+nr$$. Example: $a_n=2+3n$ giving the sequence $2,5,8,11,...$.
+
+##### Geometric sequence
+
+Consider:
+
+* $a_0$
+* $a_1=a_0\cdot q$
+* $a_2=a_1\cdot q=a_0\cdot q^2$
+* $a_3=a_2\cdot q=a_0\cdot q^3$
+* $a_4=a_3\cdot q=a_0\cdot q^4$
+* ...
+* $a_n=a_{n-1}\cdot q = a_0\cdot q^n$
+* ...
+
+The n-th term for a geometric sequence is $$a_n=a_0\cdot q^n$$. Example: $a_n=2\cdot 3^n$ giving the sequence $2,6,18,54,...$.
+
+##### Fibbonacci sequence
+
+Consider:
+
+* $a_0=0$
+* $a_1=1$
+* $a_2=a_1+a_0=1$
+* $a_3=a_2+a_1=2$
+* $a_4=a_3+a_2=3$
+* $a_5=a_4+a_3=5$
+* ...
+* $a_n=a_{n-1}+a_{n-2}$
+* ...
+
+The n-th term for a Fibbonacci sequence is $$a_n=a_{n-1}+a_{n-2}$$. 
+
+Example: $a_n=a_{n-1}+a_{n-2}$ giving the sequence $0,1,1,2,3,5,8,...$.
+
+See link for more examples of sequences: [Oeis.org](https://oeis.org/)
+
+### Limits of sequences
 
 An idea of a limit of sequence is very simple. It is a number that the sequence approaches as we take more and more elements of the sequence. For example, the sequence $a_n=\frac{1}{n}$ approaches 0 as we take more and more elements of the sequence. We write this as
 
