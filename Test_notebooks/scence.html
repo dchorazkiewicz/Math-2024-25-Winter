@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latające Kule z Pauzą</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #121212;
+        }
+        canvas {
+            display: block;
+        }
+        #pauseButton {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            background-color: #ff5733;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        #pauseButton:hover {
+            background-color: #c74433;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="scene"></canvas>
+    <button id="pauseButton">Pauza</button>
+    <script src="scene.js"></script>
+</body>
+</html>
