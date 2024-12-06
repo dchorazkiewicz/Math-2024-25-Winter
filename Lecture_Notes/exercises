@@ -1,0 +1,1107 @@
+#basic operation on matrices
+import numpy as np
+
+# Define the matrices
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = np.array([[-1, 2], [3, 0]])
+D = np.array([[-1, 2, 3], [4, 0, 6]])
+E = np.array([[1, 2], [4, 5], [7, 8]])
+
+# Problem 1: Matrix Addition and Subtraction
+A_plus_B = A + B
+B_minus_A = B - A
+A_plus_C = A + C
+# D + E cannot be added due to shape mismatch
+
+# Problem 2: Scalar Multiplication
+half_A = 0.5 * A
+two_B = 2 * B
+neg_three_C = -3 * C
+four_D = 4 * D
+
+# Problem 3: Matrix Multiplication
+A_dot_B = np.dot(A, B)
+B_dot_A = np.dot(B, A)
+# A * D is not possible due to incompatible shapes
+D_dot_E = np.dot(D, E)
+
+# Display results
+print("Problem 1:")
+print("A + B =\n", A_plus_B)
+print("B - A =\n", B_minus_A)
+print("A + C =\n", A_plus_C)
+
+print("\nProblem 2:")
+print("1/2 A =\n", half_A)
+print("2B =\n", two_B)
+print("-3C =\n", neg_three_C)
+print("4D =\n", four_D)
+
+print("\nProblem 3:")
+print("A * B =\n", A_dot_B)
+print("B * A =\n", B_dot_A)
+print("D * E =\n", D_dot_E)
+
+
+#determinants
+
+# Define the matrices
+A = np.array([[2, 3], [1, 4]])
+B = np.array([[5, 6], [7, 8]])
+C = np.array([[-1, 2], [3, 0]])
+
+D = np.array([[1, 0, 2], [-1, 3, 1], [2, 4, -2]])
+E = np.array([[3, 1, -1], [0, 2, 4], [5, 3, 2]])
+F = np.array([[2, -3, 1], [1, 4, -2], [1, 5, 3]])
+
+# Calculate determinants
+det_A = np.linalg.det(A)
+det_B = np.linalg.det(B)
+det_C = np.linalg.det(C)
+
+det_D = np.linalg.det(D)
+det_E = np.linalg.det(E)
+det_F = np.linalg.det(F)
+
+# Print the results
+print("Determinant of A:", det_A)
+print("Determinant of B:", det_B)
+print("Determinant of C:", det_C)
+print("Determinant of D:", det_D)
+print("Determinant of E:", det_E)
+print("Determinant of F:", det_F)
+
+
+#determinants using laplaces expansion
+import numpy as np
+
+# Define the matrices
+A = np.array([[2, 3, 1], [1, 4, 0], [3, 2, 1]])
+B = np.array([[2, 3, 1], [1, 4, 0], [3, 2, 0]])
+C = np.array([[2, 3, 1, 4], [1, 4, 0, 0], [3, 2, 1, 5], [2, 1, 4, 0]])
+D = np.array([[2, 3, 1, 4, 5], [1, 4, 0, 0, 7], [3, 0, 0, 0, 0], [2, 1, 4, 3, 2], [1, 2, 3, 4, 5]])
+
+# Function to calculate determinant using Laplace's expansion
+def laplace_expansion(matrix):
+    if matrix.shape == (1, 1):
+        return matrix[0, 0]
+    else:
+        det = 0
+        for j in range(matrix.shape[1]):
+            submatrix = np.delete(np.delete(matrix, 0, 0), j, 1)
+            det += ((-1) ** j) * matrix[0, j] * laplace_expansion(submatrix)
+        return det
+
+# Calculate determinants using Laplace's expansion
+det_A = laplace_expansion(A)
+det_B = laplace_expansion(B)
+det_C = laplace_expansion(C)
+det_D = laplace_expansion(D)
+
+# Print the results
+print("Determinant of A:", det_A)
+print("Determinant of B:", det_B)
+print("Determinant of C:", det_C)
+print("Determinant of D:", det_D)
+
+#gauss method
+import numpy as np
+
+def determinant_from_upper_triangular(matrix):
+    """
+    Calculates the determinant of a matrix by reducing it to upper triangular form.
+
+    Args:
+        matrix: The input matrix as a NumPy array.
+
+    Returns:
+        The determinant of the matrix.
+    """
+
+    if not isinstance(matrix, np.ndarray):
+        raise TypeError("Input must be a NumPy array.")
+
+    # Make a copy of the matrix to avoid modifying the original
+    matrix = matrix.copy()
+
+    # Row operations to get upper triangular form
+    for i in range(matrix.shape[0] - 1):
+        for j in range(i + 1, matrix.shape[0]):
+            factor = matrix[j, i] / matrix[i, i]
+            matrix[j, :] -= factor * matrix[i, :]
+
+    # Calculate the determinant as the product of diagonal elements
+    determinant = np.prod(np.diag(matrix))
+
+    return determinant
+
+
+# Define the matrices
+A = np.array([[1, 2], [-1, 8]])
+B = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+
+# Calculate determinants
+det_A = determinant_from_upper_triangular(A)
+det_B = determinant_from_upper_triangular(B)
+
+# Print the results
+print("Determinant of A:", det_A)
+print("Determinant of B:", det_B)
+
+
+#ınverse of matrix
+
+import numpy as np
+
+# Define matrix A
+A = np.array([[2, 0, 1], [0, 1, 0], [1, 2, 0]])
+
+# Find the inverse of A
+A_inv = np.linalg.inv(A)
+
+# Verify the result by multiplying A with its inverse
+I = np.dot(A, A_inv)
+
+# Print the inverse of A
+print("Inverse of A:\n", A_inv)
+
+# Print the verification result
+print("A * A_inv:\n", I)
+
+# Define matrix B
+B = np.array([[4, -3, 7], [-1, 6, 3], [2, 9, 1]])
+
+# Determine the rank of B
+rank_B = np.linalg.matrix_rank(B)
+
+# Print the rank of B
+print("Rank of B:", rank_B)
+
+#inverse of matrix using the gauss method
+import numpy as np
+
+def gauss_jordan_inverse(matrix):
+    """
+    Finds the inverse of a matrix using the Gauss-Jordan elimination method.
+
+    Args:
+        matrix: The input matrix as a NumPy array.
+
+    Returns:
+        The inverse of the matrix if it exists, otherwise None.
+    """
+
+    if not isinstance(matrix, np.ndarray):
+        raise TypeError("Input must be a NumPy array.")
+
+    n = matrix.shape[0]
+    augmented_matrix = np.hstack((matrix, np.eye(n)))
+
+    for i in range(n):
+        # Find pivot row
+        pivot_row = i
+        for j in range(i + 1, n):
+            if abs(augmented_matrix[j, i]) > abs(augmented_matrix[pivot_row, i]):
+                pivot_row = j
+        augmented_matrix[[i, pivot_row]] = augmented_matrix[[pivot_row, i]]
+
+        # Make pivot element 1
+        augmented_matrix[i, :] /= augmented_matrix[i, i]
+
+        # Eliminate other elements in the column
+        for j in range(n):
+            if j != i:
+                augmented_matrix[j, :] -= augmented_matrix[i, :] * augmented_matrix[j, i]
+
+    # Check if the matrix is invertible
+    for i in range(n):
+        if abs(augmented_matrix[i, i]) < 1e-10:
+            return None  # Matrix is not invertible
+
+    # Extract the inverse matrix
+    inverse = augmented_matrix[:, n:]
+
+    return inverse
+
+# Define the matrices
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[1, 2, 3], [4, 5, 1], [2, 3, 2]])
+C = np.array([[0, 0, 1], [0, 1, 0], [1, 0, 0]])
+
+# Find inverses
+A_inv = gauss_jordan_inverse(A)
+B_inv = gauss_jordan_inverse(B)
+C_inv = gauss_jordan_inverse(C)
+
+# Print the results
+print("Inverse of A:\n", A_inv)
+print("Inverse of B:\n", B_inv)
+print("Inverse of C:\n", C_inv)
+
+
+#linear equations old school
+def solve_linear_equations(equations):
+    """
+    Solves a system of linear equations using elimination method.
+
+    Args:
+        equations: A list of strings representing the equations. Each string should have the format "ax+by+cz+...=d".
+
+    Returns:
+        A dictionary containing the solutions for each variable, or None if no solution or infinite solutions exist.
+    """
+
+    # Extract coefficients and constants from equations
+    coefficients = []
+    constants = []
+    for equation in equations:
+        lhs, rhs = equation.split("=")
+        terms = lhs.split("+")
+        row = []
+        for term in terms:
+            if term.startswith("-"):
+                term = term[1:]
+                row.append(-float(term.split("*")[0]))
+            else:
+                row.append(float(term.split("*")[0]))
+        row.append(float(rhs))
+        coefficients.append(row)
+
+    # Perform Gaussian elimination
+    num_equations = len(coefficients)
+    for i in range(num_equations - 1):
+        pivot_row = i
+        for j in range(i + 1, num_equations):
+            if abs(coefficients[j][i]) > abs(coefficients[pivot_row][i]):
+                pivot_row = j
+        coefficients[i], coefficients[pivot_row] = coefficients[pivot_row], coefficients[i]
+
+        for j in range(i + 1, num_equations):
+            factor = coefficients[j][i] / coefficients[i][i]
+            for k in range(i, num_equations + 1):
+                coefficients[j][k] -= factor * coefficients[i][k]
+
+    # Check for no solution or infinite solutions
+    for i in range(num_equations):
+        if all(coefficients[i][j] == 0 for j in range(num_equations)) and coefficients[i][-1] != 0:
+            return None  # No solution
+
+    # Back-substitution to find solutions
+    solutions = {}
+    for i in range(num_equations - 1, -1, -1):
+        solution = coefficients[i][-1]
+        for j in range(i + 1, num_equations):
+            solution -= coefficients[i][j] * solutions[f"x{j + 1}"]
+        solution /= coefficients[i][i]
+        solutions[f"x{i + 1}"] = solution
+
+    return solutions
+
+# Example usage
+equations1 = ["3x-2y=5", "2x+3y=7"]
+equations2 = ["2x-3y=10", "4x+5y=20"]
+equations3 = ["2x-y+z=3", "x+2y-z=1", "3x-y+2z=11"]
+equations4 = ["2x-3y+4z+2t=2", "3x+2y-5z+3t=3", "4x-3y+2z-5t=4", "5x+4y-3z+2t=5"]
+
+solutions1 = solve_linear_equations(equations1)
+solutions2 = solve_linear_equations(equations2)
+solutions3 = solve_linear_equations(equations3)
+solutions4 = solve_linear_equations(equations4)
+
+print("Solutions for equations1:", solutions1)
+print("Solutions for equations2:", solutions2)
+print("Solutions for equations3:", solutions3)
+print("Solutions for equations4:", solutions4)
+
+#Linear equations by Cramer's Rule
+
+import numpy as np
+
+def cramers_rule(coefficients, constants):
+    """
+    Solves a system of linear equations using Cramer's Rule.
+
+    Args:
+        coefficients: A list of lists representing the coefficients of the variables.
+        constants: A list of constants on the right-hand side of the equations.
+
+    Returns:
+        A list of solutions for the variables, or None if Cramer's Rule cannot be applied.
+    """
+
+    if len(coefficients) != len(constants):
+        return None  # Number of equations must match number of constants
+
+    n = len(coefficients)
+    det_D = np.linalg.det(coefficients)
+
+    if det_D == 0:
+        return None  # Cramer's Rule cannot be applied if det(D) = 0
+
+    solutions = []
+    for i in range(n):
+        D_i = coefficients.copy()
+        D_i[:, i] = constants
+        det_D_i = np.linalg.det(D_i)
+        solutions.append(det_D_i / det_D)
+
+    return solutions
+
+# Example usage
+# Problem 1
+coefficients1 = [[2, -3], [3, 5]]
+constants1 = [7, 2]
+solutions1 = cramers_rule(coefficients1, constants1)
+print("Solutions for Problem 1:", solutions1)
+
+# Problem 2
+coefficients2 = [[2, 1, -1], [1, -1, 2], [3, 0, -2]]
+constants2 = [1, 4, -1]
+solutions2 = cramers_rule(coefficients2, constants2)
+print("Solutions for Problem 2:", solutions2)
+
+# Problem 3
+coefficients3 = [[1, 1, 1, -1], [1, -1, 2, 0], [2, -3, 0, 1], [3, 1, 3, -4]]
+constants3 = [2, 6, 4, -2]
+solutions3 = cramers_rule(coefficients3, constants3)
+print("Solutions for Problem 3:", solutions3)
+
+# Problem 4 (Cramer's Rule cannot be applied)
+coefficients4 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+constants4 = [3, 2, 1]
+solutions4 = cramers_rule(coefficients4, constants4)
+print("Solutions for Problem 4:", solutions4)
+
+# Linear equations by Gauss Elimination
+import numpy as np
+
+def gauss_elimination(coefficients, constants):
+    """
+    Solves a system of linear equations using Gaussian Elimination.
+
+    Args:
+        coefficients: A list of lists representing the coefficients of the variables.
+        constants: A list of constants on the right-hand side of the equations.
+
+    Returns:
+        A list of solutions for the variables, or None if no solution or infinite solutions exist.
+    """
+
+    if len(coefficients) != len(constants):
+        return None  # Number of equations must match number of constants
+
+    n = len(coefficients)
+    augmented_matrix = np.hstack((coefficients, np.array(constants).reshape(-1, 1)))
+
+    for i in range(n):
+        # Find pivot row
+        pivot_row = i
+        for j in range(i + 1, n):
+            if abs(augmented_matrix[j, i]) > abs(augmented_matrix[pivot_row, i]):
+                pivot_row = j
+        augmented_matrix[[i, pivot_row]] = augmented_matrix[[pivot_row, i]]
+
+        # Make pivot element 1
+        if augmented_matrix[i, i] == 0:
+            return None  # No solution or infinite solutions
+
+        augmented_matrix[i, :] /= augmented_matrix[i, i]
+
+        # Eliminate other elements in the column
+        for j in range(n):
+            if j != i:
+                augmented_matrix[j, :] -= augmented_matrix[i, :] * augmented_matrix[j, i]
+
+    # Check for no solution or infinite solutions
+    for i in range(n):
+        if all(augmented_matrix[i, j] == 0 for j in range(n)) and augmented_matrix[i, -1] != 0:
+            return None  # No solution
+
+    # Extract solutions
+    solutions = augmented_matrix[:, -1]
+
+    return solutions
+
+# Example usage
+# Problem 1
+coefficients1 = [[1, -2, 2], [2, 1, 1], [3, 2, 1]]
+constants1 = [4, 3, 0]
+solutions1 = gauss_elimination(coefficients1, constants1)
+print("Solutions for Problem 1:", solutions1)
+
+# Problem 2
+coefficients2 = [[1, 1, 1, -1], [2, 1, 1, 0], [1, -1, 1, 0], [3, 2, 1, 1]]
+constants2 = [2, 3, 0, 1]
+solutions2 = gauss_elimination(coefficients2, constants2)
+print("Solutions for Problem 2:", solutions2)
+
+# Problem 3
+coefficients3 = [[1, 1, -1, -1], [2, 1, -2, 1], [3, 1, -3, 0], [2, -1, -2, 2]]
+constants3 = [0, 4, 0, 3]
+solutions3 = gauss_elimination(coefficients3, constants3)
+print("Solutions for Problem 3:", solutions3)
+
+#Linear equations by Matrix Inversion
+
+import numpy as np
+
+def solve_matrix_inversion(coefficients, constants):
+    """
+    Solves a system of linear equations using the matrix inversion method.
+
+    Args:
+        coefficients: A list of lists representing the coefficients of the variables.
+        constants: A list of constants on the right-hand side of the equations.
+
+    Returns:
+        A list of solutions for the variables, or None if the matrix is singular.
+    """
+
+    if len(coefficients) != len(constants):
+        return None  # Number of equations must match number of constants
+
+    try:
+        coefficients_matrix = np.array(coefficients)
+        constants_vector = np.array(constants).reshape(-1, 1)
+        inverse_matrix = np.linalg.inv(coefficients_matrix)
+        solutions = np.dot(inverse_matrix, constants_vector)
+        return solutions.flatten()
+    except np.linalg.LinAlgError:
+        return None  # Matrix is singular
+
+# Example usage
+# Problem 1
+coefficients1 = [[1, 2, 3], [0, 2, 3], [0, 0, 3]]
+constants1 = [5, 4, 3]
+solutions1 = solve_matrix_inversion(coefficients1, constants1)
+print("Solutions for Problem 1:", solutions1)
+
+# Problem 2
+coefficients2 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+constants2 = [41, 93, 145]
+solutions2 = solve_matrix_inversion(coefficients2, constants2)
+print("Solutions for Problem 2:", solutions2)
+
+#vectors
+import numpy as np
+import matplotlib.pyplot as plt
+
+def vector_length(vector):
+    """
+    Calculates the length (magnitude) of a vector.
+
+    Args:
+        vector: A list or NumPy array representing the vector.
+
+    Returns:
+        The length of the vector.
+    """
+    return np.linalg.norm(vector)
+
+def unit_vector(vector):
+    """
+    Calculates the unit vector of a given vector.
+
+    Args:
+        vector: A list or NumPy array representing the vector.
+
+    Returns:
+        The unit vector of the given vector.
+    """
+    length = vector_length(vector)
+    if length == 0:
+        return None  # Zero vector has no unit vector
+    return vector / length
+
+def change_basis(vector, basis):
+    """
+    Finds the Cartesian coordinates of a vector in a given basis.
+
+    Args:
+        vector: A list or NumPy array representing the vector in the original basis.
+        basis: A list of lists or a NumPy array representing the basis vectors.
+
+    Returns:
+        A list of Cartesian coordinates of the vector in the new basis.
+    """
+    coefficients = np.linalg.solve(np.array(basis).T, vector)
+    return coefficients
+
+# Problem 1
+a = np.array([3, 4])
+length_a = vector_length(a)
+scalar_multiple = 1 / length_a
+print(f"Problem 1: Scalar multiple to make vector a unit vector: {scalar_multiple}")
+
+# Problem 2
+b = np.array([1, 1])
+length_b = vector_length(b)
+unit_b = unit_vector(b)
+print(f"Problem 2: Length of vector b: {length_b}")
+print(f"Problem 2: Unit vector of b: {unit_b}")
+
+# Problem 3
+plt.figure()
+plt.quiver(0, 0, b[0], b[1], angles='xy', scale_units='xy', scale=1, color='r', label='Vector b')
+plt.quiver(0, 0, unit_b[0], unit_b[1], angles='xy', scale_units='xy', scale=1, color='b', label='Unit vector of b')
+plt.xlim(-2, 2)
+plt.ylim(-2, 2)
+plt.grid()
+plt.legend()
+plt.show()
+
+# Problem 4
+c = np.array([1, 2, 3])
+length_c = vector_length(c)
+unit_c = unit_vector(c)
+print(f"Problem 4: Length of vector c: {length_c}")
+print(f"Problem 4: Unit vector of c: {unit_c}")
+
+# Problem 5
+v = np.array([2, 3, 4])
+basis = [[1, 0, 1], [0, 1, 0], [1, 0, -1]]
+cartesian_coordinates = change_basis(v, basis)
+print(f"Problem 5: Cartesian coordinates of vector v in the given basis: {cartesian_coordinates}")
+
+#vectors 2
+import numpy as np
+import matplotlib.pyplot as plt
+
+def vector_addition(v1, v2):
+    """
+    Performs vector addition.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The sum of the two vectors.
+    """
+    return v1 + v2
+
+def vector_length(v):
+    """
+    Calculates the length (magnitude) of a vector.
+
+    Args:
+        v: The vector.
+
+    Returns:
+        The length of the vector.
+    """
+    return np.linalg.norm(v)
+
+def vector_cross_product(v1, v2):
+    """
+    Calculates the cross product of two vectors.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The cross product of the two vectors.
+    """
+    return np.cross(v1, v2)
+
+def vector_dot_product(v1, v2):
+    """
+    Calculates the dot product of two vectors.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The dot product of the two vectors.
+    """
+    return np.dot(v1, v2)
+
+def angle_between_vectors(v1, v2):
+    """
+    Calculates the angle between two vectors in degrees.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The angle between the vectors in degrees.
+    """
+    dot_product = vector_dot_product(v1, v2)
+    lengths_product = vector_length(v1) * vector_length(v2)
+    cos_theta = dot_product / lengths_product
+    return np.arccos(cos_theta) * 180 / np.pi
+
+# Problem 1
+v1 = np.array([2, 1])
+v2 = np.array([-1, 1])
+v_sum = vector_addition(v1, v2)
+
+plt.figure()
+plt.quiver(0, 0, v1[0], v1[1], angles='xy', scale_units='xy', scale=1, color='r', label='Vector v1')
+plt.quiver(0, 0, v2[0], v2[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector v2')
+plt.quiver(0, 0, v_sum[0], v_sum[1], angles='xy', scale_units='xy', scale=1, color='g', label='Vector v1 + v2')
+plt.xlim(-2, 2
+
+#vectors3
+import numpy as np
+import matplotlib.pyplot as plt
+
+def vector_addition(v1, v2):
+    """
+    Performs vector addition.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The sum of the two vectors.
+    """
+    return v1 + v2
+
+def vector_length(v):
+    """
+    Calculates the length (magnitude) of a vector.
+
+    Args:
+        v: The vector.
+
+    Returns:
+        The length of the vector.
+    """
+    return np.linalg.norm(v)
+
+def vector_cross_product(v1, v2):
+    """
+    Calculates the cross product of two vectors.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The cross product of the two vectors.
+    """
+    return np.cross(v1, v2)
+
+def vector_dot_product(v1, v2):
+    """
+    Calculates the dot product of two vectors.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The dot product of the two vectors.
+    """
+    return np.dot(v1, v2)
+
+def angle_between_vectors(v1, v2):
+    """
+    Calculates the angle between two vectors in degrees.
+
+    Args:
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        The angle between the vectors in degrees.
+    """
+    dot_product = vector_dot_product(v1, v2)
+    lengths_product = vector_length(v1) * vector_length(v2)
+    cos_theta = dot_product / lengths_product
+    return np.arccos(cos_theta) * 180 / np.pi
+
+# Problem 1
+v1 = np.array([2, 1])
+v2 = np.array([-1, 1])
+v_sum = vector_addition(v1, v2)
+
+plt.figure()
+plt.quiver(0, 0, v1[0], v1[1], angles='xy', scale_units='xy', scale=1, color='r', label='Vector v1')
+plt.quiver(0, 0, v2[0], v2[1], angles='xy', scale_units='xy', scale=1, color='b', label='Vector v2')
+plt.quiver(0, 0, v_sum[0], v_sum[1], angles='xy', scale_units='xy', scale=1, color='g', label='Vector v1 + v2')
+plt.xlim(-2, 2
+
+#Equations of lines on a plane
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+def line_equation_from_points(p1, p2):
+    """
+    Finds the equation of the line passing through two points.
+
+    Args:
+        p1: Coordinates of the first point (x1, y1).
+        p2: Coordinates of the second point (x2, y2).
+
+    Returns:
+        A tuple (a, b, c) representing the equation of the line in the form ax + by + c = 0.
+    """
+    x1, y1 = p1
+    x2, y2 = p2
+    a = y2 - y1
+    b = -(x2 - x1)
+    c = x1 * y2 - x2 * y1
+    return a, b, c
+
+def line_equation_parallel(point, line_equation):
+    """
+    Finds the equation of a line parallel to a given line and passing through a point.
+
+    Args:
+        point: Coordinates of the point (x, y).
+        line_equation: Tuple (a, b, c) representing the equation of the line.
+
+    Returns:
+        A tuple (a, b, c) representing the equation of the parallel line.
+    """
+    a, b, c = line_equation
+    return a, b, -(a * point[0] + b * point[1])
+
+def line_equation_perpendicular(point, line_equation):
+    """
+    Finds the equation of a line perpendicular to a given line and passing through a point.
+
+    Args:
+        point: Coordinates of the point (x, y).
+        line_equation: Tuple (a, b, c) representing the equation of the line.
+
+    Returns:
+        A tuple (a, b, c) representing the equation of the perpendicular line.
+    """
+    a, b, c = line_equation
+    return b, -a, -(b * point[0] - a * point[1])
+
+def line_intersection(line1, line2):
+    """
+    Finds the intersection point of two lines.
+
+    Args:
+        line1: Tuple (a1, b1, c1) representing the equation of the first line.
+        line2: Tuple (a2, b2, c2) representing the equation of the second line.
+
+    Returns:
+        Coordinates of the intersection point as a tuple (x, y), or None if the lines are parallel.
+    """
+    a1, b1, c1 = line1
+    a2, b2, c2 = line2
+
+    if a1 * b2 == a2 * b1:
+        return None  # Lines are parallel
+
+    x = (b1 * c2 - b2 * c1) / (a1 * b2 - a2 * b1)
+    y = (a2 * c1 - a1 * c2) / (a1 * b2 - a2 * b1)
+
+    return x, y
+
+def angle_between_lines(line1, line2):
+    """
+    Calculates the angle between two lines.
+
+    Args:
+        line1: Tuple (a1, b1, c1) representing the equation of the first line.
+        line2: Tuple (a2, b2, c2) representing the equation of the second line.
+
+    Returns:
+        The angle between the lines in radians.
+    """
+    m1 = -a1 / b1
+    m2 = -a2 / b2
+    return np.arctan2(m2 - m1, 1 + m1 * m2)
+
+def distance_point_to_line(point, line_equation):
+    """
+    Calculates the distance from a point to a line.
+
+    Args:
+        point: Coordinates of the point (x, y).
+        line_equation: Tuple (a, b, c) representing the equation of the line.
+
+    Returns:
+        The distance from the point to the line.
+    """
+    a, b, c = line_equation
+    x, y = point
+    return abs(a * x + b * y + c) / np.sqrt(a**2 + b**2)
+
+# Problem 1
+A = (1, 2)
+B = (3, 4)
+line1_equation = line_equation_from_points(A, B)
+print(f"Problem 1: Equation of the line passing through A and B: {line1_equation}")
+
+# Problem 2
+line2_equation = (1, -2, 1)  # y = 2x - 1
+line_parallel_equation = line_equation_parallel(A, line2_equation)
+print(f"Problem 2: Equation of the line parallel to y = 2x - 1 and passing through A: {line_parallel_equation}")
+
+# Problem 3
+line_perpendicular_equation = line_equation_perpendicular(A, line2_equation)
+print(f"Problem 3: Equation of the line perpendicular to y = 2x - 1 and passing through A: {line_perpendicular_equation}")
+
+# Problem 4
+line3_equation = (3, -2, -2)  # 3x - 2y - 2 = 0
+line4_equation = (2, -3, 2)  # 2x - 3y + 2 = 0
+intersection_point = line_intersection(line3_equation, line4_equation)
+angle = angle_between_lines(line3_equation, line4_equation)
+print(f"Problem 4: Intersection point of the lines: {intersection_point}")
+print(f"Problem 4: Angle between the lines: {angle:.2f} radians")
+
+# Problem 5
+v = np.array([2, 3])
+line_parallel_to_vector_equation = (-v[1], v[0], v[1] * A[0] - v[0] * A[1])
+print(f"Problem 5: Equation of the line passing through A and parallel to vector [2, 3]: {line_parallel_to_vector_equation}")
+
+# Problem 6
+line5_equation = (1, 1, 1)  # x + y + 1 = 0
+line_perpendicular_equation = line_equation_perpendicular((0, 0), line5_equation)
+line_parallel_equation = line_equation_parallel((0, 0), line5_equation)
+print(f"Problem 6: Example of a line perpendicular to x + y + 1 = 0: {line_perpendicular_equation}")
+print(f"Problem 6: Example of a line parallel to x + y + 1 = 0: {line_parallel_equation}")
+
+# Problem 7
+distance = distance_point_to_line(A, line2_equation)
+print(f"Problem 7: Distance from point A to the line y = 2x + 3: {distance}")
+
+# Problem 8
+A = (2, 0)
+B = (0, 3)
+line_equation_from_points = line_equation_from_points(A, B)
+print(f"Problem 8: Equation of the line passing through A(2, 0) and B(0, 3): {line_equation_from_points}")
+
+# Problem 9
+line6_equation = (1, -1, -3)  # y = x + 3
+angle = np.arctan2(1, 1)  # Slope of the line is 1
+print(f"Problem 9: Angle between the line y = x + 3 and the Ox axis: {angle:.2f} radians")
+
+# Problem 10
+line7_equation = (1, 1, 1)  # x + y + 1 = 0
+perpendicular_vector = np.array([1, 1])
+print(f"Problem 10: A vector perpendicular to the line x + y + 1 = 0: {perpendicular_vector}")
+
+#Equations of second-order curves (conic sections)
+
+import numpy as np
+
+def circle_equation(center, radius):
+    """
+    Finds the equation of a circle given its center and radius.
+
+    Args:
+        center: A tuple representing the center coordinates (x, y).
+        radius: The radius of the circle.
+
+    Returns:
+        A string representing the equation of the circle in the form (x-a)^2 + (y-b)^2 = r^2.
+    """
+    x0, y0 = center
+    return f"(x - {x0})^2 + (y - {y0})^2 = {radius}^2"
+
+center = (1, 2)
+radius = 3
+circle_eq = circle_equation(center, radius)
+print("Equation of the circle:", circle_eq)
+
+#Equations of planes in space
+
+
+import numpy as np
+
+def plane_equation_from_points(A, B, C):
+    """
+    Finds the equation of the plane passing through three points.
+
+    Args:
+        A: Coordinates of the first point (x1, y1, z1).
+        B: Coordinates of the second point (x2, y2, z2).
+        C: Coordinates of the third point (x3, y3, z3).
+
+    Returns:
+        A tuple (a, b, c, d) representing the equation of the plane in the form ax + by + cz + d = 0.
+    """
+    # Calculate the normal vector to the plane using cross product of vectors AB and AC
+    AB = np.array(B) - np.array(A)
+    AC = np.array(C) - np.array(A)
+    normal_vector = np.cross(AB, AC)
+
+    # Calculate the value of d
+    a, b, c = normal_vector
+    d = -np.dot(normal_vector, np.array(A))
+
+    return a, b, c, d
+
+def plane_equation_parallel(point, plane_equation):
+    """
+    Finds the equation of a plane parallel to a given plane and passing through a point.
+
+    Args:
+        point: Coordinates of the point (x, y, z).
+        plane_equation: Tuple (a, b, c, d) representing the equation of the plane.
+
+    Returns:
+        A tuple (a, b, c, d) representing the equation of the parallel plane.
+    """
+    a, b, c, d = plane_equation
+    return a, b, c, -(a * point[0] + b * point[1] + c * point[2])
+
+def plane_equation_perpendicular(point, normal_vector):
+    """
+    Finds the equation of a plane perpendicular to a given vector and passing through a point.
+
+    Args:
+        point: Coordinates of the point (x, y, z).
+        normal_vector: A NumPy array representing the normal vector.
+
+    Returns:
+        A tuple (a, b, c, d) representing the equation of the perpendicular plane.
+    """
+    a, b, c = normal_vector
+    return a, b, c, -(a * point[0] + b * point[1] + c * point[2])
+
+def line_of_intersection(plane1_equation, plane2_equation):
+    """
+    Finds the line of intersection of two planes.
+
+    Args:
+        plane1_equation: Tuple (a1, b1, c1, d1) representing the equation of the first plane.
+        plane2_equation: Tuple (a2, b2, c2, d2) representing the equation of the second plane.
+
+    Returns:
+        A tuple representing the parametric equations of the line of intersection, or None if the planes are parallel.
+    """
+    # ... (Implementation of line intersection calculation using vector and parametric equations)
+    # This part requires solving a system of equations and finding the parametric representation of the line.
+    # The implementation would be more complex and is omitted for brevity.
+
+def plane_equation_from_vectors(point, v1, v2):
+    """
+    Finds the equation of the plane passing through a point and parallel to two vectors.
+
+    Args:
+        point: Coordinates of the point (x, y, z).
+        v1: The first vector.
+        v2: The second vector.
+
+    Returns:
+        A tuple (a, b, c, d) representing the equation of the plane.
+    """
+    normal_vector = np.cross(v1, v2)
+    return plane_equation_perpendicular(point, normal_vector)
+
+def distance_point_to_plane(point, plane_equation):
+    """
+    Calculates the distance from a point to a
+
+#17. Equations of second-order surfaces
+
+
+import numpy as np
+
+def sphere_equation(center, radius):
+    """
+    Finds the equation of a sphere given its center and radius.
+
+    Args:
+        center: A tuple representing the center coordinates (x, y, z).
+        radius: The radius of the sphere.
+
+    Returns:
+        A string representing the equation of the sphere in the form (x-a)^2 + (y-b)^2 + (z-c)^2 = r^2.
+    """
+    x0, y0, z0 = center
+    return f"(x - {x0})^2 + (y - {y0})^2 + (z - {z0})^2 = {radius}^2"
+
+center = (1, 2, 3)
+radius = 3
+sphere_eq = sphere_equation(center, radius)
+print("Equation of the sphere:", sphere_eq)
+
+#Functions
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the functions
+def f(x):
+    return x**2
+
+def g(x):
+    return np.sqrt(x)
+
+def h(x):
+    return 1/x
+
+def j(x):
+    return np.sin(x)
+
+# Create an array of x values
+x = np.linspace(0, 5, 100)
+
+# Calculate function values
+y_f = f(x)
+y_g = g(x)
+y_h = h(x)
+y_j = j(x)
+
+# Plot the functions
+plt.figure(figsize=(10, 6))
+plt.plot(x, y_f, label='f(x) = x^2')
+plt.plot(x, y_g, label='g(x) = √x')
+plt.plot(x, y_h, label='h(x) = 1/x')
+plt.plot(x, y_j, label='j(x) = sin(x)')
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Functions')
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# Find values at x = 2
+print(f"f(2) = {f(2)}")
+print(f"g(2) = {g(2)}")
+print(f"h(2) = {h(2)}")
+print(f"j(2) = {j(2)}")
+
+#Limits of Sequences
+
+import math
+
+def calculate_limit_1(n):
+    return (n**2 + 3*n) / (2*n**2 - 2*n)
+
+# Calculate the limit numerically (approximation)
+n_values = np.arange(100, 1000, 100)
+limit_values = [calculate_limit_1(n) for n in n_values]
+
+print("Approximate limit:", limit_values[-1])  # Print the last value as an approximation
+
+# Analytical solution
+# Divide both numerator and denominator by n^2
+# lim_{n→∞} (1 + 3/n) / (2 - 2/n) = 1/2
+print("Analytical limit:", 1/2)
+
+#Limits of Real Functions
+
+import numpy as np
+
+def calculate_limit_1(x):
+    return (x**3 + 2*x**2) / (x**4 - 3*x**3)
+
+# Calculate the limit numerically (approximation)
+x_values = np.arange(100, 1000, 100)
+limit_values = [calculate_limit_1(x) for x in x_values]
+
+print("Approximate limit:", limit_values[-1])  # Print the last value as an approximation
+
+# Analytical solution
+# Divide both numerator and denominator by x^4
+# lim_{x→∞} (1/x + 2/x^2) / (1 - 3/x) = 0
+print("Analytical limit:", 0)
