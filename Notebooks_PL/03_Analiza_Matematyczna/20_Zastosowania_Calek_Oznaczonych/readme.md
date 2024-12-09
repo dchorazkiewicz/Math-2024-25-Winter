@@ -1,1 +1,0 @@
-# 20_Zastosowania_Calek_Oznaczonych

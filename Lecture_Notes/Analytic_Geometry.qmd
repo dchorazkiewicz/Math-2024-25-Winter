@@ -642,7 +642,7 @@ $$
 #### Finding Projections of Vectors onto Other Vectors
 
 $$
-\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|}
+\text{Projection} = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{b}|^2}\mathbf{b}
 $$
 
 #### Calculating Work Done by a Force in Physics

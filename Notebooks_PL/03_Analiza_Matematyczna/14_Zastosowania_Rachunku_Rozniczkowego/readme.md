@@ -1,1 +1,0 @@
-# 14_Zastosowania_Rachunku_Rozniczkowego
