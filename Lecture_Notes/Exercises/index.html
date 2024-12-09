@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Mathematics - Math 2024/25 Winter</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+        <link href="../../styles/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Mathematics";
+        var mkdocs_page_input_path = "Lecture_Notes/Exercises.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/rust.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Math 2024/25 Winter
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Lecture Notes</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Linear_Algebra.html">Linear Algebra</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Analytic_Geometry.html">Analytic Geometry</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Calculus.html">Calculus</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Math 2024/25 Winter</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Mathematics</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="mathematics">Mathematics</h1>
+<p>Exercises 2024/2025</p>
+<h2 id="1-basic-operations-on-matrices">1. Basic Operations on Matrices</h2>
+<p>For follwing matrices </p>
+<div class="arithmatex">\[
+\mathbf{A}=
+\begin{pmatrix}
+1 &amp; 2 \\
+3 &amp; 4 
+\end{pmatrix}
+\qquad
+\mathbf{B}=
+\begin{pmatrix}
+5 &amp; 6 \\
+7 &amp; 8
+\end{pmatrix}
+\quad
+\mathbf{C}=
+\begin{pmatrix}
+-1 &amp; 2 \\
+3 &amp; 0
+\end{pmatrix}
+\qquad
+\mathbf{D}=
+\begin{pmatrix}
+-1 &amp; 2 &amp; 3 \\
+4 &amp; 0 &amp; 6 
+\end{pmatrix}
+\qquad
+\mathbf{E}=
+\begin{pmatrix}
+1 &amp; 2\\
+4 &amp; 5\\
+7 &amp; 8
+\end{pmatrix}
+\]</div>
+<ol>
+<li>
+<p>Calculate: <span class="arithmatex">\(\mathbf{A}+\mathbf{B}\)</span>;  <span class="arithmatex">\(\mathbf{B}-\mathbf{A}\)</span>;  <span class="arithmatex">\(\mathbf{A}+\mathbf{C}\)</span>; <span class="arithmatex">\(\mathbf{D}+\mathbf{E}\)</span>. </p>
+</li>
+<li>
+<p>Calculate <span class="arithmatex">\(\frac{1}{2}\mathbf{A}\)</span>, <span class="arithmatex">\(2\mathbf{B}\)</span>, <span class="arithmatex">\(-3\mathbf{C}\)</span>, and <span class="arithmatex">\(4\mathbf{D}\)</span>.</p>
+</li>
+<li>
+<p>Calculate the products <span class="arithmatex">\(\mathbf{A}\cdot \mathbf{B}\)</span>; <span class="arithmatex">\(\mathbf{B} \cdot \mathbf{A}\)</span>; <span class="arithmatex">\(\mathbf{A} \cdot \mathbf{D}\)</span>; <span class="arithmatex">\(\mathbf{D} \cdot \mathbf{E}\)</span>.</p>
+</li>
+</ol>
+<h2 id="2-determinants-2x2-and-3x3">2. Determinants 2x2 and 3x3</h2>
+<p>Calculate the determinants for the 2x2 and 3x3 matrices given below.</p>
+<p>2x2 Matrices:</p>
+<div class="arithmatex">\[
+\mathbf{A} =
+\begin{pmatrix}
+2 &amp; 3 \\
+1 &amp; 4
+\end{pmatrix}
+, \qquad
+\mathbf{B} =
+\begin{pmatrix}
+5 &amp; 6 \\
+7 &amp; 8
+\end{pmatrix}
+, \qquad
+\mathbf{C} =
+\begin{pmatrix}
+-1 &amp; 2 \\
+3 &amp; 0
+\end{pmatrix}
+\]</div>
+<p>3x3 Matrices:</p>
+<div class="arithmatex">\[
+\mathbf{D} =
+\begin{pmatrix}
+1 &amp; 0 &amp; 2 \\
+-1 &amp; 3 &amp; 1 \\
+2 &amp; 4 &amp; -2
+\end{pmatrix}
+, \qquad
+\mathbf{E} =
+\begin{pmatrix}
+3 &amp; 1 &amp; -1 \\
+0 &amp; 2 &amp; 4 \\
+5 &amp; 3 &amp; 2
+\end{pmatrix}
+, \qquad
+\mathbf{F} =
+\begin{pmatrix}
+2 &amp; -3 &amp; 1 \\
+1 &amp; 4 &amp; -2 \\
+1 &amp; 5 &amp; 3
+\end{pmatrix}
+\]</div>
+<h2 id="3-determinants-using-laplaces-expansion">3. Determinants using Laplace's Expansion</h2>
+<p>Calculate the determinants of the following matrices:</p>
+<div class="arithmatex">\[
+\mathbf{A} =
+\begin{pmatrix}
+2 &amp; 3 &amp; 1 \\
+1 &amp; 4 &amp; 0 \\
+3 &amp; 2 &amp; 1
+\end{pmatrix}
+,\qquad
+\mathbf{B} =
+\begin{pmatrix}
+2 &amp; 3 &amp; 1 \\
+1 &amp; 4 &amp; 0 \\
+3 &amp; 2 &amp; 0  \\
+\end{pmatrix}
+,\qquad
+\mathbf{C} =
+\begin{pmatrix}
+2 &amp; 3 &amp; 1 &amp; 4 \\
+1 &amp; 0 &amp; 0 &amp; 6 \\
+3 &amp; 2 &amp; 1 &amp; 5 \\
+2 &amp; 1 &amp; 4 &amp; 0
+\end{pmatrix}
+,\qquad
+\mathbf{D} =
+\begin{pmatrix}
+2 &amp; 3 &amp; 1 &amp; 4 &amp; 5 \\
+1 &amp; 4 &amp; 0 &amp; 0 &amp; 7 \\
+3 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+2 &amp; 1 &amp; 4 &amp; 3 &amp; 2 \\
+1 &amp; 2 &amp; 3 &amp; 4 &amp; 5
+\end{pmatrix}
+\]</div>
+<h2 id="4-determinants-from-the-gauss-method-and-triangular-matrices">4. Determinants from the Gauss Method and Triangular Matrices</h2>
+<p>Perform row and column operations to reduce the following matrices to an upper triangular form and calculate their determinants by taking the product of the diagonal elements.</p>
+<div class="arithmatex">\[
+\mathbf{A} = \begin{pmatrix}
+12 &amp; 3 \\
+-18 &amp; -4
+\end{pmatrix}\qquad\qquad
+\mathbf{B} = \begin{pmatrix} 
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 6 \\
+7 &amp; 8 &amp; 9 
+\end{pmatrix}
+\]</div>
+<h2 id="5-inverse-of-a-matrix-from-the-formula">5. Inverse of a Matrix from the formula</h2>
+<ol>
+<li>Find the inverse matrix for matrix </li>
+</ol>
+<div class="arithmatex">\[\mathbf{A}=\begin{pmatrix}
+2 &amp; 0 &amp; 1 \\
+0 &amp; 1 &amp; 0 \\
+1 &amp; 2 &amp; 0
+\end{pmatrix}\]</div>
+<p>and verify if the result is correct.</p>
+<ol>
+<li>Determine the rank of the matrix:</li>
+</ol>
+<div class="arithmatex">\[\mathbf{B} =
+\begin{pmatrix}
+4 &amp; -3 &amp; 7 \\
+-1 &amp; 6 &amp; 3 \\
+2 &amp; 9 &amp; 1
+\end{pmatrix}\]</div>
+<h2 id="6-inverse-of-a-matrix-using-the-gauss-method">6. Inverse of a Matrix using the Gauss Method</h2>
+<p>Find the inverse matrices using the Gauss method:</p>
+<div class="arithmatex">\[
+\mathbf{A} =
+\begin{pmatrix}
+1 &amp; 2\\
+3 &amp; 4
+\end{pmatrix}
+, \qquad
+\mathbf{B} =
+\begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+4 &amp; 5 &amp; 1 \\
+2 &amp; 3 &amp; 2
+\end{pmatrix}
+,\qquad
+\mathbf{C} =
+\begin{pmatrix}
+0 &amp; 0 &amp; 1\\
+0 &amp; 1 &amp; 0\\
+1 &amp; 0 &amp; 0
+\end{pmatrix}
+\]</div>
+<h2 id="7-linear-equations-old-school">7. Linear Equations old school</h2>
+<p>Solve the following systems of equations without using matrices:</p>
+<ul>
+<li><span class="arithmatex">\(3x-2y=5, \quad 2x+3y=7\)</span>,</li>
+<li><span class="arithmatex">\(2x-3y=10, \quad 4x+5y=20\)</span>,</li>
+<li><span class="arithmatex">\(2x - y + z = 3, \quad x + 2y - z = 1, \quad 3x - y + 2z = 11\)</span>.</li>
+<li><span class="arithmatex">\(2x-3y+4z+2t=2, \quad 3x+2y-5z+3t=3, \quad 4x-3y+2z-5t=4, \quad 5x+4y-3z+2t=5\)</span>.</li>
+</ul>
+<h2 id="8-linear-equations-by-cramers-rule">8. Linear equations by Cramer's Rule</h2>
+<ol>
+<li>Solve the system of equations:</li>
+</ol>
+<div class="arithmatex">\[\begin{cases}
+   2x_1 - 3x_2 = 7\\
+   3x_1 + 5x_2 = 2
+\end{cases}\]</div>
+<ol>
+<li>Solve the system of equations:</li>
+</ol>
+<div class="arithmatex">\[\begin{cases}
+   2x + y - z = 1 \\
+   x - y + 2z = 4 \\
+   3x - 2z = -1
+\end{cases}\]</div>
+<ol>
+<li>Solve the system of equations:</li>
+</ol>
+<div class="arithmatex">\[\begin{cases}
+   x + y + z - t = 2 \\
+   x - z + 2t = 6 \\
+   2x - 3y + t = 4 \\
+   3x + y + 3z - 4t = -2
+\end{cases}\]</div>
+<ol>
+<li>Why can't the following system of equations be solved using Cramer's rule?</li>
+</ol>
+<div class="arithmatex">\[\begin{cases}
+x_1 + 2x_2 + 3x_3 = 3 \\
+4x_1 + 5x_2 + 6x_3 = 2 \\
+7x_1 + 8x_2 + 9x_3 = 1
+\end{cases}\]</div>
+<h2 id="9-linear-equations-by-gauss-elimination">9. Linear equations by Gauss Elimination</h2>
+<div class="arithmatex">\[\begin{cases}
+x + 2y - 2z = 4 \\
+2x + y + z = 0 \\
+3x + 2y + z = 1
+\end{cases}
+\quad
+\begin{cases}
+x + y + z - t = 2 \\
+2x + y + z = 3 \\
+-x + z - t = 0 \\
+3x + 2y - z + 2t = -1
+\end{cases}
+\quad
+\begin{cases}
+x + y - z - t = 0 \\
+2x + 3y - 2z + t = 4 \\
+3x + 5z = 0 \\
+-x + y - 3z + 2t = 3
+\end{cases}
+\]</div>
+<h2 id="10-linear-equations-by-matrix-inversion">10. Linear equations by Matrix Inversion</h2>
+<ol>
+<li>Solve the system of linear equations using the inverse matrix method:</li>
+</ol>
+<div class="arithmatex">\[
+\begin{cases}
+x + 2y + 3z = 5, \\
+2y + 3z = 4, \\
+3z = 3.
+\end{cases}
+\]</div>
+<ol>
+<li>Solve the system of linear equations using the inverse matrix method:</li>
+</ol>
+<div class="arithmatex">\[
+\begin{cases}
+x_1 + 2x_2 + 3x_3 = 41, \\
+4x_1 + 5x_2 + 6x_3 = 93, \\
+7x_1 + 8x_2 + 9x_3 = 145.
+\end{cases}
+\]</div>
+<h2 id="11-vectors-i">11. Vectors I</h2>
+<ol>
+<li>
+<p>By what number should vector <span class="arithmatex">\(\mathbf{a} = [3, 4]\)</span> be multiplied so that its length is equal to 1?</p>
+</li>
+<li>
+<p>Calculate the length of vector <span class="arithmatex">\(\mathbf{b} = [1, 1]\)</span> and find the unit vector of this vector.</p>
+</li>
+<li>
+<p>Plot the vector and the unit vector from the previous exercise.</p>
+</li>
+<li>
+<p>Calculate the length of vector <span class="arithmatex">\(\mathbf{c} = [1, 2, 3]\)</span> and find the unit vector of this vector.</p>
+</li>
+<li>
+<p>Find the Cartesian coordinates of vector <span class="arithmatex">\(\mathbf{v} = [2, 3, 4]\)</span> in the basis <span class="arithmatex">\(\{\mathbf{b_1} = [1, 0, 1], \mathbf{b_2} = [0, 1, 0], \mathbf{b_3} = [1, 0, -1]\}\)</span>.</p>
+</li>
+</ol>
+<h2 id="12-vectors-ii">12. Vectors II</h2>
+<ol>
+<li>
+<p>Perform the addition of vector <span class="arithmatex">\([2, 1]\)</span> to vector <span class="arithmatex">\([-1, 1]\)</span>. Plot both vectors and their sum on a graph.</p>
+</li>
+<li>
+<p>Calculate the area of the triangle spanned by vectors <span class="arithmatex">\([2, 1]\)</span> and <span class="arithmatex">\([-1, 1]\)</span>.</p>
+</li>
+<li>
+<p>Calculate the volume of the parallelepiped spanned by vectors <span class="arithmatex">\([2, 1]\)</span>, <span class="arithmatex">\([-1, 1]\)</span>, and <span class="arithmatex">\([1, 2]\)</span>.</p>
+</li>
+<li>
+<p>Check if vectors <span class="arithmatex">\([2, 1]\)</span> and <span class="arithmatex">\([-1, 1]\)</span> are perpendicular.</p>
+</li>
+<li>
+<p>Calculate the angle in degrees between vectors <span class="arithmatex">\([4,2,1]\)</span> and <span class="arithmatex">\([1,3,2]\)</span>.</p>
+</li>
+<li>
+<p>For three-dimensional vectors: <span class="arithmatex">\(\mathbf{a}=[a_x, a_y, a_z]\)</span>, <span class="arithmatex">\(\mathbf{b}=[b_x, b_y, b_z]\)</span>, <span class="arithmatex">\(\mathbf{c}=[c_x, c_y, c_z]\)</span>, prove that the following identity is satisfied:</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\mathbf{a} \times (\mathbf{b} \times \mathbf{c}) = (\mathbf{a} \cdot \mathbf{c}) \mathbf{b} - (\mathbf{a} \cdot \mathbf{b}) \mathbf{c}.
+\]</div>
+<h2 id="13-vectors-iii">13. Vectors III</h2>
+<ol>
+<li>
+<p>Divide the line segment connecting points <span class="arithmatex">\(A(-1, 2)\)</span> and <span class="arithmatex">\(B(3, -2)\)</span> in the ratio <span class="arithmatex">\(1:3\)</span>. Illustrate the result on a graph.</p>
+</li>
+<li>
+<p>Project vector <span class="arithmatex">\(\mathbf{a} = (3, 4)\)</span> onto the <span class="arithmatex">\(OX\)</span> and <span class="arithmatex">\(OY\)</span> axes. Illustrate the result on a graph.</p>
+</li>
+<li>
+<p>Project vector <span class="arithmatex">\(\mathbf{a} = (2,3)\)</span> onto vector <span class="arithmatex">\(\mathbf{b} = (1, 1)\)</span>. Ilustrate the result on a graph.</p>
+</li>
+<li>
+<p>Project vector <span class="arithmatex">\(\mathbf{b} = (1, 1)\)</span> onto vector <span class="arithmatex">\(\mathbf{a} = (2, 3)\)</span>. Ilustrate the result on a graph.</p>
+</li>
+</ol>
+<h2 id="14-equations-of-lines-on-a-plane">14. Equations of lines on a plane</h2>
+<ul>
+<li>The line passes through points <span class="arithmatex">\(A(1, 2)\)</span> and <span class="arithmatex">\(B(3, 4)\)</span>. Find the equation of the line.</li>
+<li>The line passes through point <span class="arithmatex">\(A(1, 2)\)</span> and is parallel to the line <span class="arithmatex">\(y = 2x + 3\)</span>. Find the equation of the line.</li>
+<li>The line passes through point <span class="arithmatex">\(A(1, 2)\)</span> and is perpendicular to the line <span class="arithmatex">\(y = 2x + 3\)</span>. Find the equation of the line.</li>
+<li>We have two lines <span class="arithmatex">\(y = 2x + 3\)</span> and <span class="arithmatex">\(y = 3x + 2\)</span>. Find the intersection point of these lines and calculate the angle between them.</li>
+<li>Write the equation of the line passing through point <span class="arithmatex">\(A(1, 2)\)</span> and parallel to the vector <span class="arithmatex">\(\mathbf{v} = [2, 3]\)</span>.</li>
+<li>We have the line <span class="arithmatex">\(y = 2x + 3\)</span>. Find an example of a line perpendicular and parallel to it.</li>
+<li>We have the line <span class="arithmatex">\(y = 2x + 3\)</span> and point <span class="arithmatex">\(A(1, 2)\)</span>. Find the distance from point <span class="arithmatex">\(A\)</span> to the line.</li>
+<li>The line intersects the coordinate axes at points <span class="arithmatex">\(A(2, 0)\)</span> and <span class="arithmatex">\(B(0, 3)\)</span>. Find the equation of the line.</li>
+<li>Calculate the angle between the line <span class="arithmatex">\(y = x + 3\)</span> and the <span class="arithmatex">\(Ox\)</span> axis.</li>
+<li>Provide a vector perpendicular to the line <span class="arithmatex">\(x + y + 1 = 0\)</span>.</li>
+</ul>
+<h2 id="15-equations-of-second-order-curves-conic-sections">15. Equations of second-order curves (conic sections)</h2>
+<ul>
+<li>Find the equation of a circle with center at point <span class="arithmatex">\(A(1,2)\)</span> and radius <span class="arithmatex">\(r=3\)</span>.</li>
+<li>Find the equation of a parabola intersecting the <span class="arithmatex">\(Ox\)</span> axis at points <span class="arithmatex">\(x=2\)</span>, <span class="arithmatex">\(x=4\)</span>, and passing through point <span class="arithmatex">\(y(3)=1\)</span>.</li>
+<li>Find the center of the ellipse with the equation <span class="arithmatex">\(x^2 + 4y^2 - 4x - 16y + 16 = 0\)</span>.</li>
+<li>Find the slope (<span class="arithmatex">\(m&gt;0\)</span>) of the line <span class="arithmatex">\(y=mx-5\)</span> that is tangent to the circle with the equation <span class="arithmatex">\(x^2 + y^2=1\)</span>.</li>
+<li>Find the intersection points of the hyperbola <span class="arithmatex">\(x^2 - y^2 = 1\)</span> with the ellipse's line <span class="arithmatex">\(x^2 + 4y^2 = 6\)</span>.</li>
+<li>For the given hyperbola <span class="arithmatex">\(x^2 - y^2 = 1\)</span>, find the distance between its branches.</li>
+</ul>
+<h2 id="16-equations-of-planes-in-space">16. Equations of planes in space</h2>
+<ul>
+<li>The plane passes through points <span class="arithmatex">\(A(1, 2, 3)\)</span>, <span class="arithmatex">\(B(3, 4, 5)\)</span>, and <span class="arithmatex">\(C(2, 1, 4)\)</span>. Find the equation of the plane.</li>
+<li>The plane passes through point <span class="arithmatex">\(A(1, 2, 3)\)</span> and is parallel to the plane <span class="arithmatex">\(2x + 3y + 4z = 5\)</span>. Find the equation of the plane.</li>
+<li>The plane passes through point <span class="arithmatex">\(A(1, 2, 3)\)</span> and is perpendicular to the normal vector <span class="arithmatex">\(\mathbf{n} = [2, 3, 4]\)</span>. Find the equation of the plane.</li>
+<li>We have two planes <span class="arithmatex">\(2x + 3y + 4z = 5\)</span> and <span class="arithmatex">\(3x + 4y + 2z = 6\)</span>. Find the line of intersection of these planes.</li>
+<li>Write the equation of the plane passing through point <span class="arithmatex">\(A(1, 2, 3)\)</span> and parallel to vectors <span class="arithmatex">\(\vec{v_1} = [1, 0, 1]\)</span> and <span class="arithmatex">\(\vec{v_2} = [0, 1, -1]\)</span>.</li>
+<li>We have the plane <span class="arithmatex">\(2x + 3y + 4z = 5\)</span>. Find an example of a plane parallel and perpendicular to it.</li>
+<li>We have the plane <span class="arithmatex">\(2x + 3y + 4z = 5\)</span> and point <span class="arithmatex">\(A(1, 2, 3)\)</span>. Find the distance from point <span class="arithmatex">\(A\)</span> to this plane.</li>
+<li>The plane intersects the coordinate axes at points <span class="arithmatex">\(A(2, 0, 0)\)</span>, <span class="arithmatex">\(B(0, 3, 0)\)</span>, and <span class="arithmatex">\(C(0, 0, 4)\)</span>. Find the equation of the plane.</li>
+<li>Calculate the angle between the plane <span class="arithmatex">\(x + y + z = 1\)</span> and the plane <span class="arithmatex">\(x = 0\)</span> (i.e., the <span class="arithmatex">\(yz\)</span> plane).</li>
+<li>Find the vector perpendicular to the plane <span class="arithmatex">\(x + y + z = 1\)</span>.</li>
+</ul>
+<h2 id="17-equations-of-second-order-surfaces">17. Equations of second-order surfaces</h2>
+<ul>
+<li>Write the equation of a sphere with center at point <span class="arithmatex">\(P=(1,2,3)\)</span> and radius <span class="arithmatex">\(r=3\)</span>.</li>
+<li>Do the spheres with equations <span class="arithmatex">\(x^2 + y^2 + z^2 = 1\)</span> and <span class="arithmatex">\(x^2 + y^2 + z^2 = 2\)</span> have any common points?</li>
+<li>What curve in space is formed by the intersection of the sphere <span class="arithmatex">\(x^2 + y^2 + z^2 = 1\)</span> with the sphere <span class="arithmatex">\((x-1)^2 + y^2 + z^2 = 1\)</span>? Find the equation of this curve.</li>
+<li>Write the equation of the tangent plane to the paraboloid <span class="arithmatex">\(z=(x-1)^2+y^2+1\)</span> at point <span class="arithmatex">\(P(1,0,1)\)</span>.</li>
+</ul>
+<h2 id="18-functions">18. Functions</h2>
+<ol>
+<li>Draw in a single Geogebra notebook the following functions:</li>
+<li><span class="arithmatex">\(f(x) = x^2\)</span></li>
+<li><span class="arithmatex">\(g(x) = \sqrt{x}\)</span></li>
+<li><span class="arithmatex">\(h(x) = \frac{1}{x}\)</span></li>
+<li><span class="arithmatex">\(j(x) = \sin(x)\)</span></li>
+</ol>
+<p>Find value of all the above functions at <span class="arithmatex">\(x = 2\)</span>.</p>
+<ol>
+<li>Let <span class="arithmatex">\(f(x) = 3x - 1\)</span> and <span class="arithmatex">\(g(x) = \sqrt{x}\)</span>. Find:</li>
+<li><span class="arithmatex">\(f(g(x))\)</span></li>
+<li><span class="arithmatex">\(g(f(x))\)</span></li>
+<li><span class="arithmatex">\(f(f(x))\)</span></li>
+<li><span class="arithmatex">\(g(g(x))\)</span></li>
+</ol>
+<p>and visualize functions in a single Geogebra notebook.</p>
+<ol>
+<li>
+<p>Let <span class="arithmatex">\(f(x) = e^x\)</span> and <span class="arithmatex">\(g(x) = \ln(x)\)</span>. Check: <span class="arithmatex">\(f(g(x))\)</span> and <span class="arithmatex">\(g(f(x))\)</span>. What do you notice?</p>
+</li>
+<li>
+<p>We have function <span class="arithmatex">\(f=\{(1,7), (2,9), (3,11)\}\)</span>. Give inverse function <span class="arithmatex">\(f^{-1}\)</span>.</p>
+</li>
+<li>
+<p>We have function <span class="arithmatex">\(f=\{(1,7), (2,7), (3,11)\}\)</span>. Give inverse function <span class="arithmatex">\(f^{-1}\)</span>.</p>
+</li>
+<li>
+<p>We have function <span class="arithmatex">\(f(x)= x-1\)</span>. Give inverse function <span class="arithmatex">\(f^{-1}\)</span>. Show both functions on the same Geogebra notebook.</p>
+</li>
+</ol>
+<h2 id="19-limits-of-sequences">19. Limits of Sequences</h2>
+<ol>
+<li>Calculate:</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{n \to \infty} \frac{n^2 + 3n}{2 n^2 - 2n}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{n \to \infty} \frac{(2n+3)^3}{n^3-1}\)</span></p>
+</li>
+<li>
+<p>Prove using the squeeze theorem:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle\lim_{n \to \infty} \frac{\sin(n)}{n}\)</span></p>
+</li>
+<li>
+<p>Find the limit of the sequence:</p>
+</li>
+<li><span class="arithmatex">\(a_n = (1+\frac{1}{n})^n\)</span></li>
+</ol>
+<h2 id="20-limits-of-real-functions">20. Limits of Real Functions</h2>
+<ol>
+<li>Compute:</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle\lim_{x \to \infty} \frac{x^3 + 2x^2}{x^4 - 3x^3}\)</span></p>
+</li>
+<li>
+<p>Find:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{x \to 0} \frac{\sin(3x)}{2x+1}\)</span>.</p>
+</li>
+<li>
+<p>Find the asymptotes of the function:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f(x) = \frac{x^2 - 1}{x^2 + 1}\)</span></p>
+</li>
+<li><span class="arithmatex">\(g(x) = \frac{\sin(x)}{x^2+1}\)</span></li>
+</ol>
+<h2 id="21-derivatives">21. Derivatives</h2>
+<ol>
+<li>Compute derivatives of functions:</li>
+<li><span class="arithmatex">\(y(x) = -3x+3\)</span></li>
+<li><span class="arithmatex">\(y(x) = \pi x + \sin(1)\)</span></li>
+<li><span class="arithmatex">\(y(x) = 4+\sin(2)\)</span></li>
+<li><span class="arithmatex">\(y(x) = 2x^3 - 3x^2 + 8x - 9\)</span></li>
+<li><span class="arithmatex">\(y(x) = 6 x^{1/3}\)</span></li>
+<li><span class="arithmatex">\(y(x) = \sqrt{x}\)</span></li>
+<li><span class="arithmatex">\(y(x) = \cos(x) + \sin(x)\)</span></li>
+<li><span class="arithmatex">\(y(x) = 2\sin(x) \cos(x)\)</span></li>
+<li><span class="arithmatex">\(y(x) = x\sin(x)\)</span></li>
+<li><span class="arithmatex">\(y(x) = (x+1)(x+1)\)</span></li>
+<li><span class="arithmatex">\(y(x) = \frac{x}{x+1}\)</span></li>
+<li><span class="arithmatex">\(y(x) = (x+1)\exp(x)\)</span></li>
+<li><span class="arithmatex">\(y(x) = \sin(x^2)\)</span></li>
+<li><span class="arithmatex">\(y(x) = \exp(-2x)\)</span></li>
+<li><span class="arithmatex">\(y(x) = \frac{1}{\sin(x+1)}\)</span></li>
+<li>
+<p><span class="arithmatex">\(y(x) = \sqrt{2x+1}\)</span></p>
+</li>
+<li>
+<p>Prove:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\frac{d}{dx} (\ln(\sin(x))) = \cot(x)\)</span></p>
+</li>
+<li>
+<p>For <span class="arithmatex">\(f(x) = \cos(x)\)</span>, verify that <span class="arithmatex">\(f''(x) = -f(x)\)</span>.</p>
+</li>
+<li>
+<p>Using de l'Hospital's Rule, find the improper limits:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to 0} \frac{\sin{x}}{x}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to \infty} \frac{\ln x}{x}\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle \lim_{x\to \infty} \frac{\exp(x)}{x}\)</span></p>
+</li>
+<li>
+<p>In physics, the position of a particle is given by <span class="arithmatex">\(x(t) = 3t^2 - 6t + 1\)</span>. Find the velocity <span class="arithmatex">\(V(t)=x'(t)\)</span> and acceleration <span class="arithmatex">\(a(t)=V'(t)=x''(t)\)</span> of the particle at time <span class="arithmatex">\(t = 2\)</span>.</p>
+</li>
+</ol>
+<h2 id="22-extremum">22. Extremum</h2>
+<ol>
+<li>
+<p>The profit function is <span class="arithmatex">\(P(u) = -2u^2 + 50u - 300\)</span>, where <span class="arithmatex">\(u\)</span> is the number of units sold. Find the number of units that maximize profit.</p>
+</li>
+<li>
+<p>You have 10 meters of string, and you need to use it to enclose the largest possible rectangular. Find the dimensions of the rectangle.</p>
+</li>
+<li>
+<p>Find extremum od <span class="arithmatex">\(f(x) = x^2 + 3x - 5\)</span>.</p>
+</li>
+<li>
+<p>Find extremum of <span class="arithmatex">\(f(x) =\frac{x^2+2x+1}{x-1}\)</span>.</p>
+</li>
+</ol>
+<h2 id="23-taylor-series">23. Taylor Series</h2>
+<ol>
+<li>Find the Taylor series and visualize obtained functions in Geogebra:</li>
+<li><span class="arithmatex">\(f(x) = \cos(x)\)</span> around <span class="arithmatex">\(x = 0\)</span> up to the 4th degree.</li>
+<li><span class="arithmatex">\(h(x) = 1/(1-x)\)</span> around <span class="arithmatex">\(x = 0\)</span> up to the 4rd degree.</li>
+<li>
+<p><span class="arithmatex">\(g(x) = \sin(x)\)</span> around <span class="arithmatex">\(x = \pi\)</span> up to the 4rd degree.</p>
+</li>
+<li>
+<p>Find a tangent line <span class="arithmatex">\(y = f'(x_0) (x-x_0) + f(x_0)\)</span> to the function <span class="arithmatex">\(f(x) = e^{\sin(x)}\)</span> at <span class="arithmatex">\(x_0 = \pi\)</span>. Hints for Geogebra visualization: define f(x), include slider s, define y = f'(s) (x-s) + f(s), and include point P(s, f(s)).</p>
+</li>
+</ol>
+<h2 id="24-integrals">24. Integrals</h2>
+<ol>
+<li>Compute:</li>
+<li><span class="arithmatex">\(\int 1 dx\)</span></li>
+<li><span class="arithmatex">\(\int (x^2 +2) dx\)</span></li>
+<li><span class="arithmatex">\(\int 2\sin(x) dx\)</span></li>
+<li><span class="arithmatex">\(\int \frac{3}{x} dx\)</span></li>
+<li><span class="arithmatex">\(\int \frac{1}{x^2} dx\)</span></li>
+<li><span class="arithmatex">\(\int \left( \frac{1}{3}x^4 - 5 \right) \, dx\)</span></li>
+<li><span class="arithmatex">\(\int (\sin^2 x + \cos^2 x) \, dx\)</span></li>
+<li><span class="arithmatex">\(\int (5 \sin x + 3e^x) \, dx\)</span></li>
+<li><span class="arithmatex">\(\int \sqrt[3]{x} \, dx\)</span></li>
+<li><span class="arithmatex">\(\int \sqrt{10x} \, dx\)</span></li>
+<li><span class="arithmatex">\(\int \cos\left(\frac{5}{2}x + 3\right) \, dx\)</span></li>
+<li><span class="arithmatex">\(\int \frac{\cos(\ln(x))}{x} \, dx\)</span></li>
+<li><span class="arithmatex">\(\int x \ln(x) \, dx\)</span></li>
+<li>
+<p><span class="arithmatex">\(\int x e^x \, dx\)</span></p>
+</li>
+<li>
+<p>Calculate integrals over the interval <span class="arithmatex">\([0, \pi]\)</span> and visualize them in Geogebra:</p>
+</li>
+<li><span class="arithmatex">\(f(x)=2x+1\)</span></li>
+<li>
+<p><span class="arithmatex">\(g(x)=x^2\)</span></p>
+</li>
+<li>
+<p>Calculate the area of the region bounded by the lines:
+<span class="arithmatex">\(x = 1\)</span>, <span class="arithmatex">\(x = 2\)</span>, <span class="arithmatex">\(y = 0\)</span>, and <span class="arithmatex">\(y = x^2 + 1\)</span>. Show it in Geogebra.</p>
+</li>
+<li>
+<p>Calculate the area under the sine curve over the interval <span class="arithmatex">\([0, \pi]\)</span>, using:</p>
+</li>
+</ol>
+<div class="arithmatex">\[P = \int_a^b f(x) \, dx = \int_0^\pi \sin(x) \, dx\]</div>
+<ol>
+<li>Calculate the length of the sine curve over the same interval using:</li>
+</ol>
+<div class="arithmatex">\[L = \int_a^b \sqrt{1 + (f'(x))^2} \, dx= \int_0^\pi \sqrt{1 + \cos^2(x)} \, dx
+\]</div>
+<ol>
+<li>Find the distance of the moving particle between time <span class="arithmatex">\(t=0\)</span> and <span class="arithmatex">\(t=2\)</span> for the following position function: <span class="arithmatex">\(x(t) = 3t^2 - 6t + 1\)</span>.</li>
+</ol>
+<h2 id="25-differential-equations">25. Differential Equations</h2>
+<ol>
+<li>Solve the following first-order ordinary differential equations:</li>
+<li><span class="arithmatex">\(y'(x)= y\)</span></li>
+<li>
+<p><span class="arithmatex">\(y'(x) = \frac{1}{2y(x)}\)</span></p>
+</li>
+<li>
+<p>Solve the first-order ordinary differential equations using the method of separation of variables for <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y=y(x)\)</span>:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\frac{dy}{dx} = \frac{x}{y}\)</span></p>
+</li>
+<li><span class="arithmatex">\(\frac{dy}{dx} = \frac{y}{x}\)</span></li>
+<li>
+<p><span class="arithmatex">\(\frac{dy}{dx} = xy\)</span></p>
+</li>
+<li>
+<p>Solve the second-order ordinary differential equations:</p>
+</li>
+<li>
+<p><span class="arithmatex">\(y''(x) + y'(x) = 0\)</span>, with boundary conditions <span class="arithmatex">\(y(0) = 2\)</span> and <span class="arithmatex">\(y'(0) = -1\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(y''(x) - y(x)= 0\)</span>, with boundary conditions <span class="arithmatex">\(y(0) = 2\)</span> and <span class="arithmatex">\(y'(0) = 0\)</span></p>
+</li>
+<li>
+<p><span class="arithmatex">\(\frac{d^2\,y(x)}{dx^2} = -\omega^2 y(x)\)</span>.</p>
+</li>
+<li>
+<p>Check if the function <span class="arithmatex">\(\psi(t, x) = A \cos(\omega t + kx)\)</span> is a solution of the second-order partial differential equation (the so-called "wave equation"), where <span class="arithmatex">\(v = \frac{\omega}{k} = \frac{2\pi / T}{2\pi / \lambda}\)</span>:</p>
+</li>
+</ol>
+<div class="arithmatex">\[
+\frac{\partial^2 \psi(t, x)}{\partial t^2} - v^2 \frac{\partial^2 \psi(t, x)}{\partial x^2} = 0.
+\]</div>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/mathjax.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../Linear_Algebra.html"></script>
+      <script src="../Analytic_Geometry.html"></script>
+      <script src="../Calculus.html"></script>
+      <script src="../Exercises.md"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
