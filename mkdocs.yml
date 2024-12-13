@@ -1,4 +1,11 @@
 site_name: Math 2024/25 Winter
+nav:
+  - Home: index.md
+  - Lecture Notes:
+      - Linear Algebra: Lecture_Notes/Linear_Algebra.html
+      - Analytic Geometry: Lecture_Notes/Analytic_Geometry.html
+      - Calculus: Lecture_Notes/Calculus.html
+      - Exercises: Lecture_Notes/Exercises/index.html
 theme:
   name: readthedocs
   highlightjs: true
@@ -21,3 +28,7 @@ extra_css:
 extra_javascript:
   - js/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - Lecture_Notes/Linear_Algebra.html
+  - Lecture_Notes/Analytic_Geometry.html
+  - Lecture_Notes/Calculus.html
+  - Lecture_Notes/Exercises.md
