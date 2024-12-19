@@ -376,6 +376,7 @@ $$
    - $j(x) = \sin(x)$
 
 Find value of all the above functions at $x = 2$.
+https://www.geogebra.org/calculator/qxthxxvy ============================
 
 2. Let $f(x) = 3x - 1$ and $g(x) = \sqrt{x}$. Find:
    - $f(g(x))$
