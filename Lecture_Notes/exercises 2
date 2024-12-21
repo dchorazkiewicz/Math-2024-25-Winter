@@ -1,0 +1,579 @@
+#Derivatives
+import math
+
+def derivative(func, x):
+    """Calculates the derivative of a function using the central difference method."""
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+# Define the functions
+def y1(x):
+    return -3*x + 3
+
+def y2(x):
+    return math.pi*x + math.sin(1)
+
+def y3(x):
+    return 4 + math.sin(2)
+
+def y4(x):
+    return 2*x**3 - 3*x**2 + 8*x - 9
+
+def y5(x):
+    return 6*x**(1/3)
+
+def y6(x):
+    return math.sqrt(x)
+
+def y7(x):
+    return math.cos(x) + math.sin(x)
+
+def y8(x):
+    return 2*math.log(x)*math.cos(x)
+
+def y9(x):
+    return x*math.sin(x)
+
+def y10(x):
+    return (x+1)*(x+1)
+
+def y11(x):
+    return x/(x+1)
+
+def y12(x):
+    return (x+1)*math.exp(x)
+
+def y13(x):
+    return math.log(x**2)
+
+def y14(x):
+    return math.exp(-2*x)
+
+def y15(x):
+    return 1/math.sin(x+1)
+
+def y16(x):
+    return math.sqrt(2*x+1)
+
+# Evaluate the derivatives at a specific point (e.g., x = 2)
+x_value = 2
+
+print("Derivatives at x =", x_value)
+print("y1:", derivative(y1, x_value))
+print("y2:", derivative(y2, x_value))
+print("y3:", derivative(y3, x_value))
+print("y4:", derivative(y4, x_value))
+print("y5:", derivative(y5, x_value))
+print("y6:", derivative(y6, x_value))
+print("y7:", derivative(y7, x_value))
+print("y8:", derivative(y8, x_value))
+print("y9:", derivative(y9, x_value))
+print("y10:", derivative(y10, x_value))
+print("y11:", derivative(y11, x_value))
+print("y12:", derivative(y12, x_value))
+print("y13:", derivative(y13, x_value))
+print("y14:", derivative(y14, x_value))
+print("y15:", derivative(y15, x_value))
+print("y16:", derivative(y16, x_value))
+
+import math
+
+def derivative(func, x):
+    """Calculates the derivative of a function using the central difference method."""
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+def ln_sin(x):
+    return math.log(math.sin(x))
+
+def cot(x):
+    return 1 / math.tan(x)
+
+x_value = math.pi/4  # Example value for x
+
+# Calculate the derivative of ln(sin(x))
+derivative_ln_sin = derivative(ln_sin, x_value)
+
+# Calculate cot(x)
+cot_x = cot(x_value)
+
+# Compare the results
+print("Derivative of ln(sin(x)) at x =", x_value, ":", derivative_ln_sin)
+print("cot(x) at x =", x_value, ":", cot_x)
+
+if abs(derivative_ln_sin - cot_x) < 1e-5:  # Tolerance for comparison
+    print("The derivative of ln(sin(x)) is equal to cot(x)")
+else:
+    print("The derivative of ln(sin(x)) is not equal to cot(x)")
+
+    import math
+
+def derivative(func, x):
+    """Calculates the derivative of a function using the central difference method."""
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+def cos_function(x):
+    return math.cos(x)
+
+x_value = math.pi/4  # Example value for x
+
+# Calculate the derivative of cos(x)
+derivative_cos = derivative(cos_function, x_value)
+
+# Calculate -f(x)
+negative_cos = -math.cos(x_value)
+
+# Compare the results
+print("Derivative of cos(x) at x =", x_value, ":", derivative_cos)
+print("-f(x) at x =", x_value, ":", negative_cos)
+
+if abs(derivative_cos - negative_cos) < 1e-5:  # Tolerance for comparison
+    print("f'(x) is equal to -f(x)")
+else:
+    print("f'(x) is not equal to -f(x)")
+
+    import math
+
+def lhospital(func1, func2, x):
+    """Applies l'Hospital's Rule to find the limit of func1/func2 as x approaches a."""
+    h = 1e-6  # Step size for numerical differentiation
+    derivative_func1 = (func1(x + h) - func1(x - h)) / (2 * h)
+    derivative_func2 = (func2(x + h) - func2(x - h)) / (2 * h)
+    return derivative_func1 / derivative_func2
+
+# Define the functions
+def func1_a(x):
+    return math.sin(x)
+
+def func2_a(x):
+    return x
+
+def func1_b(x):
+    return math.log(x)
+
+def func2_b(x):
+    return x
+
+def func1_c(x):
+    return math.exp(x)
+
+def func2_c(x):
+    return x
+
+# Apply l'Hospital's Rule
+limit_a = lhospital(func1_a, func2_a, 0)
+limit_b = lhospital(func1_b, func2_b, math.inf)  # Note: math.inf represents infinity
+limit_c = lhospital(func1_c, func2_c, math.inf)
+
+print("Limit of sin(x)/x as x approaches 0:", limit_a)
+print("Limit of ln(x)/x as x approaches infinity:", limit_b)
+print("Limit of exp(x)/x as x approaches infinity:", limit_c)
+
+def position(t):
+    return 3*t**2 - 6*t + 1
+
+def derivative(func, t):
+    """Calculates the derivative of a function using the central difference method."""
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(t + h) - func(t - h)) / (2 * h)
+
+t_value = 2
+
+# Calculate velocity (derivative of position)
+velocity = derivative(position, t_value)
+
+# Calculate acceleration (derivative of velocity)
+acceleration = derivative(lambda t: derivative(position, t), t_value)
+
+print("Velocity at t =", t_value, ":", velocity)
+print("Acceleration at t =", t_value, ":", acceleration)
+
+#Extremum
+
+import numpy as np
+
+def profit_function(u):
+    return -2*u**2 + 50*u - 300
+
+# Find the vertex of the parabola (maximum point)
+u_vertex = -b / (2*a)  # where a = -2, b = 50
+
+# Calculate the number of units for maximum profit
+max_units = int(u_vertex)  # Round to the nearest integer
+
+print("Number of units that maximize profit:", max_units)
+
+import numpy as np
+
+def rectangle_area(l):
+    # Calculate the area of the rectangle given one side length
+    w = (10 - 2*l) / 2  # Calculate the width based on the perimeter
+    return l * w
+
+# Find the maximum area using optimization
+l_values = np.linspace(0, 5, 100)  # Create an array of possible side lengths
+areas = rectangle_area(l_values)
+max_area = np.max(areas)
+max_index = np.argmax(areas)
+max_length = l_values[max_index]
+max_width = (10 - 2*max_length) / 2
+
+print("Dimensions of the rectangle for maximum area:")
+print("Length:", max_length)
+print("Width:", max_width)
+
+import numpy as np
+
+def function(x):
+    return x**2 + 3*x - 5
+
+# Find the derivative of the function
+def derivative(func, x):
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+# Find the critical points (where derivative is zero)
+x_values = np.linspace(-5, 5, 100)  # Create an array of x values
+derivatives = [derivative(function, x) for x in x_values]
+critical_points = x_values[np.abs(derivatives) < 1e-5]  # Find points where derivative is approximately zero
+
+# Determine if the critical points are maxima or minima
+extrema = []
+for point in critical_points:
+    if derivative(function, point - 1e-5) < 0 and derivative(function, point + 1e-5) > 0:
+        extrema.append(("Minimum", point, function(point)))
+    elif derivative(function, point - 1e-5) > 0 and derivative(function, point + 1e-5) < 0:
+        extrema.append(("Maximum", point, function(point)))
+
+# Print the results
+for extremum in extrema:
+    print(f"Extremum: {extremum[0]} at x = {extremum[1]}, f(x) = {extremum[2]}")
+
+    import numpy as np
+
+def function(x):
+    return (x**2 + 2*x + 1) / (x - 1)
+
+# Find the derivative of the function
+def derivative(func, x):
+    h = 1e-6  # Step size for numerical differentiation
+    return (func(x + h) - func(x - h)) / (2 * h)
+
+# Find the critical points (where derivative is zero)
+x_values = np.linspace(-5, 5, 100)  # Create an array of x values
+derivatives = [derivative(function, x) for x in x_values]
+critical_points = x_values[np.abs(derivatives) < 1e-5]  # Find points where derivative is approximately zero
+
+# Determine if the critical points are maxima or minima
+extrema = []
+for point in critical_points:
+    if derivative(function, point - 1e-5) < 0 and derivative(function, point + 1e-5) > 0:
+        extrema.append(("Minimum", point, function(point)))
+    elif derivative(function, point - 1e-5) > 0 and derivative(function, point + 1e-5) < 0:
+        extrema.append(("Maximum", point, function(point)))
+
+# Print the results
+for extremum in extrema:
+    print(f"Extremum: {extremum[0]} at x = {extremum[1]}, f(x) = {extremum[2]}")
+
+#Taylor Series
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the function
+def cos_x(x):
+    return np.cos(x)
+
+# Define the Taylor series approximation
+def taylor_cos(x):
+    return 1 - (x**2)/2 + (x**4)/24
+
+# Generate x values for plotting
+x_values = np.linspace(-np.pi, np.pi, 100)
+
+# Calculate the function values and Taylor series approximations
+y_cos = cos_x(x_values)
+y_taylor = taylor_cos(x_values)
+
+# Plot the results
+plt.plot(x_values, y_cos, label='cos(x)')
+plt.plot(x_values, y_taylor, label='Taylor Series')
+plt.legend()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Taylor Series of cos(x) around x=0')
+plt.grid(True)
+plt.show()
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the function
+def h_x(x):
+    return 1 / (1 - x)
+
+# Define the Taylor series approximation
+def taylor_h(x):
+    return 1 + x + x**2 + x**3
+
+# Generate x values for plotting
+x_values = np.linspace(-0.9, 0.9, 100)  # Avoid x = 1 where h(x) is undefined
+
+# Calculate the function values and Taylor series approximations
+y_h = h_x(x_values)
+y_taylor = taylor_h(x_values)
+
+# Plot the results
+plt.plot(x_values, y_h, label='h(x)')
+plt.plot(x_values, y_taylor, label='Taylor Series')
+plt.legend()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Taylor Series of h(x) around x=0')
+plt.grid(True)
+plt.show()
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function
+def f_x(x):
+    return np.exp(np.sin(x))
+
+# Define the derivative of the function
+def df_dx(x):
+    return np.cos(x) * np.exp(np.sin(x))
+
+# Calculate the values at xo = π
+xo = np.pi
+f_xo = f_x(xo)
+df_dx_xo = df_dx(xo)
+
+# Define the tangent line equation
+def tangent_line(x):
+    return df_dx_xo * (x - xo) + f_xo
+
+# Generate x values for plotting
+x_values = np.linspace(0, 2*np.pi, 100)
+
+# Calculate the function values and tangent line values
+y_f = f_x(x_values)
+y_tangent = tangent_line(x_values)
+
+# Plot the results
+plt.plot(x_values, y_f, label='f(x)')
+plt.plot(x_values, y_tangent, label='Tangent Line')
+plt.legend()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Tangent Line to f(x) at x=π')
+plt.grid(True)
+plt.show()
+
+#Integrals
+
+import sympy as sp
+
+# Define the symbolic variable
+x = sp.Symbol('x')
+
+# Compute the integrals
+integral1 = sp.integrate(x**2 + 2*x + 3, x)
+integral2 = sp.integrate(2*sp.sin(x), x)
+integral3 = sp.integrate(3/x, x)
+integral4 = sp.integrate(1/x**2, x)
+integral5 = sp.integrate((x-5)**2, x)
+integral6 = sp.integrate(sp.sin(x)**2 + sp.cos(x)**2, x)
+integral7 = sp.integrate(5*sp.sin(x) + 3*sp.exp(x), x)
+integral8 = sp.integrate(sp.sqrt(x), x)
+integral9 = sp.integrate(sp.sqrt(10*x), x)
+integral10 = sp.integrate(sp.cos(5/2*x + 3), x)
+integral11 = sp.integrate(sp.cos(sp.log(x))/x, x)
+integral12 = sp.integrate(x*sp.log(x), x)
+integral13 = sp.integrate(x*sp.exp(x), x)
+
+# Print the results
+print("Integral 1:", integral1)
+print("Integral 2:", integral2)
+print("Integral 3:", integral3)
+print("Integral 4:", integral4)
+print("Integral 5:", integral5)
+print("Integral 6:", integral6)
+print("Integral 7:", integral7)
+print("Integral 8:", integral8)
+print("Integral 9:", integral9)
+print("Integral 10:", integral10)
+print("Integral 11:", integral11)
+print("Integral 12:", integral12)
+print("Integral 13:", integral13)
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the symbolic variable
+x = sp.Symbol('x')
+
+# Define the functions
+f_x = 2*x + 1
+g_x = x**2
+
+# Calculate the definite integrals
+integral_f = sp.integrate(f_x, (x, 0, sp.pi))
+integral_g = sp.integrate(g_x, (x, 0, sp.pi))
+
+# Print the results
+print("Integral of f(x) over [0, π]:", integral_f)
+print("Integral of g(x) over [0, π]:", integral_g)
+
+# Generate x values for plotting
+x_values = np.linspace(0, np.pi, 100)
+
+# Calculate the function values
+y_f = [f_x.subs(x, x_val) for x_val in x_values]
+y_g = [g_x.subs(x, x_val) for x_val in x_values]
+
+# Plot the results
+plt.plot(x_values, y_f, label='f(x)')
+plt.plot(x_values, y_g, label='g(x)')
+plt.fill_between(x_values, y_f, alpha=0.2)
+plt.fill_between(x_values, y_g, alpha=0.2)
+plt.legend()
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Integrals over [0, π]')
+plt.grid(True)
+plt.show()
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define the symbolic variable
+x = sp.Symbol('x')
+
+# Define the function
+y = x**2 + 1
+
+# Calculate the definite integral
+area = sp.integrate(y, (x, 1, 2))
+
+# Print the result
+print("Area of the region:", area)
+
+# Generate x values for plotting
+x_values = np.linspace(1, 2, 100)
+
+# Calculate the function values
+y_values = [y.subs(x, x_val) for x_val in x_values]
+
+# Plot the results
+plt.plot(x_values, y_values)
+plt.fill_between(x_values, y_values, alpha=0.2)
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Area of the Region')
+plt.grid(True)
+plt.show()
+
+import sympy as sp
+
+# Define the symbolic variable
+x = sp.Symbol('x')
+
+# Calculate the derivative of sin(x)
+df_dx = sp.diff(sp.sin(x), x)
+
+# Calculate the length of the curve
+length = sp.integrate(sp.sqrt(1 + df_dx**2), (x, 0, sp.pi))
+
+# Print the result
+print("Length of the sine curve:", length)
+
+import sympy as sp
+
+# Define the symbolic variable
+t = sp.Symbol('t')
+
+# Define the position function
+x_t = 3*t**2 - 6*t + 1
+
+# Calculate the velocity function (derivative of position)
+v_t = sp.diff(x_t, t)
+
+# Calculate the distance traveled
+distance = sp.integrate(abs(v_t), (t, 0, 2))
+
+# Print the result
+print("Distance traveled by the particle:", distance)
+
+#Differential Equations
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the solutions as functions
+def y1(x):
+    return np.exp(-x) + 1
+
+def y2(x):
+    return 2 * np.cosh(x)
+
+def y3(x, omega, C1, C2):
+    return C1 * np.cos(omega * x) + C2 * np.sin(omega * x)
+
+# Define the wave function
+def u(t, x, A, a, k):
+    return A * np.cos(a * t + k * x)
+
+# Set parameters for visualization
+omega = 1
+C1 = 1
+C2 = 1
+A = 1
+a = 2 * np.pi
+k = 2 * np.pi
+T = 1
+lambda_ = 1
+c = lambda_ / T
+
+# Generate x values for plotting
+x_values = np.linspace(-5, 5, 100)
+
+# Plot the solutions
+plt.figure(figsize=(12, 4))
+
+plt.subplot(1, 3, 1)
+plt.plot(x_values, y1(x_values))
+plt.title("y1(x) = 1 + e^(-x)")
+
+plt.subplot(1, 3, 2)
+plt.plot(x_values, y2(x_values))
+plt.title("y2(x) = 2cosh(x)")
+
+plt.subplot(1, 3, 3)
+plt.plot(x_values, y3(x_values, omega, C1, C2))
+plt.title("y3(x) = C1cos(ωx) + C2sin(ωx)")
+
+plt.tight_layout()
+plt.show()
+
+# Generate t and x values for plotting the wave function
+t_values = np.linspace(0, 2 * T, 100)
+x_values = np.linspace(-2 * lambda_, 2 * lambda_, 100)
+T, X = np.meshgrid(t_values, x_values)
+
+# Calculate the wave function values
+U = u(T, X, A, a, k)
+
+# Plot the wave function
+plt.figure()
+plt.imshow(U, extent=[0, 2 * T, -2 * lambda_, 2 * lambda_], cmap='viridis', aspect='auto')
+plt.xlabel('Time (t)')
+plt.ylabel('Position (x)')
+plt.title('Wave Function u(t, x)')
+plt.colorbar()
+plt.show()
+
