@@ -1,0 +1,30 @@
+site_name: Math 2024/25 Winter
+nav:
+  - Home: index.md
+  - Lecture Notes:
+      - Linear Algebra: Lecture_Notes/Linear_Algebra.html
+      - Analytic Geometry: Lecture_Notes/Analytic_Geometry.html
+      - Calculus: Lecture_Notes/Calculus.html
+      - Exercises: Lecture_Notes/Exercises/index.html
+theme:
+  name: readthedocs
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - python
+markdown_extensions:
+  - toc
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+plugins:
+  - search
+  - macros  # Optional, for template macros
+  - mkdocstrings
+extra_css:
+  - styles/extra.css  # Optional, for custom styling
+
+extra_javascript:
+  - js/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js

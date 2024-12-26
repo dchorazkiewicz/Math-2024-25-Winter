@@ -2,3 +2,5 @@
 .venv/*
 Test_notebooks/remik_files/*
 Lecture_Notes/Linear_Algebra_files/*
+Lecture_Notes/LA_python/__pycache__/*
+Lecture_Notes/lol_files/*

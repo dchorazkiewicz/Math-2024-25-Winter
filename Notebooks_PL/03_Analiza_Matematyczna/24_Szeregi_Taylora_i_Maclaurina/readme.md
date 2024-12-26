@@ -1,1 +1,0 @@
-# 24_Szeregi_Taylora_i_Maclaurina
