@@ -300,9 +300,9 @@ $$
 
 1. Perform the addition of vector $[2, 1]$ to vector $[-1, 1]$. Plot both vectors and their sum on a graph.
 
-2. Calculate the area of the triangle spanned by vectors $[2, 1]$ and $[-1, 1]$.
+2. Calculate the area of the triangle spanned by vectors $[2, 1, 2]$ and $[-1, 1,1]$.
 
-3. Calculate the volume of the parallelepiped spanned by vectors $[2, 1]$, $[-1, 1]$, and $[1, 2]$.
+3. Calculate the volume of the parallelepiped spanned by vectors $[2, 1, -1]$, $[-1, 1, 0]$, and $[1, 2, 1]$.
 
 4. Check if vectors $[2, 1]$ and $[-1, 1]$ are perpendicular.
 
