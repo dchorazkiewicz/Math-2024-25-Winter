@@ -1,6 +1,6 @@
 # Intelligent use of ChatGPT
 
-- ChatGPT is **NOT TO AVOID WORK**! Instead, it is to **help you** understand problems better and improve your work.
+- ChatGPT is **NOT TO AVOID WORK**! Instead, it is to **help you** understand problems better and improve your work. Fill the gaps in your knowledge and understanding.
 
 - Don't reduce yourself to the protein proxy mindlessly copy-pasting between one window and another.
 
@@ -10,11 +10,14 @@
 
 - Generate notes/solutions in Markdown Code! Use ChatGPT to create markdown code for notes that can be easily pasted into platforms like Google Colab (*.ipynb) or markdown files (*.md).
 
+- Don't mark the text. Use copy icon to copy the output.
+
 - Often ChatGPT will give you markdown code that is not perfect. For example rendering of math formulas in markdown require extra command added to your prompts.
 
 ```markdown
 "In markdown code, use single and double dollars $...$ and $$...$$ for math formulas!"
 ```
+Otherwise, you need by hand change `\( \)` to `$ $` (math inside the text) and `\[ \]` to `$$ ` (math being emphazised in separate line and centered).
 
 ## Ask first for useful formulas, definitions and not for the solutions!
 
@@ -94,6 +97,7 @@ Lalala
 ---
 
 Please, make them more readable, understandable, and beautifully formatted.
+
 Use nice markdown code with single and double dollars $...$ and $$...$$ for
 math formulas!
 ```
@@ -101,7 +105,9 @@ math formulas!
 ## Convert handwritten notes to markdown
 
 ```markdown
-I have photo of my handwritten notes. Convert them to markdown code with single and double dollars $...$ and $$...$$ for math formulas! Check and correct the formulas if needed.
+I have photo of my handwritten notes. Convert them to markdown code with single and double dollars $...$ and $$...$$ for math formulas! 
+
+Check and correct the formulas if needed.
 
 [INCLUDE PHOTO OF YOUR HANDWRITTEN NOTES]
 ```
@@ -121,3 +127,7 @@ Give me a table with columns: the commands in markdown, descriptions, and exampl
 
 Give me other table with columns: the math code in latex/markdown showing fractions, powers, integrals, derivatives, (and other basic math examples), descriptions, and examples.
 ``` 
+
+## Link to ChatGPT with few of these prompts
+
+Link: https://chatgpt.com/share/67706e79-4d3c-8006-a6b3-7e04643531d0
