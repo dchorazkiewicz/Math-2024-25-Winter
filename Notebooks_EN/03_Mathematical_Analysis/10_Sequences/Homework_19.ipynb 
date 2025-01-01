@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyO+cauK/sAMarvpVrt+hWso",
+      "authorship_tag": "ABX9TyP5nL8RTDVOkc8WA/3bhMHV",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -88,6 +88,47 @@
       "metadata": {
         "id": "kft4bToMRaO9"
       }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy as sp\n",
+        "\n",
+        "# 1. Calculate the limits\n",
+        "n = sp.symbols('n')\n",
+        "\n",
+        "# First limit: lim (n -> infinity) (n^2 + 3n) / (2n^2 - 2n)\n",
+        "sequence_1 = (n**2 + 3*n) / (2*n**2 - 2*n)\n",
+        "limit_1 = sp.limit(sequence_1, n, sp.oo)\n",
+        "print(\"Limit 1: lim (n -> infinity) (n^2 + 3n) / (2n^2 - 2n) =\", limit_1)\n",
+        "\n",
+        "# Second limit: lim (n -> infinity) ((2n + 3)^3) / (n^3 - 1)\n",
+        "sequence_2 = ((2*n + 3)**3) / (n**3 - 1)\n",
+        "limit_2 = sp.limit(sequence_2, n, sp.oo)\n",
+        "print(\"Limit 2: lim (n -> infinity) ((2n + 3)^3) / (n^3 - 1) =\", limit_2)\n",
+        "\n",
+        "# 2. Prove using the squeeze theorem: lim (n -> infinity) sin(n) / n\n",
+        "# We know that -1 <= sin(n) <= 1, so we can apply the squeeze theorem\n",
+        "\n",
+        "# Sequence: sin(n) / n\n",
+        "sequence_3 = sp.sin(n) / n\n",
+        "upper_bound = 1 / n\n",
+        "lower_bound = -1 / n\n",
+        "\n",
+        "# Apply the squeeze theorem\n",
+        "squeeze_limit = sp.limit(sequence_3, n, sp.oo)\n",
+        "print(\"Limit using the squeeze theorem: lim (n -> infinity) sin(n) / n =\", squeeze_limit)\n",
+        "\n",
+        "# 4. Find the limit of the sequence a_n = (1 + 1/n)^n\n",
+        "a_n = (1 + 1/n)**n\n",
+        "limit_a_n = sp.limit(a_n, n, sp.oo)\n",
+        "print(\"Limit of the sequence a_n = (1 + 1/n)^n as n -> infinity:\", limit_a_n)\n"
+      ],
+      "metadata": {
+        "id": "uBnOnUSKSBWZ"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
