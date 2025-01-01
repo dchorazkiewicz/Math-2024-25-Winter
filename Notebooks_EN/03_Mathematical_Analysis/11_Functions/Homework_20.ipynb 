@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyOecZ9zNfMl6LUgOwrR6bTO",
+      "authorship_tag": "ABX9TyPMGLQXR7KIdOaUbBTiKgtl",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -78,6 +78,71 @@
       "metadata": {
         "id": "FBYUV9lRSs-J"
       }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy as sp\n",
+        "\n",
+        "# 1. Compute the limit: lim (x -> infinity) (x^3 + 2x^2) / (x^4 - 3x^3)\n",
+        "x = sp.symbols('x')\n",
+        "func_1 = (x**3 + 2*x**2) / (x**4 - 3*x**3)\n",
+        "limit_1 = sp.limit(func_1, x, sp.oo)\n",
+        "print(\"Limit 1: lim (x -> infinity) (x^3 + 2x^2) / (x^4 - 3x^3) =\", limit_1)\n",
+        "\n",
+        "# 2. Compute the limit: lim (x -> 0) sin(3x) / (2x + 1)\n",
+        "func_2 = sp.sin(3*x) / (2*x + 1)\n",
+        "limit_2 = sp.limit(func_2, x, 0)\n",
+        "print(\"Limit 2: lim (x -> 0) sin(3x) / (2x + 1) =\", limit_2)\n",
+        "\n",
+        "# 3. Asymptotes of the function f(x) = (x^2 - 1) / (x^2 + 1)\n",
+        "f_x = (x**2 - 1) / (x**2 + 1)\n",
+        "\n",
+        "# Vertical asymptotes: check where the denominator is 0\n",
+        "vertical_asymptotes_f = sp.solve(x**2 + 1, x)\n",
+        "\n",
+        "# Horizontal asymptote: limit as x -> infinity\n",
+        "horizontal_asymptote_f = sp.limit(f_x, x, sp.oo)\n",
+        "print(\"Asymptotes of f(x) = (x^2 - 1) / (x^2 + 1):\")\n",
+        "print(\"Vertical Asymptotes:\", vertical_asymptotes_f)\n",
+        "print(\"Horizontal Asymptote:\", horizontal_asymptote_f)\n",
+        "\n",
+        "# 4. Asymptotes of the function g(x) = sin(x) / (x^2 + 1)\n",
+        "g_x = sp.sin(x) / (x**2 + 1)\n",
+        "\n",
+        "# Vertical asymptotes: check where the denominator is 0\n",
+        "vertical_asymptotes_g = sp.solve(x**2 + 1, x)\n",
+        "\n",
+        "# Horizontal asymptote: limit as x -> infinity\n",
+        "horizontal_asymptote_g = sp.limit(g_x, x, sp.oo)\n",
+        "print(\"Asymptotes of g(x) = sin(x) / (x^2 + 1):\")\n",
+        "print(\"Vertical Asymptotes:\", vertical_asymptotes_g)\n",
+        "print(\"Horizontal Asymptote:\", horizontal_asymptote_g)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8B40sXRLS7md",
+        "outputId": "75d9bfef-4396-4dcf-9752-208653ba4f23"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Limit 1: lim (x -> infinity) (x^3 + 2x^2) / (x^4 - 3x^3) = 0\n",
+            "Limit 2: lim (x -> 0) sin(3x) / (2x + 1) = 0\n",
+            "Asymptotes of f(x) = (x^2 - 1) / (x^2 + 1):\n",
+            "Vertical Asymptotes: [-I, I]\n",
+            "Horizontal Asymptote: 1\n",
+            "Asymptotes of g(x) = sin(x) / (x^2 + 1):\n",
+            "Vertical Asymptotes: [-I, I]\n",
+            "Horizontal Asymptote: 0\n"
+          ]
+        }
+      ]
     }
   ]
 }
