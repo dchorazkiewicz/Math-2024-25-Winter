@@ -1,0 +1,142 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOmeyLDDRx1TjzhiVWYLLXY",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Erencan2005/Math-2024-25-Winter/blob/main/Notebooks_EN/02_Analytic_Geometry/07_Planes_in_Space/Homework_16.ipynb%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 16. Equations of planes in space"
+      ],
+      "metadata": {
+        "id": "SsPDstgSOnqx"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import sympy as sp\n",
+        "\n",
+        "# 1. Equation of the plane passing through points A(1,2,3), B(3,4,5), C(2,1,4)\n",
+        "x, y, z = sp.symbols('x y z')\n",
+        "A = sp.Matrix([1, 2, 3])\n",
+        "B = sp.Matrix([3, 4, 5])\n",
+        "C = sp.Matrix([2, 1, 4])\n",
+        "\n",
+        "# Vectors AB and AC\n",
+        "AB = B - A\n",
+        "AC = C - A\n",
+        "\n",
+        "# Normal vector to the plane (cross product of AB and AC)\n",
+        "normal_vector = AB.cross(AC)\n",
+        "\n",
+        "# Equation of the plane: normal_vector . (x - A) = 0\n",
+        "plane_eq = normal_vector[0] * (x - A[0]) + normal_vector[1] * (y - A[1]) + normal_vector[2] * (z - A[2])\n",
+        "print(\"Equation of the plane passing through A, B, and C:\", plane_eq)\n",
+        "\n",
+        "# 2. Equation of the plane passing through point A(1, 2, 3) and parallel to the plane 2x + 3y + 4z = 5\n",
+        "normal_vector_parallel = sp.Matrix([2, 3, 4])  # Same normal vector as the given plane\n",
+        "plane_eq_parallel = normal_vector_parallel[0] * (x - 1) + normal_vector_parallel[1] * (y - 2) + normal_vector_parallel[2] * (z - 3)\n",
+        "print(\"Equation of the parallel plane:\", plane_eq_parallel)\n",
+        "\n",
+        "# 3. Equation of the plane passing through A(1, 2, 3) and perpendicular to the normal vector [2, 3, 4]\n",
+        "normal_vector_perpendicular = sp.Matrix([2, 3, 4])  # Given normal vector\n",
+        "plane_eq_perpendicular = normal_vector_perpendicular[0] * (x - 1) + normal_vector_perpendicular[1] * (y - 2) + normal_vector_perpendicular[2] * (z - 3)\n",
+        "print(\"Equation of the perpendicular plane:\", plane_eq_perpendicular)\n",
+        "\n",
+        "# 4. Equation of the line of intersection of two planes 2x + 3y + 4z = 5 and 3x + 4y + 2z = 6\n",
+        "plane1_eq = 2*x + 3*y + 4*z - 5\n",
+        "plane2_eq = 3*x + 4*y + 2*z - 6\n",
+        "\n",
+        "# Solve for the intersection line (parametric form)\n",
+        "line_params = sp.symbols('t')\n",
+        "solution = sp.solve([plane1_eq, plane2_eq], (x, y, z))\n",
+        "line_eq = [sol + line_params for sol in solution]\n",
+        "print(\"Equation of the line of intersection:\", line_eq)\n",
+        "\n",
+        "# 5. Equation of the plane passing through point A(1, 2, 3) and parallel to vectors v1 = [1, 0, 1] and v2 = [0, 1, -1]\n",
+        "v1 = sp.Matrix([1, 0, 1])\n",
+        "v2 = sp.Matrix([0, 1, -1])\n",
+        "\n",
+        "# Normal vector is the cross product of v1 and v2\n",
+        "normal_vector_v = v1.cross(v2)\n",
+        "plane_eq_v = normal_vector_v[0] * (x - 1) + normal_vector_v[1] * (y - 2) + normal_vector_v[2] * (z - 3)\n",
+        "print(\"Equation of the plane parallel to vectors v1 and v2:\", plane_eq_v)\n",
+        "\n",
+        "# 6. Planes parallel and perpendicular to 2x + 3y + 4z = 5\n",
+        "# Parallel: same normal vector, different constant\n",
+        "parallel_plane_eq = normal_vector_parallel[0] * x + normal_vector_parallel[1] * y + normal_vector_parallel[2] * z - 7\n",
+        "# Perpendicular: normal vector is perpendicular to [2, 3, 4], e.g., (4, -2, 3)\n",
+        "perpendicular_plane_eq = sp.Matrix([4, -2, 3])[0] * x + sp.Matrix([4, -2, 3])[1] * y + sp.Matrix([4, -2, 3])[2] * z - 1\n",
+        "print(\"Equation of a plane parallel to 2x + 3y + 4z = 5:\", parallel_plane_eq)\n",
+        "print(\"Equation of a plane perpendicular to 2x + 3y + 4z = 5:\", perpendicular_plane_eq)\n",
+        "\n",
+        "# 7. Distance from point A(1, 2, 3) to the plane 2x + 3y + 4z = 5\n",
+        "point_A = sp.Matrix([1, 2, 3])\n",
+        "plane_normal = sp.Matrix([2, 3, 4])\n",
+        "plane_d = 5\n",
+        "\n",
+        "# Distance formula from a point to a plane\n",
+        "distance = abs(plane_normal.dot(point_A) - plane_d) / plane_normal.norm()\n",
+        "print(\"Distance from point A to the plane:\", distance)\n",
+        "\n",
+        "# 8. Equation of the plane passing through points A(2, 0, 0), B(0, 3, 0), and C(0, 0, 4)\n",
+        "A = sp.Matrix([2, 0, 0])\n",
+        "B = sp.Matrix([0, 3, 0])\n",
+        "C = sp.Matrix([0, 0, 4])\n",
+        "\n",
+        "# Vectors AB and AC\n",
+        "AB = B - A\n",
+        "AC = C - A\n",
+        "\n",
+        "# Normal vector to the plane (cross product of AB and AC)\n",
+        "normal_vector = AB.cross(AC)\n",
+        "\n",
+        "# Equation of the plane: normal_vector . (x - A) = 0\n",
+        "plane_eq = normal_vector[0] * (x - A[0]) + normal_vector[1] * (y - A[1]) + normal_vector[2] * (z - A[2])\n",
+        "print(\"Equation of the plane passing through A, B, and C:\", plane_eq)\n",
+        "\n",
+        "# 9. Angle between planes x + y + z = 1 and x = 0 (yz plane)\n",
+        "normal1 = sp.Matrix([1, 1, 1])\n",
+        "normal2 = sp.Matrix([1, 0, 0])\n",
+        "\n",
+        "# Angle between two normals\n",
+        "angle_radians = sp.acos(normal1.dot(normal2) / (normal1.norm() * normal2.norm()))\n",
+        "angle_degrees = sp.deg(angle_radians)\n",
+        "print(\"Angle between the planes:\", angle_degrees)\n",
+        "\n",
+        "# 10. Find the vector perpendicular to the plane x + y + z = 1\n",
+        "normal_vector_to_plane = sp.Matrix([1, 1, 1])\n",
+        "print(\"Vector perpendicular to the plane x + y + z = 1:\", normal_vector_to_plane)\n"
+      ],
+      "metadata": {
+        "id": "wGwUhuG3O37x"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
