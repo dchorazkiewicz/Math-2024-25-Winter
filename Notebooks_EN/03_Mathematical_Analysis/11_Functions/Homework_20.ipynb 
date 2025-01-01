@@ -1,0 +1,83 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOecZ9zNfMl6LUgOwrR6bTO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Erencan2005/Math-2024-25-Winter/blob/main/Notebooks_EN/03_Mathematical_Analysis/11_Functions/Homework_20.ipynb%20\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 20. Limits of Real Functions"
+      ],
+      "metadata": {
+        "id": "FBTQa_ofSehy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1. Compute:\n",
+        "\n",
+        "   - $\\displaystyle\\lim_{x \\to \\infty} \\frac{x^3 + 2x^2}{x^4 - 3x^3}$\n",
+        "\n",
+        "   To compute this limit, divide both the numerator and the denominator by $x^4$:\n",
+        "   $$\n",
+        "   \\lim_{x \\to \\infty} \\frac{x^3 + 2x^2}{x^4 - 3x^3} = \\lim_{x \\to \\infty} \\frac{\\frac{x^3}{x^4} + \\frac{2x^2}{x^4}}{\\frac{x^4}{x^4} - \\frac{3x^3}{x^4}} = \\lim_{x \\to \\infty} \\frac{\\frac{1}{x} + \\frac{2}{x^2}}{1 - \\frac{3}{x}} = \\frac{0 + 0}{1 - 0} = 0\n",
+        "   $$\n",
+        "\n",
+        "2. Find:\n",
+        "\n",
+        "   - $\\displaystyle \\lim_{x \\to 0} \\frac{\\sin(3x)}{2x + 1}$\n",
+        "\n",
+        "   Using the fact that $\\lim_{x \\to 0} \\frac{\\sin(3x)}{3x} = 1$, we can write:\n",
+        "   $$\n",
+        "   \\lim_{x \\to 0} \\frac{\\sin(3x)}{2x + 1} = \\frac{\\lim_{x \\to 0} \\sin(3x)}{\\lim_{x \\to 0} (2x + 1)} = \\frac{0}{1} = 0\n",
+        "   $$\n",
+        "\n",
+        "4. Find the asymptotes of the function:\n",
+        "\n",
+        "   - $f(x) = \\frac{x^2 - 1}{x^2 + 1}$\n",
+        "\n",
+        "   As $x \\to \\infty$, the degree of the numerator and denominator is the same, so we can compute the limit:\n",
+        "   $$\n",
+        "   \\lim_{x \\to \\infty} \\frac{x^2 - 1}{x^2 + 1} = \\lim_{x \\to \\infty} \\frac{x^2(1 - \\frac{1}{x^2})}{x^2(1 + \\frac{1}{x^2})} = \\frac{1 - 0}{1 + 0} = 1\n",
+        "   $$\n",
+        "   Therefore, the horizontal asymptote is $y = 1$.\n",
+        "\n",
+        "   - $g(x) = \\frac{\\sin(x)}{x^2 + 1}$\n",
+        "\n",
+        "   As $x \\to \\infty$, we know that $\\sin(x)$ oscillates between $-1$ and $1$, while $x^2 + 1$ grows without bound. Hence, the function tends to $0$:\n",
+        "   $$\n",
+        "   \\lim_{x \\to \\infty} \\frac{\\sin(x)}{x^2 + 1} = 0\n",
+        "   $$\n",
+        "   Therefore, the horizontal asymptote is $y = 0$.\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "FBYUV9lRSs-J"
+      }
+    }
+  ]
+}
