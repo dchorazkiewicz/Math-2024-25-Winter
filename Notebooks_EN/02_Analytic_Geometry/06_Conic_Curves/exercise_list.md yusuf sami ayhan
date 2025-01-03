@@ -1,0 +1,48 @@
+## Tasks related to conic sections
+
+**Visualize each task.** - Python, GeoGebra, Wolfram Alpha, ...
+
+* Find the equation of a circle with center at point $A(1,2)$ and radius $r=3$.
+* Find the equation of a parabola intersecting the $Ox$ axis at points $x=2$, $x=4$, and passing through point $y(3)=1$.
+* Find the center of the ellipse with the equation $x^2 + 4y^2 - 4x - 16y + 16 = 0$.
+* Find the slope ($m>0$) of the line $y=mx-5$ that is tangent to the circle with the equation $x^2 + y^2=1$.
+* Find the intersection points of the hyperbola $x^2 - y^2 = 1$ with the ellipse's line $x^2 + 4y^2 = 6$.
+* For the given hyperbola $x^2 - y^2 = 1$, find the distance between its branches.
+
+* ## ex
+* import sympy as sp
+
+# 1. Equation of the Circle
+x, y = sp.symbols('x y')
+circle_eq = (x - 1)**2 + (y - 2)**2 - 3**2
+print("Circle equation:", circle_eq)
+
+# 2. Equation of the Parabola
+a = sp.symbols('a')
+parabola_eq = a * (x - 2) * (x - 4)
+a_value = sp.solve(parabola_eq.subs(x, 3) - 1, a)[0]
+parabola_eq = parabola_eq.subs(a, a_value)
+print("Parabola equation:", parabola_eq)
+
+# 3. Center of the Ellipse
+ellipse_eq = x**2 + 4*y**2 - 4*x - 16*y + 16
+ellipse_center = sp.solve([sp.diff(ellipse_eq, x), sp.diff(ellipse_eq, y)], (x, y))
+print("Ellipse center:", ellipse_center)
+
+# 4. Tangent Line Slope
+m = sp.symbols('m', positive=True)
+line_eq = m * x - 5
+circle_tangent_eq = sp.Eq(x**2 + (line_eq)**2, 1)
+discriminant = sp.discriminant(circle_tangent_eq.lhs, x)
+tangent_slope = sp.solve(discriminant, m)
+print("Tangent slope:", tangent_slope)
+
+# 5. Intersection of Hyperbola and Ellipse
+hyperbola_eq = x**2 - y**2 - 1
+ellipse_eq = x**2 + 4*y**2 - 6
+intersection_points = sp.solve([hyperbola_eq, ellipse_eq], (x, y))
+print("Intersection points:", intersection_points)
+
+# 6. Distance Between Hyperbola Branches
+distance_between_branches = 2  # Transverse axis distance for x^2 - y^2 = 1
+print("Distance between hyperbola branches:", distance_between_branches)
