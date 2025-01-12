@@ -1851,11 +1851,11 @@ $$
      $$
 
 
-### Differential Equations
+## Differential Equations
 
 A **differential equation** is a mathematical equation that relates a function with its derivatives. Differential equations are used to model various phenomena in physics, engineering, biology, economics, and more.
 
-#### General Form
+### General Form
 
 A differential equation can be written as:
 
@@ -1868,9 +1868,44 @@ Here:
 - $y = y(x)$ is the unknown function (solution).
 - $y', y'', \dots, y^{(n)}$ are its derivatives.
 
----
+Here $F$ is a function that relates $y$ with its derivatives and possibly the independent variable $x$.
 
-#### Types of Differential Equations
+Note that in physics, $x$ often represents time, and $y$ represents a physical quantity (e.g., position, temperature, concentration).
+
+For position $x(t)$ function we can write the following differential equation:
+
+$$
+F(t, x(t), \frac{dx}{dt}, \frac{d^2x}{dt^2}, \dots, \frac{d^nx}{dt^n}) = 0
+$$
+
+where $x(t)$ is the position of the object at time $t$, and $x'(t), x''(t), \dots$ are its derivatives with respect to time.
+
+### Order of a Differential Equation
+
+The **order** of a differential equation is the highest order of the derivative present in the equation. For example:
+
+- $y'' + 2y' + y = 0$ is a second-order ODE.
+
+- $y' + y = x$ is a first-order ODE.
+
+- $(y'')^3 + y' = 0$ is a second-order ODE (nonlinear).
+
+Depending on the order $n$ in the equation, we need $n$ initial conditions to solve the ODE. Otherwise, the solution will have $n$ arbitrary constants.
+
+### Key Differences: Algebraic vs. Differential Equations
+
+- In **algebraic equations**, we solve for a number of $x$ that satisfies the equation.  
+- In **differential equations**, we solve for a function $y(x)$ that satisfies the given relationship involving its derivatives.
+
+### Approaches to Solving Differential Equations
+
+1. **Symbolic Solvers**  
+   Tools like [Wolfram Alpha](https://www.wolframalpha.com/input?i=DSolve+x%27%27%28t%29%3D-k*x%28t%29+-b*x%27%28t%29), [Mathematica](https://reference.wolfram.com/language/ref/DSolve.html), or the [sympy library](https://docs.sympy.org/latest/guides/solving/solve-ode.html) in Python can provide analytical (exact) solutions to many differential equations.  
+
+2. **Numerical Methods**  
+   Techniques such as Euler's method, Runge-Kutta methods, and others are used to approximate solutions when an analytical solution is not feasible. These methods are implemented in software like Python, MATLAB, and similar platforms, allowing us to compute the numerical behavior of the solution.  
+
+### Types of Differential Equations
 
 1. **Ordinary Differential Equations (ODEs)**:
    - Involves derivatives of a function with respect to a single variable.
@@ -1903,9 +1938,7 @@ Here:
      y'' + y^2 = 0
      $$
 
----
-
-#### Initial and Boundary Value Problems
+### Initial and Boundary Value Problems
 
 1. **Initial Value Problem (IVP)**:
    - Solve a differential equation with given initial conditions.
@@ -1913,7 +1946,7 @@ Here:
      $$
      \frac{dy}{dx} = 2x, \quad y(0) = 1
      $$
-
+   
 2. **Boundary Value Problem (BVP)**:
    - Solve a differential equation with specified values at the boundaries of the domain.
    - Example:
@@ -1921,9 +1954,34 @@ Here:
      y'' + y = 0, \quad y(0) = 1, \quad y(\pi) = 0
      $$
 
+### Applications of Differential Equations
+
+1. **Physics**:
+   - Modeling motion (Newton’s laws).
+   - Heat conduction (Fourier’s law).
+   - Wave equations.
+
+2. **Biology**:
+   - Population growth models (Logistic equation).
+   - Spread of diseases (SIR model).
+
+3. **Economics**:
+   - Modeling capital accumulation.
+   - Growth models (Solow model).
+
+4. **Engineering**:
+   - Circuit analysis (RLC circuits).
+   - Control systems.
+
+**Links:**
+
+* [List of linear ordinary differential equations](https://en.wikipedia.org/wiki/List_of_linear_ordinary_differential_equations)
+* [List of nonlinear ordinary differential equations](https://en.wikipedia.org/wiki/List_of_nonlinear_ordinary_differential_equations)
+* [List of nonlinear partial differential equations](https://en.wikipedia.org/wiki/List_of_nonlinear_partial_differential_equations)
+
 ---
 
-#### Solving Differential Equations
+### Solving Differential Equations
 
 1. **Separable Equations**:
    - An ODE is separable if it can be written as:
@@ -1958,28 +2016,7 @@ Here:
 
 ---
 
-#### Applications of Differential Equations
-
-1. **Physics**:
-   - Modeling motion (Newton’s laws).
-   - Heat conduction (Fourier’s law).
-   - Wave equations.
-
-2. **Biology**:
-   - Population growth models (Logistic equation).
-   - Spread of diseases (SIR model).
-
-3. **Economics**:
-   - Modeling capital accumulation.
-   - Growth models (Solow model).
-
-4. **Engineering**:
-   - Circuit analysis (RLC circuits).
-   - Control systems.
-
----
-
-#### Example: Simple ODE
+### Example of simple ODE
 
 Solve the equation:
 $$
@@ -1992,6 +2029,10 @@ $$
    $$
 
 2. Integrate both sides:
+
+   $$
+   \int dy = \int 2x \, dx
+   $$
    $$
    y = x^2 + C
    $$
@@ -2006,3 +2047,160 @@ $$
    y = x^2 + 1
    $$
 
+### Newton's Second Law of Motion
+
+Newton's second law of motion states that the rate of change of momentum of an object is directly proportional to the net force acting on it. This law can be expressed as a differential equation:
+
+$$
+m \frac{d^2x}{dt^2} = F(x, v, t)
+$$
+
+where:
+- $m$ is the mass of the object,
+- $\frac{d^2x}{dt^2}$ is the acceleration,
+- $F(x, v, t)$ is the net force acting on the object, which may depend on position $x$, velocity $v$, and time $t$.
+
+This second-order ODE describes the motion of the object under the influence of external forces.
+
+Solving this equation provides the position $x(t)$ of the object as a function of time. The solution can be obtained analytically or numerically, depending on the complexity of the force function $F(x, v, t)$.
+
+* Let's consider case with zero force $F=0$ and $m=1$. Then the equation becomes:
+
+$$
+\frac{d^2x}{dt^2} = 0
+$$
+
+This is a second-order linear homogeneous ODE with constant coefficients. The general solution is:
+
+$$
+x(t) = c_1 t + c_2
+$$
+
+where $c_1$ and $c_2$ are constants determined by initial conditions.
+
+Consider that we know that $x(0) = 1$ and $v(0) = 2$. Then we have:
+
+$$
+x(0) = c_2 = 1
+$$
+
+and
+
+$$
+v(t) = \frac{dx}{dt} = \frac{d}{dt} (c_1 t + c_2)= c_1
+$$
+
+so $c_1 = 2$. Therefore the solution is $x(t) = 2t + 1$.
+
+We can check this solution by plotting the position $x(t)$ and velocity $v(t)$, as well as acceleration $a(t)$ over time.
+
+This agrees with the fact that the object moves with constant velocity and zero acceleration when no external force is acting on it.
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Time points
+t = np.linspace(0, 2, 100)
+
+# Position x(t) = 2t + 1
+x = 2 * t + 1
+
+# Velocity v(t) = 2
+v = 2
+
+# Acceleration a(t) = 0
+a = 0
+
+# Plotting
+plt.figure(figsize=(12, 6))
+
+plt.subplot(1, 3, 1)
+plt.plot(t, x, label='Position x(t) = 2t + 1', color='blue')
+plt.xlabel('Time t')
+
+plt.subplot(1, 3, 2)
+plt.axhline(v, color='red', linestyle='-', label='Velocity v(t) = 2')
+plt.xlabel('Time t')
+
+plt.subplot(1, 3, 3)
+plt.axhline(a, color='green', linestyle='-', label='Acceleration a(t) = 0')
+plt.xlabel('Time t')
+
+plt.suptitle("Motion of Object with F = 0 (position, velocity, acceleration)")
+plt.tight_layout()
+plt.show()
+```
+
+* Let's consider a c**ase with constant (gravitational) force** $F = - mg $ and $m = 1$. Then the equation becomes:
+
+$$
+\frac{d^2x}{dt^2} = -g
+$$
+
+This is a second-order linear non-homogeneous ODE with constant coefficients. 
+
+The general solution obtained by double integration is:
+$$
+x(t) = c_1 t + c_2 - \frac{1}{2}gt^2
+$$
+
+where $c_1$ and $c_2$ are constants determined by initial conditions.\
+
+Consider that we know that $x(0) = 20$ and $v(0) = 3$. Then we have:
+
+$$
+x(0) = c_1 \cdot 0 + c_2 - \frac{1}{2}g \cdot 0^2 = c_2 = 20
+$$
+
+and
+
+$$
+v(t) = \frac{dx}{dt} = \frac{d}{dt} (c_1 t + c_2 - \frac{1}{2}gt^2) = c_1 - gt
+$$
+
+so $c_1 = 3$. 
+
+Therefore the solution is $x(t) = 3t + 20 - \frac{1}{2}gt^2$.
+
+We can check this solution by plotting the position $x(t)$ and velocity $v(t)$, as well as acceleration $a(t)$ over time.
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Time points
+t = np.linspace(0, 2.5, 100)
+
+# Constants
+g = 9.81  # acceleration due to gravity (m/s^2)
+
+# Position x(t) = - 0.5 * g * t^2 + 3t + 20 
+x = - 0.5 * g * t**2 + 3 * t + 20 
+
+# Velocity v(t) = 3 - g * t
+v = 3 - g * t
+
+# Acceleration a(t) = -g
+a = -g
+
+# Plotting
+plt.figure(figsize=(12, 6))
+
+plt.subplot(1, 3, 1)
+plt.plot(t, x, label='Position x(t) = 3t + 2 - 0.5gt^2', color='blue')
+plt.xlabel('Time t')
+
+plt.subplot(1, 3, 2)
+plt.plot(t, v, label='Velocity v(t) = 3 - gt', color='red')
+plt.xlabel('Time t')
+
+plt.subplot(1, 3, 3)
+plt.axhline(a, color='green', linestyle='-', label='Acceleration a(t) = -g')
+plt.xlabel('Time t')
+
+plt.suptitle("Motion of Object with F = -mg (position, velocity, acceleration)")
+plt.tight_layout()
+plt.show()
+```
