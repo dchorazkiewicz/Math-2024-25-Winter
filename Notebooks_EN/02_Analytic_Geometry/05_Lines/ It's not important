@@ -1,0 +1,127 @@
+14. Equations of lines on a plane
+
+import sympy as sp
+import math
+
+# ... (rest of your code) ...
+
+# 5. Equation of the line passing through point A(1, 2) and parallel to the vector v = [2, 3]
+v = sp.Matrix([2, 3])
+A = sp.Point(1, 2)  # Make sure A is defined as a sympy Point
+# Calculate a second point using the direction vector
+B = sp.Point(A.x + v[0], A.y + v[1])  # B = A + v
+line_parallel_vector = sp.Line(A, B) # Define the line using two points A and B
+equation_parallel_vector = line_parallel_vector.equation()
+print("Equation of the line passing through A(1, 2) and parallel to vector v = [2, 3]:", equation_parallel_vector)
+
+# ... (rest of your code) ...
+
+* The line passes through points $A(1, 2)$ and $B(3, 4)$. Find the equation of the line.
+
+   The slope of the line is given by:
+   $$
+   m = \frac{y_2 - y_1}{x_2 - x_1} = \frac{4 - 2}{3 - 1} = \frac{2}{2} = 1
+   $$
+   Using the point-slope form of the equation of the line:
+   $$
+   y - 2 = 1(x - 1) \quad \Rightarrow \quad y = x + 1
+   $$
+
+* The line passes through point $A(1, 2)$ and is parallel to the line $y = 2x + 3$. Find the equation of the line.
+
+   Since the lines are parallel, they have the same slope. The slope of the given line is 2. Using the point-slope form:
+   $$
+   y - 2 = 2(x - 1) \quad \Rightarrow \quad y = 2x
+   $$
+
+* The line passes through point $A(1, 2)$ and is perpendicular to the line $y = 2x + 3$. Find the equation of the line.
+
+   The slope of the given line is 2. The slope of the perpendicular line is the negative reciprocal:
+   $$
+   m = -\frac{1}{2}
+   $$
+   Using the point-slope form:
+   $$
+   y - 2 = -\frac{1}{2}(x - 1) \quad \Rightarrow \quad y = -\frac{1}{2}x + \frac{5}{2}
+   $$
+
+* We have two lines $y = 2x + 3$ and $y = 3x + 2$. Find the intersection point of these lines and calculate the angle between them.
+
+   To find the intersection point, set the two equations equal to each other:
+   $$
+   2x + 3 = 3x + 2 \quad \Rightarrow \quad x = 1
+   $$
+   Substitute $x = 1$ into either equation:
+   $$
+   y = 2(1) + 3 = 5
+   $$
+   The intersection point is $(1, 5)$.
+
+   To calculate the angle between the lines, use the formula for the angle $\theta$ between two lines:
+   $$
+   \tan(\theta) = \left| \frac{m_1 - m_2}{1 + m_1 m_2} \right|
+   $$
+   where $m_1 = 2$ and $m_2 = 3$:
+   $$
+   \tan(\theta) = \left| \frac{2 - 3}{1 + 2 \times 3} \right| = \left| \frac{-1}{7} \right| = \frac{1}{7}
+   $$
+   Therefore:
+   $$
+   \theta = \tan^{-1}\left( \frac{1}{7} \right)
+   $$
+
+* Write the equation of the line passing through point $A(1, 2)$ and parallel to the vector $\mathbf{v} = [2, 3]$.
+
+   The slope of the line is given by the ratio of the components of the vector:
+   $$
+   m = \frac{3}{2}
+   $$
+   Using the point-slope form:
+   $$
+   y - 2 = \frac{3}{2}(x - 1) \quad \Rightarrow \quad y = \frac{3}{2}x + \frac{1}{2}
+   $$
+
+* We have the line $y = 2x + 3$. Find an example of a line perpendicular and parallel to it.
+
+   The slope of the given line is $m = 2$.
+
+   - A parallel line will have the same slope, for example: $y = 2x + 1$.
+   - A perpendicular line will have a slope of $m = -\frac{1}{2}$, for example: $y = -\frac{1}{2}x + 4$.
+
+* We have the line $y = 2x + 3$ and point $A(1, 2)$. Find the distance from point $A$ to the line.
+
+   The formula for the distance from a point $(x_1, y_1)$ to a line $Ax + By + C = 0$ is:
+   $$
+   d = \frac{|Ax_1 + By_1 + C|}{\sqrt{A^2 + B^2}}
+   $$
+   The line $y = 2x + 3$ can be written as $2x - y + 3 = 0$. For point $A(1, 2)$:
+   $$
+   d = \frac{|2(1) - 2 + 3|}{\sqrt{2^2 + (-1)^2}} = \frac{|3|}{\sqrt{5}} = \frac{3}{\sqrt{5}}
+   $$
+
+* The line intersects the coordinate axes at points $A(2, 0)$ and $B(0, 3)$. Find the equation of the line.
+
+   The slope of the line is:
+   $$
+   m = \frac{3 - 0}{0 - 2} = -\frac{3}{2}
+   $$
+   Using the point-slope form with point $A(2, 0)$:
+   $$
+   y - 0 = -\frac{3}{2}(x - 2) \quad \Rightarrow \quad y = -\frac{3}{2}x + 3
+   $$
+
+* Calculate the angle between the line $y = x + 3$ and the $Ox$ axis.
+
+   The slope of the line is $m = 1$. The angle $\theta$ between the line and the $Ox$ axis is:
+   $$
+   \tan(\theta) = |m| = 1 \quad \Rightarrow \quad \theta = \tan^{-1}(1) = 45^\circ
+   $$
+
+* Provide a vector perpendicular to the line $x + y + 1 = 0$.
+
+   The normal vector to the line $x + y + 1 = 0$ is given by the coefficients of $x$ and $y$, i.e., $\mathbf{n} = [1, 1]$. A vector perpendicular to this line is any scalar multiple of the normal vector, such as:
+   $$
+   \mathbf{v} = [1, -1]
+   $$
+
+
