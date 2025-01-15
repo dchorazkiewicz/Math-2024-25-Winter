@@ -423,22 +423,23 @@ and visualize functions in a single Geogebra notebook.
 ## 21. Derivatives
 
 1. Compute derivatives of functions:
-   * $y(x) = -3x+3$
-   * $y(x) = \pi x + \sin(1)$
-   * $y(x) = 4+\sin(2)$
-   * $y(x) = 2x^3 - 3x^2 + 8x - 9$
-   * $y(x) = 6 x^{1/3}$
-   * $y(x) = \sqrt{x}$
-   * $y(x) = \cos(x) + \sin(x)$
-   * $y(x) = 2\sin(x) \cos(x)$
-   * $y(x) = x\sin(x)$
-   * $y(x) = (x+1)(x+1)$
-   * $y(x) = \frac{x}{x+1}$
-   * $y(x) = (x+1)\exp(x)$
-   * $y(x) = \sin(x^2)$
-   * $y(x) = \exp(-2x)$
-   * $y(x) = \frac{1}{\sin(x+1)}$
-   * $y(x) = \sqrt{2x+1}$
+
+      * $y(x) = -3x+3$
+      * $y(x) = \pi x + \sin(1)$
+      * $y(x) = 4+\sin(2)$
+      * $y(x) = 2x^3 - 3x^2 + 8x - 9$
+      * $y(x) = 6 x^{1/3}$
+      * $y(x) = \sqrt{x}$
+      * $y(x) = \cos(x) + \sin(x)$
+      * $y(x) = 2\sin(x) \cos(x)$
+      * $y(x) = x\sin(x)$
+      * $y(x) = (x+1)(x+1)$
+      * $y(x) = \frac{x}{x+1}$
+      * $y(x) = (x+1)\exp(x)$
+      * $y(x) = \sin(x^2)$
+      * $y(x) = \exp(-2x)$
+      * $y(x) = \frac{1}{\sin(x+1)}$
+      * $y(x) = \sqrt{2x+1}$
 
 2. Prove:
    - $\frac{d}{dx} (\ln(\sin(x))) = \cot(x)$

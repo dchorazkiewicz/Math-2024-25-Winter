@@ -11,9 +11,8 @@ format:
       sidebar-width: 300px
       margin-width: 300px
       gutter-width: 2rem
-    theme:
-      light: [flatly, custom.scss]
-      dark: [darkly, custom.scss]
+    css: styles.css
+    math: mathjax
     self-contained: true
 ---
 
