@@ -294,7 +294,7 @@ $$
 
 ### $\lim_{x \to 0} \frac{\sin(3x)}{2x + 1}$
 
-We begin by substituting $$x = 0$$ directly into the expression:
+We begin by substituting $x = 0$ directly into the expression:
 
 $$
 \frac{\sin(3x)}{2x + 1} = \frac{\sin(3 \cdot 0)}{2 \cdot 0 + 1} = \frac{0}{1} = 0
