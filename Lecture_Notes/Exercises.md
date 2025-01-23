@@ -513,7 +513,7 @@ $$
 ## 25. Differential Equations
 
 1. Solve the following first-order ordinary differential equations:
-   - $y'(x)= y$
+   - $y'(x)= y(x)$
    - $y'(x) = \frac{1}{2y(x)}$
   
 3. Solve the first-order ordinary differential equations using the method of separation of variables for $x$ and $y=y(x)$:
