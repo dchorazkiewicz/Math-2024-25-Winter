@@ -528,8 +528,8 @@ $$
 
    * $y''(x) - y(x)= 0$, with boundary conditions $y(0) = 2$ and $y'(0) = 0$
 
-   * $\frac{d^2\,y(x)}{dx^2} = -\omega^2 y(x)$.
-
+   * $\frac{d^2 y(x)}{dx^2} = -\omega^2 y(x)$.
+  
 5. Check if the function $\psi(t, x) = A \cos(\omega t + kx)$ is a solution of the second-order partial differential equation (the so-called "wave equation"), where $v = \frac{\omega}{k} = \frac{2\pi / T}{2\pi / \lambda}$:
 
 $$
